@@ -101,27 +101,6 @@ export default async function GuestPage({
               />
             </div>
 
-            {guest.wikiUrl && (
-              <a
-                href={guest.wikiUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'block',
-                  textAlign: 'center',
-                  fontFamily: 'var(--font-playfair), serif',
-                  fontSize: '0.7rem',
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                  color: INK,
-                  border: `1px solid ${INK}`,
-                  padding: '10px 16px',
-                  textDecoration: 'none',
-                }}
-              >
-                Wikipedia →
-              </a>
-            )}
           </div>
 
           {/* Right column */}
