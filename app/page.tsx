@@ -67,7 +67,7 @@ export default function Home() {
 
 function GuestbookPage({ pageNum, guests }: { pageNum: number; guests: Guest[] }) {
   return (
-    <div style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}>
+    <div id={`page-${pageNum}`} style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}>
       <img
         src={pageImg(pageNum)}
         alt={`Page ${pageNum}`}

@@ -119,21 +119,38 @@ export default function AdminPage() {
           </div>
         </div>
 
-        {/* Tabs */}
-        <div className="max-w-6xl mx-auto mt-6 flex gap-6">
-          {(['stories', 'add'] as const).map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className="text-xs tracking-[0.25em] uppercase pb-2 border-b-2 transition-all"
-              style={{
-                borderColor: tab === t ? 'var(--gold)' : 'transparent',
-                color: tab === t ? 'var(--gold)' : 'rgba(212,184,150,0.4)',
-              }}
-            >
-              {t === 'stories' ? 'Write Stories' : 'Add a Guest'}
-            </button>
-          ))}
+        {/* Tabs + export */}
+        <div className="max-w-6xl mx-auto mt-6 flex items-center justify-between">
+          <div className="flex gap-6">
+            {(['stories', 'add'] as const).map((t) => (
+              <button
+                key={t}
+                onClick={() => setTab(t)}
+                className="text-xs tracking-[0.25em] uppercase pb-2 border-b-2 transition-all"
+                style={{
+                  borderColor: tab === t ? 'var(--gold)' : 'transparent',
+                  color: tab === t ? 'var(--gold)' : 'rgba(212,184,150,0.4)',
+                }}
+              >
+                {t === 'stories' ? 'Write Stories' : 'Add a Guest'}
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => {
+              const blob = new Blob([JSON.stringify(guests, null, 2)], { type: 'application/json' })
+              const url = URL.createObjectURL(blob)
+              const a = document.createElement('a')
+              a.href = url
+              a.download = `guests-${new Date().toISOString().slice(0, 10)}.json`
+              a.click()
+              URL.revokeObjectURL(url)
+            }}
+            className="text-xs tracking-[0.25em] uppercase opacity-40 hover:opacity-100 transition-opacity"
+            style={{ color: 'var(--parchment)' }}
+          >
+            ↓ Export JSON
+          </button>
         </div>
       </header>
 
