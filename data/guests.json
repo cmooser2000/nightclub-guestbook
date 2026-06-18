@@ -1309,5 +1309,28 @@
     "guestbookCoords": { "x": 0.5, "y": 0.5 },
     "dadStory": "",
     "dadStoryUpdated": null
+  },
+  {
+    "id": "norma-talmadge",
+    "name": "Norma Talmadge",
+    "nameVariants": ["Norma Talmadge"],
+    "era": "1920s",
+    "category": "Silent Film Star",
+    "knownFor": "One of the biggest box office stars in Hollywood during the silent film era — a tragic heroine who commanded her own studio, her own production company, and her own brand of fame before sound ended her career.",
+    "quickFacts": [
+      "Born in Jersey City, 1894; began in films as early as 1910 at Vitagraph",
+      "Married Joseph Schenck in 1916, who became her producer and made her a major star",
+      "Ran the Norma Talmadge Film Corporation with her sister Constance and mother Peg",
+      "Her 1921 film 'The Sign on the Door' was a massive hit; she was paid $10,000 per week",
+      "When sound came, her Brooklyn accent proved fatal — she retired in 1930",
+      "Signed the Aladdin guestbook (pg. 14) with her New York address"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Norma_Talmadge_1921.jpg/400px-Norma_Talmadge_1921.jpg",
+    "imageCredit": "Wikimedia Commons / Public Domain",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Norma_Talmadge",
+    "guestbookPage": 14,
+    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
   }
 ]
