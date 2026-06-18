@@ -40,6 +40,15 @@ export async function updateGuestStory(id: string, story: string): Promise<boole
   return true
 }
 
+export async function updateGuestImage(id: string, imageUrl: string): Promise<boolean> {
+  const guests = await getGuests()
+  const idx = guests.findIndex((g) => g.id === id)
+  if (idx === -1) return false
+  guests[idx].imageUrl = imageUrl
+  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  return true
+}
+
 export async function updateGuestCoords(id: string, coords: { x: number; y: number }): Promise<boolean> {
   const guests = await getGuests()
   const idx = guests.findIndex((g) => g.id === id)
