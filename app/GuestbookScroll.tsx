@@ -17,10 +17,6 @@ interface Props {
 const TOTAL_PAGES = 418
 const BG = '#f7f2ea'
 
-// Highlight dimensions as fraction of image size
-// x/y are the center of the highlight
-const HL_W = 0.52
-const HL_H = 0.048
 
 function pageImg(n: number) {
   return `/guestbook-pages/pg${String(n).padStart(3, '0')}.jpg`
@@ -111,26 +107,49 @@ export default function GuestbookScroll({ pageMap }: Props) {
       </button>
 
       <style>{`
-        .gb-highlight {
+        @font-face {
+          font-family: 'USDeclaration';
+          src: url('/fonts/us-declaration.ttf') format('truetype');
+          font-display: block;
+        }
+        .gb-arrow-label {
           position: absolute;
-          background: rgba(251,191,36,0.28);
-          mix-blend-mode: multiply;
-          border-radius: 2px;
+          left: 0;
+          transform: translateY(-50%);
+          display: flex;
+          align-items: center;
           cursor: pointer;
           text-decoration: none;
-          transition: background 0.15s ease;
-          display: block;
+          z-index: 10;
+          filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.45));
+          transition: filter 0.15s ease;
         }
-        .gb-highlight:hover {
-          background: rgba(251,191,36,0.52);
+        .gb-arrow-label:hover {
+          filter: drop-shadow(1px 2px 8px rgba(0,0,0,0.65)) brightness(1.1);
+          z-index: 20;
+        }
+        .gb-arrow-body {
+          background: #b83a18;
+          color: #f9e8cc;
+          font-family: 'USDeclaration', serif;
+          font-size: 0.82rem;
+          line-height: 1;
+          padding: 5px 6px 5px 8px;
+          white-space: nowrap;
+          clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+          letter-spacing: 0.03em;
+          position: relative;
+        }
+        .gb-arrow-label:hover .gb-arrow-body {
+          background: #c94520;
         }
         .gb-tooltip {
           display: none;
           position: absolute;
-          top: calc(100% + 6px);
+          top: calc(100% + 8px);
           left: 0;
           width: 260px;
-          background: rgba(20,14,6,0.95);
+          background: rgba(20,14,6,0.96);
           color: #f5e9d0;
           border-radius: 3px;
           padding: 10px 12px;
@@ -140,13 +159,13 @@ export default function GuestbookScroll({ pageMap }: Props) {
           font-family: 'Palatino Linotype', Palatino, serif;
           white-space: normal;
         }
-        .gb-highlight:hover .gb-tooltip {
+        .gb-arrow-label:hover .gb-tooltip {
           display: block;
         }
         .gb-tooltip-name {
           margin: 0 0 4px;
           font-weight: 700;
-          color: #fbbf24;
+          color: #e8a060;
           font-size: 0.85rem;
           font-style: italic;
         }
@@ -195,26 +214,21 @@ export default function GuestbookScroll({ pageMap }: Props) {
               <div className="gb-page-num">p.&nbsp;{pageNum}</div>
             )}
 
-            {guests.map((g) => {
-              const left = `${(g.guestbookCoords.x - HL_W / 2) * 100}%`
-              const top = `${(g.guestbookCoords.y - HL_H / 2) * 100}%`
-              const width = `${HL_W * 100}%`
-              const height = `${HL_H * 100}%`
-              return (
-                <Link
-                  key={g.id}
-                  href={`/guest/${g.id}`}
-                  className="gb-highlight"
-                  style={{ left, top, width, height }}
-                >
-                  <div className="gb-tooltip">
-                    <p className="gb-tooltip-name">{g.name}</p>
-                    <p className="gb-tooltip-desc">{shortDesc(g.knownFor)}</p>
-                    <p className="gb-tooltip-cta">Click to read more</p>
-                  </div>
-                </Link>
-              )
-            })}
+            {guests.map((g) => (
+              <Link
+                key={g.id}
+                href={`/guest/${g.id}`}
+                className="gb-arrow-label"
+                style={{ top: `${g.guestbookCoords.y * 100}%` }}
+              >
+                <div className="gb-arrow-body">{g.name}</div>
+                <div className="gb-tooltip">
+                  <p className="gb-tooltip-name">{g.name}</p>
+                  <p className="gb-tooltip-desc">{shortDesc(g.knownFor)}</p>
+                  <p className="gb-tooltip-cta">Click to read more</p>
+                </div>
+              </Link>
+            ))}
           </div>
         )
       })}
