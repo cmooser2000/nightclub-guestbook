@@ -1655,5 +1655,306 @@
     },
     "dadStory": "",
     "dadStoryUpdated": null
+  },
+  {
+    "id": "charmian-london",
+    "name": "Charmian London",
+    "nameVariants": [
+      "Mrs. Jack London"
+    ],
+    "guestbookPage": 31,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.05
+    },
+    "category": "Author",
+    "era": "1920s",
+    "knownFor": "Wife and biographer of Jack London; a celebrated adventurer and author in her own right who managed the Jack London ranch and his literary estate after his death in 1916.",
+    "quickFacts": [
+      "Married Jack London in 1905",
+      "Published The Book of Jack London (1921)",
+      "Sailed the South Seas with Jack aboard the Snark"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "dinty-moore",
+    "name": "Dinty Moore",
+    "nameVariants": [
+      "Dinty Moore - The Original"
+    ],
+    "guestbookPage": 31,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Vaudeville",
+    "era": "1920s",
+    "knownFor": "Beloved vaudeville comedian and entertainer known as \"The Original Dinty Moore,\" whose name became so synonymous with jovial Irish-American character that it was later adopted by the famous beef stew brand.",
+    "quickFacts": [
+      "Popular vaudeville and burlesque performer",
+      "His name lived on in Dinty Moore beef stew"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "angelo-rossi",
+    "name": "Angelo J. Rossi",
+    "nameVariants": [
+      "Angelo Rossi",
+      "Angelo J. Rossi"
+    ],
+    "guestbookPage": 32,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.05
+    },
+    "category": "Politics",
+    "era": "1920s–30s",
+    "knownFor": "Mayor of San Francisco from 1931 to 1944 — one of the longest-serving mayors in the city's history. A florist by trade who rose through civic organizations to become a beloved city leader during the Depression era.",
+    "quickFacts": [
+      "Mayor of San Francisco 1931–1944",
+      "Born in Volpedo, Italy; immigrated as a child",
+      "Oversaw completion of Golden Gate Bridge groundbreaking preparations"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "vicki-baum",
+    "name": "Vicki Baum",
+    "nameVariants": [
+      "Vicki Baum"
+    ],
+    "guestbookPage": 110,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.13
+    },
+    "category": "Author",
+    "era": "1920s–30s",
+    "knownFor": "Austrian-born author whose novel Grand Hotel (1929) became a worldwide sensation, spawning the Oscar-winning 1932 MGM film starring Greta Garbo and John Barrymore. She later settled in Hollywood as a screenwriter.",
+    "quickFacts": [
+      "Wrote Grand Hotel (Menschen im Hotel, 1929)",
+      "Novel adapted into Oscar-winning 1932 film with Greta Garbo",
+      "Fled Nazi Germany; became a US citizen"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "james-rolph",
+    "name": "James Rolph Jr.",
+    "nameVariants": [
+      "James Rolph Jr.",
+      "Sunny Jim Rolph"
+    ],
+    "guestbookPage": 110,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
+    "category": "Politics",
+    "era": "1920s–30s",
+    "knownFor": "Known as \"Sunny Jim,\" he served as Mayor of San Francisco for nineteen years (1912–1931) before becoming Governor of California. Enormously popular, he was famous for his cowboy boots, top hat, and ever-present carnation.",
+    "quickFacts": [
+      "Mayor of San Francisco 1912–1931",
+      "Governor of California 1931–1934",
+      "Oversaw the Panama-Pacific International Exposition (1915)"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "yehudi-menuhin",
+    "name": "Yehudi Menuhin",
+    "nameVariants": [
+      "Yehudi Menuhin"
+    ],
+    "guestbookPage": 112,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.1
+    },
+    "category": "Music",
+    "era": "1920s",
+    "knownFor": "Child prodigy violinist who debuted with the San Francisco Symphony at age seven and astonished the world with his virtuosity. He grew up to become one of the twentieth century's most celebrated musicians, later founding his own music school in England.",
+    "quickFacts": [
+      "Debuted with SF Symphony at age 7 (1923)",
+      "Studied under Louis Persinger in San Francisco",
+      "Later Baron Menuhin of Stoke d'Abernon"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "bela-lugosi",
+    "name": "Bela Lugosi",
+    "nameVariants": [
+      "Bela Lugosi"
+    ],
+    "guestbookPage": 130,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.07
+    },
+    "category": "Film",
+    "era": "1920s–30s",
+    "knownFor": "Hungarian-born actor who became immortal as Count Dracula in the 1931 Universal Pictures film — a role he had originated on Broadway in 1927. His aristocratic bearing and hypnotic accent made him the definitive screen vampire.",
+    "quickFacts": [
+      "Played Dracula on Broadway (1927) and in film (1931)",
+      "Born Béla Ferenc Dezső Blaskó in Hungary",
+      "Became an American citizen in 1931"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "tom-moore",
+    "name": "Tom Moore",
+    "nameVariants": [
+      "Tom Moore"
+    ],
+    "guestbookPage": 114,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.12
+    },
+    "category": "Film",
+    "era": "1920s",
+    "knownFor": "Irish-born silent film star and one of Hollywood's most popular leading men of the 1910s and 1920s. Brother of actors Matt Moore and Owen Moore; Owen was briefly married to Mary Pickford.",
+    "quickFacts": [
+      "One of the famous \"Three Moore Brothers\" of silent film",
+      "Starred in over 100 silent films",
+      "Brother-in-law (briefly) of Mary Pickford"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "jackie-fields",
+    "name": "Jackie Fields",
+    "nameVariants": [
+      "Jackie Fields"
+    ],
+    "guestbookPage": 116,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.05
+    },
+    "category": "Sports",
+    "era": "1920s",
+    "knownFor": "San Francisco-born boxing champion who won Olympic gold at the 1924 Paris Games as a featherweight, then went on to become World Welterweight Champion twice (1929 and 1932). Born Jacob Finkelstein, he was one of boxing's great Jewish champions.",
+    "quickFacts": [
+      "Olympic gold medalist, Paris 1924",
+      "World Welterweight Champion (1929, 1932)",
+      "Born Jacob Finkelstein in San Francisco"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "peggy-hopkins-joyce",
+    "name": "Peggy Hopkins Joyce",
+    "nameVariants": [
+      "Peggy Joyce",
+      "Peggy Hopkins Joyce"
+    ],
+    "guestbookPage": 129,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.52
+    },
+    "category": "Entertainment",
+    "era": "1920s",
+    "knownFor": "The most talked-about woman in America during the 1920s — showgirl, Ziegfeld Follies star, and serial bride who married six millionaires and inspired countless gossip columns. Charlie Chaplin based the gold-digging lead of City Lights partly on her.",
+    "quickFacts": [
+      "Starred in Ziegfeld Follies",
+      "Married six times, always to wealthy men",
+      "Inspired characters in Chaplin's City Lights and other films"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "oliver-morosco",
+    "name": "Oliver Morosco",
+    "nameVariants": [
+      "Oliver Morosco"
+    ],
+    "guestbookPage": 129,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.62
+    },
+    "category": "Theater",
+    "era": "1920s",
+    "knownFor": "One of the most powerful theatrical producers of the early twentieth century, with theaters bearing his name in Los Angeles and San Francisco. He launched the careers of countless stars and produced hundreds of Broadway and West Coast productions.",
+    "quickFacts": [
+      "Owned the Morosco Theatre in Los Angeles and San Francisco",
+      "Produced over 200 plays",
+      "Discovered and launched many major stage careers"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "skeet-gallagher",
+    "name": "Skeet Gallagher",
+    "nameVariants": [
+      "Skeet Gallagher"
+    ],
+    "guestbookPage": 131,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.18
+    },
+    "category": "Vaudeville",
+    "era": "1920s",
+    "knownFor": "Rubber-limbed Broadway and vaudeville comedian famous for his eccentric dancing and physical comedy. A favorite on the Keith circuit, he appeared in early talking pictures and was known for his loose-jointed, acrobatic comic style.",
+    "quickFacts": [
+      "Broadway star of the 1920s",
+      "Known for eccentric dance comedy",
+      "Appeared in early sound films"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "ben-blue",
+    "name": "Ben Blue",
+    "nameVariants": [
+      "Ben Blue"
+    ],
+    "guestbookPage": 278,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.38
+    },
+    "category": "Vaudeville",
+    "era": "1920s–30s",
+    "knownFor": "Canadian-born comedian and pantomimist whose sad-faced, slow-burn style made him a vaudeville headliner and later a beloved character actor in Hollywood films of the 1930s and 1940s.",
+    "quickFacts": [
+      "Vaudeville headliner across North America",
+      "Known for sad-faced pantomime comedy",
+      "Later appeared in dozens of Hollywood films"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
   }
 ]
