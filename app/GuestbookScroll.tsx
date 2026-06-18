@@ -107,46 +107,34 @@ export default function GuestbookScroll({ pageMap }: Props) {
       </button>
 
       <style>{`
-        @font-face {
-          font-family: 'USDeclaration';
-          src: url('/fonts/us-declaration.ttf') format('truetype');
-          font-display: block;
-        }
-        .gb-arrow-label {
+        .gb-guest-row {
           position: absolute;
           left: 0;
+          right: 0;
+          height: 5%;
+          min-height: 36px;
           transform: translateY(-50%);
           display: flex;
           align-items: center;
           cursor: pointer;
           text-decoration: none;
           z-index: 10;
-          filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.45));
-          transition: filter 0.15s ease;
         }
-        .gb-arrow-label:hover {
-          filter: drop-shadow(1px 2px 8px rgba(0,0,0,0.65)) brightness(1.1);
+        .gb-guest-row:hover {
           z-index: 20;
         }
-        .gb-arrow-body {
-          background: #b83a18;
-          color: #f9e8cc;
-          font-family: 'USDeclaration', serif;
-          font-size: 0.82rem;
-          line-height: 1;
-          padding: 5px 6px 5px 8px;
-          white-space: nowrap;
-          clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
-          letter-spacing: 0.03em;
-          position: relative;
+        .gb-arrow-svg {
+          flex-shrink: 0;
+          filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.4));
+          transition: filter 0.15s ease;
         }
-        .gb-arrow-label:hover .gb-arrow-body {
-          background: #c94520;
+        .gb-guest-row:hover .gb-arrow-svg {
+          filter: drop-shadow(1px 3px 8px rgba(0,0,0,0.55)) brightness(1.08);
         }
         .gb-tooltip {
           display: none;
           position: absolute;
-          top: calc(100% + 8px);
+          top: calc(100% + 6px);
           left: 0;
           width: 260px;
           background: rgba(20,14,6,0.96);
@@ -159,7 +147,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
           font-family: 'Palatino Linotype', Palatino, serif;
           white-space: normal;
         }
-        .gb-arrow-label:hover .gb-tooltip {
+        .gb-guest-row:hover .gb-tooltip {
           display: block;
         }
         .gb-tooltip-name {
@@ -218,10 +206,28 @@ export default function GuestbookScroll({ pageMap }: Props) {
               <Link
                 key={g.id}
                 href={`/guest/${g.id}`}
-                className="gb-arrow-label"
+                className="gb-guest-row"
                 style={{ top: `${g.guestbookCoords.y * 100}%` }}
+                title={g.name}
               >
-                <div className="gb-arrow-body">{g.name}</div>
+                {/* Vintage arrow sign: cream center, red band, black outline */}
+                <svg className="gb-arrow-svg" width="130" height="40" viewBox="0 0 130 40" xmlns="http://www.w3.org/2000/svg">
+                  {/* Outer: cream fill + black stroke */}
+                  <path
+                    d="M 10,2 L 92,2 L 128,20 L 92,38 L 10,38 A 8,8 0 0 1 2,30 L 2,10 A 8,8 0 0 1 10,2 Z"
+                    fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"
+                  />
+                  {/* Red band */}
+                  <path
+                    d="M 11,8 L 88,8 L 120,20 L 88,32 L 11,32 A 4,4 0 0 1 7,28 L 7,12 A 4,4 0 0 1 11,8 Z"
+                    fill="#c94520"
+                  />
+                  {/* Inner cream */}
+                  <path
+                    d="M 13,13 L 83,13 L 111,20 L 83,27 L 13,27 A 2,2 0 0 1 11,25 L 11,15 A 2,2 0 0 1 13,13 Z"
+                    fill="#f0deb8"
+                  />
+                </svg>
                 <div className="gb-tooltip">
                   <p className="gb-tooltip-name">{g.name}</p>
                   <p className="gb-tooltip-desc">{shortDesc(g.knownFor)}</p>
