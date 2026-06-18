@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 interface Guest {
@@ -66,22 +66,8 @@ export default function Home() {
 }
 
 function GuestbookPage({ pageNum, guests }: { pageNum: number; guests: Guest[] }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [entered, setEntered] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setEntered(true) },
-      { rootMargin: '0px 0px -10% 0px' }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [])
-
   return (
-    <div ref={ref} style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}>
+    <div style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}>
       <img
         src={pageImg(pageNum)}
         alt={`Page ${pageNum}`}
@@ -102,7 +88,7 @@ function GuestbookPage({ pageNum, guests }: { pageNum: number; guests: Guest[] }
           p.&nbsp;{pageNum}
         </div>
       )}
-      {entered && guests.length > 0 && (
+      {guests.length > 0 && (
         <div style={{
           position: 'absolute',
           bottom: '12px',
