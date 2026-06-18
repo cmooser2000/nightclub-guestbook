@@ -18,19 +18,15 @@ export default async function Home() {
 
   return (
     <>
-      {/* ── COVER HERO ── */}
+      {/* ── COVER HEADER ── */}
       <div style={{
-        minHeight: '100vh',
         background: '#1e2b3a',
         backgroundImage: `
-          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px),
-          repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px)
+          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px),
+          repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px)
         `,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '80px 40px',
+        padding: '36px 40px 32px',
+        textAlign: 'center',
       }}>
         <style>{`
           @font-face {
@@ -38,72 +34,67 @@ export default async function Home() {
             src: url('/fonts/hotel_de_paris.ttf') format('truetype');
             font-display: block;
           }
+          @font-face {
+            font-family: 'UncleBob';
+            src: url('/fonts/uncle-bob.ttf') format('truetype');
+            font-display: block;
+          }
           .hdp {
-            font-family: 'HotelDeParis', 'Palatino Linotype', serif;
-            color: #c9a84c;
-            text-align: center;
-            line-height: 1.1;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 0 60px rgba(201,168,76,0.1);
+            font-family: 'HotelDeParis', serif;
+            color: #a89060;
+            line-height: 1.05;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+            margin: 0;
+          }
+          .ub {
+            font-family: 'UncleBob', serif;
+            color: #8a7448;
+            line-height: 1.2;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+            margin: 0;
           }
           .cover-rule {
-            width: 180px;
+            width: 140px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, #c9a84c, transparent);
-            margin: 24px auto;
+            background: linear-gradient(90deg, transparent, #8a7448, transparent);
+            margin: 14px auto;
             opacity: 0.5;
           }
           .cover-link {
-            font-family: 'HotelDeParis', serif;
-            color: #c9a84c;
+            font-family: 'UncleBob', serif;
+            color: #8a7448;
             text-decoration: none;
-            border-bottom: 1px solid rgba(201,168,76,0.35);
-            padding-bottom: 3px;
+            border-bottom: 1px solid rgba(138,116,72,0.35);
+            padding-bottom: 2px;
             transition: color 0.2s, border-color 0.2s;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-            opacity: 0.75;
           }
           .cover-link:hover {
-            color: #e8c96a;
-            border-bottom-color: rgba(232,201,106,0.7);
-            opacity: 1;
-          }
-          @keyframes bobdown {
-            0%, 100% { opacity: 0.35; transform: translateY(0); }
-            50% { opacity: 0.75; transform: translateY(5px); }
-          }
-          .scroll-cue {
-            font-family: 'HotelDeParis', serif;
-            color: #c9a84c;
-            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-            letter-spacing: 0.15em;
-            animation: bobdown 2.8s ease-in-out infinite;
-            margin-top: 64px;
+            color: #a89060;
+            border-bottom-color: rgba(168,144,96,0.6);
           }
         `}</style>
 
-        {/* Line 1: Aladdin Studio */}
-        <p className="hdp" style={{ fontSize: 'clamp(2.8rem, 9vw, 6rem)', margin: 0 }}>
+        {/* Hotel De Paris: Aladdin Studio */}
+        <p className="hdp" style={{ fontSize: 'clamp(2rem, 6vw, 3.8rem)' }}>
           Aladdin Studio
         </p>
 
-        {/* Line 2: Tiffin Room */}
-        <p className="hdp" style={{ fontSize: 'clamp(2.8rem, 9vw, 6rem)', margin: '0 0 4px' }}>
+        {/* Hotel De Paris: Tiffin Room */}
+        <p className="hdp" style={{ fontSize: 'clamp(2rem, 6vw, 3.8rem)' }}>
           Tiffin Room
         </p>
 
         <div className="cover-rule" />
 
-        {/* Line 3: Guest Book 1921–1928 */}
-        <p className="hdp" style={{ fontSize: 'clamp(1.4rem, 4.5vw, 3rem)', margin: '0 0 32px', opacity: 0.9 }}>
+        {/* Uncle Bob: Guest Book 1921–1928 */}
+        <p className="ub" style={{ fontSize: 'clamp(1rem, 3vw, 2rem)', marginBottom: 10 }}>
           Guest Book 1921–1928
         </p>
 
-        {/* Hattie and Minnie — smaller, links to story */}
-        <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(1rem, 3vw, 1.8rem)' }}>
+        {/* Uncle Bob: Hattie and Minnie Mooser */}
+        <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.75rem, 2vw, 1.2rem)' }}>
           Hattie and Minnie Mooser
         </Link>
-
-        <div className="scroll-cue">↓ &nbsp; open the guestbook</div>
       </div>
 
       {/* ── GUESTBOOK SCROLL ── */}
