@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Playfair_Display, EB_Garamond } from 'next/font/google'
+import { Playfair_Display, EB_Garamond, Cinzel } from 'next/font/google'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -11,6 +11,13 @@ const playfair = Playfair_Display({
 const garamond = EB_Garamond({
   subsets: ['latin'],
   variable: '--font-garamond',
+  display: 'swap',
+})
+
+const cinzel = Cinzel({
+  subsets: ['latin'],
+  variable: '--font-cinzel',
+  weight: ['400', '700', '900'],
   display: 'swap',
 })
 
@@ -25,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${garamond.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${garamond.variable} ${cinzel.variable}`}>
       <body>{children}</body>
     </html>
   );

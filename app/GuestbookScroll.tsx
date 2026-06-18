@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useCallback, useMemo } from 'react'
 
 interface GuestEntry {
   id: string
@@ -18,8 +19,8 @@ const BG = '#f7f2ea'
 
 // Highlight dimensions as fraction of image size
 // x/y are the center of the highlight
-const HL_W = 0.52   // width: covers name column
-const HL_H = 0.048  // height: one ruled line
+const HL_W = 0.52
+const HL_H = 0.048
 
 function pageImg(n: number) {
   return `/guestbook-pages/pg${String(n).padStart(3, '0')}.jpg`
@@ -33,8 +34,82 @@ function shortDesc(knownFor: string): string {
 export default function GuestbookScroll({ pageMap }: Props) {
   const allPages = [0, ...Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1)]
 
+  // Sorted list of all guests by page (then y) for jump navigation
+  const sortedGuests = useMemo(() => {
+    return Object.entries(pageMap)
+      .flatMap(([page, guests]) =>
+        guests.map((g) => ({ ...g, pageNum: Number(page) }))
+      )
+      .sort((a, b) => a.pageNum !== b.pageNum ? a.pageNum - b.pageNum : a.guestbookCoords.y - b.guestbookCoords.y)
+  }, [pageMap])
+
+  const jumpToNext = useCallback(() => {
+    if (sortedGuests.length === 0) return
+
+    // Viewport midpoint in document coordinates
+    const mid = window.scrollY + window.innerHeight * 0.4
+
+    // Find first guest whose page top is beyond mid
+    for (const g of sortedGuests) {
+      const el = document.getElementById(`page-${g.pageNum}`)
+      if (!el) continue
+      const pageTop = el.getBoundingClientRect().top + window.scrollY
+      if (pageTop > mid) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+    }
+
+    // Wrap: jump back to first guest
+    const firstEl = document.getElementById(`page-${sortedGuests[0].pageNum}`)
+    firstEl?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [sortedGuests])
+
   return (
     <main style={{ background: BG }}>
+      {/* Nav bar */}
+      <div style={{ background: '#1a1209', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 200 }}>
+        <Link href="/story" style={{ color: '#c9a84c', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none', opacity: 0.7 }}>
+          About the Aladdin
+        </Link>
+        <span style={{ color: '#c9a84c', fontSize: '0.7rem', letterSpacing: '0.25em', textTransform: 'uppercase', opacity: 0.5 }}>
+          The Guestbook · 418 Pages
+        </span>
+      </div>
+
+      {/* Jump to Next Profile — fixed left pill */}
+      <button
+        onClick={jumpToNext}
+        style={{
+          position: 'fixed',
+          left: 0,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: 300,
+          background: '#1a1209',
+          color: '#c9a84c',
+          border: 'none',
+          borderRadius: '0 6px 6px 0',
+          padding: '14px 10px',
+          cursor: 'pointer',
+          writingMode: 'vertical-rl',
+          textOrientation: 'mixed',
+          rotate: '180deg',
+          fontSize: '0.6rem',
+          letterSpacing: '0.22em',
+          textTransform: 'uppercase',
+          opacity: 0.85,
+          boxShadow: '2px 0 12px rgba(0,0,0,0.25)',
+          transition: 'opacity 0.15s, background 0.15s',
+          fontFamily: 'var(--font-playfair), Georgia, serif',
+        }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = '1'; (e.currentTarget as HTMLElement).style.background = '#2d1f0a' }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.85'; (e.currentTarget as HTMLElement).style.background = '#1a1209' }}
+        title="Jump to next notable guest"
+      >
+        Next&nbsp;Profile&nbsp;↓
+      </button>
+
       <style>{`
         .gb-highlight {
           position: absolute;

@@ -30,7 +30,7 @@ export default async function GuestPage({
       {/* Nav strip */}
       <div style={{ borderBottom: `1px solid ${RULE}`, padding: '12px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Link
-          href={`/guestbook#page-${guest.guestbookPage}`}
+          href={`/#page-${guest.guestbookPage}`}
           style={{ color: ACCENT, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}
         >
           ← Back to Guestbook
