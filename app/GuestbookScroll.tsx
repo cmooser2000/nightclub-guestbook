@@ -6,6 +6,7 @@ interface GuestEntry {
   id: string
   name: string
   knownFor: string
+  guestbookCoords: { x: number; y: number }
 }
 
 interface Props {
@@ -14,6 +15,11 @@ interface Props {
 
 const TOTAL_PAGES = 418
 const BG = '#f7f2ea'
+
+// Highlight dimensions as fraction of image size
+// x/y are the center of the highlight
+const HL_W = 0.52   // width: covers name column
+const HL_H = 0.048  // height: one ruled line
 
 function pageImg(n: number) {
   return `/guestbook-pages/pg${String(n).padStart(3, '0')}.jpg`
@@ -30,48 +36,36 @@ export default function GuestbookScroll({ pageMap }: Props) {
   return (
     <main style={{ background: BG }}>
       <style>{`
-        .gb-label {
-          display: inline-block;
-          padding: 3px 10px 3px 8px;
-          font-family: 'Palatino Linotype', Palatino, serif;
-          font-style: italic;
-          font-size: 0.85rem;
-          font-weight: 600;
-          color: #78350f;
-          background: rgba(255,251,235,0.95);
-          border-left: 2px solid #b45309;
-          box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+        .gb-highlight {
+          position: absolute;
+          background: rgba(251,191,36,0.28);
+          mix-blend-mode: multiply;
+          border-radius: 2px;
           cursor: pointer;
           text-decoration: none;
-          letter-spacing: 0.01em;
-          transition: all 0.15s ease;
+          transition: background 0.15s ease;
+          display: block;
         }
-        .gb-label:hover {
-          color: #92400e;
-          background: rgba(254,243,199,1);
-          border-left-color: #d97706;
-          box-shadow: 0 0 0 1px #fbbf24, 0 2px 12px rgba(180,83,9,0.25);
-        }
-        .gb-label-wrap {
-          position: relative;
-          display: inline-block;
+        .gb-highlight:hover {
+          background: rgba(251,191,36,0.52);
         }
         .gb-tooltip {
           display: none;
           position: absolute;
-          bottom: calc(100% + 8px);
+          top: calc(100% + 6px);
           left: 0;
-          width: 280px;
-          background: rgba(20,14,6,0.96);
+          width: 260px;
+          background: rgba(20,14,6,0.95);
           color: #f5e9d0;
           border-radius: 3px;
           padding: 10px 12px;
-          z-index: 50;
+          z-index: 100;
           pointer-events: none;
-          box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.5);
           font-family: 'Palatino Linotype', Palatino, serif;
+          white-space: normal;
         }
-        .gb-label-wrap:hover .gb-tooltip {
+        .gb-highlight:hover .gb-tooltip {
           display: block;
         }
         .gb-tooltip-name {
@@ -79,18 +73,20 @@ export default function GuestbookScroll({ pageMap }: Props) {
           font-weight: 700;
           color: #fbbf24;
           font-size: 0.85rem;
+          font-style: italic;
         }
         .gb-tooltip-desc {
           margin: 0 0 6px;
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           line-height: 1.5;
-          opacity: 0.9;
+          opacity: 0.88;
         }
         .gb-tooltip-cta {
           margin: 0;
-          font-size: 0.65rem;
-          opacity: 0.45;
-          letter-spacing: 0.05em;
+          font-size: 0.6rem;
+          opacity: 0.4;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
         }
         .gb-page-num {
           position: absolute;
@@ -98,19 +94,10 @@ export default function GuestbookScroll({ pageMap }: Props) {
           right: 10px;
           font-size: 0.65rem;
           font-family: Georgia, serif;
-          color: rgba(100,70,40,0.45);
+          color: rgba(100,70,40,0.4);
           letter-spacing: 0.05em;
           user-select: none;
           pointer-events: none;
-        }
-        .gb-labels {
-          position: absolute;
-          bottom: 12px;
-          left: 12px;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 6px;
         }
       `}</style>
 
@@ -133,22 +120,26 @@ export default function GuestbookScroll({ pageMap }: Props) {
               <div className="gb-page-num">p.&nbsp;{pageNum}</div>
             )}
 
-            {guests.length > 0 && (
-              <div className="gb-labels">
-                {guests.map((g) => (
-                  <div key={g.id} className="gb-label-wrap">
-                    <Link href={`/guest/${g.id}`} className="gb-label">
-                      ✓ {g.name}
-                    </Link>
-                    <div className="gb-tooltip">
-                      <p className="gb-tooltip-name">{g.name}</p>
-                      <p className="gb-tooltip-desc">{shortDesc(g.knownFor)}</p>
-                      <p className="gb-tooltip-cta">CLICK TO READ MORE</p>
-                    </div>
+            {guests.map((g) => {
+              const left = `${(g.guestbookCoords.x - HL_W / 2) * 100}%`
+              const top = `${(g.guestbookCoords.y - HL_H / 2) * 100}%`
+              const width = `${HL_W * 100}%`
+              const height = `${HL_H * 100}%`
+              return (
+                <Link
+                  key={g.id}
+                  href={`/guest/${g.id}`}
+                  className="gb-highlight"
+                  style={{ left, top, width, height }}
+                >
+                  <div className="gb-tooltip">
+                    <p className="gb-tooltip-name">{g.name}</p>
+                    <p className="gb-tooltip-desc">{shortDesc(g.knownFor)}</p>
+                    <p className="gb-tooltip-cta">Click to read more</p>
                   </div>
-                ))}
-              </div>
-            )}
+                </Link>
+              )
+            })}
           </div>
         )
       })}

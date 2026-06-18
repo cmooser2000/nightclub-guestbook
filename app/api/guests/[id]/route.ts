@@ -1,4 +1,4 @@
-import { getGuest, updateGuestStory } from '@/lib/guests'
+import { getGuest, updateGuestStory, updateGuestCoords } from '@/lib/guests'
 
 export async function GET(
   _req: Request,
@@ -16,6 +16,11 @@ export async function PATCH(
 ) {
   const { id } = await params
   const body = await req.json()
+  if (body.guestbookCoords !== undefined) {
+    const ok = await updateGuestCoords(id, body.guestbookCoords)
+    if (!ok) return Response.json({ error: 'Not found' }, { status: 404 })
+    return Response.json({ success: true })
+  }
   const ok = await updateGuestStory(id, body.dadStory ?? '')
   if (!ok) return Response.json({ error: 'Not found' }, { status: 404 })
   return Response.json({ success: true })

@@ -1,6 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+interface Coords { x: number; y: number }
 
 interface Guest {
   id: string
@@ -11,9 +13,14 @@ interface Guest {
   imageUrl: string
   wikiUrl: string
   guestbookPage: number
+  guestbookCoords: Coords
   dadStory: string
   dadStoryUpdated: string | null
 }
+
+// Highlight dimensions (mirror GuestbookScroll)
+const HL_W = 0.52
+const HL_H = 0.048
 
 export default function AdminPage() {
   const [guests, setGuests] = useState<Guest[]>([])
@@ -21,7 +28,7 @@ export default function AdminPage() {
   const [story, setStory] = useState('')
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
-  const [tab, setTab] = useState<'stories' | 'add'>('stories')
+  const [tab, setTab] = useState<'stories' | 'add' | 'pin'>('stories')
 
   // Add-guest form state
   const [addName, setAddName] = useState('')
@@ -32,6 +39,13 @@ export default function AdminPage() {
   const [addStatus, setAddStatus] = useState<null | 'saving' | 'done' | 'error'>(null)
   const [addedGuest, setAddedGuest] = useState<Guest | null>(null)
 
+  // Pin-coords state
+  const [pinGuest, setPinGuest] = useState<Guest | null>(null)
+  const [pinCoords, setPinCoords] = useState<Coords | null>(null)
+  const [pinSaving, setPinSaving] = useState(false)
+  const [pinSaved, setPinSaved] = useState(false)
+  const imgRef = useRef<HTMLImageElement>(null)
+
   useEffect(() => {
     fetch('/api/guests').then((r) => r.json()).then(setGuests)
   }, [])
@@ -41,6 +55,13 @@ export default function AdminPage() {
     setStory(guest.dadStory)
     setSaved(false)
     setTab('stories')
+  }
+
+  function openPin(guest: Guest) {
+    setPinGuest(guest)
+    setPinCoords(guest.guestbookCoords ?? { x: 0.5, y: 0.5 })
+    setPinSaved(false)
+    setTab('pin')
   }
 
   async function save() {
@@ -62,6 +83,31 @@ export default function AdminPage() {
     setSaving(false)
     setSaved(true)
     setTimeout(() => setSaved(false), 3000)
+  }
+
+  async function savePin() {
+    if (!pinGuest || !pinCoords) return
+    setPinSaving(true)
+    await fetch(`/api/guests/${pinGuest.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ guestbookCoords: pinCoords }),
+    })
+    setGuests((prev) =>
+      prev.map((g) => g.id === pinGuest.id ? { ...g, guestbookCoords: pinCoords } : g)
+    )
+    setPinGuest((prev) => prev ? { ...prev, guestbookCoords: pinCoords } : null)
+    setPinSaving(false)
+    setPinSaved(true)
+    setTimeout(() => setPinSaved(false), 3000)
+  }
+
+  function handleImgClick(e: React.MouseEvent<HTMLImageElement>) {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width
+    const y = (e.clientY - rect.top) / rect.height
+    setPinCoords({ x: Math.round(x * 1000) / 1000, y: Math.round(y * 1000) / 1000 })
+    setPinSaved(false)
   }
 
   async function addGuest(e: React.FormEvent) {
@@ -98,6 +144,8 @@ export default function AdminPage() {
   const completed = guests.filter((g) => g.dadStory.trim().length > 0).length
   const sorted = [...guests].sort((a, b) => a.guestbookPage - b.guestbookPage)
 
+  const isPlaceholder = (c: Coords) => c.x === 0.5 && c.y === 0.5
+
   return (
     <main className="min-h-screen" style={{ background: 'var(--background)' }}>
       {/* Header */}
@@ -122,7 +170,11 @@ export default function AdminPage() {
         {/* Tabs + export */}
         <div className="max-w-6xl mx-auto mt-6 flex items-center justify-between">
           <div className="flex gap-6">
-            {(['stories', 'add'] as const).map((t) => (
+            {([
+              ['stories', 'Write Stories'],
+              ['add', 'Add a Guest'],
+              ['pin', 'Pin Signatures'],
+            ] as const).map(([t, label]) => (
               <button
                 key={t}
                 onClick={() => setTab(t)}
@@ -132,7 +184,7 @@ export default function AdminPage() {
                   color: tab === t ? 'var(--gold)' : 'rgba(212,184,150,0.4)',
                 }}
               >
-                {t === 'stories' ? 'Write Stories' : 'Add a Guest'}
+                {label}
               </button>
             ))}
           </div>
@@ -273,11 +325,10 @@ export default function AdminPage() {
         <div className="max-w-2xl mx-auto px-8 py-10">
           <p className="text-xs tracking-[0.3em] uppercase mb-2" style={{ color: 'var(--gold)' }}>Add a Guest</p>
           <p className="text-sm italic mb-8 opacity-60" style={{ color: 'var(--parchment)' }}>
-            Found a name in the guestbook that isn't listed? Add them here. Only name and page number are required — you can fill in the rest from the Stories tab.
+            Found a name in the guestbook that isn't listed? Add them here. Only name and page number are required.
           </p>
 
           <form onSubmit={addGuest} className="space-y-5">
-            {/* Row: name + page */}
             <div className="grid grid-cols-3 gap-4">
               <div className="col-span-2">
                 <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: 'var(--gold)' }}>
@@ -290,12 +341,7 @@ export default function AdminPage() {
                   required
                   placeholder="e.g. Miss E. E. McClatchy"
                   className="w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
-                  style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    borderColor: 'rgba(201,168,76,0.3)',
-                    color: 'var(--cream)',
-                    fontFamily: 'Georgia, serif',
-                  }}
+                  style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(201,168,76,0.3)', color: 'var(--cream)', fontFamily: 'Georgia, serif' }}
                 />
               </div>
               <div>
@@ -311,16 +357,11 @@ export default function AdminPage() {
                   max={418}
                   placeholder="e.g. 42"
                   className="w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
-                  style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    borderColor: 'rgba(201,168,76,0.3)',
-                    color: 'var(--cream)',
-                  }}
+                  style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(201,168,76,0.3)', color: 'var(--cream)' }}
                 />
               </div>
             </div>
 
-            {/* Location */}
             <div>
               <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: 'var(--gold)' }}>
                 Location / Address (optional)
@@ -331,16 +372,10 @@ export default function AdminPage() {
                 onChange={(e) => setAddLocation(e.target.value)}
                 placeholder="e.g. Sacramento, Cal."
                 className="w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
-                style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  borderColor: 'rgba(201,168,76,0.3)',
-                  color: 'var(--cream)',
-                  fontFamily: 'Georgia, serif',
-                }}
+                style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(201,168,76,0.3)', color: 'var(--cream)', fontFamily: 'Georgia, serif' }}
               />
             </div>
 
-            {/* Category */}
             <div>
               <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: 'var(--gold)' }}>
                 Category (optional)
@@ -351,16 +386,10 @@ export default function AdminPage() {
                 onChange={(e) => setAddCategory(e.target.value)}
                 placeholder="e.g. Actress, Journalist, Local Notable…"
                 className="w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
-                style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  borderColor: 'rgba(201,168,76,0.3)',
-                  color: 'var(--cream)',
-                  fontFamily: 'Georgia, serif',
-                }}
+                style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(201,168,76,0.3)', color: 'var(--cream)', fontFamily: 'Georgia, serif' }}
               />
             </div>
 
-            {/* Known for */}
             <div>
               <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: 'var(--gold)' }}>
                 Known for (optional)
@@ -371,12 +400,7 @@ export default function AdminPage() {
                 rows={3}
                 placeholder="A sentence about who this person was or why they were notable…"
                 className="w-full rounded border px-3 py-2 text-sm resize-none focus:outline-none focus:ring-1"
-                style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  borderColor: 'rgba(201,168,76,0.3)',
-                  color: 'var(--cream)',
-                  fontFamily: 'Georgia, serif',
-                }}
+                style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(201,168,76,0.3)', color: 'var(--cream)', fontFamily: 'Georgia, serif' }}
               />
             </div>
 
@@ -395,12 +419,8 @@ export default function AdminPage() {
             </div>
           </form>
 
-          {/* Success state */}
           {addStatus === 'done' && addedGuest && (
-            <div
-              className="mt-8 rounded border p-5"
-              style={{ borderColor: 'rgba(74,222,128,0.3)', background: 'rgba(74,222,128,0.06)' }}
-            >
+            <div className="mt-8 rounded border p-5" style={{ borderColor: 'rgba(74,222,128,0.3)', background: 'rgba(74,222,128,0.06)' }}>
               <p className="text-green-400 text-sm mb-1">✓ Guest added — page {addedGuest.guestbookPage}</p>
               <p className="text-lg italic mb-3" style={{ color: 'var(--cream)', fontFamily: "'Palatino Linotype', serif" }}>
                 {addedGuest.name}
@@ -417,6 +437,119 @@ export default function AdminPage() {
               </button>
             </div>
           )}
+        </div>
+      )}
+
+      {/* ── PIN SIGNATURES TAB ── */}
+      {tab === 'pin' && (
+        <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-5 gap-8">
+          {/* Guest list */}
+          <div className="md:col-span-2 space-y-2">
+            <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ color: 'var(--gold)' }}>
+              Click a guest to position their highlight
+            </p>
+            <p className="text-xs italic mb-5 opacity-50" style={{ color: 'var(--parchment)' }}>
+              Orange dot = placeholder. Green dot = pinned.
+            </p>
+            {sorted.map((guest) => {
+              const placed = !isPlaceholder(guest.guestbookCoords ?? { x: 0.5, y: 0.5 })
+              return (
+                <button
+                  key={guest.id}
+                  onClick={() => openPin(guest)}
+                  className="w-full text-left px-4 py-3 rounded border transition-all hover:border-yellow-600"
+                  style={{
+                    borderColor: pinGuest?.id === guest.id ? 'var(--gold)' : 'rgba(201,168,76,0.2)',
+                    background: pinGuest?.id === guest.id ? 'rgba(201,168,76,0.08)' : 'rgba(255,255,255,0.02)',
+                  }}
+                >
+                  <div className="flex items-center gap-3">
+                    <span style={{ color: placed ? '#4ade80' : '#f97316', fontSize: '0.5rem' }}>●</span>
+                    <div>
+                      <p className="text-sm italic" style={{ color: 'var(--cream)', fontFamily: "'Palatino Linotype', serif" }}>
+                        {guest.name}
+                      </p>
+                      <p className="text-xs opacity-40" style={{ color: 'var(--parchment)' }}>p.{guest.guestbookPage}</p>
+                    </div>
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Image picker */}
+          <div className="md:col-span-3">
+            {!pinGuest ? (
+              <div
+                className="h-64 flex items-center justify-center border rounded text-sm italic opacity-30"
+                style={{ borderColor: 'rgba(201,168,76,0.2)', color: 'var(--parchment)' }}
+              >
+                Select a guest to pin their signature
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <div>
+                  <h2 className="text-2xl italic mb-1" style={{ color: 'var(--cream)', fontFamily: "'Palatino Linotype', serif" }}>
+                    {pinGuest.name}
+                  </h2>
+                  <p className="text-xs opacity-50 mb-3" style={{ color: 'var(--gold)' }}>
+                    Page {pinGuest.guestbookPage} · Click on their signature in the image below
+                  </p>
+                </div>
+
+                {/* Image with overlay */}
+                <div style={{ position: 'relative', cursor: 'crosshair' }}>
+                  <img
+                    ref={imgRef}
+                    src={`/guestbook-pages/pg${String(pinGuest.guestbookPage).padStart(3, '0')}.jpg`}
+                    alt={`Page ${pinGuest.guestbookPage}`}
+                    onClick={handleImgClick}
+                    style={{ width: '100%', display: 'block', borderRadius: '4px' }}
+                  />
+
+                  {/* Highlight preview overlay */}
+                  {pinCoords && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        left: `${(pinCoords.x - HL_W / 2) * 100}%`,
+                        top: `${(pinCoords.y - HL_H / 2) * 100}%`,
+                        width: `${HL_W * 100}%`,
+                        height: `${HL_H * 100}%`,
+                        background: 'rgba(251,191,36,0.45)',
+                        mixBlendMode: 'multiply',
+                        borderRadius: '2px',
+                        pointerEvents: 'none',
+                        border: '1px solid rgba(251,191,36,0.8)',
+                      }}
+                    />
+                  )}
+                </div>
+
+                {pinCoords && (
+                  <p className="text-xs opacity-40" style={{ color: 'var(--parchment)' }}>
+                    Position: x={pinCoords.x.toFixed(3)}, y={pinCoords.y.toFixed(3)}
+                    {isPlaceholder(pinCoords) ? ' (placeholder — click the signature above)' : ''}
+                  </p>
+                )}
+
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={savePin}
+                    disabled={pinSaving || !pinCoords || isPlaceholder(pinCoords)}
+                    className="px-6 py-2 text-sm tracking-widest uppercase border transition-all hover:bg-yellow-900/20 disabled:opacity-40"
+                    style={{ borderColor: 'var(--gold)', color: 'var(--gold)' }}
+                  >
+                    {pinSaving ? 'Saving…' : 'Save Position'}
+                  </button>
+                  {pinSaved && <span className="text-sm text-green-400">✓ Position saved</span>}
+                  <span className="text-xs opacity-30 italic" style={{ color: 'var(--parchment)' }}>
+                    Don't forget to Export JSON afterward
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </main>
