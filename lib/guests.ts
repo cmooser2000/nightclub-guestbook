@@ -39,3 +39,42 @@ export async function updateGuestStory(id: string, story: string): Promise<boole
   await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
   return true
 }
+
+export async function createGuest(fields: {
+  name: string
+  guestbookPage: number
+  location?: string
+  category?: string
+  knownFor?: string
+}): Promise<Guest> {
+  const guests = await getGuests()
+  const slug = fields.name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+  // ensure unique id
+  let id = slug
+  let n = 2
+  while (guests.find((g) => g.id === id)) {
+    id = `${slug}-${n++}`
+  }
+  const guest: Guest = {
+    id,
+    name: fields.name,
+    nameVariants: [],
+    era: '1920s',
+    category: fields.category ?? 'Guest',
+    knownFor: fields.knownFor ?? `Signed the Aladdin guestbook on page ${fields.guestbookPage}.`,
+    quickFacts: fields.location ? [`From ${fields.location}`] : [],
+    imageUrl: '',
+    imageCredit: '',
+    wikiUrl: '',
+    guestbookPage: fields.guestbookPage,
+    guestbookCoords: { x: 0.5, y: 0.5 },
+    dadStory: '',
+    dadStoryUpdated: null,
+  }
+  guests.push(guest)
+  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  return guest
+}
