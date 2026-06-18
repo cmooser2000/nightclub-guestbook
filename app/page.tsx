@@ -22,113 +22,88 @@ export default async function Home() {
       <div style={{
         minHeight: '100vh',
         background: '#1e2b3a',
-        // Subtle fabric/linen weave texture
         backgroundImage: `
-          repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(255,255,255,0.015) 2px,
-            rgba(255,255,255,0.015) 4px
-          ),
-          repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 2px,
-            rgba(255,255,255,0.015) 2px,
-            rgba(255,255,255,0.015) 4px
-          )
+          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px),
+          repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px)
         `,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         padding: '80px 40px',
-        gap: 0,
       }}>
         <style>{`
-          .cover-text {
-            font-family: var(--font-cinzel), 'Palatino Linotype', serif;
+          @font-face {
+            font-family: 'HotelDeParis';
+            src: url('/fonts/hotel_de_paris.ttf') format('truetype');
+            font-display: block;
+          }
+          .hdp {
+            font-family: 'HotelDeParis', 'Palatino Linotype', serif;
             color: #c9a84c;
             text-align: center;
-            line-height: 1.15;
-            letter-spacing: 0.12em;
-            text-shadow:
-              0 1px 3px rgba(0,0,0,0.6),
-              0 0 40px rgba(201,168,76,0.12);
+            line-height: 1.1;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 0 60px rgba(201,168,76,0.1);
           }
           .cover-rule {
-            width: 120px;
+            width: 180px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #c9a84c, transparent);
-            margin: 28px auto;
-            opacity: 0.6;
+            margin: 24px auto;
+            opacity: 0.5;
           }
           .cover-link {
-            font-family: var(--font-cinzel), serif;
+            font-family: 'HotelDeParis', serif;
             color: #c9a84c;
-            letter-spacing: 0.14em;
             text-decoration: none;
-            border-bottom: 1px solid rgba(201,168,76,0.4);
-            padding-bottom: 2px;
+            border-bottom: 1px solid rgba(201,168,76,0.35);
+            padding-bottom: 3px;
             transition: color 0.2s, border-color 0.2s;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+            opacity: 0.75;
           }
           .cover-link:hover {
             color: #e8c96a;
-            border-bottom-color: rgba(232,201,106,0.8);
+            border-bottom-color: rgba(232,201,106,0.7);
+            opacity: 1;
+          }
+          @keyframes bobdown {
+            0%, 100% { opacity: 0.35; transform: translateY(0); }
+            50% { opacity: 0.75; transform: translateY(5px); }
           }
           .scroll-cue {
-            position: absolute;
-            bottom: 32px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(201,168,76,0.4);
-            font-family: var(--font-cinzel), serif;
-            font-size: 0.6rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            animation: bounce 2.5s ease-in-out infinite;
-          }
-          @keyframes bounce {
-            0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
-            50% { opacity: 0.9; transform: translateX(-50%) translateY(6px); }
+            font-family: 'HotelDeParis', serif;
+            color: #c9a84c;
+            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+            letter-spacing: 0.15em;
+            animation: bobdown 2.8s ease-in-out infinite;
+            margin-top: 64px;
           }
         `}</style>
 
-        <p className="cover-text" style={{ fontSize: 'clamp(1.6rem, 5vw, 3rem)', fontWeight: 900, marginBottom: 0 }}>
-          GUEST BOOK
+        {/* Line 1: Aladdin Studio */}
+        <p className="hdp" style={{ fontSize: 'clamp(2.8rem, 9vw, 6rem)', margin: 0 }}>
+          Aladdin Studio
+        </p>
+
+        {/* Line 2: Tiffin Room */}
+        <p className="hdp" style={{ fontSize: 'clamp(2.8rem, 9vw, 6rem)', margin: '0 0 4px' }}>
+          Tiffin Room
         </p>
 
         <div className="cover-rule" />
 
-        <p className="cover-text" style={{ fontSize: 'clamp(2rem, 6.5vw, 3.8rem)', fontWeight: 900, margin: 0 }}>
-          ALADDIN
-        </p>
-        <p className="cover-text" style={{ fontSize: 'clamp(2rem, 6.5vw, 3.8rem)', fontWeight: 900, margin: '0 0 36px' }}>
-          STUDIO
+        {/* Line 3: Guest Book 1921–1928 */}
+        <p className="hdp" style={{ fontSize: 'clamp(1.4rem, 4.5vw, 3rem)', margin: '0 0 32px', opacity: 0.9 }}>
+          Guest Book 1921–1928
         </p>
 
-        <p className="cover-text" style={{ fontSize: 'clamp(2rem, 6.5vw, 3.8rem)', fontWeight: 900, margin: 0 }}>
-          TIFFIN
-        </p>
-        <p className="cover-text" style={{ fontSize: 'clamp(2rem, 6.5vw, 3.8rem)', fontWeight: 900, margin: '0 0 36px' }}>
-          ROOM
-        </p>
-
-        <div className="cover-rule" />
-
-        <p className="cover-text" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.4rem)', fontWeight: 700, marginBottom: 48 }}>
-          1921–28
-        </p>
-
-        <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.75rem, 2vw, 1rem)', fontWeight: 400 }}>
+        {/* Hattie and Minnie — smaller, links to story */}
+        <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(1rem, 3vw, 1.8rem)' }}>
           Hattie and Minnie Mooser
         </Link>
 
-        <div className="scroll-cue" style={{ position: 'relative', bottom: 'auto', left: 'auto', transform: 'none', marginTop: 80 }}>
-          ↓ &nbsp; open the guestbook
-        </div>
+        <div className="scroll-cue">↓ &nbsp; open the guestbook</div>
       </div>
 
       {/* ── GUESTBOOK SCROLL ── */}
