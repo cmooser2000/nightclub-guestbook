@@ -88,6 +88,20 @@ function GuestbookPage({ pageNum, guests }: { pageNum: number; guests: Guest[] }
         loading={pageNum <= 4 ? 'eager' : 'lazy'}
         style={{ width: '100%', display: 'block' }}
       />
+      {pageNum > 0 && (
+        <div style={{
+          position: 'absolute',
+          top: '8px',
+          right: '10px',
+          fontSize: '0.65rem',
+          fontFamily: 'Georgia, serif',
+          color: 'rgba(100,70,40,0.45)',
+          letterSpacing: '0.05em',
+          userSelect: 'none',
+        }}>
+          p.&nbsp;{pageNum}
+        </div>
+      )}
       {entered && guests.length > 0 && (
         <div style={{
           position: 'absolute',
