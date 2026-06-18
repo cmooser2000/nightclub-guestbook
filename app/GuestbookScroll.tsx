@@ -109,7 +109,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
       <style>{`
         .gb-guest-row {
           position: absolute;
-          left: 0;
+          left: -132px;
           right: 0;
           height: 5%;
           min-height: 36px;
