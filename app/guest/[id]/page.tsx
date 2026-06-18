@@ -2,6 +2,11 @@ import { getGuest, getGuests } from '@/lib/guests'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+const INK = '#1a1209'
+const PAPER = '#f5f0e6'
+const RULE = '#c8b89a'
+const ACCENT = '#8b6914'
+
 export async function generateStaticParams() {
   const guests = await getGuests()
   return guests.map((g) => ({ id: g.id }))
@@ -20,53 +25,64 @@ export default async function GuestPage({
   const guestbookPageImg = `/guestbook-pages/pg${pageNum}.jpg`
 
   return (
-    <main className="min-h-screen py-16 px-6" style={{ background: 'var(--background)' }}>
-      <div className="max-w-3xl mx-auto">
-        {/* Back */}
+    <main style={{ background: PAPER, color: INK, fontFamily: 'var(--font-garamond), Georgia, serif', minHeight: '100vh' }}>
+
+      {/* Nav strip */}
+      <div style={{ borderBottom: `1px solid ${RULE}`, padding: '12px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Link
-          href={`/#page-${guest.guestbookPage}`}
-          className="inline-flex items-center gap-2 text-xs tracking-widest uppercase mb-12 transition-opacity opacity-50 hover:opacity-100"
-          style={{ color: 'var(--gold)' }}
+          href={`/guestbook#page-${guest.guestbookPage}`}
+          style={{ color: ACCENT, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none' }}
         >
-          ← Back to the Guestbook
+          ← Back to Guestbook
         </Link>
+        <Link
+          href="/"
+          style={{ color: ACCENT, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none', opacity: 0.6 }}
+        >
+          The Aladdin
+        </Link>
+      </div>
+
+      <div style={{ maxWidth: 900, margin: '0 auto', padding: '52px 32px 80px' }}>
 
         {/* Header */}
-        <div className="mb-10">
-          <p className="text-xs tracking-[0.4em] uppercase mb-3" style={{ color: 'var(--gold)' }}>
+        <div style={{ textAlign: 'center', borderBottom: `2px double ${INK}`, paddingBottom: 32, marginBottom: 44 }}>
+          <p style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '0.7rem', letterSpacing: '0.35em', textTransform: 'uppercase', marginBottom: 14, color: ACCENT }}>
             {guest.category} · {guest.era}
           </p>
-          <h1
-            className="text-5xl md:text-6xl mb-4 leading-tight"
-            style={{
-              color: 'var(--cream)',
-              fontFamily: "'Palatino Linotype', Palatino, serif",
-              fontStyle: 'italic',
-            }}
-          >
+          <h1 style={{
+            fontFamily: 'var(--font-playfair), serif',
+            fontSize: 'clamp(2.4rem, 7vw, 4.5rem)',
+            fontWeight: 900,
+            fontStyle: 'italic',
+            lineHeight: 1.05,
+            margin: '0 0 20px',
+            letterSpacing: '0.01em',
+            color: INK,
+          }}>
             {guest.name}
           </h1>
-          <div className="art-deco-divider">
-            <span style={{ color: 'var(--gold)' }}>✦</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, justifyContent: 'center', color: RULE }}>
+            <div style={{ flex: 1, height: 1, background: RULE }} />
+            <span style={{ fontSize: '0.9rem', color: ACCENT }}>✦</span>
+            <div style={{ flex: 1, height: 1, background: RULE }} />
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 48, alignItems: 'start' }}>
+
           {/* Left column */}
-          <div className="md:col-span-1 space-y-6">
-            {/* Portrait — only if we have one */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+
             {guest.imageUrl && (
               <div>
-                <div className="rounded overflow-hidden border-2 shadow-2xl" style={{ borderColor: 'var(--gold)' }}>
-                  <img
-                    src={guest.imageUrl}
-                    alt={guest.name}
-                    className="w-full object-cover object-top"
-                    style={{ maxHeight: '320px' }}
-                  />
-                </div>
+                <img
+                  src={guest.imageUrl}
+                  alt={guest.name}
+                  style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(8%)' }}
+                />
                 {guest.imageCredit && (
-                  <p className="text-xs mt-2 text-center opacity-40" style={{ color: 'var(--parchment)' }}>
+                  <p style={{ fontSize: '0.7rem', marginTop: 6, textAlign: 'center', opacity: 0.5, fontStyle: 'italic' }}>
                     {guest.imageCredit}
                   </p>
                 )}
@@ -75,16 +91,14 @@ export default async function GuestPage({
 
             {/* Guestbook page */}
             <div>
-              <p className="text-xs tracking-widest uppercase mb-2 opacity-50" style={{ color: 'var(--gold)' }}>
+              <p style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 10, color: ACCENT }}>
                 Signed on page {guest.guestbookPage}
               </p>
-              <div className="rounded overflow-hidden border shadow-lg" style={{ borderColor: 'rgba(201,168,76,0.3)' }}>
-                <img
-                  src={guestbookPageImg}
-                  alt={`Guestbook page ${guest.guestbookPage}`}
-                  className="w-full block"
-                />
-              </div>
+              <img
+                src={guestbookPageImg}
+                alt={`Guestbook page ${guest.guestbookPage}`}
+                style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(5%)' }}
+              />
             </div>
 
             {guest.wikiUrl && (
@@ -92,29 +106,48 @@ export default async function GuestPage({
                 href={guest.wikiUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center text-xs tracking-widest uppercase border py-2 transition-all hover:bg-yellow-900/20"
-                style={{ borderColor: 'var(--gold)', color: 'var(--gold)' }}
+                style={{
+                  display: 'block',
+                  textAlign: 'center',
+                  fontFamily: 'var(--font-playfair), serif',
+                  fontSize: '0.7rem',
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: INK,
+                  border: `1px solid ${INK}`,
+                  padding: '10px 16px',
+                  textDecoration: 'none',
+                }}
               >
                 Wikipedia →
               </a>
             )}
           </div>
 
-          {/* Content */}
-          <div className="md:col-span-2 space-y-8">
-            <p className="text-lg italic leading-relaxed" style={{ color: 'var(--parchment)' }}>
+          {/* Right column */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 36 }}>
+
+            <p style={{
+              fontFamily: 'var(--font-playfair), serif',
+              fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)',
+              fontStyle: 'italic',
+              lineHeight: 1.7,
+              borderLeft: `3px solid ${INK}`,
+              paddingLeft: 20,
+              margin: 0,
+            }}>
               {guest.knownFor}
             </p>
 
             {guest.quickFacts.length > 0 && (
               <div>
-                <h2 className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: 'var(--gold)' }}>
+                <p style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '0.68rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: 14, borderBottom: `1px solid ${RULE}`, paddingBottom: 8, color: ACCENT }}>
                   Quick Facts
-                </h2>
-                <ul className="space-y-2">
+                </p>
+                <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
                   {guest.quickFacts.map((fact, i) => (
-                    <li key={i} className="flex gap-3 text-sm leading-relaxed" style={{ color: 'var(--parchment)' }}>
-                      <span style={{ color: 'var(--gold)' }}>✦</span>
+                    <li key={i} style={{ display: 'flex', gap: 12, fontSize: '1rem', lineHeight: 1.65 }}>
+                      <span style={{ color: ACCENT, flexShrink: 0 }}>✦</span>
                       <span>{fact}</span>
                     </li>
                   ))}
@@ -122,31 +155,35 @@ export default async function GuestPage({
               </div>
             )}
 
-            <div
-              className="rounded p-6 border"
-              style={{ background: 'rgba(201,168,76,0.05)', borderColor: 'rgba(201,168,76,0.2)' }}
-            >
-              <h2 className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: 'var(--gold)' }}>
+            {/* Dad's story */}
+            <div style={{ borderTop: `1px solid ${RULE}`, paddingTop: 28 }}>
+              <p style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '0.68rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: 16, color: ACCENT }}>
                 A Personal Recollection
-              </h2>
+              </p>
               {guest.dadStory ? (
-                <p className="text-base leading-relaxed italic" style={{ color: 'var(--cream)' }}>
-                  {guest.dadStory}
-                </p>
+                <>
+                  <p style={{ fontFamily: 'var(--font-playfair), serif', fontSize: '1.1rem', fontStyle: 'italic', lineHeight: 1.8, margin: 0 }}>
+                    {guest.dadStory}
+                  </p>
+                  {guest.dadStoryUpdated && (
+                    <p style={{ fontSize: '0.7rem', marginTop: 16, opacity: 0.4, fontStyle: 'italic' }}>
+                      Last updated {new Date(guest.dadStoryUpdated).toLocaleDateString()}
+                    </p>
+                  )}
+                </>
               ) : (
-                <p className="text-sm italic opacity-40" style={{ color: 'var(--parchment)' }}>
+                <p style={{ fontStyle: 'italic', opacity: 0.4, fontSize: '0.95rem' }}>
                   A story is being written for this guest…
-                </p>
-              )}
-              {guest.dadStoryUpdated && (
-                <p className="text-xs mt-4 opacity-30" style={{ color: 'var(--parchment)' }}>
-                  Last updated {new Date(guest.dadStoryUpdated).toLocaleDateString()}
                 </p>
               )}
             </div>
           </div>
         </div>
       </div>
+
+      <footer style={{ borderTop: `1px solid ${RULE}`, padding: '20px 32px', textAlign: 'center', fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', opacity: 0.4 }}>
+        Aladdin Studio Tiffin Room · San Francisco · 1921–1929
+      </footer>
     </main>
   )
 }

@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Playfair_Display, EB_Garamond } from 'next/font/google'
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
+const garamond = EB_Garamond({
+  subsets: ['latin'],
+  variable: '--font-garamond',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "The Guestbook — A 1920s Nightclub",
@@ -12,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${playfair.variable} ${garamond.variable}`}>
       <body>{children}</body>
     </html>
   );
