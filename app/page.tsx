@@ -18,16 +18,8 @@ export default async function Home() {
 
   return (
     <>
-      {/* ── COVER HEADER ── */}
-      <div style={{
-        background: '#1e2b3a',
-        backgroundImage: `
-          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px),
-          repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px)
-        `,
-        padding: '36px 40px 32px',
-        textAlign: 'center',
-      }}>
+      {/* ── COVER HERO ── */}
+      <div style={{ position: 'relative', width: '100%', height: 'clamp(280px, 38vw, 520px)', overflow: 'hidden' }}>
         <style>{`
           @font-face {
             font-family: 'HotelDeParis';
@@ -39,62 +31,77 @@ export default async function Home() {
             src: url('/fonts/uncle-bob.ttf') format('truetype');
             font-display: block;
           }
-          .hdp {
-            font-family: 'HotelDeParis', serif;
-            color: #a89060;
-            line-height: 1.05;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-            margin: 0;
-          }
-          .ub {
-            font-family: 'UncleBob', serif;
-            color: #8a7448;
-            line-height: 1.2;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-            margin: 0;
-          }
-          .cover-rule {
-            width: 140px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #8a7448, transparent);
-            margin: 14px auto;
-            opacity: 0.5;
-          }
           .cover-link {
             font-family: 'UncleBob', serif;
-            color: #8a7448;
+            color: #9a8458;
             text-decoration: none;
-            border-bottom: 1px solid rgba(138,116,72,0.35);
+            border-bottom: 1px solid rgba(154,132,88,0.35);
             padding-bottom: 2px;
             transition: color 0.2s, border-color 0.2s;
           }
           .cover-link:hover {
-            color: #a89060;
-            border-bottom-color: rgba(168,144,96,0.6);
+            color: #c4a870;
+            border-bottom-color: rgba(196,168,112,0.6);
           }
         `}</style>
 
-        {/* Hotel De Paris: Aladdin Studio */}
-        <p className="hdp" style={{ fontSize: 'clamp(2rem, 6vw, 3.8rem)' }}>
-          Aladdin Studio
-        </p>
+        {/* Cover image */}
+        <img
+          src="/guestbook-pages/pg000.jpg"
+          alt="Aladdin Studio Tiffin Room Guest Book cover"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
+        />
 
-        {/* Hotel De Paris: Tiffin Room */}
-        <p className="hdp" style={{ fontSize: 'clamp(2rem, 6vw, 3.8rem)' }}>
-          Tiffin Room
-        </p>
+        {/* Dark gradient on the left so text reads clearly */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to right, rgba(18,24,32,0.72) 0%, rgba(18,24,32,0.55) 42%, transparent 62%)',
+          pointerEvents: 'none',
+        }} />
 
-        <div className="cover-rule" />
+        {/* Overlay text — left side only, clear of the spine text */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, bottom: 0,
+          width: '54%',
+          display: 'flex', flexDirection: 'column', justifyContent: 'center',
+          padding: 'clamp(24px, 4vw, 60px) clamp(24px, 4vw, 56px)',
+        }}>
+          <p style={{
+            fontFamily: "'HotelDeParis', serif",
+            fontSize: 'clamp(1.4rem, 3.2vw, 2.8rem)',
+            color: '#b8964e',
+            lineHeight: 1.1,
+            margin: '0 0 clamp(10px, 1.5vw, 20px)',
+            textShadow: '0 2px 14px rgba(0,0,0,0.7)',
+            letterSpacing: '0.01em',
+          }}>
+            Everybody Came to the Aladdin
+          </p>
 
-        {/* Uncle Bob: Guest Book 1921–1928 */}
-        <p className="ub" style={{ fontSize: 'clamp(1rem, 3vw, 2rem)', marginBottom: 10 }}>
-          Guest Book 1921–1928
-        </p>
+          <div style={{
+            width: 'clamp(60px, 8vw, 100px)',
+            height: '1px',
+            background: 'linear-gradient(90deg, #8a7040, transparent)',
+            margin: '0 0 clamp(10px, 1.5vw, 20px)',
+            opacity: 0.7,
+          }} />
 
-        {/* Uncle Bob: Hattie and Minnie Mooser */}
-        <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.75rem, 2vw, 1.2rem)' }}>
-          Hattie and Minnie Mooser
-        </Link>
+          <p style={{
+            fontFamily: 'var(--font-garamond), Georgia, serif',
+            fontSize: 'clamp(0.8rem, 1.6vw, 1.15rem)',
+            color: '#c8b07a',
+            lineHeight: 1.55,
+            margin: '0 0 clamp(14px, 2vw, 28px)',
+            fontStyle: 'italic',
+            textShadow: '0 1px 8px rgba(0,0,0,0.6)',
+          }}>
+            Vaudeville, Silent Film, and the<br />Mooser Sisters of San Francisco
+          </p>
+
+          <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.65rem, 1.1vw, 0.85rem)', letterSpacing: '0.08em' }}>
+            Hattie &amp; Minnie Mooser →
+          </Link>
+        </div>
       </div>
 
       {/* ── GUESTBOOK SCROLL ── */}
