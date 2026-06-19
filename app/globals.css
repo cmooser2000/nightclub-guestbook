@@ -31,9 +31,11 @@ body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 14px; }
 ::-webkit-scrollbar-track { background: #1a1208; }
-::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 7px; border: 2px solid #1a1208; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+* { scrollbar-width: auto; scrollbar-color: var(--gold) #1a1208; }
 
 /* Name highlight animation */
 @keyframes nameGlow {
