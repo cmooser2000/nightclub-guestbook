@@ -28,7 +28,7 @@ function shortDesc(knownFor: string): string {
 }
 
 export default function GuestbookScroll({ pageMap }: Props) {
-  const allPages = [0, ...Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1)]
+  const allPages = Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1)
 
   // Sorted list of all guests by page (then y) for jump navigation
   const sortedGuests = useMemo(() => {
@@ -63,15 +63,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
 
   return (
     <main style={{ background: BG }}>
-      {/* Nav bar */}
-      <div style={{ background: '#1a1209', padding: '12px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 200 }}>
-        <Link href="/story" style={{ color: '#c9a84c', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', textDecoration: 'none', opacity: 0.7 }}>
-          About the Aladdin
-        </Link>
-        <span style={{ color: '#c9a84c', fontSize: '0.7rem', letterSpacing: '0.25em', textTransform: 'uppercase', opacity: 0.5 }}>
-          The Guestbook · 418 Pages
-        </span>
-      </div>
+
 
       {/* Jump to Next Profile — fixed left pill */}
       <button

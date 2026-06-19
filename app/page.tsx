@@ -22,17 +22,22 @@ export default async function Home() {
       <div style={{ position: 'relative', width: '100%', height: 'clamp(280px, 38vw, 520px)', overflow: 'hidden' }}>
         <style>{`
           @font-face {
-            font-family: 'HotelDeParis';
-            src: url('/fonts/hotel_de_paris.ttf') format('truetype');
-            font-display: block;
-          }
-          @font-face {
             font-family: 'UncleBob';
             src: url('/fonts/uncle-bob.ttf') format('truetype');
             font-display: block;
           }
+          @font-face {
+            font-family: 'Hornbill';
+            src: url('/fonts/hornbill.ttf') format('truetype');
+            font-display: block;
+          }
+          @font-face {
+            font-family: 'HornbillItalic';
+            src: url('/fonts/hornbill-italic.ttf') format('truetype');
+            font-display: block;
+          }
           .cover-link {
-            font-family: 'UncleBob', serif;
+            font-family: 'Hornbill', serif;
             color: #9a8458;
             text-decoration: none;
             border-bottom: 1px solid rgba(154,132,88,0.35);
@@ -55,31 +60,30 @@ export default async function Home() {
         {/* Dark gradient on the left so text reads clearly */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to right, rgba(18,24,32,0.72) 0%, rgba(18,24,32,0.55) 42%, transparent 62%)',
+          background: 'linear-gradient(to right, rgba(18,24,32,0.78) 0%, rgba(18,24,32,0.6) 44%, transparent 64%)',
           pointerEvents: 'none',
         }} />
 
         {/* Overlay text — left side only, clear of the spine text */}
         <div style={{
           position: 'absolute', top: 0, left: 0, bottom: 0,
-          width: '54%',
+          width: '58%',
           display: 'flex', flexDirection: 'column', justifyContent: 'center',
           padding: 'clamp(24px, 4vw, 60px) clamp(24px, 4vw, 56px)',
         }}>
           <p style={{
-            fontFamily: "'HotelDeParis', serif",
-            fontSize: 'clamp(1.4rem, 3.2vw, 2.8rem)',
-            color: '#b8964e',
-            lineHeight: 1.1,
-            margin: '0 0 clamp(10px, 1.5vw, 20px)',
-            textShadow: '0 2px 14px rgba(0,0,0,0.7)',
-            letterSpacing: '0.01em',
+            fontFamily: "'UncleBob', serif",
+            fontSize: 'clamp(1.6rem, 4.2vw, 3.8rem)',
+            color: '#c4a050',
+            lineHeight: 1.05,
+            margin: '0 0 clamp(10px, 1.8vw, 22px)',
+            textShadow: '0 2px 16px rgba(0,0,0,0.8)',
           }}>
             Everybody Came to the Aladdin
           </p>
 
           <div style={{
-            width: 'clamp(60px, 8vw, 100px)',
+            width: 'clamp(60px, 10vw, 120px)',
             height: '1px',
             background: 'linear-gradient(90deg, #8a7040, transparent)',
             margin: '0 0 clamp(10px, 1.5vw, 20px)',
@@ -87,18 +91,17 @@ export default async function Home() {
           }} />
 
           <p style={{
-            fontFamily: 'var(--font-garamond), Georgia, serif',
-            fontSize: 'clamp(0.8rem, 1.6vw, 1.15rem)',
+            fontFamily: "'Hornbill', serif",
+            fontSize: 'clamp(0.85rem, 1.7vw, 1.2rem)',
             color: '#c8b07a',
-            lineHeight: 1.55,
+            lineHeight: 1.5,
             margin: '0 0 clamp(14px, 2vw, 28px)',
-            fontStyle: 'italic',
             textShadow: '0 1px 8px rgba(0,0,0,0.6)',
           }}>
-            Vaudeville, Silent Film, and the<br />Mooser Sisters of San Francisco
+            Vaudeville, Silent Film, and the Mooser Sisters of San Francisco
           </p>
 
-          <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.65rem, 1.1vw, 0.85rem)', letterSpacing: '0.08em' }}>
+          <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.72rem, 1.2vw, 0.95rem)' }}>
             Hattie &amp; Minnie Mooser →
           </Link>
         </div>
