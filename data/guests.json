@@ -2378,5 +2378,73 @@
     "dadStory": "",
     "imageUrl": "",
     "imageCredit": ""
+  },
+  {
+    "id": "mrs-g-merola",
+    "name": "Mrs. G. Merola",
+    "nameVariants": [
+      "Mrs. G. Merola"
+    ],
+    "guestbookPage": 67,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.22
+    },
+    "category": "Music",
+    "era": "1920s",
+    "knownFor": "Wife of Gaetano Merola, the Italian-born conductor who founded the San Francisco Opera in 1923 — one of the most important cultural institutions in the city's history. Merola led the opera until his death on the podium in 1953, and the two were at the center of San Francisco's musical life during exactly the years Hattie and Minnie ran the Tiffin Room.",
+    "quickFacts": [
+      "Wife of Gaetano Merola, founder of the San Francisco Opera (1923)",
+      "Merola led the SF Opera for 30 years until his death on the podium in 1953",
+      "The Merola Opera Program for young singers is named in his honor"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "nana-bryant",
+    "name": "Nana Bryant",
+    "nameVariants": [
+      "Nana Bryant"
+    ],
+    "guestbookPage": 54,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.9
+    },
+    "category": "Film",
+    "era": "1920s–40s",
+    "knownFor": "A beloved character actress who appeared in dozens of Hollywood films of the 1930s and 1940s, typically cast as warm, dignified society matrons. She brought quiet authority to supporting roles in films ranging from screwball comedies to melodramas.",
+    "quickFacts": [
+      "Appeared in over 60 films between 1936 and 1955",
+      "Known for playing dignified society women and mothers",
+      "A familiar face of the classic Hollywood studio era"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "adele-blood",
+    "name": "Adele Blood",
+    "nameVariants": [
+      "Adele Blood"
+    ],
+    "guestbookPage": 58,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.72
+    },
+    "category": "Theater",
+    "era": "1920s",
+    "knownFor": "An actress and playwright active on the West Coast stage in the 1920s, who signed the Aladdin guestbook on multiple visits — suggesting she was a regular in Hattie and Minnie's circle.",
+    "quickFacts": [
+      "Appeared multiple times in the Aladdin guestbook",
+      "Active in West Coast theater in the 1920s"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
   }
 ]
