@@ -2191,5 +2191,192 @@
     "dadStory": "",
     "imageUrl": "",
     "imageCredit": ""
+  },
+  {
+    "id": "jim-tully",
+    "name": "Jim Tully",
+    "nameVariants": [
+      "J. Tully",
+      "J. Tully \"Jiggs\""
+    ],
+    "guestbookPage": 12,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.18
+    },
+    "category": "Author",
+    "era": "1920s",
+    "knownFor": "Known as \"the Gorky of the Gutter,\" Tully was one of the most celebrated and controversial writers of the 1920s. A former hobo, circus hand, and prize-fighter, he wrote raw autobiographical novels including Beggars of Life (1924) — later made into a film by William Wellman — and was a fixture of Hollywood literary circles. He signed in as \"Jiggs,\" the lovable working-class hero of the Bringing Up Father comic strip.",
+    "quickFacts": [
+      "Former hobo and circus hand turned celebrated author",
+      "Wrote Beggars of Life (1924), filmed by William Wellman",
+      "Called \"the Gorky of the Gutter\" by H.L. Mencken"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "mrs-william-ritter",
+    "name": "Mrs. William Ritter",
+    "nameVariants": [
+      "Mrs. William Ritter",
+      "Mrs. William Ritter \"Maggie\""
+    ],
+    "guestbookPage": 12,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.24
+    },
+    "category": "Society",
+    "era": "1920s",
+    "knownFor": "Wife of marine biologist Dr. William Emerson Ritter, founder of the Scripps Institution of Oceanography in La Jolla. She signed the guestbook as \"Maggie\" — the sharp-tongued, socially ambitious wife from the beloved comic strip Bringing Up Father, the perfect foil to her companion Jim Tully's \"Jiggs.\"",
+    "quickFacts": [
+      "Wife of Dr. William Emerson Ritter, founder of Scripps Institution of Oceanography",
+      "Signed as \"Maggie\" to match Jim Tully's \"Jiggs\" — the feuding couple from Bringing Up Father",
+      "Bringing Up Father ran in newspapers from 1913 to 2000"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "christine-hart",
+    "name": "Christine Hart",
+    "nameVariants": [
+      "Christine Hart"
+    ],
+    "guestbookPage": 12,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Society",
+    "era": "1920s",
+    "knownFor": "San Francisco resident who signed at 1806 Leavenworth — a guest of the Aladdin in its early years.",
+    "quickFacts": [],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "mrs-dennison-robinson",
+    "name": "Mrs. M. Dennison Robinson",
+    "nameVariants": [
+      "Mrs. M. Dennison Robinson"
+    ],
+    "guestbookPage": 14,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.55
+    },
+    "category": "Society",
+    "era": "1920s",
+    "knownFor": "A guest of the Aladdin from the Country Club Apartments in Venice — part of the fashionable California social set who frequented the Tiffin Room in its early years.",
+    "quickFacts": [],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "mrs-ernest-mott",
+    "name": "Mrs. Ernest J. Mott",
+    "nameVariants": [
+      "Mrs. Ernest J. Mott",
+      "Mrs. Ernest J. Mort"
+    ],
+    "guestbookPage": 14,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.61
+    },
+    "category": "Society",
+    "era": "1920s",
+    "knownFor": "San Francisco resident at 2808 Vallejo Street — one of the city's most prestigious addresses, in the heart of Pacific Heights — who signed the Aladdin guestbook alongside the celebrated actress Norma Talmadge.",
+    "quickFacts": [],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "mrs-edward-rainey",
+    "name": "Mrs. Edward T. Rainey",
+    "nameVariants": [
+      "Mrs. Edward T. Rainey"
+    ],
+    "guestbookPage": 14,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.67
+    },
+    "category": "Society",
+    "era": "1920s",
+    "knownFor": "San Francisco resident at 2715 Steiner Street, Pacific Heights, who signed alongside Norma Talmadge — one of the most famous actresses in the world at the time — in the Aladdin's early guestbook.",
+    "quickFacts": [],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "e-de-quinonez",
+    "name": "E. de Quiñónez",
+    "nameVariants": [
+      "E. de Quiñónez",
+      "E. de Quinonez"
+    ],
+    "guestbookPage": 15,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.72
+    },
+    "category": "Diplomacy",
+    "era": "1920s",
+    "knownFor": "A visitor from San Salvador, Central America — likely a diplomat or distinguished citizen of El Salvador — who signed the Aladdin guestbook, reflecting the cosmopolitan reach of Hattie and Minnie's salon.",
+    "quickFacts": [
+      "Signed from San Salvador, C.A."
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "reginald-travers-pg15",
+    "name": "Reginald Travers",
+    "nameVariants": [
+      "Reginald Travers",
+      "Reginald Lovers"
+    ],
+    "guestbookPage": 15,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.79
+    },
+    "category": "Society",
+    "era": "1920s",
+    "knownFor": "San Francisco guest who signed the Aladdin guestbook in the club's first year of operation.",
+    "quickFacts": [],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "sydney-schlesinger",
+    "name": "Sydney Schlesinger",
+    "nameVariants": [
+      "Sydney Schlesinger",
+      "Syd. Schlesinger"
+    ],
+    "guestbookPage": 15,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.85
+    },
+    "category": "Society",
+    "era": "1920s",
+    "knownFor": "A recurring guest who appears multiple times in the Aladdin guestbook — a loyal friend of the Tiffin Room who kept coming back throughout the 1920s.",
+    "quickFacts": [],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
   }
 ]
