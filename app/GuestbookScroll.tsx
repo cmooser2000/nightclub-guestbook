@@ -186,30 +186,26 @@ export default function GuestbookScroll({ pageMap }: Props) {
             style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}
           >
             {pageNum === 70 && (
-              <div style={{
-                position: 'absolute',
-                top: '42%',
-                right: '2%',
-                width: '220px',
-                background: '#f0deb8',
-                border: '2px solid #c0405a',
-                borderRadius: '3px',
-                padding: '10px 12px',
-                zIndex: 15,
-                boxShadow: '0 3px 14px rgba(0,0,0,0.18)',
-                fontFamily: "'Palatino Linotype', Palatino, serif",
-              }}>
-                <p style={{ margin: '0 0 6px', fontWeight: 700, color: '#c0405a', fontSize: '0.72rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Japanese Visitors</p>
-                <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.68rem', color: '#1a1209', lineHeight: 1.6 }}>
-                  <tbody>
-                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>林 正 吉</td><td>Hayashi Masayoshi — Tokyo</td></tr>
-                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>永 井 定 治</td><td>Nagai Teiji — Tokyo</td></tr>
-                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>石 黒 孫 康</td><td>Ishiguro Magoyasu — Kobe</td></tr>
-                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>日本 東京</td><td>Japan, Tokyo</td></tr>
-                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>日本 神戸</td><td>Japan, Kobe</td></tr>
-                  </tbody>
-                </table>
-                <p style={{ margin: '6px 0 0', fontSize: '0.58rem', opacity: 0.5, letterSpacing: '0.04em' }}>Names written in kanji</p>
+              <div
+                className="gb-guest-row"
+                style={{ top: '46%', cursor: 'default' }}
+              >
+                <svg className="gb-arrow-svg" width="130" height="40" viewBox="0 0 130 40" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 10,2 L 92,2 L 128,20 L 92,38 L 10,38 A 8,8 0 0 1 2,30 L 2,10 A 8,8 0 0 1 10,2 Z" fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"/>
+                  <path d="M 11,8 L 88,8 L 120,20 L 88,32 L 11,32 A 4,4 0 0 1 7,28 L 7,12 A 4,4 0 0 1 11,8 Z" fill="#c0405a"/>
+                  <path d="M 13,13 L 83,13 L 111,20 L 83,27 L 13,27 A 2,2 0 0 1 11,25 L 11,15 A 2,2 0 0 1 13,13 Z" fill="#f0deb8"/>
+                </svg>
+                <div className="gb-tooltip">
+                  <p className="gb-tooltip-name">Japanese Visitors — Page 70</p>
+                  <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.68rem', color: '#3a2a1a', lineHeight: 1.7, marginBottom: '4px' }}>
+                    <tbody>
+                      <tr><td style={{ paddingRight: '8px', fontWeight: 600 }}>林 正 吉</td><td>Hayashi Masayoshi — Tokyo</td></tr>
+                      <tr><td style={{ paddingRight: '8px', fontWeight: 600 }}>永 井 定 治</td><td>Nagai Teiji — Tokyo</td></tr>
+                      <tr><td style={{ paddingRight: '8px', fontWeight: 600 }}>石 黒 孫 康</td><td>Ishiguro Magoyasu — Kobe</td></tr>
+                    </tbody>
+                  </table>
+                  <p className="gb-tooltip-cta">Names written in Japanese kanji</p>
+                </div>
               </div>
             )}
             <img
