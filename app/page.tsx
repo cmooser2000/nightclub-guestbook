@@ -73,11 +73,11 @@ export default async function Home() {
         }}>
           <p style={{
             fontFamily: "'UncleBob', serif",
-            fontSize: 'clamp(1.6rem, 4.2vw, 3.8rem)',
-            color: '#c4a050',
-            lineHeight: 1.05,
+            fontSize: 'clamp(2.2rem, 6.5vw, 6rem)',
+            color: '#b84a42',
+            lineHeight: 1.0,
             margin: '0 0 clamp(10px, 1.8vw, 22px)',
-            textShadow: '0 2px 16px rgba(0,0,0,0.8)',
+            textShadow: '0 2px 18px rgba(0,0,0,0.85)',
           }}>
             Everybody Came to the Aladdin
           </p>
@@ -102,7 +102,7 @@ export default async function Home() {
           </p>
 
           <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.72rem, 1.2vw, 0.95rem)' }}>
-            Hattie &amp; Minnie Mooser →
+            Hattie and Minnie Mooser →
           </Link>
         </div>
       </div>
