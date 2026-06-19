@@ -60,7 +60,7 @@ export default async function Home() {
         {/* Dark gradient on the left so text reads clearly */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to right, rgba(18,24,32,0.78) 0%, rgba(18,24,32,0.6) 44%, transparent 64%)',
+          background: 'linear-gradient(to right, rgba(18,24,32,0.32) 0%, rgba(18,24,32,0.18) 44%, transparent 64%)',
           pointerEvents: 'none',
         }} />
 

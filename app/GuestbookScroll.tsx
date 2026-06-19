@@ -129,7 +129,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
           top: calc(100% + 6px);
           left: 0;
           width: 260px;
-          background: #fffcf8;
+          background: #f0deb8;
           color: #1a1209;
           border: 2px solid #c0405a;
           border-radius: 3px;
