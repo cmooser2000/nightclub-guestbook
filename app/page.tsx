@@ -38,15 +38,15 @@ export default async function Home() {
           }
           .cover-link {
             font-family: 'Hornbill', serif;
-            color: #9a8458;
+            color: #c8b07a;
             text-decoration: none;
-            border-bottom: 1px solid rgba(154,132,88,0.35);
+            border-bottom: 1px solid rgba(200,176,122,0.4);
             padding-bottom: 2px;
             transition: color 0.2s, border-color 0.2s;
           }
           .cover-link:hover {
-            color: #c4a870;
-            border-bottom-color: rgba(196,168,112,0.6);
+            color: #e0c88a;
+            border-bottom-color: rgba(224,200,138,0.7);
           }
         `}</style>
 
@@ -71,16 +71,25 @@ export default async function Home() {
           display: 'flex', flexDirection: 'column', justifyContent: 'center',
           padding: 'clamp(24px, 4vw, 60px) clamp(24px, 4vw, 56px)',
         }}>
-          <p style={{
-            fontFamily: "'UncleBob', serif",
-            fontSize: 'clamp(2.2rem, 6.5vw, 6rem)',
-            color: '#b84a42',
-            lineHeight: 1.0,
-            margin: '0 0 clamp(10px, 1.8vw, 22px)',
-            textShadow: '0 2px 18px rgba(0,0,0,0.85)',
-          }}>
-            Everybody Came to the Aladdin
-          </p>
+          {/* SVG title — textLength forces all 3 lines to equal width */}
+          <svg
+            viewBox="0 0 600 215"
+            style={{ width: '100%', display: 'block', overflow: 'visible', marginBottom: 'clamp(10px, 1.8vw, 22px)', filter: 'drop-shadow(0 2px 16px rgba(0,0,0,0.85))' }}
+            aria-label="Everybody Came to the Aladdin"
+          >
+            <text x="0" y="62" fontFamily="UncleBob, serif" fill="#c0405a"
+              fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
+              Everybody
+            </text>
+            <text x="0" y="132" fontFamily="UncleBob, serif" fill="#c0405a"
+              fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
+              Came to the
+            </text>
+            <text x="0" y="215" fontFamily="UncleBob, serif" fill="#c0405a"
+              fontSize="88" textLength="600" lengthAdjust="spacingAndGlyphs">
+              Aladdin
+            </text>
+          </svg>
 
           <div style={{
             width: 'clamp(60px, 10vw, 120px)',

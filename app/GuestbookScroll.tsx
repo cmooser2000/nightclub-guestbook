@@ -129,13 +129,14 @@ export default function GuestbookScroll({ pageMap }: Props) {
           top: calc(100% + 6px);
           left: 0;
           width: 260px;
-          background: rgba(20,14,6,0.96);
-          color: #f5e9d0;
+          background: #fffcf8;
+          color: #1a1209;
+          border: 2px solid #c0405a;
           border-radius: 3px;
           padding: 10px 12px;
           z-index: 100;
           pointer-events: none;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+          box-shadow: 0 3px 14px rgba(0,0,0,0.18);
           font-family: 'Palatino Linotype', Palatino, serif;
           white-space: normal;
         }
@@ -145,7 +146,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
         .gb-tooltip-name {
           margin: 0 0 4px;
           font-weight: 700;
-          color: #e8a060;
+          color: #c0405a;
           font-size: 0.85rem;
           font-style: italic;
         }
@@ -153,14 +154,15 @@ export default function GuestbookScroll({ pageMap }: Props) {
           margin: 0 0 6px;
           font-size: 0.72rem;
           line-height: 1.5;
-          opacity: 0.88;
+          color: #3a2a1a;
         }
         .gb-tooltip-cta {
           margin: 0;
           font-size: 0.6rem;
-          opacity: 0.4;
+          opacity: 0.45;
           letter-spacing: 0.06em;
           text-transform: uppercase;
+          color: #1a1209;
         }
         .gb-page-num {
           position: absolute;
@@ -212,7 +214,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
                   {/* Red band */}
                   <path
                     d="M 11,8 L 88,8 L 120,20 L 88,32 L 11,32 A 4,4 0 0 1 7,28 L 7,12 A 4,4 0 0 1 11,8 Z"
-                    fill="#c94520"
+                    fill="#c0405a"
                   />
                   {/* Inner cream */}
                   <path
