@@ -2446,5 +2446,93 @@
     "dadStory": "",
     "imageUrl": "",
     "imageCredit": ""
+  },
+  {
+    "id": "louis-persinger",
+    "name": "Louis Persinger",
+    "nameVariants": ["Louis Persinger"],
+    "era": "1920s",
+    "category": "Concert Violinist & Teacher",
+    "knownFor": "One of America's most celebrated violinists and a legendary teacher — someone in the Aladdin guestbook noted next to his signature: 'Violin teacher for Yehudi Menuhin.' Persinger's students included both Menuhin and Isaac Stern.",
+    "quickFacts": [
+      "Born 1887 in Rochester, Illinois; died 1966 in New York",
+      "Studied violin in Europe with Eugene Ysaÿe, one of the era's masters",
+      "Led the San Francisco Symphony as concertmaster and later as conductor in the 1910s–20s",
+      "Discovered the child prodigy Yehudi Menuhin at age 7 and became his first great teacher",
+      "Also taught Isaac Stern, another titan of 20th-century violin",
+      "His presence at the Aladdin connects to the Menuhin entry in this same guestbook"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Louis_Persinger",
+    "guestbookPage": 50,
+    "guestbookCoords": { "x": 0.25, "y": 0.07 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "bob-fowler",
+    "name": "R.G. \"Bob\" Fowler",
+    "nameVariants": ["R.G. Bob Fowler", "Bob Fowler", "R.G. Fowler"],
+    "era": "1920s",
+    "category": "Aviation Pioneer",
+    "knownFor": "One of America's earliest aviators, who competed in the 1911 transcontinental air race and became a daredevil barnstormer of the silent-film era — the guestbook margin notes him simply as 'Flyer.'",
+    "quickFacts": [
+      "Entered the 1911 Hearst coast-to-coast air race, attempting the first westward crossing",
+      "Made hundreds of exhibition flights up and down the Pacific Coast",
+      "Flew stunt sequences for early Hollywood films",
+      "Signed the Aladdin guestbook from 'Gilroy, Santa Clara Co.' — suggesting he lived in the Bay Area",
+      "The margin note beside his name reads simply: 'Flyer'"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Robert_G._Fowler",
+    "guestbookPage": 37,
+    "guestbookCoords": { "x": 0.25, "y": 0.36 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "doris-lloyd",
+    "name": "Doris Lloyd",
+    "nameVariants": ["Doris Lloyd"],
+    "era": "1920s",
+    "category": "Actress",
+    "knownFor": "A British stage and screen actress who worked steadily in Hollywood from the silent era into the 1960s, appearing in over 150 films. She signed the Aladdin guestbook during a party in June 1926 that the host described as 'just one of those exclusive parties.'",
+    "quickFacts": [
+      "Born 1896 in Liverpool, England; died 1968 in Santa Barbara",
+      "Appeared in Tarzan the Ape Man (1932), If I Were King (1938), and dozens of other Hollywood productions",
+      "Known for playing refined British characters — often cast as society ladies or servants",
+      "Signed the Aladdin guestbook on June 29, 1926, alongside Rex Cherryman and other actors",
+      "The guestbook page notes the party was 'courtesy of' the Orpheum Theatre"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Doris_Lloyd",
+    "guestbookPage": 62,
+    "guestbookCoords": { "x": 0.25, "y": 0.40 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "jacob-stellman",
+    "name": "J. Stellman",
+    "nameVariants": ["J. Stellman", "J.B. Stellman"],
+    "era": "1920s",
+    "category": "Author & Photographer",
+    "knownFor": "A San Francisco writer and photographer known for his evocative portraits of the city. The Aladdin guestbook margin identifies him as an author from Carmel — a community famously associated with California's literary and artistic bohemians.",
+    "quickFacts": [
+      "Active in San Francisco literary circles in the 1910s and 1920s",
+      "Carmel-by-the-Sea was home to writers including Jack London, Upton Sinclair, and Mary Austin — Stellman was part of that world",
+      "Signed the Aladdin guestbook (pg. 40) from San Francisco",
+      "The margin annotation reads: 'Nor[thern] Carmel, author'"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 40,
+    "guestbookCoords": { "x": 0.25, "y": 0.64 },
+    "dadStory": "",
+    "dadStoryUpdated": null
   }
 ]

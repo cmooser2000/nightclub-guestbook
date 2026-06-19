@@ -185,6 +185,33 @@ export default function GuestbookScroll({ pageMap }: Props) {
             id={`page-${pageNum}`}
             style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}
           >
+            {pageNum === 70 && (
+              <div style={{
+                position: 'absolute',
+                top: '42%',
+                right: '2%',
+                width: '220px',
+                background: '#f0deb8',
+                border: '2px solid #c0405a',
+                borderRadius: '3px',
+                padding: '10px 12px',
+                zIndex: 15,
+                boxShadow: '0 3px 14px rgba(0,0,0,0.18)',
+                fontFamily: "'Palatino Linotype', Palatino, serif",
+              }}>
+                <p style={{ margin: '0 0 6px', fontWeight: 700, color: '#c0405a', fontSize: '0.72rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Japanese Visitors</p>
+                <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.68rem', color: '#1a1209', lineHeight: 1.6 }}>
+                  <tbody>
+                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>林 正 吉</td><td>Hayashi Masayoshi — Tokyo</td></tr>
+                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>永 井 定 治</td><td>Nagai Teiji — Tokyo</td></tr>
+                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>石 黒 孫 康</td><td>Ishiguro Magoyasu — Kobe</td></tr>
+                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>日本 東京</td><td>Japan, Tokyo</td></tr>
+                    <tr><td style={{ paddingRight: '6px', fontWeight: 600 }}>日本 神戸</td><td>Japan, Kobe</td></tr>
+                  </tbody>
+                </table>
+                <p style={{ margin: '6px 0 0', fontSize: '0.58rem', opacity: 0.5, letterSpacing: '0.04em' }}>Names written in kanji</p>
+              </div>
+            )}
             <img
               src={pageImg(pageNum)}
               alt={`Page ${pageNum}`}
