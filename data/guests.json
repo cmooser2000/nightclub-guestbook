@@ -1956,5 +1956,240 @@
     "dadStory": "",
     "imageUrl": "",
     "imageCredit": ""
+  },
+  {
+    "id": "warren-harding",
+    "name": "Warren G. Harding",
+    "nameVariants": [
+      "Warren G. Harding"
+    ],
+    "guestbookPage": 101,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.14
+    },
+    "category": "Politics",
+    "era": "1920s",
+    "knownFor": "The 29th President of the United States, who died in San Francisco on August 2, 1923, while returning from a trip to Alaska — making his visit to the Aladdin one of his final social engagements in the city where he would draw his last breath.",
+    "quickFacts": [
+      "29th President of the United States (1921–1923)",
+      "Died at the Palace Hotel, San Francisco, August 2, 1923",
+      "His presidency was later shadowed by the Teapot Dome scandal"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "dw-griffith",
+    "name": "D.W. Griffith",
+    "nameVariants": [
+      "W.D. Griffith",
+      "D.W. Griffith"
+    ],
+    "guestbookPage": 175,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.17
+    },
+    "category": "Film",
+    "era": "1920s",
+    "knownFor": "The father of cinematic language — director of The Birth of a Nation (1915) and Intolerance (1916) — who invented or perfected nearly every technique of modern filmmaking: the close-up, the tracking shot, parallel editing, and the fade. One of the most influential and controversial figures in film history.",
+    "quickFacts": [
+      "Directed The Birth of a Nation (1915) and Intolerance (1916)",
+      "Pioneered the close-up, cross-cutting, and fade techniques",
+      "Co-founded United Artists with Chaplin, Pickford, and Fairbanks"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "fanny-brice",
+    "name": "Fanny Brice",
+    "nameVariants": [
+      "Fannie Brice",
+      "Fanny Brice"
+    ],
+    "guestbookPage": 247,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.88
+    },
+    "category": "Vaudeville",
+    "era": "1920s",
+    "knownFor": "The queen of the Ziegfeld Follies — comedian, singer, and actress whose comedic genius and heartfelt torch songs made her one of the most beloved entertainers in America. Her Baby Snooks character ran on radio for decades, and her life inspired the musical Funny Girl.",
+    "quickFacts": [
+      "Star of the Ziegfeld Follies for over two decades",
+      "Created the Baby Snooks radio character",
+      "Her life story became the musical Funny Girl (1964), played by Barbra Streisand"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "bert-wheeler",
+    "name": "Bert Wheeler",
+    "nameVariants": [
+      "Bert Wheeler"
+    ],
+    "guestbookPage": 342,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.55
+    },
+    "category": "Vaudeville",
+    "era": "1920s–30s",
+    "knownFor": "Half of the beloved comedy team Wheeler and Woolsey, who became RKO's biggest stars of the early sound era with a string of madcap musical comedies. Wheeler was the boyish, romantic half of the duo, with rubber-faced expressions and impeccable comic timing.",
+    "quickFacts": [
+      "Teamed with Robert Woolsey from 1927 onward",
+      "Wheeler and Woolsey made over 20 films for RKO",
+      "Started in vaudeville and Broadway before pictures"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "edward-everett-horton",
+    "name": "Edward Everett Horton",
+    "nameVariants": [
+      "Edward Everett Horton"
+    ],
+    "guestbookPage": 372,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.65
+    },
+    "category": "Film",
+    "era": "1920s–60s",
+    "knownFor": "The master of the double-take and the flustered everyman — one of Hollywood's most beloved character actors, who appeared in over 150 films. He was Fred Astaire's nervous foil in Top Hat and The Gay Divorcee, and later narrated the Fractured Fairy Tales segments of the Rocky and Bullwinkle Show.",
+    "quickFacts": [
+      "Appeared in over 150 films across five decades",
+      "Foil to Fred Astaire in Top Hat (1935) and The Gay Divorcee (1934)",
+      "Later voiced Fractured Fairy Tales on The Rocky & Bullwinkle Show"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "jason-robards-sr",
+    "name": "Jason Robards Sr.",
+    "nameVariants": [
+      "Jason Robards",
+      "Jason Robards Sr."
+    ],
+    "guestbookPage": 394,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.15
+    },
+    "category": "Film",
+    "era": "1920s–30s",
+    "knownFor": "A prolific silent film and early talking-picture actor who appeared in dozens of serials and features in the 1920s. Father of Jason Robards Jr., who would become one of America's greatest stage and screen actors, winning two Academy Awards.",
+    "quickFacts": [
+      "Appeared in over 100 films in the 1920s–30s",
+      "Father of Oscar-winning actor Jason Robards Jr.",
+      "Known for serials and adventure pictures"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "mike-donlin",
+    "name": "Mike Donlin",
+    "nameVariants": [
+      "Mike Donlin",
+      "Turkey Mike Donlin"
+    ],
+    "guestbookPage": 397,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.92
+    },
+    "category": "Sports",
+    "era": "1920s",
+    "knownFor": "Known as \"Turkey Mike,\" one of the great outfielders of the Deadball Era who batted .333 lifetime and starred for the New York Giants. After baseball he pursued an acting career in vaudeville and silent films, making him one of the first crossover athlete-entertainers.",
+    "quickFacts": [
+      ".333 career batting average",
+      "Starred for the New York Giants (1904–1908)",
+      "Married actress Mabel Hite; pursued vaudeville and film career after baseball"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "paul-ash",
+    "name": "Paul Ash",
+    "nameVariants": [
+      "Paul Ash"
+    ],
+    "guestbookPage": 219,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.33
+    },
+    "category": "Music",
+    "era": "1920s",
+    "knownFor": "The most flamboyant theater bandleader of the 1920s, who packed houses at the Oriental Theatre in Chicago and the Mark Strand in New York with his charismatic conducting style, outrageous costumes, and crowd-pleasing showmanship. Called \"The Mayor of State Street\" by his Chicago fans.",
+    "quickFacts": [
+      "Resident bandleader at Chicago's Oriental Theatre in the 1920s",
+      "Known as \"The Mayor of State Street\"",
+      "Pioneer of the theatrical big-band presentation style"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "rex-cherryman",
+    "name": "Rex Cherryman",
+    "nameVariants": [
+      "Rex Cherryman"
+    ],
+    "guestbookPage": 220,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.33
+    },
+    "category": "Theater",
+    "era": "1920s",
+    "knownFor": "A handsome and critically acclaimed Broadway leading man of the 1920s who died tragically of septicemia aboard a ship at age 30 in 1928, cutting short a brilliant career. He was engaged to actress Fay Wray at the time of his death.",
+    "quickFacts": [
+      "Leading Broadway actor of the 1920s",
+      "Engaged to Fay Wray (future star of King Kong) at his death",
+      "Died at sea of blood poisoning, age 30 (1928)"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
+  },
+  {
+    "id": "bill-desmond",
+    "name": "Bill Desmond",
+    "nameVariants": [
+      "Bill Desmond",
+      "William Desmond"
+    ],
+    "guestbookPage": 210,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.72
+    },
+    "category": "Film",
+    "era": "1920s",
+    "knownFor": "A Canadian-born action star and serial king of silent cinema who thrilled audiences in dozens of adventure serials throughout the 1920s. Rugged and athletic, he was one of the most reliable and popular leading men of the action genre.",
+    "quickFacts": [
+      "Starred in numerous silent film serials of the 1920s",
+      "Known as a reliable action and adventure leading man",
+      "Appeared in over 150 films throughout his career"
+    ],
+    "dadStory": "",
+    "imageUrl": "",
+    "imageCredit": ""
   }
 ]
