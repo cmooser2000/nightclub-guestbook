@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 interface Coords { x: number; y: number }
 
@@ -21,10 +22,11 @@ interface Guest {
 const HL_W = 0.52
 const HL_H = 0.048
 
-const CREAM = '#f0deb8'
-const GOLD = '#c8a050'
-const PAGE_BG = '#0d0b08'
-const RULE_LIGHT = 'rgba(240,222,184,0.18)'
+const PAPER = '#f5f0e6'
+const INK = '#1a1209'
+const RULE = '#c8b89a'
+const ACCENT = '#8b6914'
+const RULE_DIM = 'rgba(200,184,154,0.4)'
 const BODY_FONT = "'LinLibertine', 'Palatino Linotype', Palatino, serif"
 
 function compressImage(file: File): Promise<string> {
@@ -52,8 +54,8 @@ function compressImage(file: File): Promise<string> {
   })
 }
 
-export default function AdminPage() {
-  const [guests, setGuests] = useState<Guest[]>([])
+function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.Dispatch<React.SetStateAction<Guest[]>> }) {
+  const searchParams = useSearchParams()
   const [selected, setSelected] = useState<Guest | null>(null)
   const [story, setStory] = useState('')
   const [imageUrl, setImageUrl] = useState('')
@@ -63,6 +65,7 @@ export default function AdminPage() {
   const [saved, setSaved] = useState(false)
   const [tab, setTab] = useState<'stories' | 'add' | 'pin'>('stories')
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const storyRef = useRef<HTMLDivElement>(null)
 
   const [addName, setAddName] = useState('')
   const [addPage, setAddPage] = useState('')
@@ -78,9 +81,28 @@ export default function AdminPage() {
   const [pinSaved, setPinSaved] = useState(false)
   const imgRef = useRef<HTMLImageElement>(null)
 
+  // Auto-select guest from URL params (e.g. coming from profile "Add story" link)
   useEffect(() => {
-    fetch('/api/guests').then((r) => r.json()).then(setGuests)
-  }, [])
+    if (guests.length === 0) return
+    const guestId = searchParams.get('guest')
+    const focus = searchParams.get('focus')
+    if (guestId) {
+      const g = guests.find((x) => x.id === guestId)
+      if (g) {
+        setSelected(g)
+        setStory(g.dadStory)
+        setImageUrl(g.imageUrl)
+        setTab('stories')
+        if (focus === 'story') {
+          setTimeout(() => {
+            storyRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            const el = document.getElementById('story-textarea')
+            if (el) (el as HTMLTextAreaElement).focus()
+          }, 300)
+        }
+      }
+    }
+  }, [guests, searchParams])
 
   function openGuest(guest: Guest) {
     setSelected(guest)
@@ -205,31 +227,26 @@ export default function AdminPage() {
   const isPlaceholder = (c: Coords) => c.x === 0.5 && c.y === 0.5
 
   const inputStyle = {
-    background: 'rgba(255,255,255,0.04)',
-    borderColor: RULE_LIGHT,
-    color: CREAM,
+    background: 'rgba(0,0,0,0.03)',
+    borderColor: RULE,
+    color: INK,
     fontFamily: BODY_FONT,
   }
 
   return (
-    <main className="min-h-screen" style={{ background: PAGE_BG, fontFamily: BODY_FONT }}>
-      <style>{`
-        @font-face { font-family: 'Hipstravaganza'; src: url('/fonts/hipstravaganza.ttf') format('truetype'); font-display: block; }
-        @font-face { font-family: 'LinLibertine'; src: url('/fonts/linlibertine.ttf') format('truetype'); font-display: block; }
-      `}</style>
-
+    <>
       {/* Header */}
-      <header className="border-b px-8 py-6" style={{ borderColor: RULE_LIGHT }}>
+      <header className="border-b px-8 py-6" style={{ borderColor: RULE }}>
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div>
-            <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ color: GOLD, fontFamily: BODY_FONT }}>Admin</p>
-            <h1 className="text-2xl" style={{ color: CREAM, fontFamily: "'Hipstravaganza', serif" }}>
+            <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Admin</p>
+            <h1 className="text-2xl" style={{ color: INK, fontFamily: "'Hipstravaganza', serif" }}>
               The Guestbook
             </h1>
           </div>
           <div className="text-right">
-            <p className="text-3xl font-light" style={{ color: GOLD }}>{completed}/{guests.length}</p>
-            <p className="text-xs opacity-50" style={{ color: CREAM, fontFamily: BODY_FONT }}>stories written</p>
+            <p className="text-3xl font-light" style={{ color: ACCENT }}>{completed}/{guests.length}</p>
+            <p className="text-xs opacity-50" style={{ color: INK, fontFamily: BODY_FONT }}>stories written</p>
           </div>
         </div>
 
@@ -245,8 +262,8 @@ export default function AdminPage() {
                 onClick={() => setTab(t)}
                 className="text-xs tracking-[0.25em] uppercase pb-2 border-b-2 transition-all"
                 style={{
-                  borderColor: tab === t ? GOLD : 'transparent',
-                  color: tab === t ? GOLD : 'rgba(240,222,184,0.35)',
+                  borderColor: tab === t ? ACCENT : 'transparent',
+                  color: tab === t ? ACCENT : 'rgba(26,18,9,0.35)',
                   fontFamily: BODY_FONT,
                 }}
               >
@@ -265,7 +282,7 @@ export default function AdminPage() {
               URL.revokeObjectURL(url)
             }}
             className="text-xs tracking-[0.25em] uppercase opacity-40 hover:opacity-100 transition-opacity"
-            style={{ color: CREAM, fontFamily: BODY_FONT }}
+            style={{ color: INK, fontFamily: BODY_FONT }}
           >
             ↓ Export JSON
           </button>
@@ -277,7 +294,7 @@ export default function AdminPage() {
         <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-5 gap-8">
           {/* Guest list */}
           <div className="md:col-span-2 space-y-2">
-            <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: GOLD, fontFamily: BODY_FONT }}>
+            <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
               Guests — sorted by page
             </p>
             {sorted.map((guest) => {
@@ -287,24 +304,24 @@ export default function AdminPage() {
                 <button
                   key={guest.id}
                   onClick={() => openGuest(guest)}
-                  className="w-full text-left p-3 rounded border transition-all hover:border-yellow-600"
+                  className="w-full text-left p-3 rounded border transition-all"
                   style={{
-                    borderColor: selected?.id === guest.id ? GOLD : RULE_LIGHT,
-                    background: selected?.id === guest.id ? 'rgba(200,160,80,0.08)' : 'rgba(255,255,255,0.02)',
+                    borderColor: selected?.id === guest.id ? ACCENT : RULE_DIM,
+                    background: selected?.id === guest.id ? 'rgba(139,105,20,0.06)' : 'transparent',
                   }}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <div className="min-w-0">
-                      <p className="text-sm italic truncate" style={{ color: CREAM, fontFamily: BODY_FONT }}>
+                      <p className="text-sm italic truncate" style={{ color: INK, fontFamily: BODY_FONT }}>
                         {guest.name}
                       </p>
-                      <p className="text-xs opacity-40 mt-0.5" style={{ color: CREAM, fontFamily: BODY_FONT }}>
+                      <p className="text-xs opacity-40 mt-0.5" style={{ color: INK, fontFamily: BODY_FONT }}>
                         p.{guest.guestbookPage}
                       </p>
                     </div>
                     <div className="flex gap-1 shrink-0">
-                      <span title="Story" style={{ fontSize: '0.65rem', color: hasStory ? '#4ade80' : '#444' }}>✍</span>
-                      <span title="Photo" style={{ fontSize: '0.65rem', color: hasPhoto ? '#4ade80' : '#444' }}>📷</span>
+                      <span title="Story" style={{ fontSize: '0.65rem', color: hasStory ? '#2a7a3a' : '#bbb' }}>✍</span>
+                      <span title="Photo" style={{ fontSize: '0.65rem', color: hasPhoto ? '#2a7a3a' : '#bbb' }}>📷</span>
                     </div>
                   </div>
                 </button>
@@ -317,24 +334,24 @@ export default function AdminPage() {
             {!selected ? (
               <div
                 className="h-64 flex flex-col items-center justify-center border rounded gap-3"
-                style={{ borderColor: RULE_LIGHT, color: CREAM }}
+                style={{ borderColor: RULE_DIM, color: INK }}
               >
-                <p className="text-sm italic opacity-30">Select a guest from the list</p>
+                <p className="text-sm italic opacity-30" style={{ fontFamily: BODY_FONT }}>Select a guest from the list</p>
               </div>
             ) : (
               <div className="space-y-8">
 
                 {/* Name + meta */}
                 <div>
-                  <h2 className="text-3xl italic mb-1" style={{ color: CREAM, fontFamily: BODY_FONT }}>
+                  <h2 className="text-3xl mb-1" style={{ color: INK, fontFamily: "'Hipstravaganza', serif" }}>
                     {selected.name}
                   </h2>
-                  <p className="text-xs tracking-widest uppercase mb-1" style={{ color: GOLD, fontFamily: BODY_FONT }}>
+                  <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
                     {selected.category} · Page {selected.guestbookPage}
                   </p>
                   {selected.wikiUrl && (
                     <a href={selected.wikiUrl} target="_blank" rel="noopener noreferrer"
-                      className="text-xs underline opacity-40 hover:opacity-100" style={{ color: CREAM, fontFamily: BODY_FONT }}>
+                      className="text-xs underline opacity-40 hover:opacity-100" style={{ color: INK, fontFamily: BODY_FONT }}>
                       Wikipedia →
                     </a>
                   )}
@@ -342,7 +359,7 @@ export default function AdminPage() {
 
                 {/* ── PHOTO ── */}
                 <div>
-                  <p className="text-xs tracking-widest uppercase mb-3" style={{ color: GOLD, fontFamily: BODY_FONT }}>
+                  <p className="text-xs tracking-widest uppercase mb-3" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
                     Photo
                   </p>
 
@@ -352,42 +369,42 @@ export default function AdminPage() {
                         src={imageUrl}
                         alt={selected.name}
                         className="rounded border"
-                        style={{ width: 120, height: 140, objectFit: 'cover', objectPosition: 'top', borderColor: RULE_LIGHT }}
+                        style={{ width: 120, height: 140, objectFit: 'cover', objectPosition: 'top', borderColor: RULE }}
                       />
                       <div className="flex flex-col gap-2">
                         <button
                           onClick={() => fileInputRef.current?.click()}
-                          className="text-xs px-3 py-1.5 border transition-all hover:bg-yellow-900/20"
-                          style={{ borderColor: 'rgba(200,160,80,0.4)', color: GOLD }}
+                          className="text-xs px-3 py-1.5 border transition-all"
+                          style={{ borderColor: RULE, color: ACCENT, fontFamily: BODY_FONT }}
                         >
                           Replace photo
                         </button>
                         <button
                           onClick={() => { setImageUrl(''); setImgSaved(false) }}
-                          className="text-xs px-3 py-1.5 border transition-all hover:bg-red-900/20"
-                          style={{ borderColor: 'rgba(255,100,100,0.3)', color: 'rgba(255,150,150,0.7)' }}
+                          className="text-xs px-3 py-1.5 border transition-all"
+                          style={{ borderColor: 'rgba(180,60,60,0.3)', color: 'rgba(160,60,60,0.8)', fontFamily: BODY_FONT }}
                         >
                           Remove
                         </button>
                         <button
                           onClick={saveImage}
                           disabled={imgSaving}
-                          className="text-xs px-3 py-1.5 border transition-all hover:bg-yellow-900/20 disabled:opacity-40"
-                          style={{ borderColor: GOLD, color: GOLD }}
+                          className="text-xs px-3 py-1.5 border transition-all disabled:opacity-40"
+                          style={{ borderColor: ACCENT, color: ACCENT, fontFamily: BODY_FONT }}
                         >
                           {imgSaving ? 'Saving…' : 'Save Photo'}
                         </button>
-                        {imgSaved && <span className="text-xs text-green-400">✓ Saved</span>}
+                        {imgSaved && <span className="text-xs" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
                       </div>
                     </div>
                   ) : (
                     <button
                       onClick={() => fileInputRef.current?.click()}
-                      className="w-full border-2 border-dashed rounded py-8 text-center transition-all hover:border-yellow-600/60 hover:bg-yellow-900/10"
-                      style={{ borderColor: RULE_LIGHT, color: CREAM }}
+                      className="w-full border-2 border-dashed rounded py-8 text-center transition-all"
+                      style={{ borderColor: RULE_DIM, color: INK }}
                     >
-                      <p className="text-sm mb-1" style={{ color: GOLD, opacity: 0.7 }}>Click to add a photo</p>
-                      <p className="text-xs opacity-40">JPG or PNG · compressed automatically</p>
+                      <p className="text-sm mb-1" style={{ color: ACCENT, opacity: 0.7, fontFamily: BODY_FONT }}>Click to add a photo</p>
+                      <p className="text-xs opacity-40" style={{ fontFamily: BODY_FONT }}>JPG or PNG · compressed automatically</p>
                     </button>
                   )}
 
@@ -401,11 +418,11 @@ export default function AdminPage() {
                 </div>
 
                 {/* ── STORY ── */}
-                <div>
-                  <p className="text-xs tracking-widest uppercase mb-1" style={{ color: GOLD, fontFamily: BODY_FONT }}>
+                <div ref={storyRef}>
+                  <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
                     {selected.name.split(' ')[0]}'s Story
                   </p>
-                  <p className="text-xs italic mb-3 opacity-40" style={{ color: CREAM, fontFamily: BODY_FONT }}>
+                  <p className="text-xs italic mb-3 opacity-40" style={{ color: INK, fontFamily: BODY_FONT }}>
                     A memory, an anecdote, what they meant to you or the family.
                   </p>
 
@@ -415,10 +432,10 @@ export default function AdminPage() {
                         const el = document.getElementById('story-textarea')
                         if (el) (el as HTMLTextAreaElement).focus()
                       }}
-                      className="w-full border-2 border-dashed rounded py-8 text-center transition-all hover:border-yellow-600/60 hover:bg-yellow-900/10 mb-2"
-                      style={{ borderColor: RULE_LIGHT }}
+                      className="w-full border-2 border-dashed rounded py-8 text-center transition-all mb-2"
+                      style={{ borderColor: RULE_DIM }}
                     >
-                      <p className="text-sm" style={{ color: GOLD, opacity: 0.7 }}>
+                      <p className="text-sm" style={{ color: ACCENT, opacity: 0.7, fontFamily: BODY_FONT }}>
                         Click to add {selected.name.split(' ')[0]}'s story
                       </p>
                     </button>
@@ -450,24 +467,24 @@ export default function AdminPage() {
                     <button
                       onClick={save}
                       disabled={saving || !story.trim()}
-                      className="px-6 py-2 text-sm tracking-widest uppercase border transition-all hover:bg-yellow-900/20 disabled:opacity-40"
-                      style={{ borderColor: GOLD, color: GOLD, fontFamily: BODY_FONT }}
+                      className="px-6 py-2 text-sm tracking-widest uppercase border transition-all disabled:opacity-40"
+                      style={{ borderColor: ACCENT, color: ACCENT, fontFamily: BODY_FONT }}
                     >
                       {saving ? 'Saving…' : 'Save Story'}
                     </button>
-                    {saved && <span className="text-sm text-green-400">✓ Saved</span>}
+                    {saved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
                   </div>
                 </div>
 
                 {/* Quick facts ref */}
                 {selected.quickFacts.length > 0 && (
-                  <details className="rounded border" style={{ borderColor: RULE_LIGHT }}>
-                    <summary className="px-4 py-3 text-xs tracking-widest uppercase cursor-pointer" style={{ color: GOLD, opacity: 0.6, fontFamily: BODY_FONT }}>
+                  <details className="rounded border" style={{ borderColor: RULE_DIM }}>
+                    <summary className="px-4 py-3 text-xs tracking-widest uppercase cursor-pointer" style={{ color: ACCENT, opacity: 0.6, fontFamily: BODY_FONT }}>
                       Reference facts ▾
                     </summary>
                     <div className="px-4 pb-4 space-y-1">
                       {selected.quickFacts.map((fact, i) => (
-                        <p key={i} className="text-sm opacity-60" style={{ color: CREAM, fontFamily: BODY_FONT }}>· {fact}</p>
+                        <p key={i} className="text-sm opacity-60" style={{ color: INK, fontFamily: BODY_FONT }}>· {fact}</p>
                       ))}
                     </div>
                   </details>
@@ -482,22 +499,22 @@ export default function AdminPage() {
       {/* ── ADD GUEST TAB ── */}
       {tab === 'add' && (
         <div className="max-w-2xl mx-auto px-8 py-10">
-          <p className="text-xs tracking-[0.3em] uppercase mb-2" style={{ color: GOLD, fontFamily: BODY_FONT }}>Add a Guest</p>
-          <p className="text-sm italic mb-8 opacity-60" style={{ color: CREAM, fontFamily: BODY_FONT }}>
+          <p className="text-xs tracking-[0.3em] uppercase mb-2" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Add a Guest</p>
+          <p className="text-sm italic mb-8 opacity-60" style={{ color: INK, fontFamily: BODY_FONT }}>
             Found a name in the guestbook that isn't listed? Add them here. Only name and page number are required.
           </p>
 
           <form onSubmit={addGuest} className="space-y-5">
             <div className="grid grid-cols-3 gap-4">
               <div className="col-span-2">
-                <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: GOLD, fontFamily: BODY_FONT }}>Name as written *</label>
+                <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Name as written *</label>
                 <input type="text" value={addName} onChange={(e) => setAddName(e.target.value)} required
                   placeholder="e.g. Miss E. E. McClatchy"
                   className="w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
                   style={inputStyle} />
               </div>
               <div>
-                <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: GOLD, fontFamily: BODY_FONT }}>Page # *</label>
+                <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Page # *</label>
                 <input type="number" value={addPage} onChange={(e) => setAddPage(e.target.value)} required min={1} max={418}
                   placeholder="42"
                   className="w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
@@ -506,7 +523,7 @@ export default function AdminPage() {
             </div>
 
             <div>
-              <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: GOLD, fontFamily: BODY_FONT }}>Location / Address (optional)</label>
+              <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Location / Address (optional)</label>
               <input type="text" value={addLocation} onChange={(e) => setAddLocation(e.target.value)}
                 placeholder="e.g. Sacramento, Cal."
                 className="w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
@@ -514,7 +531,7 @@ export default function AdminPage() {
             </div>
 
             <div>
-              <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: GOLD, fontFamily: BODY_FONT }}>Category (optional)</label>
+              <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Category (optional)</label>
               <input type="text" value={addCategory} onChange={(e) => setAddCategory(e.target.value)}
                 placeholder="e.g. Actress, Journalist…"
                 className="w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
@@ -522,7 +539,7 @@ export default function AdminPage() {
             </div>
 
             <div>
-              <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: GOLD, fontFamily: BODY_FONT }}>Known for (optional)</label>
+              <label className="block text-xs tracking-widest uppercase mb-2" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Known for (optional)</label>
               <textarea value={addKnownFor} onChange={(e) => setAddKnownFor(e.target.value)} rows={3}
                 placeholder="A sentence about who this person was…"
                 className="w-full rounded border px-3 py-2 text-sm resize-none focus:outline-none focus:ring-1"
@@ -531,21 +548,21 @@ export default function AdminPage() {
 
             <div className="flex items-center gap-4 pt-2">
               <button type="submit" disabled={addStatus === 'saving' || !addName.trim() || !addPage.trim()}
-                className="px-6 py-2 text-sm tracking-widest uppercase border transition-all hover:bg-yellow-900/20 disabled:opacity-40"
-                style={{ borderColor: GOLD, color: GOLD, fontFamily: BODY_FONT }}>
+                className="px-6 py-2 text-sm tracking-widest uppercase border transition-all disabled:opacity-40"
+                style={{ borderColor: ACCENT, color: ACCENT, fontFamily: BODY_FONT }}>
                 {addStatus === 'saving' ? 'Adding…' : 'Add Guest'}
               </button>
-              {addStatus === 'error' && <span className="text-sm text-red-400">Something went wrong.</span>}
+              {addStatus === 'error' && <span className="text-sm text-red-600">Something went wrong.</span>}
             </div>
           </form>
 
           {addStatus === 'done' && addedGuest && (
-            <div className="mt-8 rounded border p-5" style={{ borderColor: 'rgba(74,222,128,0.3)', background: 'rgba(74,222,128,0.06)' }}>
-              <p className="text-green-400 text-sm mb-1">✓ Added — page {addedGuest.guestbookPage}</p>
-              <p className="text-lg italic mb-3" style={{ color: CREAM, fontFamily: BODY_FONT }}>{addedGuest.name}</p>
+            <div className="mt-8 rounded border p-5" style={{ borderColor: 'rgba(42,122,58,0.3)', background: 'rgba(42,122,58,0.05)' }}>
+              <p className="text-sm mb-1" style={{ color: '#2a7a3a', fontFamily: BODY_FONT }}>✓ Added — page {addedGuest.guestbookPage}</p>
+              <p className="text-lg italic mb-3" style={{ color: INK, fontFamily: BODY_FONT }}>{addedGuest.name}</p>
               <button onClick={() => { setSelected(addedGuest); setStory(''); setTab('stories') }}
                 className="text-xs tracking-widest uppercase underline opacity-60 hover:opacity-100"
-                style={{ color: GOLD, fontFamily: BODY_FONT }}>
+                style={{ color: ACCENT, fontFamily: BODY_FONT }}>
                 Write their story →
               </button>
             </div>
@@ -557,22 +574,22 @@ export default function AdminPage() {
       {tab === 'pin' && (
         <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-5 gap-8">
           <div className="md:col-span-2 space-y-2">
-            <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ color: GOLD, fontFamily: BODY_FONT }}>Click a guest to position their highlight</p>
-            <p className="text-xs italic mb-5 opacity-50" style={{ color: CREAM, fontFamily: BODY_FONT }}>Orange = placeholder · Green = pinned</p>
+            <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Click a guest to position their highlight</p>
+            <p className="text-xs italic mb-5 opacity-50" style={{ color: INK, fontFamily: BODY_FONT }}>Orange = placeholder · Green = pinned</p>
             {sorted.map((guest) => {
               const placed = !isPlaceholder(guest.guestbookCoords ?? { x: 0.5, y: 0.5 })
               return (
                 <button key={guest.id} onClick={() => openPin(guest)}
-                  className="w-full text-left px-4 py-3 rounded border transition-all hover:border-yellow-600"
+                  className="w-full text-left px-4 py-3 rounded border transition-all"
                   style={{
-                    borderColor: pinGuest?.id === guest.id ? GOLD : RULE_LIGHT,
-                    background: pinGuest?.id === guest.id ? 'rgba(200,160,80,0.08)' : 'rgba(255,255,255,0.02)',
+                    borderColor: pinGuest?.id === guest.id ? ACCENT : RULE_DIM,
+                    background: pinGuest?.id === guest.id ? 'rgba(139,105,20,0.06)' : 'transparent',
                   }}>
                   <div className="flex items-center gap-3">
-                    <span style={{ color: placed ? '#4ade80' : '#f97316', fontSize: '0.5rem' }}>●</span>
+                    <span style={{ color: placed ? '#2a7a3a' : '#f97316', fontSize: '0.5rem' }}>●</span>
                     <div>
-                      <p className="text-sm italic" style={{ color: CREAM, fontFamily: BODY_FONT }}>{guest.name}</p>
-                      <p className="text-xs opacity-40" style={{ color: CREAM, fontFamily: BODY_FONT }}>p.{guest.guestbookPage}</p>
+                      <p className="text-sm italic" style={{ color: INK, fontFamily: BODY_FONT }}>{guest.name}</p>
+                      <p className="text-xs opacity-40" style={{ color: INK, fontFamily: BODY_FONT }}>p.{guest.guestbookPage}</p>
                     </div>
                   </div>
                 </button>
@@ -583,14 +600,14 @@ export default function AdminPage() {
           <div className="md:col-span-3">
             {!pinGuest ? (
               <div className="h-64 flex items-center justify-center border rounded text-sm italic opacity-30"
-                style={{ borderColor: RULE_LIGHT, color: CREAM }}>
+                style={{ borderColor: RULE_DIM, color: INK, fontFamily: BODY_FONT }}>
                 Select a guest to pin their signature
               </div>
             ) : (
               <div className="space-y-4">
                 <div>
-                  <h2 className="text-2xl italic mb-1" style={{ color: CREAM, fontFamily: BODY_FONT }}>{pinGuest.name}</h2>
-                  <p className="text-xs opacity-50 mb-3" style={{ color: GOLD, fontFamily: BODY_FONT }}>
+                  <h2 className="text-2xl italic mb-1" style={{ color: INK, fontFamily: BODY_FONT }}>{pinGuest.name}</h2>
+                  <p className="text-xs opacity-50 mb-3" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
                     Page {pinGuest.guestbookPage} · Click on their signature in the image below
                   </p>
                 </div>
@@ -601,7 +618,7 @@ export default function AdminPage() {
                     src={`/guestbook-pages/pg${String(pinGuest.guestbookPage).padStart(3, '0')}.jpg`}
                     alt={`Page ${pinGuest.guestbookPage}`}
                     onClick={handleImgClick}
-                    style={{ width: '100%', display: 'block', borderRadius: 4 }}
+                    style={{ width: '100%', display: 'block', borderRadius: 4, border: `1px solid ${RULE}` }}
                   />
                   {pinCoords && (
                     <div style={{
@@ -620,7 +637,7 @@ export default function AdminPage() {
                 </div>
 
                 {pinCoords && (
-                  <p className="text-xs opacity-40" style={{ color: CREAM, fontFamily: BODY_FONT }}>
+                  <p className="text-xs opacity-40" style={{ color: INK, fontFamily: BODY_FONT }}>
                     x={pinCoords.x.toFixed(3)}, y={pinCoords.y.toFixed(3)}
                     {isPlaceholder(pinCoords) ? ' · click the signature above to set position' : ''}
                   </p>
@@ -628,18 +645,38 @@ export default function AdminPage() {
 
                 <div className="flex items-center gap-4">
                   <button onClick={savePin} disabled={pinSaving || !pinCoords || isPlaceholder(pinCoords)}
-                    className="px-6 py-2 text-sm tracking-widest uppercase border transition-all hover:bg-yellow-900/20 disabled:opacity-40"
-                    style={{ borderColor: GOLD, color: GOLD, fontFamily: BODY_FONT }}>
+                    className="px-6 py-2 text-sm tracking-widest uppercase border transition-all disabled:opacity-40"
+                    style={{ borderColor: ACCENT, color: ACCENT, fontFamily: BODY_FONT }}>
                     {pinSaving ? 'Saving…' : 'Save Position'}
                   </button>
-                  {pinSaved && <span className="text-sm text-green-400">✓ Saved</span>}
-                  <span className="text-xs opacity-30 italic" style={{ color: CREAM, fontFamily: BODY_FONT }}>Export JSON to keep</span>
+                  {pinSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
+                  <span className="text-xs opacity-30 italic" style={{ color: INK, fontFamily: BODY_FONT }}>Export JSON to keep</span>
                 </div>
               </div>
             )}
           </div>
         </div>
       )}
+    </>
+  )
+}
+
+export default function AdminPage() {
+  const [guests, setGuests] = useState<Guest[]>([])
+
+  useEffect(() => {
+    fetch('/api/guests').then((r) => r.json()).then(setGuests)
+  }, [])
+
+  return (
+    <main className="min-h-screen" style={{ background: PAPER, fontFamily: BODY_FONT }}>
+      <style>{`
+        @font-face { font-family: 'Hipstravaganza'; src: url('/fonts/hipstravaganza.ttf') format('truetype'); font-display: block; }
+        @font-face { font-family: 'LinLibertine'; src: url('/fonts/linlibertine.ttf') format('truetype'); font-display: block; }
+      `}</style>
+      <Suspense>
+        <AdminInner guests={guests} setGuests={setGuests} />
+      </Suspense>
     </main>
   )
 }

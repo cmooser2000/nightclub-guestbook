@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useCallback, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 interface GuestEntry {
   id: string
@@ -29,6 +29,13 @@ function shortDesc(knownFor: string): string {
 
 export default function GuestbookScroll({ pageMap }: Props) {
   const allPages = Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1)
+  const [showJump, setShowJump] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setShowJump(window.scrollY > 120)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   // Sorted list of all guests by page (then y) for jump navigation
   const sortedGuests = useMemo(() => {
@@ -65,36 +72,30 @@ export default function GuestbookScroll({ pageMap }: Props) {
     <main style={{ background: 'transparent' }}>
 
 
-      {/* Jump to Next Profile — downward arrow */}
-      <button
-        onClick={jumpToNext}
-        title="Jump to next notable guest"
-        style={{ position: 'fixed', left: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 300, background: 'none', border: 'none', padding: 0, cursor: 'pointer', filter: 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))', transition: 'filter 0.15s', opacity: 0.9 }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 3px 10px rgba(0,0,0,0.6)) brightness(1.08)'; (e.currentTarget as HTMLElement).style.opacity = '1' }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))'; (e.currentTarget as HTMLElement).style.opacity = '0.9' }}
-      >
-        <svg width="46" height="148" viewBox="0 0 46 148" xmlns="http://www.w3.org/2000/svg">
-          {/* Outer: cream fill + black stroke, points down */}
-          <path d="M 8,2 L 38,2 A 6,6 0 0 1 44,8 L 44,108 L 23,146 L 2,108 L 2,8 A 6,6 0 0 1 8,2 Z"
-                fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"/>
-          {/* Fuchsia band */}
-          <path d="M 12,8 L 34,8 A 3,3 0 0 1 37,11 L 37,105 L 23,136 L 9,105 L 9,11 A 3,3 0 0 1 12,8 Z"
-                fill="#c0405a"/>
-          {/* Inner cream */}
-          <path d="M 15,13 L 31,13 A 2,2 0 0 1 33,15 L 33,102 L 23,127 L 13,102 L 13,15 A 2,2 0 0 1 15,13 Z"
-                fill="#f0deb8"/>
-          {/* NEXT text — vertical, in Decary */}
-          <text
-            x="23" y="30"
-            fontFamily="decary, sans-serif"
-            fontSize="10"
-            fill="#1a1209"
-            textAnchor="middle"
-            letterSpacing="3"
-            writingMode="tb"
-          >NEXT</text>
-        </svg>
-      </button>
+      {/* Jump to Next Profile — downward arrow, hidden until user scrolls past hero */}
+      {showJump && (
+        <button
+          onClick={jumpToNext}
+          title="Jump to next notable guest"
+          style={{ position: 'fixed', left: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 300, background: 'none', border: 'none', padding: 0, cursor: 'pointer', filter: 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))', transition: 'filter 0.15s', opacity: 0.9 }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 3px 10px rgba(0,0,0,0.6)) brightness(1.08)'; (e.currentTarget as HTMLElement).style.opacity = '1' }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))'; (e.currentTarget as HTMLElement).style.opacity = '0.9' }}
+        >
+          <svg width="46" height="148" viewBox="0 0 46 148" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 8,2 L 38,2 A 6,6 0 0 1 44,8 L 44,108 L 23,146 L 2,108 L 2,8 A 6,6 0 0 1 8,2 Z"
+                  fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"/>
+            <path d="M 12,8 L 34,8 A 3,3 0 0 1 37,11 L 37,105 L 23,136 L 9,105 L 9,11 A 3,3 0 0 1 12,8 Z"
+                  fill="#c0405a"/>
+            <path d="M 15,13 L 31,13 A 2,2 0 0 1 33,15 L 33,102 L 23,127 L 13,102 L 13,15 A 2,2 0 0 1 15,13 Z"
+                  fill="#f0deb8"/>
+            {/* Upright stacked letters, one per line */}
+            <text x="23" y="27"  fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">N</text>
+            <text x="23" y="41"  fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">E</text>
+            <text x="23" y="55"  fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">X</text>
+            <text x="23" y="69"  fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">T</text>
+          </svg>
+        </button>
+      )}
 
       <style>{`
         .gb-guest-row {
@@ -144,10 +145,10 @@ export default function GuestbookScroll({ pageMap }: Props) {
         }
         .gb-tooltip-name {
           margin: 0 0 6px;
-          color: #c0405a;
-          font-family: 'USDeclaration', serif;
-          font-size: 1rem;
-          font-style: normal;
+          color: #1a1209;
+          font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+          font-size: 0.95rem;
+          font-style: italic;
           font-weight: normal;
           line-height: 1.3;
         }
