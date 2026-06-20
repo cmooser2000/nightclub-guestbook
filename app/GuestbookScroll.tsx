@@ -62,7 +62,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
   }, [sortedGuests])
 
   return (
-    <main style={{ background: BG }}>
+    <main style={{ background: 'transparent' }}>
 
 
       {/* Jump to Next Profile — fixed left pill */}
@@ -212,7 +212,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
               src={pageImg(pageNum)}
               alt={`Page ${pageNum}`}
               loading={pageNum <= 4 ? 'eager' : 'lazy'}
-              style={{ width: '100%', display: 'block' }}
+              style={{ width: '100%', display: 'block', boxShadow: '0 4px 32px rgba(0,0,0,0.45)' }}
             />
 
             {pageNum > 0 && (

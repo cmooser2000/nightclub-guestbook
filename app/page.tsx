@@ -18,106 +18,102 @@ export default async function Home() {
 
   return (
     <>
-      {/* ── COVER HERO ── */}
-      <div style={{ position: 'relative', width: '100%', height: 'clamp(280px, 38vw, 520px)', overflow: 'hidden' }}>
-        <style>{`
-          @font-face {
-            font-family: 'UncleBob';
-            src: url('/fonts/uncle-bob.ttf') format('truetype');
-            font-display: block;
-          }
-          @font-face {
-            font-family: 'Hornbill';
-            src: url('/fonts/hornbill.ttf') format('truetype');
-            font-display: block;
-          }
-          @font-face {
-            font-family: 'HornbillItalic';
-            src: url('/fonts/hornbill-italic.ttf') format('truetype');
-            font-display: block;
-          }
-          .cover-link {
-            font-family: 'Hornbill', serif;
-            color: #c8b07a;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(200,176,122,0.4);
-            padding-bottom: 2px;
-            transition: color 0.2s, border-color 0.2s;
-          }
-          .cover-link:hover {
-            color: #e0c88a;
-            border-bottom-color: rgba(224,200,138,0.7);
-          }
-        `}</style>
+      <style>{`
+        @font-face {
+          font-family: 'UncleBob';
+          src: url('/fonts/uncle-bob.ttf') format('truetype');
+          font-display: block;
+        }
+        @font-face {
+          font-family: 'Hornbill';
+          src: url('/fonts/hornbill.ttf') format('truetype');
+          font-display: block;
+        }
+        .cover-link {
+          font-family: 'Hornbill', serif;
+          color: #8a6a30;
+          text-decoration: none;
+          border-bottom: 1px solid rgba(138,106,48,0.4);
+          padding-bottom: 2px;
+          transition: color 0.2s;
+        }
+        .cover-link:hover { color: #c0405a; }
+        .scroll-hint {
+          animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+          0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.45; }
+          50% { transform: translateX(-50%) translateY(7px); opacity: 0.9; }
+        }
+      `}</style>
 
-        {/* Cover image */}
+      {/* ── FIXED COVER — persists as background once hero scrolls away ── */}
+      <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
         <img
           src="/guestbook-pages/pg000.jpg"
-          alt="Aladdin Studio Tiffin Room Guest Book cover"
+          alt=""
+          aria-hidden="true"
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
         />
+      </div>
 
-        {/* Dark gradient on the left so text reads clearly */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to right, rgba(18,24,32,0.32) 0%, rgba(18,24,32,0.18) 44%, transparent 64%)',
-          pointerEvents: 'none',
-        }} />
+      {/* ── HERO — cream background that scrolls away, revealing the cover ── */}
+      <div style={{
+        position: 'relative', zIndex: 1,
+        minHeight: '100vh',
+        background: '#f0deb8',
+        display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        padding: 'clamp(40px, 8vw, 100px) clamp(32px, 8vw, 120px)',
+      }}>
+        <svg
+          viewBox="0 0 600 215"
+          style={{ width: 'min(600px, 88vw)', display: 'block', overflow: 'visible', marginBottom: 'clamp(16px, 2.5vw, 32px)' }}
+          aria-label="Everybody Came to the Aladdin"
+        >
+          <text x="0" y="62" fontFamily="UncleBob, serif" fill="#c0405a"
+            fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
+            Everybody
+          </text>
+          <text x="0" y="132" fontFamily="UncleBob, serif" fill="#c0405a"
+            fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
+            Came to the
+          </text>
+          <text x="0" y="215" fontFamily="UncleBob, serif" fill="#c0405a"
+            fontSize="88" textLength="600" lengthAdjust="spacingAndGlyphs">
+            Aladdin
+          </text>
+        </svg>
 
-        {/* Overlay text — left side only, clear of the spine text */}
-        <div style={{
-          position: 'absolute', top: 0, left: 0, bottom: 0,
-          width: '58%',
-          display: 'flex', flexDirection: 'column', justifyContent: 'center',
-          padding: 'clamp(24px, 4vw, 60px) clamp(24px, 4vw, 56px)',
+        <div style={{ width: 'clamp(60px, 12vw, 140px)', height: '1px', background: 'linear-gradient(90deg, #8a6a30, transparent)', margin: '0 0 clamp(12px, 2vw, 24px)', opacity: 0.6 }} />
+
+        <p style={{
+          fontFamily: "'Hornbill', serif",
+          fontSize: 'clamp(0.9rem, 1.8vw, 1.25rem)',
+          color: '#5a3e1a',
+          lineHeight: 1.6,
+          margin: '0 0 clamp(16px, 2.5vw, 32px)',
+          maxWidth: '480px',
         }}>
-          {/* SVG title — textLength forces all 3 lines to equal width */}
-          <svg
-            viewBox="0 0 600 215"
-            style={{ width: '100%', display: 'block', overflow: 'visible', marginBottom: 'clamp(10px, 1.8vw, 22px)', filter: 'drop-shadow(0 2px 16px rgba(0,0,0,0.85))' }}
-            aria-label="Everybody Came to the Aladdin"
-          >
-            <text x="0" y="62" fontFamily="UncleBob, serif" fill="#c0405a"
-              fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
-              Everybody
-            </text>
-            <text x="0" y="132" fontFamily="UncleBob, serif" fill="#c0405a"
-              fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
-              Came to the
-            </text>
-            <text x="0" y="215" fontFamily="UncleBob, serif" fill="#c0405a"
-              fontSize="88" textLength="600" lengthAdjust="spacingAndGlyphs">
-              Aladdin
-            </text>
-          </svg>
+          Vaudeville, Silent Film, and the Mooser Sisters of San Francisco
+        </p>
 
-          <div style={{
-            width: 'clamp(60px, 10vw, 120px)',
-            height: '1px',
-            background: 'linear-gradient(90deg, #8a7040, transparent)',
-            margin: '0 0 clamp(10px, 1.5vw, 20px)',
-            opacity: 0.7,
-          }} />
+        <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.72rem, 1.1vw, 0.9rem)' }}>
+          Hattie and Minnie Mooser →
+        </Link>
 
-          <p style={{
-            fontFamily: "'Hornbill', serif",
-            fontSize: 'clamp(0.85rem, 1.7vw, 1.2rem)',
-            color: '#c8b07a',
-            lineHeight: 1.5,
-            margin: '0 0 clamp(14px, 2vw, 28px)',
-            textShadow: '0 1px 8px rgba(0,0,0,0.6)',
-          }}>
-            Vaudeville, Silent Film, and the Mooser Sisters of San Francisco
-          </p>
-
-          <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.72rem, 1.2vw, 0.95rem)' }}>
-            Hattie and Minnie Mooser →
-          </Link>
+        {/* Scroll hint */}
+        <div className="scroll-hint" style={{
+          position: 'absolute', bottom: 36, left: '50%',
+          fontSize: '1.4rem', color: '#8a6a30',
+        }}>
+          ↓
         </div>
       </div>
 
-      {/* ── GUESTBOOK SCROLL ── */}
-      <GuestbookScroll pageMap={pageMap} />
+      {/* ── GUESTBOOK PAGES — scroll over the fixed cover ── */}
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <GuestbookScroll pageMap={pageMap} />
+      </div>
     </>
   )
 }
