@@ -60,61 +60,17 @@ export default async function Home() {
       {/* ── HERO — Hattie & Minnie photo, scrolls away to reveal guestbook cover ── */}
       <div style={{
         position: 'relative', zIndex: 1,
-        minHeight: '100vh',
         background: '#1e1a18',
-        display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        overflow: 'hidden',
       }}>
-        {/* Hero photo — full bleed */}
         <img
           src="/hero.png"
-          alt="Hattie and Minnie Mooser"
-          style={{
-            position: 'absolute', inset: 0,
-            width: '100%', height: '100%',
-            objectFit: 'cover', objectPosition: 'center center',
-            display: 'block',
-          }}
+          alt="Hattie and Minnie Mooser — Guests at the Aladdin"
+          style={{ width: '100%', display: 'block' }}
         />
-        {/* Overlay so our title text pops */}
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(18,12,8,0.4)', pointerEvents: 'none' }} />
-
-        {/* Text */}
-        <div style={{
-          position: 'relative', zIndex: 2,
-          padding: 'clamp(40px, 8vw, 100px) clamp(32px, 8vw, 120px)',
-          display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
-        }}>
-          <svg
-            viewBox="0 0 600 215"
-            style={{ width: 'min(600px, 88vw)', display: 'block', overflow: 'visible', marginBottom: 'clamp(16px, 2.5vw, 32px)', filter: 'drop-shadow(0 2px 14px rgba(0,0,0,0.8))' }}
-            aria-label="Everybody Came to the Aladdin"
-          >
-            <text x="0" y="62" fontFamily="UncleBob, serif" fill="#c0405a"
-              fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
-              Everybody
-            </text>
-            <text x="0" y="132" fontFamily="UncleBob, serif" fill="#c0405a"
-              fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
-              Came to the
-            </text>
-            <text x="0" y="215" fontFamily="UncleBob, serif" fill="#c0405a"
-              fontSize="88" textLength="600" lengthAdjust="spacingAndGlyphs">
-              Aladdin
-            </text>
-          </svg>
-
-          <div style={{ width: 'clamp(60px, 12vw, 140px)', height: '1px', background: 'linear-gradient(90deg, #c8b07a, transparent)', margin: '0 0 clamp(12px, 2vw, 24px)', opacity: 0.6 }} />
-
-          <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 1rem)' }}>
-            Hattie and Minnie Mooser →
-          </Link>
-        </div>
-
         {/* Scroll hint */}
         <div className="scroll-hint" style={{
-          position: 'absolute', bottom: 36, left: '50%',
-          fontSize: '1.4rem', color: 'rgba(200,176,122,0.7)',
+          position: 'absolute', bottom: 20, left: '50%',
+          fontSize: '1.2rem', color: 'rgba(200,176,122,0.7)',
         }}>
           ↓
         </div>
