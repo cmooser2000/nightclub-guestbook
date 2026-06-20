@@ -31,13 +31,13 @@ export default async function Home() {
         }
         .cover-link {
           font-family: 'Hornbill', serif;
-          color: #8a6a30;
+          color: #c8b07a;
           text-decoration: none;
-          border-bottom: 1px solid rgba(138,106,48,0.4);
+          border-bottom: 1px solid rgba(200,176,122,0.4);
           padding-bottom: 2px;
           transition: color 0.2s;
         }
-        .cover-link:hover { color: #c0405a; }
+        .cover-link:hover { color: #e0c070; }
         .scroll-hint {
           animation: bounce 2s ease-in-out infinite;
         }
@@ -47,8 +47,8 @@ export default async function Home() {
         }
       `}</style>
 
-      {/* ── FIXED COVER — persists as background once hero scrolls away ── */}
-      <div style={{ position: 'fixed', inset: 0, zIndex: 0, background: '#3a4858' }}>
+      {/* ── FIXED COVER — dark background matches hero, book cover reveals on scroll ── */}
+      <div style={{ position: 'fixed', inset: 0, zIndex: 0, background: '#1e1a18' }}>
         <img
           src="/guestbook-pages/pg000.jpg"
           alt=""
@@ -57,54 +57,64 @@ export default async function Home() {
         />
       </div>
 
-      {/* ── HERO — cream background that scrolls away, revealing the cover ── */}
+      {/* ── HERO — Hattie & Minnie photo, scrolls away to reveal guestbook cover ── */}
       <div style={{
         position: 'relative', zIndex: 1,
         minHeight: '100vh',
-        background: '#f0deb8',
+        background: '#1e1a18',
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        padding: 'clamp(40px, 8vw, 100px) clamp(32px, 8vw, 120px)',
+        overflow: 'hidden',
       }}>
-        <svg
-          viewBox="0 0 600 215"
-          style={{ width: 'min(600px, 88vw)', display: 'block', overflow: 'visible', marginBottom: 'clamp(16px, 2.5vw, 32px)' }}
-          aria-label="Everybody Came to the Aladdin"
-        >
-          <text x="0" y="62" fontFamily="UncleBob, serif" fill="#c0405a"
-            fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
-            Everybody
-          </text>
-          <text x="0" y="132" fontFamily="UncleBob, serif" fill="#c0405a"
-            fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
-            Came to the
-          </text>
-          <text x="0" y="215" fontFamily="UncleBob, serif" fill="#c0405a"
-            fontSize="88" textLength="600" lengthAdjust="spacingAndGlyphs">
-            Aladdin
-          </text>
-        </svg>
+        {/* Hero photo — full bleed */}
+        <img
+          src="/hero.png"
+          alt="Hattie and Minnie Mooser"
+          style={{
+            position: 'absolute', inset: 0,
+            width: '100%', height: '100%',
+            objectFit: 'cover', objectPosition: 'center center',
+            display: 'block',
+          }}
+        />
+        {/* Overlay so our title text pops */}
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(18,12,8,0.4)', pointerEvents: 'none' }} />
 
-        <div style={{ width: 'clamp(60px, 12vw, 140px)', height: '1px', background: 'linear-gradient(90deg, #8a6a30, transparent)', margin: '0 0 clamp(12px, 2vw, 24px)', opacity: 0.6 }} />
-
-        <p style={{
-          fontFamily: "'Hornbill', serif",
-          fontSize: 'clamp(0.9rem, 1.8vw, 1.25rem)',
-          color: '#5a3e1a',
-          lineHeight: 1.6,
-          margin: '0 0 clamp(16px, 2.5vw, 32px)',
-          maxWidth: '480px',
+        {/* Text */}
+        <div style={{
+          position: 'relative', zIndex: 2,
+          padding: 'clamp(40px, 8vw, 100px) clamp(32px, 8vw, 120px)',
+          display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
         }}>
-          Vaudeville, Silent Film, and the Mooser Sisters of San Francisco
-        </p>
+          <svg
+            viewBox="0 0 600 215"
+            style={{ width: 'min(600px, 88vw)', display: 'block', overflow: 'visible', marginBottom: 'clamp(16px, 2.5vw, 32px)', filter: 'drop-shadow(0 2px 14px rgba(0,0,0,0.8))' }}
+            aria-label="Everybody Came to the Aladdin"
+          >
+            <text x="0" y="62" fontFamily="UncleBob, serif" fill="#c0405a"
+              fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
+              Everybody
+            </text>
+            <text x="0" y="132" fontFamily="UncleBob, serif" fill="#c0405a"
+              fontSize="62" textLength="600" lengthAdjust="spacingAndGlyphs">
+              Came to the
+            </text>
+            <text x="0" y="215" fontFamily="UncleBob, serif" fill="#c0405a"
+              fontSize="88" textLength="600" lengthAdjust="spacingAndGlyphs">
+              Aladdin
+            </text>
+          </svg>
 
-        <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.72rem, 1.1vw, 0.9rem)' }}>
-          Hattie and Minnie Mooser →
-        </Link>
+          <div style={{ width: 'clamp(60px, 12vw, 140px)', height: '1px', background: 'linear-gradient(90deg, #c8b07a, transparent)', margin: '0 0 clamp(12px, 2vw, 24px)', opacity: 0.6 }} />
+
+          <Link href="/story" className="cover-link" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 1rem)' }}>
+            Hattie and Minnie Mooser →
+          </Link>
+        </div>
 
         {/* Scroll hint */}
         <div className="scroll-hint" style={{
           position: 'absolute', bottom: 36, left: '50%',
-          fontSize: '1.4rem', color: '#8a6a30',
+          fontSize: '1.4rem', color: 'rgba(200,176,122,0.7)',
         }}>
           ↓
         </div>
