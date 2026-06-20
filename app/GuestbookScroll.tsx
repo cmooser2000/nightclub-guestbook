@@ -117,10 +117,10 @@ export default function GuestbookScroll({ pageMap }: Props) {
 
         .gb-panel {
           position: fixed;
-          left: 12px;
-          top: 24px;
-          width: 200px;
-          max-height: calc(100vh - 48px);
+          right: 12px;
+          top: 180px;
+          width: 210px;
+          max-height: calc(100vh - 210px);
           z-index: 200;
           display: flex;
           flex-direction: column;
@@ -133,8 +133,8 @@ export default function GuestbookScroll({ pageMap }: Props) {
           opacity: 1;
           pointer-events: auto;
         }
-        /* Hide on narrow viewports where panel would overlap book */
-        @media (max-width: 1080px) {
+        /* Hide on viewports too narrow to show the panel without overlap */
+        @media (max-width: 1100px) {
           .gb-panel { display: none; }
         }
 

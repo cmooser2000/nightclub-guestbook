@@ -2805,6 +2805,60 @@
     "dadStoryUpdated": null
   },
   {
+    "id": "annie-laurie",
+    "name": "Annie Laurie",
+    "nameVariants": [
+      "Annie Laurie",
+      "Winifred Black Bonfils",
+      "Winifred Sweet"
+    ],
+    "era": "1920s",
+    "category": "Journalist",
+    "knownFor": "The most famous female reporter of the Gilded Age, known by her pen name 'Annie Laurie.' A star of the San Francisco Examiner and William Randolph Hearst's newspaper empire, she pioneered undercover and 'stunt' journalism — famously feigning illness to expose conditions at Bellevue Hospital.",
+    "quickFacts": [
+      "Born Winifred Sweet in 1863 in Chilton, Wisconsin; died 1936 in San Francisco",
+      "Joined the San Francisco Examiner in 1890 under Hearst, who made her a household name",
+      "First woman to cover a presidential campaign (1900) and a major prizefight",
+      "Known for emotional, first-person stories on the poor and marginalized — a predecessor to modern advocacy journalism",
+      "Signed the Aladdin guestbook (pg. 45) as 'Annie Laurie,' with the annotation 'Examiner Annie Laurie'"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Winifredbonfils.jpg/500px-Winifredbonfils.jpg",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Winifred_Bonfils",
+    "guestbookPage": 45,
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.58
+    },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "lillian-shaw",
+    "name": "Lillian Shaw",
+    "nameVariants": [
+      "Lillian Shaw"
+    ],
+    "era": "1920s",
+    "category": "Vaudeville Performer",
+    "knownFor": "A vaudeville singer and comedian who performed at the Orpheum circuit theatres, known for her comic specialty songs and lively stage presence. She signed the Aladdin guestbook listing the Orpheum as her address — the mark of a working performer on tour.",
+    "quickFacts": [
+      "Performed on the prestigious Orpheum vaudeville circuit in the 1910s and 1920s",
+      "Known for novelty and comic songs performed in a broad, character-driven style",
+      "Signed the Aladdin guestbook (pg. 46) with 'Orpheum' as her address"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 46,
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.06
+    },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
     "id": "jacob-stellman",
     "name": "J. Stellman",
     "nameVariants": [
