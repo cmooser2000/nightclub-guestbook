@@ -53,7 +53,7 @@ export default async function Home() {
           src="/guestbook-pages/pg000.jpg"
           alt=""
           aria-hidden="true"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '28% center', display: 'block' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right center', display: 'block' }}
         />
       </div>
 
