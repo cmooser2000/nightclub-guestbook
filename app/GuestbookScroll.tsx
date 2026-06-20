@@ -118,10 +118,9 @@ export default function GuestbookScroll({ pageMap }: Props) {
         .gb-panel {
           position: fixed;
           left: 12px;
-          top: 50%;
-          transform: translateY(-50%);
+          top: 24px;
           width: 200px;
-          max-height: 80vh;
+          max-height: calc(100vh - 48px);
           z-index: 200;
           display: flex;
           flex-direction: column;
@@ -372,10 +371,10 @@ export default function GuestbookScroll({ pageMap }: Props) {
                   fill="#c0405a"/>
             <path d="M 15,13 L 31,13 A 2,2 0 0 1 33,15 L 33,102 L 23,127 L 13,102 L 13,15 A 2,2 0 0 1 15,13 Z"
                   fill="#f0deb8"/>
-            <text x="23" y="27" fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">N</text>
-            <text x="23" y="41" fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">E</text>
-            <text x="23" y="55" fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">X</text>
-            <text x="23" y="69" fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">T</text>
+            <text x="23" y="28" fontFamily="'Decary', sans-serif" fontSize="15" fontWeight="700" fill="#c0405a" textAnchor="middle">N</text>
+            <text x="23" y="45" fontFamily="'Decary', sans-serif" fontSize="15" fontWeight="700" fill="#c0405a" textAnchor="middle">E</text>
+            <text x="23" y="62" fontFamily="'Decary', sans-serif" fontSize="15" fontWeight="700" fill="#c0405a" textAnchor="middle">X</text>
+            <text x="23" y="79" fontFamily="'Decary', sans-serif" fontSize="15" fontWeight="700" fill="#c0405a" textAnchor="middle">T</text>
           </svg>
         </button>
       )}

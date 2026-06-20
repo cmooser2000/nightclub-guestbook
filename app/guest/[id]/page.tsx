@@ -29,8 +29,8 @@ export default async function GuestPage({
     <main style={{ background: PAPER, color: INK, minHeight: '100vh' }}>
       <style>{`
         @font-face {
-          font-family: 'Hipstravaganza';
-          src: url('/fonts/hipstravaganza.ttf') format('truetype');
+          font-family: 'MarketDeco';
+          src: url('/fonts/market-deco.ttf') format('truetype');
           font-display: block;
         }
         @font-face {
@@ -64,7 +64,7 @@ export default async function GuestPage({
             {guest.category}{guest.era ? ` · ${guest.era}` : ''}
           </p>
           <h1 style={{
-            fontFamily: 'Hipstravaganza, serif',
+            fontFamily: 'MarketDeco, serif',
             fontSize: 'clamp(2.4rem, 7vw, 4.5rem)',
             fontWeight: 400,
             lineHeight: 1.05,

@@ -240,7 +240,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Admin</p>
-            <h1 className="text-2xl" style={{ color: INK, fontFamily: "'Hipstravaganza', serif" }}>
+            <h1 className="text-2xl" style={{ color: INK, fontFamily: "'MarketDeco', serif" }}>
               The Guestbook
             </h1>
           </div>
@@ -343,7 +343,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
 
                 {/* Name + meta */}
                 <div>
-                  <h2 className="text-3xl mb-1" style={{ color: INK, fontFamily: "'Hipstravaganza', serif" }}>
+                  <h2 className="text-3xl mb-1" style={{ color: INK, fontFamily: "'MarketDeco', serif" }}>
                     {selected.name}
                   </h2>
                   <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
@@ -671,7 +671,7 @@ export default function AdminPage() {
   return (
     <main className="min-h-screen" style={{ background: PAPER, fontFamily: BODY_FONT }}>
       <style>{`
-        @font-face { font-family: 'Hipstravaganza'; src: url('/fonts/hipstravaganza.ttf') format('truetype'); font-display: block; }
+        @font-face { font-family: 'MarketDeco'; src: url('/fonts/market-deco.ttf') format('truetype'); font-display: block; }
         @font-face { font-family: 'LinLibertine'; src: url('/fonts/linlibertine.ttf') format('truetype'); font-display: block; }
       `}</style>
       <Suspense>
