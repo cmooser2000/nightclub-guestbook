@@ -65,37 +65,35 @@ export default function GuestbookScroll({ pageMap }: Props) {
     <main style={{ background: 'transparent' }}>
 
 
-      {/* Jump to Next Profile — fixed left pill */}
+      {/* Jump to Next Profile — downward arrow */}
       <button
         onClick={jumpToNext}
-        style={{
-          position: 'fixed',
-          left: 0,
-          top: '50%',
-          transform: 'translateY(-50%)',
-          zIndex: 300,
-          background: '#1a1209',
-          color: '#c9a84c',
-          border: 'none',
-          borderRadius: '0 6px 6px 0',
-          padding: '14px 10px',
-          cursor: 'pointer',
-          writingMode: 'vertical-rl',
-          textOrientation: 'mixed',
-          rotate: '180deg',
-          fontSize: '0.6rem',
-          letterSpacing: '0.22em',
-          textTransform: 'uppercase',
-          opacity: 0.85,
-          boxShadow: '2px 0 12px rgba(0,0,0,0.25)',
-          transition: 'opacity 0.15s, background 0.15s',
-          fontFamily: 'var(--font-playfair), Georgia, serif',
-        }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = '1'; (e.currentTarget as HTMLElement).style.background = '#2d1f0a' }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = '0.85'; (e.currentTarget as HTMLElement).style.background = '#1a1209' }}
         title="Jump to next notable guest"
+        style={{ position: 'fixed', left: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 300, background: 'none', border: 'none', padding: 0, cursor: 'pointer', filter: 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))', transition: 'filter 0.15s', opacity: 0.9 }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 3px 10px rgba(0,0,0,0.6)) brightness(1.08)'; (e.currentTarget as HTMLElement).style.opacity = '1' }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))'; (e.currentTarget as HTMLElement).style.opacity = '0.9' }}
       >
-        Next&nbsp;Profile&nbsp;↓
+        <svg width="46" height="148" viewBox="0 0 46 148" xmlns="http://www.w3.org/2000/svg">
+          {/* Outer: cream fill + black stroke, points down */}
+          <path d="M 8,2 L 38,2 A 6,6 0 0 1 44,8 L 44,108 L 23,146 L 2,108 L 2,8 A 6,6 0 0 1 8,2 Z"
+                fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"/>
+          {/* Fuchsia band */}
+          <path d="M 12,8 L 34,8 A 3,3 0 0 1 37,11 L 37,105 L 23,136 L 9,105 L 9,11 A 3,3 0 0 1 12,8 Z"
+                fill="#c0405a"/>
+          {/* Inner cream */}
+          <path d="M 15,13 L 31,13 A 2,2 0 0 1 33,15 L 33,102 L 23,127 L 13,102 L 13,15 A 2,2 0 0 1 15,13 Z"
+                fill="#f0deb8"/>
+          {/* NEXT text — vertical, in Decary */}
+          <text
+            x="23" y="30"
+            fontFamily="decary, sans-serif"
+            fontSize="10"
+            fill="#1a1209"
+            textAnchor="middle"
+            letterSpacing="3"
+            writingMode="tb"
+          >NEXT</text>
+        </svg>
       </button>
 
       <style>{`
@@ -123,12 +121,14 @@ export default function GuestbookScroll({ pageMap }: Props) {
         .gb-guest-row:hover .gb-arrow-svg {
           filter: drop-shadow(1px 3px 8px rgba(0,0,0,0.55)) brightness(1.08);
         }
+        @font-face { font-family: 'USDeclaration'; src: url('/fonts/us-declaration.ttf') format('truetype'); font-display: block; }
+        @font-face { font-family: 'Decary'; src: url('/fonts/decary.otf') format('opentype'); font-display: block; }
         .gb-tooltip {
           display: none;
           position: absolute;
           top: calc(100% + 6px);
           left: 0;
-          width: 260px;
+          width: 220px;
           background: #f0deb8;
           color: #1a1209;
           border: 2px solid #c0405a;
@@ -137,24 +137,22 @@ export default function GuestbookScroll({ pageMap }: Props) {
           z-index: 100;
           pointer-events: none;
           box-shadow: 0 3px 14px rgba(0,0,0,0.18);
-          font-family: 'Palatino Linotype', Palatino, serif;
           white-space: normal;
         }
         .gb-guest-row:hover .gb-tooltip {
           display: block;
         }
         .gb-tooltip-name {
-          margin: 0 0 4px;
-          font-weight: 700;
+          margin: 0 0 6px;
           color: #c0405a;
-          font-size: 0.85rem;
-          font-style: italic;
+          font-family: 'USDeclaration', serif;
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 1.3;
         }
         .gb-tooltip-desc {
-          margin: 0 0 6px;
-          font-size: 0.72rem;
-          line-height: 1.5;
-          color: #3a2a1a;
+          display: none;
         }
         .gb-tooltip-cta {
           margin: 0;
@@ -163,6 +161,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
           letter-spacing: 0.06em;
           text-transform: uppercase;
           color: #1a1209;
+          font-family: 'Palatino Linotype', Palatino, serif;
         }
         .gb-page-num {
           position: absolute;
