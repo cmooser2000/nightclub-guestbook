@@ -1,12 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 interface GuestEntry {
   id: string
   name: string
   knownFor: string
+  category: string
   guestbookCoords: { x: number; y: number }
 }
 
@@ -15,8 +16,29 @@ interface Props {
 }
 
 const TOTAL_PAGES = 418
-const BG = '#f7f2ea'
 
+const CATEGORIES = [
+  {
+    label: 'Politicians',
+    match: (c: string) => /politic|mayor|governor|senator|congress|assembly|presidential|diplomacy/i.test(c),
+  },
+  {
+    label: 'Musicians',
+    match: (c: string) => /music|violinist|pianist|composer|conductor|singer|vocalist|cellist|orchestra|opera|songwriter/i.test(c),
+  },
+  {
+    label: 'Vaudeville Performers',
+    match: (c: string) => /vaudeville/i.test(c),
+  },
+  {
+    label: 'Silent Film Stars',
+    match: (c: string) => /silent film/i.test(c),
+  },
+  {
+    label: 'Society Guests',
+    match: (c: string) => /society/i.test(c),
+  },
+]
 
 function pageImg(n: number) {
   return `/guestbook-pages/pg${String(n).padStart(3, '0')}.jpg`
@@ -29,15 +51,17 @@ function shortDesc(knownFor: string): string {
 
 export default function GuestbookScroll({ pageMap }: Props) {
   const allPages = Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1)
-  const [showJump, setShowJump] = useState(false)
+  const [showPanel, setShowPanel] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const searchInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    const onScroll = () => setShowJump(window.scrollY > 120)
+    const onScroll = () => setShowPanel(window.scrollY > 120)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Sorted list of all guests by page (then y) for jump navigation
   const sortedGuests = useMemo(() => {
     return Object.entries(pageMap)
       .flatMap(([page, guests]) =>
@@ -48,11 +72,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
 
   const jumpToNext = useCallback(() => {
     if (sortedGuests.length === 0) return
-
-    // Viewport midpoint in document coordinates
     const mid = window.scrollY + window.innerHeight * 0.4
-
-    // Find first guest whose page top is beyond mid
     for (const g of sortedGuests) {
       const el = document.getElementById(`page-${g.pageNum}`)
       if (!el) continue
@@ -62,42 +82,125 @@ export default function GuestbookScroll({ pageMap }: Props) {
         return
       }
     }
-
-    // Wrap: jump back to first guest
     const firstEl = document.getElementById(`page-${sortedGuests[0].pageNum}`)
     firstEl?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }, [sortedGuests])
 
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return []
+    const q = searchQuery.toLowerCase()
+    return sortedGuests.filter(g => g.name.toLowerCase().includes(q)).slice(0, 12)
+  }, [searchQuery, sortedGuests])
+
+  const categoryGuests = useMemo(() => {
+    if (!activeCategory) return []
+    const cat = CATEGORIES.find(c => c.label === activeCategory)
+    if (!cat) return []
+    return sortedGuests.filter(g => cat.match(g.category))
+      .sort((a, b) => a.name.localeCompare(b.name))
+  }, [activeCategory, sortedGuests])
+
+  function jumpToGuest(pageNum: number) {
+    setSearchQuery('')
+    const el = document.getElementById(`page-${pageNum}`)
+    el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <main style={{ background: 'transparent' }}>
 
-
-      {/* Jump to Next Profile — downward arrow, hidden until user scrolls past hero */}
-      {showJump && (
-        <button
-          onClick={jumpToNext}
-          title="Jump to next notable guest"
-          style={{ position: 'fixed', left: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 300, background: 'none', border: 'none', padding: 0, cursor: 'pointer', filter: 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))', transition: 'filter 0.15s', opacity: 0.9 }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 3px 10px rgba(0,0,0,0.6)) brightness(1.08)'; (e.currentTarget as HTMLElement).style.opacity = '1' }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))'; (e.currentTarget as HTMLElement).style.opacity = '0.9' }}
-        >
-          <svg width="46" height="148" viewBox="0 0 46 148" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 8,2 L 38,2 A 6,6 0 0 1 44,8 L 44,108 L 23,146 L 2,108 L 2,8 A 6,6 0 0 1 8,2 Z"
-                  fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"/>
-            <path d="M 12,8 L 34,8 A 3,3 0 0 1 37,11 L 37,105 L 23,136 L 9,105 L 9,11 A 3,3 0 0 1 12,8 Z"
-                  fill="#c0405a"/>
-            <path d="M 15,13 L 31,13 A 2,2 0 0 1 33,15 L 33,102 L 23,127 L 13,102 L 13,15 A 2,2 0 0 1 15,13 Z"
-                  fill="#f0deb8"/>
-            {/* Upright stacked letters, one per line */}
-            <text x="23" y="27"  fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">N</text>
-            <text x="23" y="41"  fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">E</text>
-            <text x="23" y="55"  fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">X</text>
-            <text x="23" y="69"  fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">T</text>
-          </svg>
-        </button>
-      )}
-
+      {/* ── LEFT PANEL — search + browse, appears after hero ── */}
       <style>{`
+        @font-face { font-family: 'USDeclaration'; src: url('/fonts/us-declaration.ttf') format('truetype'); font-display: block; }
+        @font-face { font-family: 'Decary'; src: url('/fonts/decary.otf') format('opentype'); font-display: block; }
+        @font-face { font-family: 'LinLibertine'; src: url('/fonts/linlibertine.ttf') format('truetype'); font-display: block; }
+
+        .gb-panel {
+          position: fixed;
+          left: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 200px;
+          max-height: 80vh;
+          z-index: 200;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.3s;
+        }
+        .gb-panel.visible {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        /* Hide on narrow viewports where panel would overlap book */
+        @media (max-width: 1080px) {
+          .gb-panel { display: none; }
+        }
+
+        .gb-panel-box {
+          background: #f5f0e6;
+          border: 1px solid #c8b89a;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+        }
+
+        .gb-search-input {
+          width: 100%;
+          background: transparent;
+          border: none;
+          outline: none;
+          font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
+          font-size: 0.82rem;
+          color: #1a1209;
+          padding: 10px 10px 10px 28px;
+        }
+        .gb-search-input::placeholder { color: rgba(26,18,9,0.38); }
+
+        .gb-cat-btn {
+          width: 100%;
+          text-align: left;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
+          font-size: 0.78rem;
+          color: #8b6914;
+          padding: 7px 12px;
+          letter-spacing: 0.04em;
+          border-top: 1px solid rgba(200,184,154,0.4);
+          transition: background 0.12s;
+        }
+        .gb-cat-btn:hover { background: rgba(139,105,20,0.06); }
+        .gb-cat-btn.active { background: rgba(139,105,20,0.1); color: #1a1209; font-style: italic; }
+
+        .gb-results {
+          overflow-y: auto;
+          max-height: 52vh;
+        }
+        .gb-results::-webkit-scrollbar { width: 4px; }
+        .gb-results::-webkit-scrollbar-track { background: transparent; }
+        .gb-results::-webkit-scrollbar-thumb { background: rgba(200,184,154,0.5); border-radius: 2px; }
+
+        .gb-result-item {
+          display: block;
+          width: 100%;
+          text-align: left;
+          background: none;
+          border: none;
+          border-top: 1px solid rgba(200,184,154,0.3);
+          padding: 8px 12px;
+          cursor: pointer;
+          font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
+          font-size: 0.8rem;
+          color: #1a1209;
+          line-height: 1.3;
+          transition: background 0.1s;
+          text-decoration: none;
+        }
+        .gb-result-item:hover { background: rgba(139,105,20,0.08); }
+        .gb-result-item .pg { font-size: 0.62rem; color: #8b6914; display: block; margin-top: 1px; }
+
         .gb-guest-row {
           position: absolute;
           left: -132px;
@@ -111,9 +214,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
           text-decoration: none;
           z-index: 10;
         }
-        .gb-guest-row:hover {
-          z-index: 20;
-        }
+        .gb-guest-row:hover { z-index: 20; }
         .gb-arrow-svg {
           flex-shrink: 0;
           filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.4));
@@ -122,8 +223,6 @@ export default function GuestbookScroll({ pageMap }: Props) {
         .gb-guest-row:hover .gb-arrow-svg {
           filter: drop-shadow(1px 3px 8px rgba(0,0,0,0.55)) brightness(1.08);
         }
-        @font-face { font-family: 'USDeclaration'; src: url('/fonts/us-declaration.ttf') format('truetype'); font-display: block; }
-        @font-face { font-family: 'Decary'; src: url('/fonts/decary.otf') format('opentype'); font-display: block; }
         .gb-tooltip {
           display: none;
           position: absolute;
@@ -140,9 +239,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
           box-shadow: 0 3px 14px rgba(0,0,0,0.18);
           white-space: normal;
         }
-        .gb-guest-row:hover .gb-tooltip {
-          display: block;
-        }
+        .gb-guest-row:hover .gb-tooltip { display: block; }
         .gb-tooltip-name {
           margin: 0 0 6px;
           color: #1a1209;
@@ -152,9 +249,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
           font-weight: normal;
           line-height: 1.3;
         }
-        .gb-tooltip-desc {
-          display: none;
-        }
+        .gb-tooltip-desc { display: none; }
         .gb-tooltip-cta {
           margin: 0;
           font-size: 0.6rem;
@@ -177,6 +272,114 @@ export default function GuestbookScroll({ pageMap }: Props) {
         }
       `}</style>
 
+      <div className={`gb-panel${showPanel ? ' visible' : ''}`}>
+        <div className="gb-panel-box">
+
+          {/* ── CATEGORY LIST VIEW ── */}
+          {activeCategory ? (
+            <>
+              {/* Back header */}
+              <div style={{ padding: '9px 12px', display: 'flex', alignItems: 'center', gap: 6, borderBottom: '1px solid rgba(200,184,154,0.5)' }}>
+                <button
+                  onClick={() => setActiveCategory(null)}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, color: '#8b6914', fontSize: '0.75rem', fontFamily: 'LinLibertine, serif', display: 'flex', alignItems: 'center', gap: 4 }}
+                >
+                  ← <span style={{ fontStyle: 'italic', color: '#1a1209' }}>{activeCategory}</span>
+                </button>
+              </div>
+              <div className="gb-results">
+                {categoryGuests.length === 0 ? (
+                  <p style={{ padding: '12px', fontSize: '0.75rem', opacity: 0.4, fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#1a1209' }}>None found</p>
+                ) : categoryGuests.map(g => (
+                  <Link key={g.id} href={`/guest/${g.id}`} className="gb-result-item">
+                    {g.name}
+                    <span className="pg">p. {g.pageNum}</span>
+                  </Link>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              {/* ── SEARCH ROW ── */}
+              <div style={{ position: 'relative', borderBottom: '1px solid rgba(200,184,154,0.5)' }}>
+                <svg style={{ position: 'absolute', left: 9, top: '50%', transform: 'translateY(-50%)', opacity: 0.35 }} width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <circle cx="5.5" cy="5.5" r="4.5" stroke="#1a1209" strokeWidth="1.4"/>
+                  <line x1="9" y1="9" x2="12" y2="12" stroke="#1a1209" strokeWidth="1.4" strokeLinecap="round"/>
+                </svg>
+                <input
+                  ref={searchInputRef}
+                  className="gb-search-input"
+                  placeholder="Search a name…"
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    style={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#8b6914', fontSize: '0.9rem', lineHeight: 1, padding: 2 }}
+                  >×</button>
+                )}
+              </div>
+
+              {/* Search results */}
+              {searchResults.length > 0 && (
+                <div className="gb-results" style={{ borderBottom: '1px solid rgba(200,184,154,0.4)' }}>
+                  {searchResults.map(g => (
+                    <button key={g.id} className="gb-result-item" onClick={() => jumpToGuest(g.pageNum)}>
+                      {g.name}
+                      <span className="pg">p. {g.pageNum} — in guestbook</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+              {searchQuery && searchResults.length === 0 && (
+                <p style={{ padding: '10px 12px', fontSize: '0.75rem', opacity: 0.4, fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#1a1209', borderBottom: '1px solid rgba(200,184,154,0.4)' }}>No matches</p>
+              )}
+
+              {/* ── BROWSE BY TYPE ── */}
+              <div>
+                <p style={{ padding: '8px 12px 4px', fontSize: '0.6rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#8b6914', fontFamily: 'LinLibertine, serif', margin: 0 }}>
+                  Browse by type
+                </p>
+                {CATEGORIES.map(cat => (
+                  <button
+                    key={cat.label}
+                    className="gb-cat-btn"
+                    onClick={() => setActiveCategory(cat.label)}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Jump to Next Profile — downward arrow */}
+      {showPanel && (
+        <button
+          onClick={jumpToNext}
+          title="Jump to next notable guest"
+          style={{ position: 'fixed', left: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 300, background: 'none', border: 'none', padding: 0, cursor: 'pointer', filter: 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))', transition: 'filter 0.15s', opacity: 0.9 }}
+          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 3px 10px rgba(0,0,0,0.6)) brightness(1.08)'; (e.currentTarget as HTMLElement).style.opacity = '1' }}
+          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.filter = 'drop-shadow(2px 2px 6px rgba(0,0,0,0.4))'; (e.currentTarget as HTMLElement).style.opacity = '0.9' }}
+        >
+          <svg width="46" height="148" viewBox="0 0 46 148" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 8,2 L 38,2 A 6,6 0 0 1 44,8 L 44,108 L 23,146 L 2,108 L 2,8 A 6,6 0 0 1 8,2 Z"
+                  fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"/>
+            <path d="M 12,8 L 34,8 A 3,3 0 0 1 37,11 L 37,105 L 23,136 L 9,105 L 9,11 A 3,3 0 0 1 12,8 Z"
+                  fill="#c0405a"/>
+            <path d="M 15,13 L 31,13 A 2,2 0 0 1 33,15 L 33,102 L 23,127 L 13,102 L 13,15 A 2,2 0 0 1 15,13 Z"
+                  fill="#f0deb8"/>
+            <text x="23" y="27" fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">N</text>
+            <text x="23" y="41" fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">E</text>
+            <text x="23" y="55" fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">X</text>
+            <text x="23" y="69" fontFamily="'Decary', sans-serif" fontSize="12" fontWeight="600" fill="#1a1209" textAnchor="middle">T</text>
+          </svg>
+        </button>
+      )}
+
       {allPages.map((pageNum) => {
         const guests = pageMap[pageNum] ?? []
         return (
@@ -186,10 +389,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
             style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}
           >
             {pageNum === 70 && (
-              <div
-                className="gb-guest-row"
-                style={{ top: '46%', cursor: 'default' }}
-              >
+              <div className="gb-guest-row" style={{ top: '46%', cursor: 'default' }}>
                 <svg className="gb-arrow-svg" width="130" height="40" viewBox="0 0 130 40" xmlns="http://www.w3.org/2000/svg">
                   <path d="M 10,2 L 92,2 L 128,20 L 92,38 L 10,38 A 8,8 0 0 1 2,30 L 2,10 A 8,8 0 0 1 10,2 Z" fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"/>
                   <path d="M 11,8 L 88,8 L 120,20 L 88,32 L 11,32 A 4,4 0 0 1 7,28 L 7,12 A 4,4 0 0 1 11,8 Z" fill="#c0405a"/>
@@ -214,11 +414,9 @@ export default function GuestbookScroll({ pageMap }: Props) {
               loading={pageNum <= 4 ? 'eager' : 'lazy'}
               style={{ width: '100%', display: 'block', boxShadow: '0 4px 32px rgba(0,0,0,0.45)' }}
             />
-
             {pageNum > 0 && (
               <div className="gb-page-num">p.&nbsp;{pageNum}</div>
             )}
-
             {guests.map((g) => (
               <Link
                 key={g.id}
@@ -227,23 +425,10 @@ export default function GuestbookScroll({ pageMap }: Props) {
                 style={{ top: `${g.guestbookCoords.y * 100}%` }}
                 title={g.name}
               >
-                {/* Vintage arrow sign: cream center, red band, black outline */}
                 <svg className="gb-arrow-svg" width="130" height="40" viewBox="0 0 130 40" xmlns="http://www.w3.org/2000/svg">
-                  {/* Outer: cream fill + black stroke */}
-                  <path
-                    d="M 10,2 L 92,2 L 128,20 L 92,38 L 10,38 A 8,8 0 0 1 2,30 L 2,10 A 8,8 0 0 1 10,2 Z"
-                    fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"
-                  />
-                  {/* Red band */}
-                  <path
-                    d="M 11,8 L 88,8 L 120,20 L 88,32 L 11,32 A 4,4 0 0 1 7,28 L 7,12 A 4,4 0 0 1 11,8 Z"
-                    fill="#c0405a"
-                  />
-                  {/* Inner cream */}
-                  <path
-                    d="M 13,13 L 83,13 L 111,20 L 83,27 L 13,27 A 2,2 0 0 1 11,25 L 11,15 A 2,2 0 0 1 13,13 Z"
-                    fill="#f0deb8"
-                  />
+                  <path d="M 10,2 L 92,2 L 128,20 L 92,38 L 10,38 A 8,8 0 0 1 2,30 L 2,10 A 8,8 0 0 1 10,2 Z" fill="#f0deb8" stroke="#1a1209" strokeWidth="2.5" strokeLinejoin="round"/>
+                  <path d="M 11,8 L 88,8 L 120,20 L 88,32 L 11,32 A 4,4 0 0 1 7,28 L 7,12 A 4,4 0 0 1 11,8 Z" fill="#c0405a"/>
+                  <path d="M 13,13 L 83,13 L 111,20 L 83,27 L 13,27 A 2,2 0 0 1 11,25 L 11,15 A 2,2 0 0 1 13,13 Z" fill="#f0deb8"/>
                 </svg>
                 <div className="gb-tooltip">
                   <p className="gb-tooltip-name">{g.name}</p>
