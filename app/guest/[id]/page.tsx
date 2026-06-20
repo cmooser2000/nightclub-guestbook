@@ -151,9 +151,22 @@ export default async function GuestPage({
                   )}
                 </>
               ) : (
-                <p style={{ fontStyle: 'italic', opacity: 0.4, fontSize: '0.95rem' }}>
-                  A story is being written for this guest…
-                </p>
+                <Link
+                  href={`/admin-guestbook?guest=${guest.id}`}
+                  style={{
+                    display: 'inline-block',
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: ACCENT,
+                    textDecoration: 'none',
+                    border: `1px solid ${RULE}`,
+                    padding: '8px 18px',
+                    opacity: 0.6,
+                  }}
+                >
+                  + Add recollection
+                </Link>
               )}
             </div>
           </div>
