@@ -48,12 +48,12 @@ export default async function Home() {
       `}</style>
 
       {/* ── FIXED COVER — dark background matches hero, book cover reveals on scroll ── */}
-      <div style={{ position: 'fixed', inset: 0, zIndex: 0, background: '#1e1a18' }}>
+      <div style={{ position: 'fixed', inset: 0, zIndex: 0, background: '#3a4858' }}>
         <img
           src="/guestbook-pages/pg000.jpg"
           alt=""
           aria-hidden="true"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right center', display: 'block' }}
+          style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'right center', display: 'block' }}
         />
       </div>
 
