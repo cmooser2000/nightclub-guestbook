@@ -118,9 +118,9 @@ export default function GuestbookScroll({ pageMap }: Props) {
         .gb-panel {
           position: fixed;
           right: 12px;
-          top: 380px;
+          top: 500px;
           width: 230px;
-          max-height: calc(100vh - 400px);
+          max-height: calc(100vh - 520px);
           z-index: 200;
           display: flex;
           flex-direction: column;
