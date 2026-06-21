@@ -22,8 +22,21 @@ const cinzel = Cinzel({
 })
 
 export const metadata: Metadata = {
-  title: "The Guestbook — A 1920s Nightclub",
-  description: "Celebrities, vaudevillians, and luminaries who passed through our doors",
+  title: "The Aladdin Studio Tiffin Room — A 1920s San Francisco Nightclub",
+  description: "The guestbook of the Aladdin Studio Tiffin Room — a 1920s San Francisco supper club run by Hattie and Minnie Mooser, where vaudevillians, film stars, politicians, and luminaries signed their names.",
+  openGraph: {
+    title: "The Aladdin Studio Tiffin Room — A 1920s San Francisco Nightclub",
+    description: "Vaudevillians, silent film stars, politicians, and luminaries who signed the guestbook of Hattie and Minnie Mooser's legendary San Francisco supper club.",
+    images: [{ url: "https://nightclub-guestbook.vercel.app/hero.png", width: 1200, alt: "Hattie and Minnie Mooser at the Aladdin Studio Tiffin Room" }],
+    type: "website",
+    url: "https://nightclub-guestbook.vercel.app",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Aladdin Studio Tiffin Room — A 1920s San Francisco Nightclub",
+    description: "Vaudevillians, silent film stars, and luminaries who signed the guestbook of Hattie and Minnie Mooser's legendary SF supper club.",
+    images: ["https://nightclub-guestbook.vercel.app/hero.png"],
+  },
 };
 
 export default function RootLayout({
