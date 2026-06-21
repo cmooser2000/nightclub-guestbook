@@ -1712,7 +1712,7 @@
     "guestbookPage": 108,
     "guestbookCoords": {
       "x": 0.3,
-      "y": 0.05
+      "y": 0.38
     },
     "category": "Political Figure",
     "era": "1920s–30s",
@@ -3843,6 +3843,48 @@
       "x": 0.25,
       "y": 0.64
     },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "guy-brasfield-park",
+    "name": "Guy B. Park",
+    "nameVariants": ["Guy Park", "Guy Brasfield Park"],
+    "guestbookPage": 108,
+    "guestbookCoords": { "x": 0.3, "y": 0.08 },
+    "category": "Political Figure",
+    "era": "1920s–30s",
+    "knownFor": "Governor of Missouri from 1933 to 1937. A lawyer and judge from Platte City, Missouri, he was elected governor during the Depression and signed his name in the Aladdin guestbook before his rise to the statehouse.",
+    "quickFacts": [
+      "Governor of Missouri 1933–1937",
+      "Born June 10, 1872, in Platte City, Missouri",
+      "Practiced law and served as probate judge before entering politics",
+      "Signed the Aladdin guestbook (pg. 108) listing Missouri as his home"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Guy_Brasfield_Park_1933.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Guy_B._Park",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "julie-haydon",
+    "name": "Julia Haydon",
+    "nameVariants": ["Julie Haydon", "Donella Donaldson"],
+    "guestbookPage": 108,
+    "guestbookCoords": { "x": 0.6, "y": 0.82 },
+    "category": "Silent Film Star",
+    "era": "1920s–30s",
+    "knownFor": "Actress who appeared in Hollywood films and on Broadway. Born in San Francisco as Donella Donaldson, she played opposite Noël Coward in the 1935 film The Scoundrel and originated the role of Laura in Tennessee Williams' The Glass Menagerie on Broadway in 1945.",
+    "quickFacts": [
+      "Born in San Francisco as Donella Donaldson, 1910–1994",
+      "Appeared in films including The Scoundrel (1935) with Noël Coward",
+      "Originated the role of Laura in The Glass Menagerie (1945)",
+      "Signed the Aladdin guestbook (pg. 108) listing Hollywood as her home"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Julie_Haydon_by_Ted_Allan_1936.jpg/500px-Julie_Haydon_by_Ted_Allan_1936.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Julie_Haydon",
     "dadStory": "",
     "dadStoryUpdated": null
   }
