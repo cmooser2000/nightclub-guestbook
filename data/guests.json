@@ -3887,5 +3887,191 @@
     "wikiUrl": "https://en.wikipedia.org/wiki/Julie_Haydon",
     "dadStory": "",
     "dadStoryUpdated": null
+  },
+  {
+    "id": "george-c-warren",
+    "name": "George C. Warren",
+    "nameVariants": ["George Warren", "George C. Warren", "Inez Warren", "Inez C. Warren"],
+    "guestbookPage": 119,
+    "guestbookCoords": { "x": 0.3, "y": 0.25 },
+    "category": "Journalist",
+    "era": "1920s",
+    "knownFor": "San Francisco drama and music critic whose reviews shaped the city's cultural scene during the golden age of live theatre. He signed the Aladdin guestbook alongside his wife Inez C. Warren, a sign of the club's prominence among the city's cultural establishment.",
+    "quickFacts": [
+      "Drama and music critic based in San Francisco",
+      "Signed the guestbook (pg. 119) with his wife, Inez C. Warren",
+      "His presence reflects the Aladdin's standing as a destination for the city's arts press"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "kongo-company",
+    "name": "The Kongo Company",
+    "nameVariants": ["Kongo Co.", "Ina Robertson", "Ina A. Robertson", "Natalie Warfield", "Byron Hawkins", "Nita Cavalier", "Esther Shaw", "Kenneth Percy"],
+    "guestbookPage": 122,
+    "guestbookCoords": { "x": 0.35, "y": 0.62 },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The touring company of Kongo — the notorious 1926 Broadway melodrama by Chester De Vonde and Kilbourn Gordon that one trade journal branded a 'horrible syphilitic play.' Walter Huston originated the central role of 'Deadlegs' Flint on Broadway; the touring cast brought the lurid tale of revenge, voodoo, and degradation through San Francisco, signing the guestbook en masse. MGM filmed the story twice: as the 1928 Lon Chaney silent West of Zanzibar (directed by Tod Browning), and as the 1932 talkie Kongo with Huston reprising his stage role.",
+    "quickFacts": [
+      "Kongo (play) opened on Broadway March 30, 1926 — ran 135 performances",
+      "Walter Huston originated 'Deadlegs' Flint on Broadway",
+      "Will Hays recommended MGM not film it — they filmed it twice anyway",
+      "Signers include Ina A. Robertson ('Zombie'), Natalie Warfield, Byron Hawkins, Nita Cavalier, Esther Shaw, and others of the touring company",
+      "The 1928 silent adaptation West of Zanzibar starred Lon Chaney, directed by Tod Browning"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Kongo_(play)",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "frank-silver",
+    "name": "Frank Silver",
+    "nameVariants": ["Frank Silverstadt"],
+    "guestbookPage": 202,
+    "guestbookCoords": { "x": 0.3, "y": 0.35 },
+    "category": "Musician",
+    "era": "1920s",
+    "knownFor": "Songwriter and bandleader who co-wrote 'Yes! We Have No Bananas' (1923), one of the biggest novelty hits of the decade. The song sold millions of copies and became an unlikely anthem of the Jazz Age.",
+    "quickFacts": [
+      "Co-wrote 'Yes! We Have No Bananas' (1923) with Irving Cohn",
+      "Born Frank Silverstadt, September 8, 1892 — died June 14, 1960",
+      "Led his own dance orchestra in the 1920s",
+      "The 'Bananas' song sold over a million copies and launched a pop-culture craze"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Frank_Silver_(songwriter)",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "joe-frisco",
+    "name": "Joe Frisco",
+    "nameVariants": ["Louis Wilson Joseph"],
+    "guestbookPage": 211,
+    "guestbookCoords": { "x": 0.3, "y": 0.35 },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Vaudeville jazz dancer and comedian celebrated for his stuttering delivery and syncopated footwork. One of the most distinctive performers of the 1920s circuit, he translated his stagecraft into film and radio.",
+    "quickFacts": [
+      "Born Louis Wilson Joseph, November 4, 1889 — died February 18, 1958",
+      "Made his name as a jazz dancer before adding comedy to his act",
+      "His stutter, rather than a liability, became a signature comedic tool",
+      "Appeared in vaudeville, Broadway, film, and radio across four decades"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Joe_Frisco.png/500px-Joe_Frisco.png",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Joe_Frisco",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "will-morrissey",
+    "name": "Will Morrissey",
+    "nameVariants": ["William Morrissey", "William James Morrissey"],
+    "guestbookPage": 212,
+    "guestbookCoords": { "x": 0.3, "y": 0.35 },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "American lyricist, vaudeville performer, playwright, and theatrical producer who worked both coasts and Chicago. A prolific figure of the 1920s–30s entertainment world, he was as comfortable writing songs as producing revues.",
+    "quickFacts": [
+      "Born June 19, 1887 — died December 16, 1957",
+      "Worked as lyricist, actor, playwright, and producer",
+      "Frequent performer and producer on the West Coast as well as New York"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Will_Morrissey",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "jan-rubini",
+    "name": "Jan Rubini",
+    "nameVariants": ["Jan Rubini"],
+    "guestbookPage": 213,
+    "guestbookCoords": { "x": 0.3, "y": 0.55 },
+    "category": "Musician",
+    "era": "1920s",
+    "knownFor": "Swedish violinist and conductor with a long career in American vaudeville and films. His virtuosity on the violin made him a standout on the touring circuit, and he later worked as a film conductor.",
+    "quickFacts": [
+      "Born April 5, 1897 in Sweden — died December 2, 1989",
+      "Performed as a violinist throughout vaudeville and on film",
+      "His son Michel Rubini became a film composer and keyboardist"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Jan_Rubini%2C_vaudeville_violinist_%28SAYRE_8486%29.jpg/500px-Jan_Rubini%2C_vaudeville_violinist_%28SAYRE_8486%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Jan_Rubini",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "raymond-hitchcock",
+    "name": "Raymond Hitchcock",
+    "nameVariants": ["Ray Hitchcock"],
+    "guestbookPage": 213,
+    "guestbookCoords": { "x": 0.3, "y": 0.35 },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "American stage actor, silent film actor, and Broadway producer who appeared in or produced 30 Broadway productions between 1898 and 1928. A beloved comedian of the Edwardian and Jazz Age stage.",
+    "quickFacts": [
+      "Born October 22, 1865 — died November 24, 1929",
+      "Appeared in or produced 30 Broadway shows across three decades",
+      "Also appeared in silent films of the 1910s and 1920s",
+      "Known for light comedy and musical roles"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Raymond_Hitchcock%2C_head-and-shoulders_portrait%2C_facing_slightly_left%2C_left_hand_under_chin_LCCN97506852_%28cropped%29.jpg/500px-Raymond_Hitchcock%2C_head-and-shoulders_portrait%2C_facing_slightly_left%2C_left_hand_under_chin_LCCN97506852_%28cropped%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Raymond_Hitchcock_(actor)",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "may-robson",
+    "name": "May Robson",
+    "nameVariants": ["Mary Jeanette Robison", "May Robson"],
+    "guestbookPage": 215,
+    "guestbookCoords": { "x": 0.3, "y": 0.3 },
+    "category": "Silent Film Star",
+    "era": "1920s–30s",
+    "knownFor": "Australian-born actress whose career spanned 58 years on stage and screen. She received an Academy Award nomination for Best Actress for Lady for a Day (1933), directed by Frank Capra — one of the most celebrated performances by an older actress in Hollywood history.",
+    "quickFacts": [
+      "Born April 19, 1858 in Melbourne, Australia — died October 20, 1942",
+      "Career spanned 58 years, from 1883 stage debut to films of the 1940s",
+      "Oscar-nominated for Best Actress, Lady for a Day (1933, dir. Frank Capra)",
+      "Signed the Aladdin guestbook (pg. 215) with companion Lillian Harmer"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/May_Robson_in_Broadway_to_Hollywood_trailer_%282%29.png/500px-May_Robson_in_Broadway_to_Hollywood_trailer_%282%29.png",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/May_Robson",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "lillian-harmer",
+    "name": "Lillian Harmer",
+    "nameVariants": ["Lillian Harmer"],
+    "guestbookPage": 215,
+    "guestbookCoords": { "x": 0.3, "y": 0.42 },
+    "category": "Silent Film Star",
+    "era": "1920s–30s",
+    "knownFor": "American character actress and longtime companion of May Robson. She appeared in dozens of films through the 1930s and 40s, often in comic supporting roles, and frequently traveled with Robson on tour.",
+    "quickFacts": [
+      "Born September 8, 1883 — died May 14, 1946",
+      "Appeared as a character actress in many Hollywood films of the 1930s–40s",
+      "Signed the Aladdin guestbook (pg. 215) alongside May Robson"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Lillian_Harmer_in_A_Shriek_in_the_Night_%281933%29.jpg/500px-Lillian_Harmer_in_A_Shriek_in_the_Night_%281933%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Lillian_Harmer",
+    "dadStory": "",
+    "dadStoryUpdated": null
   }
 ]
