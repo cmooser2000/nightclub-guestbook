@@ -2782,7 +2782,8 @@
     "id": "doris-lloyd",
     "name": "Doris Lloyd",
     "nameVariants": [
-      "Doris Lloyd"
+      "Doris Lloyd",
+      "Hessy Doris Lloyd"
     ],
     "era": "1920s",
     "category": "Actress",
@@ -2802,6 +2803,125 @@
       "x": 0.25,
       "y": 0.4
     },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "elizabeth-vaughan",
+    "name": "Elizabeth Vaughan",
+    "nameVariants": ["Elizabeth Vaughan"],
+    "era": "1920s",
+    "category": "Performer",
+    "knownFor": "A performer who signed the Aladdin guestbook on page 306, alongside British actress Doris Lloyd — marking herself as part of the theatrical world that made the Aladdin its San Francisco home.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 306) alongside Doris Lloyd"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 306,
+    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "max-dolin",
+    "name": "Max Dolin",
+    "nameVariants": ["Max Dolin"],
+    "era": "1920s",
+    "category": "Musician",
+    "knownFor": "A musician who signed the Aladdin guestbook on page 307, part of the performing arts world that frequented the club.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 307)",
+      "Signed alongside the Leavitt and Lockwood duo"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 307,
+    "guestbookCoords": { "x": 0.25, "y": 0.3 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "douglas-leavitt",
+    "name": "Douglas Leavitt",
+    "nameVariants": ["Douglas Leavitt", "Leavitt and Lockwood"],
+    "era": "1920s",
+    "category": "Vaudeville Performer",
+    "knownFor": "One half of the Leavitt and Lockwood vaudeville duo, who signed the Aladdin guestbook on page 307 alongside his partner Ruth Mary Lockwood.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 307) as part of the Leavitt and Lockwood act",
+      "Signed alongside musician Max Dolin"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 307,
+    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "ruth-lockwood",
+    "name": "Ruth Mary Lockwood",
+    "nameVariants": ["Ruth Mary Lockwood", "Leavitt and Lockwood"],
+    "era": "1920s",
+    "category": "Vaudeville Performer",
+    "knownFor": "One half of the Leavitt and Lockwood vaudeville duo, who signed the Aladdin guestbook on page 307 alongside her partner Douglas Leavitt.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 307) as part of the Leavitt and Lockwood act",
+      "Signed alongside musician Max Dolin"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 307,
+    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "marjorie-white",
+    "name": "Marjorie White",
+    "nameVariants": ["Marjorie White", "Marjorie Ann Guthrie", "The White Sisters"],
+    "era": "1920s",
+    "category": "Vaudeville Performer",
+    "knownFor": "One half of The White Sisters vaudeville duo — an act born in San Francisco. In December 1921 she came to this city, met Thelma Wolpa, and the two formed the comedy double act that became 'The White Sisters' in New York. She went on to a film career cut tragically short, appearing in Sunny Side Up (1929), the Three Stooges' debut short, and Diplomaniacs (1933) before dying in a car crash in 1935.",
+    "quickFacts": [
+      "Born Marjorie Ann Guthrie, July 22, 1904; died August 21, 1935 in a car accident",
+      "The White Sisters act was literally born in San Francisco — she met Thelma Wolpa (later Thelma White) here in December 1921",
+      "Appeared in Sunny Side Up (1929), Diplomaniacs (1933), and the Three Stooges' debut short",
+      "Signed the Aladdin guestbook (pg. 309) with her partner Thelma White",
+      "Her career was just reaching its stride when she died at 31"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Marjorie_White",
+    "guestbookPage": 309,
+    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "thelma-white",
+    "name": "Thelma White",
+    "nameVariants": ["Thelma White", "Thelma Wolpa", "The White Sisters"],
+    "era": "1920s",
+    "category": "Vaudeville Performer",
+    "knownFor": "One half of The White Sisters vaudeville duo, an act that started right here in San Francisco. Born Thelma Wolpa, she met Marjorie Guthrie in the city in December 1921 and they formed the act together. After the duo broke up she became a film and radio actress, best known today for her role in the 1936 cult classic Reefer Madness.",
+    "quickFacts": [
+      "Born Thelma Wolpa, December 4, 1910; died January 11, 2005 — one of vaudeville's longest-lived performers",
+      "The White Sisters act started in San Francisco in December 1921 — she and Marjorie Guthrie formed it here",
+      "Made Vitaphone shorts after the duo broke up, then became a radio and film actress",
+      "Best known today for Reefer Madness (1936)",
+      "Signed the Aladdin guestbook (pg. 309) with her partner Marjorie White"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Thelma_White%2C_stock_actress_%28SAYRE_10931%29.jpg/500px-Thelma_White%2C_stock_actress_%28SAYRE_10931%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Thelma_White",
+    "guestbookPage": 309,
+    "guestbookCoords": { "x": 0.5, "y": 0.55 },
     "dadStory": "",
     "dadStoryUpdated": null
   },
