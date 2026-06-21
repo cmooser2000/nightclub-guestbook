@@ -35,6 +35,22 @@ const CATEGORIES = [
     match: (c: string) => /silent film/i.test(c),
   },
   {
+    label: 'Journalists',
+    match: (c: string) => /journalist|reporter|newspaper|examiner|columnist|publisher|editor/i.test(c),
+  },
+  {
+    label: 'Authors & Playwrights',
+    match: (c: string) => /author|playwright|poet|novelist|writer|humorist|dramatist/i.test(c),
+  },
+  {
+    label: 'Athletes',
+    match: (c: string) => /boxer|baseball|football|athlete|sports|champion/i.test(c),
+  },
+  {
+    label: 'Aviators',
+    match: (c: string) => /aviator|aviation|pilot|flier/i.test(c),
+  },
+  {
     label: 'Society Guests',
     match: (c: string) => /society/i.test(c),
   },
