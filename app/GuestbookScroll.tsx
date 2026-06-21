@@ -132,12 +132,11 @@ export default function GuestbookScroll({ pageMap }: Props) {
         @font-face { font-family: 'Decary'; src: url('/fonts/decary.otf') format('opentype'); font-display: block; }
         @font-face { font-family: 'LinLibertine'; src: url('/fonts/linlibertine.ttf') format('truetype'); font-display: block; }
 
-        /* ── Floating search bar (right side) ── */
+        /* ── Floating search bar (top right) ── */
         .gb-panel {
           position: fixed;
           right: 20px;
-          top: 50%;
-          transform: translateY(-50%);
+          top: 16px;
           z-index: 200;
           opacity: 0;
           pointer-events: none;
@@ -182,7 +181,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
           padding: 24px;
         }
         .gb-modal {
-          background: #3a4858;
+          background: #f0deb8;
           border: 2px solid #c0405a;
           box-shadow: 0 8px 48px rgba(0,0,0,0.6);
           width: 100%;
@@ -211,14 +210,14 @@ export default function GuestbookScroll({ pageMap }: Props) {
           background: none;
           border: none;
           cursor: pointer;
-          color: #c8b89a;
+          color: #3a4858;
           font-size: 1.4rem;
           line-height: 1;
           padding: 0 2px;
           opacity: 0.7;
           transition: opacity 0.1s;
         }
-        .gb-modal-close:hover { opacity: 1; color: #f5f0e6; }
+        .gb-modal-close:hover { opacity: 1; color: #1a2a38; }
 
         .gb-modal-body {
           overflow-y: auto;
@@ -236,7 +235,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
           cursor: pointer;
           font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
           font-size: 1.05rem;
-          color: #c8b89a;
+          color: #3a4858;
           padding: 13px 20px;
           letter-spacing: 0.04em;
           border-bottom: 1px solid rgba(192,64,90,0.2);
@@ -245,7 +244,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
           align-items: center;
           justify-content: space-between;
         }
-        .gb-cat-btn:hover { background: rgba(192,64,90,0.12); color: #f5f0e6; }
+        .gb-cat-btn:hover { background: rgba(192,64,90,0.12); color: #1a2a38; }
 
         .gb-result-item {
           display: block;
@@ -258,13 +257,13 @@ export default function GuestbookScroll({ pageMap }: Props) {
           cursor: pointer;
           font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
           font-size: 1rem;
-          color: #f5f0e6;
+          color: #3a4858;
           line-height: 1.3;
           transition: background 0.1s;
           text-decoration: none;
         }
         .gb-result-item:hover { background: rgba(192,64,90,0.12); }
-        .gb-result-item .pg { font-size: 0.75rem; color: #c8b89a; display: block; margin-top: 3px; }
+        .gb-result-item .pg { font-size: 0.75rem; color: #c0405a; display: block; margin-top: 3px; }
 
         .gb-guest-row {
           position: absolute;
@@ -377,12 +376,12 @@ export default function GuestbookScroll({ pageMap }: Props) {
                 <>
                   <button
                     onClick={() => setActiveCategory(null)}
-                    style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1px solid rgba(192,64,90,0.2)', padding: '11px 20px', cursor: 'pointer', fontFamily: 'LinLibertine, serif', fontSize: '0.85rem', color: '#c0405a', letterSpacing: '0.08em' }}
+                    style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1px solid rgba(192,64,90,0.2)', padding: '11px 20px', cursor: 'pointer', fontFamily: 'LinLibertine, serif', fontSize: '0.85rem', color: '#c0405a', letterSpacing: '0.08em', fontStyle: 'italic' }}
                   >
                     ← All categories
                   </button>
                   {categoryGuests.length === 0 ? (
-                    <p style={{ padding: '16px 20px', fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#c8b89a', fontSize: '0.95rem' }}>None found</p>
+                    <p style={{ padding: '16px 20px', fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#3a4858', fontSize: '0.95rem', opacity: 0.6 }}>None found</p>
                   ) : categoryGuests.map(g => (
                     <Link key={g.id} href={`/guest/${g.id}`} className="gb-result-item" onClick={() => { setModalOpen(false); setActiveCategory(null) }}>
                       {g.name}
@@ -398,7 +397,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
                     <span className="pg">p. {g.pageNum} — jump to page</span>
                   </button>
                 )) : (
-                  <p style={{ padding: '16px 20px', fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#c8b89a', fontSize: '0.95rem' }}>No matches found</p>
+                  <p style={{ padding: '16px 20px', fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#3a4858', fontSize: '0.95rem', opacity: 0.6 }}>No matches found</p>
                 )
               ) : (
                 /* Browse by type */
