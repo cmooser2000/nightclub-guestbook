@@ -8169,5 +8169,84 @@
     "wikiUrl": "",
     "dadStory": "",
     "dadStoryUpdated": null
+  },
+  {
+    "id": "huntly-gordon",
+    "name": "Huntly Gordon",
+    "nameVariants": [
+      "Huntley Gordon",
+      "Huntly Gordon"
+    ],
+    "guestbookPage": 303,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.45
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Canadian-born silent-film leading man who appeared in over 100 films between 1915 and 1942. Tall, elegant, and perfectly cast as society types, he was a reliable MGM presence throughout the silent era, often playing romantic leads opposite major stars.",
+    "quickFacts": [
+      "Born October 8, 1879 in Montreal — died December 7, 1956",
+      "Appeared in over 100 films between 1915 and 1942",
+      "Canadian-born silent-film leading man, often cast in society roles",
+      "Signed the Aladdin guestbook (pg. 303)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Huntley_Gordon_1918.jpg/500px-Huntley_Gordon_1918.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Huntly_Gordon",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "harry-holman",
+    "name": "Harry Holman",
+    "nameVariants": [
+      "Harry Holman",
+      "Harry J. Holman"
+    ],
+    "guestbookPage": 407,
+    "guestbookCoords": {
+      "x": 0.55,
+      "y": 0.7
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "American vaudeville performer and character actor who appeared in approximately 130 films. Long-lived and prolific, Holman was one of those indispensable background presences of the silent and early sound era — familiar to audiences everywhere even if his name was rarely above the title.",
+    "quickFacts": [
+      "Born March 15, 1862 — died May 3, 1947",
+      "Appeared in approximately 130 films",
+      "Vaudeville performer and film character actor",
+      "Signed the Aladdin guestbook (pg. 407)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Vaudeville_entertainer_Harry_Holman_%28SAYRE_3214%29.jpg/500px-Vaudeville_entertainer_Harry_Holman_%28SAYRE_3214%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons — SAYRE Collection",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Harry_Holman",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "joseph-granby",
+    "name": "Joseph Granby",
+    "nameVariants": [
+      "Joseph Granby"
+    ],
+    "guestbookPage": 409,
+    "guestbookCoords": {
+      "x": 0.65,
+      "y": 0.7
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "American film and stage actor whose career spanned five decades, from 1915 into the 1960s. Born in Brooklyn, he worked steadily as a character actor through the silent and sound eras, appearing alongside the Olga Petrova company whose signatures surround his on page 409.",
+    "quickFacts": [
+      "Born March 24, 1885 in Brooklyn — died September 22, 1965",
+      "Film and stage actor, career spanning 1915 to the 1960s",
+      "Signed the Aladdin guestbook (pg. 409) alongside the Olga Petrova company"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Joseph_Granby",
+    "dadStory": "",
+    "dadStoryUpdated": null
   }
 ]
