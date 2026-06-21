@@ -6902,5 +6902,172 @@
     "wikiUrl": "https://en.wikipedia.org/wiki/Erich_von_Stroheim",
     "dadStory": "",
     "dadStoryUpdated": null
+  },
+  {
+    "id": "romance-company",
+    "name": "The Romance Touring Company",
+    "nameVariants": [
+      "Romance Co.",
+      "Romance Company",
+      "Warner P. Gault",
+      "Wallace Bradley",
+      "Alan Torrey",
+      "Mary Bogart",
+      "Vivian Faust",
+      "Mitzi Goodstadt",
+      "Gladys Carr",
+      "Frank Dawson"
+    ],
+    "guestbookPage": 373,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.5
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The touring company of Romance — Edward Sheldon's enormously popular 1913 play about a clergyman's doomed love for a celebrated opera singer. The play ran for years in touring productions after its Broadway success, and the 1925 tour brought the company through San Francisco, where Niles Welch, Mabel Van Buren, Vernon Steele, Ruth Mix, and others signed the Aladdin across pages 371 and 373.",
+    "quickFacts": [
+      "Romance by Edward Sheldon (1913) was one of the most-toured plays of the era",
+      "Company members signed the Aladdin guestbook on pages 371 and 373",
+      "Named signers include Niles Welch, Mabel Van Buren, Vernon Steele, Ruth Mix, Frank Dawson, and others"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "vernon-steele",
+    "name": "Vernon Steele",
+    "nameVariants": [
+      "Arturo Romeo Antonietti",
+      "Vernon Steele"
+    ],
+    "guestbookPage": 373,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Chilean-born British actor celebrated for playing patrician young men on the Broadway stage and in American silent films. Born Arturo Romeo Antonietti in Santiago, Chile, to a music professor father and an English mother, he cut a notably cosmopolitan figure in 1920s theatre. He signed the Aladdin from New York with the Romance touring company.",
+    "quickFacts": [
+      "Born Arturo Romeo Antonietti, September 18, 1882 in Santiago, Chile — died July 23, 1955",
+      "Known for patrician roles on Broadway and in silent films",
+      "Chilean-born, British-identified; son of a music professor",
+      "Signed the Aladdin guestbook (pg. 373) from New York with the Romance company"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Vernon_Steele_-_Motion_Picture_Classic%2C_July_1917.jpg/500px-Vernon_Steele_-_Motion_Picture_Classic%2C_July_1917.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Vernon_Steele",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "ruth-mix",
+    "name": "Ruth Mix",
+    "nameVariants": [
+      "Nadine Ruth Mix",
+      "Ruth Jane Mix"
+    ],
+    "guestbookPage": 371,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.72
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Daughter of cowboy superstar Tom Mix who became a Western actress in her own right. Born in 1912, she was barely a teenager when she signed the Aladdin with the Romance touring company in 1925 — a remarkable early appearance. She would go on to appear in Westerns through the late 1920s, following her father's celluloid trail.",
+    "quickFacts": [
+      "Born July 13, 1912 — died September 21, 1977",
+      "Daughter of Tom Mix — the era's top cowboy film star",
+      "Appeared in Western films through the late 1920s",
+      "Signed the Aladdin guestbook (pg. 371) with the Romance company — barely a teenager at the time"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/That_Girl_Oklahoma_%281926%29_-_2.jpg/500px-That_Girl_Oklahoma_%281926%29_-_2.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Ruth_Mix",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "charles-g-norris",
+    "name": "Charles G. Norris",
+    "nameVariants": [
+      "Charles Gilman Norris",
+      "C. G. Norris"
+    ],
+    "guestbookPage": 374,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
+    "category": "Authors & Playwrights",
+    "era": "1920s",
+    "knownFor": "American novelist whose socially-conscious novels Salt (1919), Brass (1921), and Bread (1923) made him one of the prominent literary voices of the early twentieth century. He was the brother of Frank Norris — author of McTeague, the novel Erich von Stroheim adapted into Greed — and husband of the bestselling novelist Kathleen Norris. Von Stroheim signed this same guestbook two pages later (pg. 376), completing a remarkable literary-cinematic web across a single gathering.",
+    "quickFacts": [
+      "Born April 23, 1881 — died July 25, 1945",
+      "Novelist of Salt (1919), Brass (1921), Bread (1923), and other social novels",
+      "Brother of Frank Norris — whose McTeague von Stroheim adapted into Greed (1924)",
+      "Husband of bestselling novelist Kathleen Norris",
+      "Signed pg. 374 — von Stroheim signed pg. 376, two pages later"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Charles_G._Norris%2C_Filmplay_June_1922.jpg/500px-Charles_G._Norris%2C_Filmplay_June_1922.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Charles_Gilman_Norris",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "reginald-travers",
+    "name": "Reginald Travers",
+    "nameVariants": [
+      "Reginald Travers"
+    ],
+    "guestbookPage": 374,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.6
+    },
+    "category": "Society Guest",
+    "era": "1920s",
+    "knownFor": "San Francisco little-theatre director and producer who was a figure in the city's serious theatrical community. Little theatre — the early-20th-century movement toward intimate, non-commercial dramatic production — was a significant cultural force in San Francisco, and Travers was among those who shaped it.",
+    "quickFacts": [
+      "San Francisco little-theatre director and producer",
+      "Part of the early 20th-century little-theatre movement in the Bay Area",
+      "Signed the Aladdin guestbook (pg. 374) alongside Charles G. Norris and Prince Serge Mdivani"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "howard-putzel",
+    "name": "Howard Putzel",
+    "nameVariants": [
+      "Howard Putzel"
+    ],
+    "guestbookPage": 373,
+    "guestbookCoords": {
+      "x": 0.65,
+      "y": 0.75
+    },
+    "category": "Society Guest",
+    "era": "1920s",
+    "knownFor": "Possibly the Howard Putzel who became one of the most important modernist art dealers in America — Peggy Guggenheim's indispensable advisor and the man who introduced her to Jackson Pollock, helping to launch Abstract Expressionism. In 1925 a young Howard Putzel was indeed a San Franciscan, making the location match exactly. If this is him, it is a remarkable pre-fame appearance — as with the Stroud Twins and Arthur Freed, the guestbook catching someone before the world knew their name.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 373) from San Francisco",
+      "Possibly the Howard Putzel who became Peggy Guggenheim's art advisor and champion of Jackson Pollock",
+      "If confirmed, a pre-fame appearance of a figure central to the birth of Abstract Expressionism",
+      "The San Francisco address in 1925 fits the documented biography"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Howard_Putzel",
+    "dadStory": "",
+    "dadStoryUpdated": null
   }
 ]
