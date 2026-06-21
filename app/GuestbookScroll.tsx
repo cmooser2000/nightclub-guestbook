@@ -70,6 +70,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
   const [showPanel, setShowPanel] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const [modalOpen, setModalOpen] = useState(false)
   const searchInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -131,16 +132,13 @@ export default function GuestbookScroll({ pageMap }: Props) {
         @font-face { font-family: 'Decary'; src: url('/fonts/decary.otf') format('opentype'); font-display: block; }
         @font-face { font-family: 'LinLibertine'; src: url('/fonts/linlibertine.ttf') format('truetype'); font-display: block; }
 
+        /* ── Floating search bar (right side) ── */
         .gb-panel {
           position: fixed;
-          right: 12px;
-          top: 500px;
-          width: 230px;
-          max-height: calc(100vh - 520px);
+          right: 14px;
+          top: 50%;
+          transform: translateY(-50%);
           z-index: 200;
-          display: flex;
-          flex-direction: column;
-          gap: 0;
           opacity: 0;
           pointer-events: none;
           transition: opacity 0.3s;
@@ -149,28 +147,85 @@ export default function GuestbookScroll({ pageMap }: Props) {
           opacity: 1;
           pointer-events: auto;
         }
-        /* Hide on viewports too narrow to show the panel without overlap */
-        @media (max-width: 1100px) {
-          .gb-panel { display: none; }
-        }
 
-        .gb-panel-box {
+        .gb-search-bar {
+          display: flex;
+          align-items: center;
+          gap: 0;
           background: #3a4858;
           border: 2px solid #c0405a;
           box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
 
         .gb-search-input {
-          width: 100%;
           background: transparent;
           border: none;
           outline: none;
           font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
           font-size: 1rem;
           color: #f5f0e6;
-          padding: 11px 10px 11px 30px;
+          padding: 10px 10px 10px 10px;
+          width: 180px;
         }
         .gb-search-input::placeholder { color: rgba(245,240,230,0.45); }
+
+        /* ── Modal overlay ── */
+        .gb-modal-backdrop {
+          position: fixed;
+          inset: 0;
+          background: rgba(20,16,12,0.7);
+          z-index: 500;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+        }
+        .gb-modal {
+          background: #3a4858;
+          border: 2px solid #c0405a;
+          box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+          width: 100%;
+          max-width: 520px;
+          max-height: 80vh;
+          display: flex;
+          flex-direction: column;
+        }
+        .gb-modal-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 14px 18px;
+          border-bottom: 1px solid rgba(192,64,90,0.4);
+          flex-shrink: 0;
+        }
+        .gb-modal-title {
+          font-family: 'LinLibertine', serif;
+          font-size: 0.72rem;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: #c0405a;
+          margin: 0;
+        }
+        .gb-modal-close {
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #c8b89a;
+          font-size: 1.4rem;
+          line-height: 1;
+          padding: 0 2px;
+          opacity: 0.7;
+          transition: opacity 0.1s;
+        }
+        .gb-modal-close:hover { opacity: 1; color: #f5f0e6; }
+
+        .gb-modal-body {
+          overflow-y: auto;
+          flex: 1;
+        }
+        .gb-modal-body::-webkit-scrollbar { width: 4px; }
+        .gb-modal-body::-webkit-scrollbar-track { background: transparent; }
+        .gb-modal-body::-webkit-scrollbar-thumb { background: rgba(192,64,90,0.4); border-radius: 2px; }
 
         .gb-cat-btn {
           width: 100%;
@@ -179,23 +234,17 @@ export default function GuestbookScroll({ pageMap }: Props) {
           border: none;
           cursor: pointer;
           font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
-          font-size: 0.95rem;
+          font-size: 1.05rem;
           color: #c8b89a;
-          padding: 9px 14px;
+          padding: 13px 20px;
           letter-spacing: 0.04em;
-          border-top: 1px solid rgba(192,64,90,0.35);
+          border-bottom: 1px solid rgba(192,64,90,0.2);
           transition: background 0.12s;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
         }
         .gb-cat-btn:hover { background: rgba(192,64,90,0.12); color: #f5f0e6; }
-        .gb-cat-btn.active { background: rgba(192,64,90,0.2); color: #f5f0e6; font-style: italic; }
-
-        .gb-results {
-          overflow-y: auto;
-          max-height: 52vh;
-        }
-        .gb-results::-webkit-scrollbar { width: 4px; }
-        .gb-results::-webkit-scrollbar-track { background: transparent; }
-        .gb-results::-webkit-scrollbar-thumb { background: rgba(192,64,90,0.4); border-radius: 2px; }
 
         .gb-result-item {
           display: block;
@@ -203,18 +252,18 @@ export default function GuestbookScroll({ pageMap }: Props) {
           text-align: left;
           background: none;
           border: none;
-          border-top: 1px solid rgba(192,64,90,0.25);
-          padding: 9px 14px;
+          border-bottom: 1px solid rgba(192,64,90,0.15);
+          padding: 12px 20px;
           cursor: pointer;
           font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
-          font-size: 0.95rem;
+          font-size: 1rem;
           color: #f5f0e6;
           line-height: 1.3;
           transition: background 0.1s;
           text-decoration: none;
         }
         .gb-result-item:hover { background: rgba(192,64,90,0.12); }
-        .gb-result-item .pg { font-size: 0.72rem; color: #c8b89a; display: block; margin-top: 2px; }
+        .gb-result-item .pg { font-size: 0.75rem; color: #c8b89a; display: block; margin-top: 3px; }
 
         .gb-guest-row {
           position: absolute;
@@ -287,89 +336,82 @@ export default function GuestbookScroll({ pageMap }: Props) {
         }
       `}</style>
 
+      {/* ── Floating search bar (right side) ── */}
       <div className={`gb-panel${showPanel ? ' visible' : ''}`}>
-        <div className="gb-panel-box">
-
-          {/* ── CATEGORY LIST VIEW ── */}
-          {activeCategory ? (
-            <>
-              {/* Back header */}
-              <div style={{ padding: '9px 12px', display: 'flex', alignItems: 'center', gap: 6, borderBottom: '1px solid rgba(200,184,154,0.5)' }}>
-                <button
-                  onClick={() => setActiveCategory(null)}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, color: '#8b6914', fontSize: '0.75rem', fontFamily: 'LinLibertine, serif', display: 'flex', alignItems: 'center', gap: 4 }}
-                >
-                  ← <span style={{ fontStyle: 'italic', color: '#1a1209' }}>{activeCategory}</span>
-                </button>
-              </div>
-              <div className="gb-results">
-                {categoryGuests.length === 0 ? (
-                  <p style={{ padding: '12px', fontSize: '0.75rem', opacity: 0.4, fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#1a1209' }}>None found</p>
-                ) : categoryGuests.map(g => (
-                  <Link key={g.id} href={`/guest/${g.id}`} className="gb-result-item">
-                    {g.name}
-                    <span className="pg">p. {g.pageNum}</span>
-                  </Link>
-                ))}
-              </div>
-            </>
-          ) : (
-            <>
-              {/* ── SEARCH ROW ── */}
-              <div style={{ position: 'relative', borderBottom: '1px solid rgba(192,64,90,0.35)' }}>
-                <svg style={{ position: 'absolute', left: 9, top: '50%', transform: 'translateY(-50%)', opacity: 0.55 }} width="13" height="13" viewBox="0 0 13 13" fill="none">
-                  <circle cx="5.5" cy="5.5" r="4.5" stroke="#f5f0e6" strokeWidth="1.4"/>
-                  <line x1="9" y1="9" x2="12" y2="12" stroke="#f5f0e6" strokeWidth="1.4" strokeLinecap="round"/>
-                </svg>
-                <input
-                  ref={searchInputRef}
-                  className="gb-search-input"
-                  placeholder="Search a name…"
-                  value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery('')}
-                    style={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#c8b89a', fontSize: '0.9rem', lineHeight: 1, padding: 2 }}
-                  >×</button>
-                )}
-              </div>
-
-              {/* Search results */}
-              {searchResults.length > 0 && (
-                <div className="gb-results" style={{ borderBottom: '1px solid rgba(200,184,154,0.4)' }}>
-                  {searchResults.map(g => (
-                    <button key={g.id} className="gb-result-item" onClick={() => jumpToGuest(g.pageNum)}>
-                      {g.name}
-                      <span className="pg">p. {g.pageNum} — in guestbook</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-              {searchQuery && searchResults.length === 0 && (
-                <p style={{ padding: '10px 14px', fontSize: '0.85rem', opacity: 0.55, fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#f5f0e6', borderBottom: '1px solid rgba(192,64,90,0.25)' }}>No matches</p>
-              )}
-
-              {/* ── BROWSE BY TYPE ── */}
-              <div>
-                <p style={{ padding: '10px 14px 5px', fontSize: '0.65rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#c0405a', fontFamily: 'LinLibertine, serif', margin: 0 }}>
-                  Browse by type
-                </p>
-                {CATEGORIES.map(cat => (
-                  <button
-                    key={cat.label}
-                    className="gb-cat-btn"
-                    onClick={() => setActiveCategory(cat.label)}
-                  >
-                    {cat.label}
-                  </button>
-                ))}
-              </div>
-            </>
-          )}
+        <div className="gb-search-bar">
+          <svg style={{ marginLeft: 10, flexShrink: 0, opacity: 0.55 }} width="14" height="14" viewBox="0 0 13 13" fill="none">
+            <circle cx="5.5" cy="5.5" r="4.5" stroke="#f5f0e6" strokeWidth="1.4"/>
+            <line x1="9" y1="9" x2="12" y2="12" stroke="#f5f0e6" strokeWidth="1.4" strokeLinecap="round"/>
+          </svg>
+          <input
+            ref={searchInputRef}
+            className="gb-search-input"
+            placeholder="Search a name…"
+            value={searchQuery}
+            onChange={e => { setSearchQuery(e.target.value); setModalOpen(true) }}
+            onFocus={() => setModalOpen(true)}
+          />
         </div>
       </div>
+
+      {/* ── Modal ── */}
+      {showPanel && modalOpen && (
+        <div className="gb-modal-backdrop" onClick={() => { setModalOpen(false); setSearchQuery(''); setActiveCategory(null) }}>
+          <div className="gb-modal" onClick={e => e.stopPropagation()}>
+
+            {/* Header */}
+            <div className="gb-modal-header">
+              <p className="gb-modal-title">
+                {activeCategory ? activeCategory : searchQuery ? 'Search results' : 'Browse the guestbook'}
+              </p>
+              <button
+                className="gb-modal-close"
+                onClick={() => { setModalOpen(false); setSearchQuery(''); setActiveCategory(null) }}
+              >×</button>
+            </div>
+
+            <div className="gb-modal-body">
+              {/* Category guest list */}
+              {activeCategory ? (
+                <>
+                  <button
+                    onClick={() => setActiveCategory(null)}
+                    style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1px solid rgba(192,64,90,0.2)', padding: '11px 20px', cursor: 'pointer', fontFamily: 'LinLibertine, serif', fontSize: '0.85rem', color: '#c0405a', letterSpacing: '0.08em' }}
+                  >
+                    ← All categories
+                  </button>
+                  {categoryGuests.length === 0 ? (
+                    <p style={{ padding: '16px 20px', fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#c8b89a', fontSize: '0.95rem' }}>None found</p>
+                  ) : categoryGuests.map(g => (
+                    <Link key={g.id} href={`/guest/${g.id}`} className="gb-result-item" onClick={() => { setModalOpen(false); setActiveCategory(null) }}>
+                      {g.name}
+                      <span className="pg">p. {g.pageNum}</span>
+                    </Link>
+                  ))}
+                </>
+              ) : searchQuery ? (
+                /* Search results */
+                searchResults.length > 0 ? searchResults.map(g => (
+                  <button key={g.id} className="gb-result-item" onClick={() => { jumpToGuest(g.pageNum); setModalOpen(false) }}>
+                    {g.name}
+                    <span className="pg">p. {g.pageNum} — jump to page</span>
+                  </button>
+                )) : (
+                  <p style={{ padding: '16px 20px', fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#c8b89a', fontSize: '0.95rem' }}>No matches found</p>
+                )
+              ) : (
+                /* Browse by type */
+                CATEGORIES.map(cat => (
+                  <button key={cat.label} className="gb-cat-btn" onClick={() => setActiveCategory(cat.label)}>
+                    {cat.label}
+                    <span style={{ fontSize: '0.8rem', opacity: 0.5 }}>›</span>
+                  </button>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Jump to Next Profile — downward arrow */}
       {showPanel && (
