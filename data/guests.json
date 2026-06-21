@@ -3450,6 +3450,52 @@
     "dadStoryUpdated": null
   },
   {
+    "id": "romola-nijinsky",
+    "name": "Romola Nijinska",
+    "nameVariants": ["Romola Nijinska", "Romola Nijinsky", "Romola de Pulszky"],
+    "era": "1920s",
+    "category": "Society Guest",
+    "knownFor": "Wife of the legendary dancer Vaslav Nijinsky — widely considered the greatest ballet dancer who ever lived. Born a Hungarian aristocrat, Romola de Pulszky met Nijinsky on a South American tour in 1913 and married him against all expectation. She later wrote the definitive biography of her husband, which shaped how the world understood him. She signed from Paris, where she lived amid the exile and tragedy of Nijinsky's devastating mental illness.",
+    "quickFacts": [
+      "Born Romola de Pulszky, February 20, 1891; died June 8, 1978",
+      "Wife of Vaslav Nijinsky, the Russian ballet dancer often called the greatest who ever lived",
+      "Met Nijinsky on a 1913 South American tour with the Ballets Russes and married him suddenly",
+      "Wrote Nijinsky (1934), the landmark biography of her husband",
+      "By 1926 Nijinsky had been institutionalized — Romola was managing his legacy and affairs",
+      "Signed the Aladdin guestbook (pg. 192) from Paris, on a page with The Miracle touring company",
+      "The page also reads 'WHO SAID Australia, WHOOP' — a guest's doodle in the margin"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Romola_de_Pulszky",
+    "guestbookPage": 192,
+    "guestbookCoords": { "x": 0.3, "y": 0.42 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "the-miracle-company",
+    "name": "The Miracle Company",
+    "nameVariants": ["The Miracle", "Das Mirakel"],
+    "era": "1920s",
+    "category": "Performers",
+    "knownFor": "Members of the touring company of The Miracle — Max Reinhardt's monumental wordless spectacle, one of the most ambitious theatrical productions ever staged. Based on a 1911 Karl Vollmöller play, The Miracle toured the United States through the mid-1920s with a cast of hundreds. Several company members signed the Aladdin guestbook on October 8, 1926, from Vienna, Hollywood, and Philadelphia.",
+    "quickFacts": [
+      "The Miracle (Das Mirakel) was a 1911 wordless play by Karl Vollmöller, produced by Max Reinhardt",
+      "It toured the United States in the 1920s as a massive theatrical spectacle involving hundreds of performers",
+      "Multiple company members signed pg. 192 on October 8, 1926 — from Vienna, Hollywood, and Philadelphia",
+      "Signatories include Kurt Parinah (Vienna), Jona C. Markens (Hollywood), and Comne Olga Pegal (Philadelphia)",
+      "Romola Nijinska signed the same page from Paris — the whole page crackles with the European theatrical world"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/78/DasMirakel.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/The_Miracle_(play)",
+    "guestbookPage": 192,
+    "guestbookCoords": { "x": 0.6, "y": 0.6 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
     "id": "sarah-padden",
     "name": "Sarah Padden",
     "nameVariants": ["Sarah Padden", "Sarah Ann Padden"],
