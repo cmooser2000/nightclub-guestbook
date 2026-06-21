@@ -118,9 +118,9 @@ export default function GuestbookScroll({ pageMap }: Props) {
         .gb-panel {
           position: fixed;
           right: 12px;
-          top: 180px;
-          width: 210px;
-          max-height: calc(100vh - 210px);
+          top: 380px;
+          width: 230px;
+          max-height: calc(100vh - 400px);
           z-index: 200;
           display: flex;
           flex-direction: column;
@@ -139,9 +139,9 @@ export default function GuestbookScroll({ pageMap }: Props) {
         }
 
         .gb-panel-box {
-          background: #f5f0e6;
-          border: 1px solid #c8b89a;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+          background: #3a4858;
+          border: 2px solid #c0405a;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
 
         .gb-search-input {
@@ -150,11 +150,11 @@ export default function GuestbookScroll({ pageMap }: Props) {
           border: none;
           outline: none;
           font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
-          font-size: 0.82rem;
-          color: #1a1209;
-          padding: 10px 10px 10px 28px;
+          font-size: 1rem;
+          color: #f5f0e6;
+          padding: 11px 10px 11px 30px;
         }
-        .gb-search-input::placeholder { color: rgba(26,18,9,0.38); }
+        .gb-search-input::placeholder { color: rgba(245,240,230,0.45); }
 
         .gb-cat-btn {
           width: 100%;
@@ -163,15 +163,15 @@ export default function GuestbookScroll({ pageMap }: Props) {
           border: none;
           cursor: pointer;
           font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
-          font-size: 0.78rem;
-          color: #8b6914;
-          padding: 7px 12px;
+          font-size: 0.95rem;
+          color: #c8b89a;
+          padding: 9px 14px;
           letter-spacing: 0.04em;
-          border-top: 1px solid rgba(200,184,154,0.4);
+          border-top: 1px solid rgba(192,64,90,0.35);
           transition: background 0.12s;
         }
-        .gb-cat-btn:hover { background: rgba(139,105,20,0.06); }
-        .gb-cat-btn.active { background: rgba(139,105,20,0.1); color: #1a1209; font-style: italic; }
+        .gb-cat-btn:hover { background: rgba(192,64,90,0.12); color: #f5f0e6; }
+        .gb-cat-btn.active { background: rgba(192,64,90,0.2); color: #f5f0e6; font-style: italic; }
 
         .gb-results {
           overflow-y: auto;
@@ -179,7 +179,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
         }
         .gb-results::-webkit-scrollbar { width: 4px; }
         .gb-results::-webkit-scrollbar-track { background: transparent; }
-        .gb-results::-webkit-scrollbar-thumb { background: rgba(200,184,154,0.5); border-radius: 2px; }
+        .gb-results::-webkit-scrollbar-thumb { background: rgba(192,64,90,0.4); border-radius: 2px; }
 
         .gb-result-item {
           display: block;
@@ -187,18 +187,18 @@ export default function GuestbookScroll({ pageMap }: Props) {
           text-align: left;
           background: none;
           border: none;
-          border-top: 1px solid rgba(200,184,154,0.3);
-          padding: 8px 12px;
+          border-top: 1px solid rgba(192,64,90,0.25);
+          padding: 9px 14px;
           cursor: pointer;
           font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
-          font-size: 0.8rem;
-          color: #1a1209;
+          font-size: 0.95rem;
+          color: #f5f0e6;
           line-height: 1.3;
           transition: background 0.1s;
           text-decoration: none;
         }
-        .gb-result-item:hover { background: rgba(139,105,20,0.08); }
-        .gb-result-item .pg { font-size: 0.62rem; color: #8b6914; display: block; margin-top: 1px; }
+        .gb-result-item:hover { background: rgba(192,64,90,0.12); }
+        .gb-result-item .pg { font-size: 0.72rem; color: #c8b89a; display: block; margin-top: 2px; }
 
         .gb-guest-row {
           position: absolute;
@@ -300,10 +300,10 @@ export default function GuestbookScroll({ pageMap }: Props) {
           ) : (
             <>
               {/* ── SEARCH ROW ── */}
-              <div style={{ position: 'relative', borderBottom: '1px solid rgba(200,184,154,0.5)' }}>
-                <svg style={{ position: 'absolute', left: 9, top: '50%', transform: 'translateY(-50%)', opacity: 0.35 }} width="13" height="13" viewBox="0 0 13 13" fill="none">
-                  <circle cx="5.5" cy="5.5" r="4.5" stroke="#1a1209" strokeWidth="1.4"/>
-                  <line x1="9" y1="9" x2="12" y2="12" stroke="#1a1209" strokeWidth="1.4" strokeLinecap="round"/>
+              <div style={{ position: 'relative', borderBottom: '1px solid rgba(192,64,90,0.35)' }}>
+                <svg style={{ position: 'absolute', left: 9, top: '50%', transform: 'translateY(-50%)', opacity: 0.55 }} width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <circle cx="5.5" cy="5.5" r="4.5" stroke="#f5f0e6" strokeWidth="1.4"/>
+                  <line x1="9" y1="9" x2="12" y2="12" stroke="#f5f0e6" strokeWidth="1.4" strokeLinecap="round"/>
                 </svg>
                 <input
                   ref={searchInputRef}
@@ -315,7 +315,7 @@ export default function GuestbookScroll({ pageMap }: Props) {
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    style={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#8b6914', fontSize: '0.9rem', lineHeight: 1, padding: 2 }}
+                    style={{ position: 'absolute', right: 8, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#c8b89a', fontSize: '0.9rem', lineHeight: 1, padding: 2 }}
                   >×</button>
                 )}
               </div>
@@ -332,12 +332,12 @@ export default function GuestbookScroll({ pageMap }: Props) {
                 </div>
               )}
               {searchQuery && searchResults.length === 0 && (
-                <p style={{ padding: '10px 12px', fontSize: '0.75rem', opacity: 0.4, fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#1a1209', borderBottom: '1px solid rgba(200,184,154,0.4)' }}>No matches</p>
+                <p style={{ padding: '10px 14px', fontSize: '0.85rem', opacity: 0.55, fontFamily: 'LinLibertine, serif', fontStyle: 'italic', color: '#f5f0e6', borderBottom: '1px solid rgba(192,64,90,0.25)' }}>No matches</p>
               )}
 
               {/* ── BROWSE BY TYPE ── */}
               <div>
-                <p style={{ padding: '8px 12px 4px', fontSize: '0.6rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#8b6914', fontFamily: 'LinLibertine, serif', margin: 0 }}>
+                <p style={{ padding: '10px 14px 5px', fontSize: '0.65rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#c0405a', fontFamily: 'LinLibertine, serif', margin: 0 }}>
                   Browse by type
                 </p>
                 {CATEGORIES.map(cat => (

@@ -2806,6 +2806,35 @@
     "dadStoryUpdated": null
   },
   {
+    "id": "eleanor-mcclatchy",
+    "name": "Miss E. E. McClatchy",
+    "nameVariants": [
+      "Miss E. E. McClatchy",
+      "Eleanor McClatchy",
+      "Eleanor Grace McClatchy"
+    ],
+    "era": "1920s",
+    "category": "Journalist",
+    "knownFor": "Daughter of the McClatchy newspaper dynasty and future president of McClatchy Newspapers — one of the most powerful regional press empires in California. She signed the Aladdin guestbook from Sacramento, the family's home base, while still in the early years of her career.",
+    "quickFacts": [
+      "Born Eleanor Grace McClatchy, 1895; died 1980",
+      "Youngest daughter of C. K. McClatchy, publisher of the Sacramento Bee",
+      "Later served as president of McClatchy Newspapers from 1936 to 1978 — 42 years leading the company",
+      "Was studying playwriting at Columbia University before returning to Sacramento to join the family business",
+      "Signed the Aladdin guestbook (pg. 7) from Sacramento"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Eleanor_McClatchy",
+    "guestbookPage": 7,
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
     "id": "george-cabaniss",
     "name": "Judge George H. Cabaniss",
     "nameVariants": [
