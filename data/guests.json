@@ -1374,22 +1374,23 @@
     "name": "Jack Sheehan",
     "nameVariants": [
       "Jack Sheehan",
+      "John Sheehan",
       "Jack Sheelam"
     ],
     "era": "1920s",
-    "category": "Performer",
-    "knownFor": "A performer at the Orpheum Theatre who received a checkmark in the Aladdin guestbook — Hattie or Minnie's mark for someone of note — on a page shared with Lloyd Corrigan and company.",
+    "category": "Vaudeville Performer",
+    "knownFor": "A vaudeville and stage actor who worked for impresario Oliver Morosco — one of the most powerful theatrical producers on the West Coast. Known as 'Jack' to friends, he was born John Sheehan and performed on stage, in vaudeville, and in silent films.",
     "quickFacts": [
+      "Born John Sheehan, October 22, 1885; died February 14, 1952",
+      "Worked for Oliver Morosco, the Los Angeles theatrical producer who ran theatres across the West Coast",
+      "Began making films in 1914, starring in a number of short films",
       "Signed the Aladdin guestbook (pg. 411) at the Orpheum Theatre — with a checkmark (✓) next to his name",
-      "The checkmark indicates Hattie or Minnie Mooser marked him as a person worth noting",
-      "His entry is on the same page as Lloyd Corrigan, Howard Kyle, Marjorie Hayes, and Bud Burrows",
-      "Was part of the theatrical circuit that made San Francisco a regular stop",
-      "His name appears in family records as 'Jack Sheelam' — likely a transcription variant",
-      "Mrs. John Sheehan also signed the guestbook separately (pg. 389)"
+      "On the same page as Lloyd Corrigan, Howard Kyle, Marjorie Hayes, and Bud Burrows",
+      "A signed promotional photo to 'Mr. Sayres' (inscribed 'To Mr. Sayres, with sincere good wishes from John Sheehan') survives in the family collection"
     ],
-    "imageUrl": "",
-    "imageCredit": "",
-    "wikiUrl": "",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/John_Sheehan%2C_stock_actor_%28SAYRE_9624%29.jpg/500px-John_Sheehan%2C_stock_actor_%28SAYRE_9624%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/John_Sheehan_(actor)",
     "guestbookPage": 411,
     "guestbookCoords": {
       "x": 0.28,
