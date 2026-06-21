@@ -5187,5 +5187,287 @@
     "wikiUrl": "",
     "dadStory": "",
     "dadStoryUpdated": null
+  },
+  {
+    "id": "harry-liversedge",
+    "name": "Harry B. Liversedge",
+    "nameVariants": [
+      "Harry Liversedge",
+      "Harry Bluett Liversedge",
+      "Harry the Horse"
+    ],
+    "guestbookPage": 262,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
+    "category": "Athlete",
+    "era": "1920s",
+    "knownFor": "Olympic bronze medalist and Marine hero — 'Harry the Horse' Liversedge won the shot put bronze at the 1920 Antwerp Olympics representing the University of California, then went on to command the 28th Marine Regiment at the Battle of Iwo Jima. It was his regiment — the 28th Marines — that raised the American flag on Mount Suribachi on February 23, 1945, in the most famous photograph of World War II. He was stationed at Mare Island Naval Shipyard in the mid-1920s when he signed the Aladdin guestbook, marking his home simply as 'Mare Island, Cal.'",
+    "quickFacts": [
+      "Born September 21, 1894 — died November 25, 1951",
+      "Won the shot put bronze medal at the 1920 Antwerp Olympics",
+      "Commanded the 28th Marine Regiment at the Battle of Iwo Jima",
+      "His regiment raised the flag on Mount Suribachi — February 23, 1945",
+      "Awarded two Navy Crosses: one on New Georgia, one at Iwo Jima",
+      "Signed the Aladdin guestbook (pg. 262) from Mare Island, California — exactly where he was stationed in the mid-1920s"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Liversedge_HB.jpg/500px-Liversedge_HB.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Harry_Liversedge",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "john-merkyl",
+    "name": "John Merkyl",
+    "nameVariants": [
+      "Wilmuth Merkyl",
+      "Wilmuth John Merkyl"
+    ],
+    "guestbookPage": 261,
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.45
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Silent-screen leading man who appeared in early films for Kalem and Metro, and performed in light-operetta productions on stage. He appeared in The Unholy Three (1925) — the Lon Chaney crime drama — and was a versatile performer who bridged the worlds of film and musical theatre.",
+    "quickFacts": [
+      "Born Wilmuth John Merkyl, June 2, 1885 — died May 1, 1954",
+      "Appeared in silent films for Kalem and Metro studios",
+      "Stage career included light-operetta performances",
+      "Appeared in The Unholy Three (1925) with Lon Chaney",
+      "Signed the Aladdin guestbook (pg. 261) from New York City"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Wilmuth_Merkyl.JPG/500px-Wilmuth_Merkyl.JPG",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Wilmuth_Merkyl",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "stirling-new-guinea-expedition",
+    "name": "The Stirling New Guinea Expedition",
+    "nameVariants": [
+      "M.W. Stirling",
+      "Matthew Stirling",
+      "Stanley Hedberg",
+      "Richard Peck",
+      "Richard A. Peck"
+    ],
+    "guestbookPage": 270,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.4
+    },
+    "category": "Society Guest",
+    "era": "1920s",
+    "knownFor": "Members of Matthew W. Stirling's Smithsonian–Dutch scientific expedition to the interior of Dutch New Guinea — later immortalized in the 1928 book By Aeroplane to Pygmyland. Passing through San Francisco in November 1925 on their way to or from the expedition, party members Stanley A. Hedberg (expedition historian and co-author of the surviving diaries) and Richard K. Peck (photographer and cine-cameraman) signed the Aladdin guestbook. The expedition's opening signature line may be Stirling himself.",
+    "quickFacts": [
+      "The Smithsonian–Dutch expedition explored the interior of New Guinea in 1925–26",
+      "Led by Matthew W. Stirling of the Smithsonian Institution",
+      "Chronicled in By Aeroplane to Pygmyland (1928)",
+      "Stanley A. Hedberg (expedition historian) and Richard K. Peck (photographer) signed the Aladdin (pg. 270) on November 13, 1925",
+      "The expedition reached the interior highlands by aeroplane — a cutting-edge method for 1925"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Matthew_Stirling",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "toots-pounds",
+    "name": "Toots Pounds",
+    "nameVariants": [
+      "Toots Pounds"
+    ],
+    "guestbookPage": 270,
+    "guestbookCoords": {
+      "x": 0.65,
+      "y": 0.65
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Australian-born revue and musical-comedy star who performed in the touring production of The Student Prince. Born in 1897 and performing into the 1970s, she was a spirited entertainer who moved between Australian revue, British musical theatre, and American touring productions.",
+    "quickFacts": [
+      "Australian-born revue and musical-comedy performer, 1897–1976",
+      "Appeared in the touring company of The Student Prince",
+      "Signed the Aladdin guestbook (pg. 270) alongside the Stirling New Guinea Expedition party"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "student-prince-company",
+    "name": "The Student Prince Touring Company",
+    "nameVariants": [
+      "Student Prince Co.",
+      "Lea Wiles",
+      "Bob Adams",
+      "Ralph Dunn",
+      "Niedbialska"
+    ],
+    "guestbookPage": 266,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.5
+    },
+    "category": "Musicians",
+    "era": "1920s",
+    "knownFor": "The touring company of The Student Prince in Heidelberg — the Sigmund Romberg operetta that opened on Broadway in December 1924 and ran for 608 performances. Company members including Lea Wiles, Bob Adams, Ralph Dunn, and others signed the Aladdin guestbook across multiple pages (pp. 266, 272) during their West Coast tour.",
+    "quickFacts": [
+      "The Student Prince in Heidelberg opened on Broadway December 2, 1924 — ran 608 performances",
+      "Music by Sigmund Romberg, lyrics and book by Dorothy Donnelly",
+      "Touring company members signed the Aladdin guestbook across pages 266 and 272",
+      "The Chronicle and Henry Duffy's SF stock company are also noted on these pages"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/The_Student_Prince_in_Heidelberg",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "carl-gantvoort",
+    "name": "Carl Gantvoort",
+    "nameVariants": [
+      "Carl Gantvoort"
+    ],
+    "guestbookPage": 277,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
+    "category": "Musicians",
+    "era": "1920s",
+    "knownFor": "Concert baritone and silent-film leading man who combined a trained operatic voice with a screen presence. He starred in The Gray Dawn (1922) and appeared alongside Jean Hersholt in A Certain Rich Man (1921) — connecting him directly to another Aladdin guest.",
+    "quickFacts": [
+      "Born 1883 — died September 28, 1935",
+      "Concert baritone and opera singer who also acted in silent films",
+      "Starred in The Gray Dawn (1922); appeared with Jean Hersholt in A Certain Rich Man (1921)",
+      "Signed the Aladdin guestbook (pg. 277) from Los Angeles"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Film_actor_Carl_Gantvoort_%28SAYRE_674%29.jpg/500px-Film_actor_Carl_Gantvoort_%28SAYRE_674%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons — SAYRE Collection",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Carl_Gantvoort",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "ben-blue",
+    "name": "Ben Blue",
+    "nameVariants": [
+      "Benjamin Bernstein",
+      "Ben Blue"
+    ],
+    "guestbookPage": 278,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Canadian-American comedian and rubber-limbed dancer whose career spanned nearly 50 years across vaudeville, Broadway, Hollywood, and television. A physical comedian of remarkable elasticity, he became a Hollywood fixture — appearing in For Me and My Gal (1942) with Gene Kelly and Judy Garland, and in It's a Mad Mad Mad Mad World (1963) in one of his final screen roles.",
+    "quickFacts": [
+      "Born Benjamin Bernstein, December 9, 1901 — died March 7, 1975",
+      "Canadian-American comedian known for his rubber-limbed physical comedy",
+      "Appeared in For Me and My Gal (1942) with Gene Kelly and Judy Garland",
+      "Also in It's a Mad Mad Mad Mad World (1963)",
+      "Signed the Aladdin guestbook (pg. 278) at the Orpheum"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Ben_Blue_press_photo_from_Once_Upon_A_Tour_1972.jpg/500px-Ben_Blue_press_photo_from_Once_Upon_A_Tour_1972.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Ben_Blue",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "franklyn-farnum",
+    "name": "Franklyn Farnum",
+    "nameVariants": [
+      "William Smith",
+      "Frank Farnum",
+      "Franklyn Farnum"
+    ],
+    "guestbookPage": 278,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.55
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Silent-Western star who appeared in at least 1,100 films — one of the most-filmed actors in Hollywood history. Remarkably, he appeared in eight films that won the Academy Award for Best Picture, mostly in uncredited roles late in his career. He also served as president of the Screen Extras Guild. He is listed as signing the guestbook with the 'Little Nellie Kelly Co.' — he famously left starring roles in 1925, making a late-1925 stage tour fit the chronology perfectly.",
+    "quickFacts": [
+      "Born William Smith, June 5, 1878 — died July 4, 1961",
+      "Appeared in at least 1,100 films — one of the most-filmed actors in history",
+      "Appeared in eight Best Picture-winning films (mostly uncredited)",
+      "President of the Screen Extras Guild",
+      "Left starring roles circa 1925 — his signing with 'Little Nellie Kelly Co.' fits that transition",
+      "Signed the Aladdin guestbook (pg. 278)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Franklyn_Farnum_1.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Franklyn_Farnum",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "eugene-borden",
+    "name": "Eugene Borden",
+    "nameVariants": [
+      "Eugene Borden"
+    ],
+    "guestbookPage": 278,
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.42
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "French-American character actor who appeared in more than 150 films across five decades, bringing his continental accent and bearing to a remarkable range of productions. His credits include An American in Paris (1951), Gilda (1946), and To Have and Have Not (1944) — placing him in some of the greatest films of the Hollywood golden age. He signed the Aladdin with the Little Nellie Kelly Company.",
+    "quickFacts": [
+      "French-American character actor with 150+ film appearances",
+      "Credits include An American in Paris (1951), Gilda (1946), and To Have and Have Not (1944)",
+      "Signed the Aladdin guestbook (pg. 278) as a member of the Little Nellie Kelly Company"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Eugene_Borden",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "what-price-glory-company",
+    "name": "The What Price Glory Touring Company",
+    "nameVariants": [
+      "Stanley J. Smith",
+      "Charles W. Crouch",
+      "Norman Ives",
+      "What Price Glory Co."
+    ],
+    "guestbookPage": 286,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.5
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The touring company of What Price Glory — the landmark 1924 anti-war play by Maxwell Anderson and Laurence Stallings that was one of the most controversial and acclaimed plays of the decade. A raw, profane drama about Marines in World War I France, it shocked and moved audiences in equal measure. Company members Stanley J. Smith, Charles W. Crouch, Norman Ives, and others signed the Aladdin guestbook (pg. 286) during their West Coast engagement.",
+    "quickFacts": [
+      "What Price Glory opened on Broadway September 5, 1924 — ran 433 performances",
+      "Written by Maxwell Anderson and Laurence Stallings — one of the decade's most important plays",
+      "A profane, realistic anti-war drama about Marines in WWI France",
+      "Touring company members signed the Aladdin guestbook (pg. 286)"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/What_Price_Glory_(play)",
+    "dadStory": "",
+    "dadStoryUpdated": null
   }
 ]
