@@ -5609,5 +5609,33 @@
     "wikiUrl": "",
     "dadStory": "",
     "dadStoryUpdated": null
+  },
+  {
+    "id": "ethel-wales",
+    "name": "Ethel Wales",
+    "nameVariants": [
+      "Ethel Wales"
+    ],
+    "guestbookPage": 317,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Prolific Paramount and DeMille character actress who appeared in more than 130 films across a 30-year career. She played Mrs. Wingate in the landmark Western epic The Covered Wagon (1923), and had prominent roles in Miss Lulu Bett (1921) and Merton of the Movies (1924). One of the indispensable supporting players of the silent and early sound eras.",
+    "quickFacts": [
+      "Born April 4, 1878 — died February 15, 1952",
+      "Appeared in more than 130 films over a 30-year career",
+      "Played Mrs. Wingate in The Covered Wagon (1923) — a landmark Western epic",
+      "Appeared in Miss Lulu Bett (1921) and Merton of the Movies (1924)",
+      "A regular at Paramount and in DeMille productions",
+      "Signed the Aladdin guestbook (pg. 317) alongside Jean Hersholt"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Ladies_Night_in_a_Turkish_Bath_lobby_card.jpg/500px-Ladies_Night_in_a_Turkish_Bath_lobby_card.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Ethel_Wales",
+    "dadStory": "",
+    "dadStoryUpdated": null
   }
 ]
