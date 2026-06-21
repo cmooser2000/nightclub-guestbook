@@ -2806,6 +2806,62 @@
     "dadStoryUpdated": null
   },
   {
+    "id": "george-cabaniss",
+    "name": "Judge George H. Cabaniss",
+    "nameVariants": [
+      "Judge Geo. H. Cabaniss",
+      "George H. Cabaniss",
+      "Mrs. Geo H. Cabaniss",
+      "Geo H. Cabaniss Jr."
+    ],
+    "era": "1920s",
+    "category": "Judge",
+    "knownFor": "A San Francisco judge who dined at the Aladdin with his wife and son — all three signing the guestbook and each receiving a checkmark. A family evening at one of the city's most elegant supper clubs.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 39) in January 1927 alongside his wife and son",
+      "All three — Judge Cabaniss, Mrs. Cabaniss, and George H. Cabaniss Jr. — received checkmarks",
+      "Listed as residing in San Francisco",
+      "The Aladdin's guestbook places him among SF's legal and civic elite who frequented the club"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 39,
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.38
+    },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "hugo-de-groot",
+    "name": "Hugo De Groot",
+    "nameVariants": [
+      "Hugo De Groot",
+      "Hugo de Groot"
+    ],
+    "era": "1920s",
+    "category": "Musician",
+    "knownFor": "A musician connected to the San Francisco Examiner's cultural world. The guestbook margin identifies him as a friend of Fulton Nixon — a note suggesting he moved in the overlapping circles of music, journalism, and Bay Area society that made the Aladdin their gathering place.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 46) with the Examiner as his address",
+      "The margin annotation reads: 'Fulton Nixon's friend'",
+      "Listed on Discogs as a musician active in the era",
+      "His Dutch name nods to the 17th-century philosopher Hugo Grotius — whether a coincidence or a family connection is unknown"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 46,
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.88
+    },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
     "id": "annie-laurie",
     "name": "Annie Laurie",
     "nameVariants": [

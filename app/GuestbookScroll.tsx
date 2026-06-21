@@ -19,8 +19,8 @@ const TOTAL_PAGES = 418
 
 const CATEGORIES = [
   {
-    label: 'Politicians',
-    match: (c: string) => /politic|mayor|governor|senator|congress|assembly|presidential|diplomacy/i.test(c),
+    label: 'Political Figures',
+    match: (c: string) => /politic|mayor|governor|senator|congress|assembly|presidential|diplomacy|judge|supervisor|official/i.test(c),
   },
   {
     label: 'Musicians',
