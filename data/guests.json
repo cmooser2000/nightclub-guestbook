@@ -1709,12 +1709,12 @@
       "Angelo Rossi",
       "Angelo J. Rossi"
     ],
-    "guestbookPage": 32,
+    "guestbookPage": 108,
     "guestbookCoords": {
       "x": 0.3,
       "y": 0.05
     },
-    "category": "Politics",
+    "category": "Political Figure",
     "era": "1920s–30s",
     "knownFor": "Mayor of San Francisco from 1931 to 1944 — one of the longest-serving mayors in the city's history. A florist by trade who rose through civic organizations to become a beloved city leader during the Depression era.",
     "quickFacts": [
@@ -2152,7 +2152,7 @@
     "nameVariants": [
       "Rex Cherryman"
     ],
-    "guestbookPage": 220,
+    "guestbookPage": 62,
     "guestbookCoords": {
       "x": 0.3,
       "y": 0.33
@@ -2803,6 +2803,262 @@
       "x": 0.25,
       "y": 0.4
     },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "george-mooser",
+    "name": "George Mooser",
+    "nameVariants": ["George Mooser", "Mrs. George Mooser", "Georgia Lucile Mooser"],
+    "era": "1920s",
+    "category": "Society Guest",
+    "knownFor": "Brother of Hattie and Minnie Mooser, the proprietresses of the Aladdin Studio Tiffin Room. George was the theatrical manager and agent of the family — the one with deep connections to show business and Chinese theatrical troupes — visiting from New York with his wife and daughter Georgia Lucile.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 90) listed as 'New York'",
+      "Signed alongside wife Mrs. George Mooser and daughter Georgia Lucile Mooser",
+      "The theatrical agent/manager branch of the Mooser family — connected to touring Chinese theatrical troupes",
+      "Brother to Hattie and Minnie Mooser, who ran the Aladdin"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 90,
+    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "kamuela-searle",
+    "name": "Kamuela C. Searle",
+    "nameVariants": ["Kamuela Searle", "Kamuela C. Searle"],
+    "era": "1920s",
+    "category": "Silent Film Star",
+    "knownFor": "A Hawaiian-born actor, sculptor, and painter best remembered for playing Korak — the son of Tarzan — in the 1920 silent serial The Son of Tarzan. He listed both Honolulu and Carmel as his home, bridging the Pacific and California's bohemian art colony. He died at only 33.",
+    "quickFacts": [
+      "Born August 29, 1890 in Hawaii; died February 14, 1924 — aged 33",
+      "Played Korak in the 1920 silent serial The Son of Tarzan",
+      "Also a sculptor and painter, connected to the Carmel artists' colony",
+      "Signed the Aladdin guestbook (pg. 94) listing 'Honolulu & Carmel' as his home"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Kamuela_C_Searle_01.JPG",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Kamuela_C._Searle",
+    "guestbookPage": 94,
+    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "clay-m-greene",
+    "name": "Clay M. Greene",
+    "nameVariants": ["Clay M. Greene", "Clay Meredith Greene"],
+    "era": "1920s",
+    "category": "Playwright",
+    "knownFor": "One of San Francisco's most celebrated playwrights and a towering figure of the Bohemian Club — a founding member who wrote and directed many of the Club's famous Grove Plays. A prolific dramatist, theatre critic, and journalist who defined Bay Area literary culture for half a century.",
+    "quickFacts": [
+      "Born March 12, 1850; died September 5, 1933",
+      "Founding member and longtime star of the Bohemian Club, San Francisco's legendary arts fraternity",
+      "Wrote dozens of plays and served as theatre critic for San Francisco papers",
+      "His Grove Plays at the Bohemian Grove were major cultural events attended by California's elite",
+      "Signed the Aladdin guestbook (pg. 99)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Clay_M._Greene.jpg/500px-Clay_M._Greene.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Clay_M._Greene",
+    "guestbookPage": 99,
+    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "hephzibah-menuhin",
+    "name": "Hephzibah Menuhin",
+    "nameVariants": ["Hephzibah Menuhin"],
+    "era": "1920s",
+    "category": "Musician",
+    "knownFor": "A brilliant concert pianist and the sister of violin prodigy Yehudi Menuhin. Raised in San Francisco alongside her brother and sister Yaltah, she became a celebrated performer in her own right and a passionate human rights activist. The whole Menuhin family signed the Aladdin guestbook together.",
+    "quickFacts": [
+      "Born May 20, 1920; died January 1, 1981",
+      "Sister of Yehudi Menuhin; raised in San Francisco as part of the city's remarkable musical prodigy family",
+      "Performed internationally as a concert pianist, often alongside Yehudi",
+      "Later became a leading human rights advocate in Australia",
+      "Signed the Aladdin guestbook (pg. 112) alongside her family"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Hepsyba_en_Yehudi_Menuhin_%281963%29.jpg/500px-Hepsyba_en_Yehudi_Menuhin_%281963%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Hephzibah_Menuhin",
+    "guestbookPage": 112,
+    "guestbookCoords": { "x": 0.35, "y": 0.4 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "yaltah-menuhin",
+    "name": "Yaltah Menuhin",
+    "nameVariants": ["Yaltah Menuhin"],
+    "era": "1920s",
+    "category": "Musician",
+    "knownFor": "The youngest of the three Menuhin prodigies — a concert pianist, artist, and poet raised in San Francisco. Like her siblings Yehudi and Hephzibah, she showed extraordinary musical gifts from childhood. She signed the Aladdin guestbook as part of the whole Menuhin family visit.",
+    "quickFacts": [
+      "Born October 7, 1921; died June 9, 2001",
+      "Youngest sibling in the Menuhin family of San Francisco musical prodigies",
+      "Concert pianist, artist, and poet who performed internationally",
+      "Signed the Aladdin guestbook (pg. 112) alongside her family"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Yaltah_Menuhin_in_2000.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Yaltah_Menuhin",
+    "guestbookPage": 112,
+    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "moshe-menuhin",
+    "name": "Moshe Menuhin",
+    "nameVariants": ["Moshe Menuhin", "Mrs. M. Menuhin", "Marutha Menuhin"],
+    "era": "1920s",
+    "category": "Society Guest",
+    "knownFor": "Father of the Menuhin prodigies — Yehudi, Hephzibah, and Yaltah — and the driving force behind the family's remarkable musical education. A Hebrew teacher and writer, he moved the family to San Francisco specifically to nurture his children's gifts. He and his wife Marutha signed alongside all three children.",
+    "quickFacts": [
+      "Born 1893; died 1982",
+      "Father of violinist Yehudi Menuhin and pianists Hephzibah and Yaltah",
+      "Moved the family to San Francisco to provide the best musical education for his children",
+      "His wife Marutha ('Mrs. M. Menuhin') also signed the guestbook",
+      "Signed the Aladdin guestbook (pg. 112) — the whole family together on one page"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Moshe_Menuhin.jpg/500px-Moshe_Menuhin.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Moshe_Menuhin",
+    "guestbookPage": 112,
+    "guestbookCoords": { "x": 0.65, "y": 0.55 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "lee-mooser",
+    "name": "Lee Mooser",
+    "nameVariants": ["Lee Mooser"],
+    "era": "1920s",
+    "category": "Society Guest",
+    "knownFor": "A member of the Mooser family — relatives of Hattie and Minnie, the Aladdin's proprietresses — who listed 'Metro Goldwyn Mayer' as his affiliation when he signed the guestbook. The Mooser family's entertainment connections stretched from this supper club all the way to Hollywood's biggest studio.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 112) listing 'Metro Goldwyn Mayer' as his address",
+      "Member of the Mooser family, connected to Hattie and Minnie who ran the Aladdin",
+      "Family connections spanned Chinese theatrical troupes, Broadway management, and MGM"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 112,
+    "guestbookCoords": { "x": 0.75, "y": 0.6 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "benny-davis",
+    "name": "Benny Davis",
+    "nameVariants": ["Benny Davis"],
+    "era": "1920s",
+    "category": "Vaudeville Performer",
+    "knownFor": "A vaudeville performer and prolific Tin Pan Alley songwriter who co-wrote 'Baby Face' (1926) — one of the defining hits of the Jazz Age. He moved between the stage and the songwriting offices of New York, producing dozens of standards while performing on vaudeville bills across the country.",
+    "quickFacts": [
+      "Born August 21, 1895; died December 20, 1979",
+      "Co-wrote 'Baby Face' (1926), one of the most enduring popular songs of the era",
+      "Prolific Tin Pan Alley songwriter and vaudeville performer",
+      "Signed the Aladdin guestbook (pg. 118)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Singer_Benny_Davis_%28SAYRE_22157%29.jpg/500px-Singer_Benny_Davis_%28SAYRE_22157%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Benny_Davis",
+    "guestbookPage": 118,
+    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "wellington-cross",
+    "name": "Wellington Cross",
+    "nameVariants": ["Wellington Cross"],
+    "era": "1920s",
+    "category": "Vaudeville Performer",
+    "knownFor": "A vaudeville comedian who signed the Aladdin guestbook on page 119, part of the stream of touring theatrical talent that made the club their San Francisco stop.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 119)",
+      "Vaudeville comedian active on the circuits in the 1920s"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "guestbookPage": 119,
+    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "emmett-vogan",
+    "name": "Emmett Vogan",
+    "nameVariants": ["Emmett Vogan", "Charles Emmett Vogan"],
+    "era": "1920s",
+    "category": "Vaudeville Performer",
+    "knownFor": "One of Hollywood's most prolific character actors, with nearly 500 film appearances between 1934 and 1954. A reliable presence in B-movies and serials, often cast as detectives, doctors, and businessmen. He signed the Aladdin guestbook in the 1920s, before his film career took off.",
+    "quickFacts": [
+      "Born September 27, 1893; died October 6, 1969",
+      "Appeared in nearly 500 films — one of Hollywood's most prolific character actors",
+      "Often cast as authority figures — detectives, officials, businessmen — in B-movies and serials",
+      "Signed the Aladdin guestbook (pg. 123)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Dangerous_Money_%281946%29_-_Emmett_Vogan_2.jpg/500px-Dangerous_Money_%281946%29_-_Emmett_Vogan_2.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Emmett_Vogan",
+    "guestbookPage": 123,
+    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "lefty-odoul",
+    "name": "Lefty O'Doul",
+    "nameVariants": ["Lefty O'Doul", "Francis Joseph O'Doul"],
+    "era": "1920s",
+    "category": "Baseball Player",
+    "knownFor": "A San Francisco native and baseball legend — two-time National League batting champion and beloved manager who became the face of San Francisco baseball for a generation. After his playing days he ran his famous bar and grill on Geary Street, a city institution. He is also credited with helping introduce baseball to Japan.",
+    "quickFacts": [
+      "Born March 4, 1897 in San Francisco; died December 7, 1969",
+      "Won the NL batting title in 1929 (.398) and 1932 (.368)",
+      "Managed the San Francisco Seals of the Pacific Coast League for many years",
+      "Credited with introducing baseball to Japan and is revered there to this day",
+      "His bar on Geary Street was a San Francisco institution for decades",
+      "Signed the Aladdin guestbook (pg. 124)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Lefty-odoul.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Lefty_O%27Doul",
+    "guestbookPage": 124,
+    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "benny-leonard",
+    "name": "Benny Leonard",
+    "nameVariants": ["Benny Leonard", "Benjamin Leiner"],
+    "era": "1920s",
+    "category": "Boxer",
+    "knownFor": "One of the greatest boxers in history — world lightweight champion from 1917 to 1925, celebrated as much for his ring intelligence as his power. Known as 'The Ghetto Wizard,' he was a hero of the Jewish-American community and a towering figure of 1920s sports culture.",
+    "quickFacts": [
+      "Born Benjamin Leiner, April 7, 1896; died April 18, 1947",
+      "World Lightweight Champion 1917–1925 — one of the longest reigns in boxing history",
+      "Known as 'The Ghetto Wizard' for his cunning, scientific fighting style",
+      "Retired undefeated as champion before a brief comeback in 1931",
+      "Inducted into the International Boxing Hall of Fame",
+      "Signed the Aladdin guestbook (pg. 126)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Benny_Leonard_-_El_Gr%C3%A1fico_222_%28cropped%29.jpg/500px-Benny_Leonard_-_El_Gr%C3%A1fico_222_%28cropped%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Benny_Leonard",
+    "guestbookPage": 126,
+    "guestbookCoords": { "x": 0.25, "y": 0.5 },
     "dadStory": "",
     "dadStoryUpdated": null
   },
