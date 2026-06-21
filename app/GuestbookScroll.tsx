@@ -135,13 +135,14 @@ export default function GuestbookScroll({ pageMap }: Props) {
         /* ── Floating search bar (right side) ── */
         .gb-panel {
           position: fixed;
-          right: 14px;
+          right: 20px;
           top: 50%;
           transform: translateY(-50%);
           z-index: 200;
           opacity: 0;
           pointer-events: none;
           transition: opacity 0.3s;
+          filter: drop-shadow(2px 3px 8px rgba(0,0,0,0.45));
         }
         .gb-panel.visible {
           opacity: 1;
@@ -151,10 +152,10 @@ export default function GuestbookScroll({ pageMap }: Props) {
         .gb-search-bar {
           display: flex;
           align-items: center;
-          gap: 0;
-          background: #3a4858;
-          border: 2px solid #c0405a;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+          background: #f0deb8;
+          border: 2.5px solid #c0405a;
+          outline: 2px solid #1a1209;
+          outline-offset: -5px;
         }
 
         .gb-search-input {
@@ -162,12 +163,12 @@ export default function GuestbookScroll({ pageMap }: Props) {
           border: none;
           outline: none;
           font-family: 'LinLibertine', 'Palatino Linotype', Palatino, serif;
-          font-size: 1rem;
-          color: #f5f0e6;
-          padding: 10px 10px 10px 10px;
-          width: 180px;
+          font-size: 0.95rem;
+          color: #1a1209;
+          padding: 9px 12px 9px 8px;
+          width: 160px;
         }
-        .gb-search-input::placeholder { color: rgba(245,240,230,0.45); }
+        .gb-search-input::placeholder { color: rgba(26,18,9,0.4); }
 
         /* ── Modal overlay ── */
         .gb-modal-backdrop {
@@ -339,9 +340,9 @@ export default function GuestbookScroll({ pageMap }: Props) {
       {/* ── Floating search bar (right side) ── */}
       <div className={`gb-panel${showPanel ? ' visible' : ''}`}>
         <div className="gb-search-bar">
-          <svg style={{ marginLeft: 10, flexShrink: 0, opacity: 0.55 }} width="14" height="14" viewBox="0 0 13 13" fill="none">
-            <circle cx="5.5" cy="5.5" r="4.5" stroke="#f5f0e6" strokeWidth="1.4"/>
-            <line x1="9" y1="9" x2="12" y2="12" stroke="#f5f0e6" strokeWidth="1.4" strokeLinecap="round"/>
+          <svg style={{ marginLeft: 10, flexShrink: 0, opacity: 0.45 }} width="14" height="14" viewBox="0 0 13 13" fill="none">
+            <circle cx="5.5" cy="5.5" r="4.5" stroke="#1a1209" strokeWidth="1.4"/>
+            <line x1="9" y1="9" x2="12" y2="12" stroke="#1a1209" strokeWidth="1.4" strokeLinecap="round"/>
           </svg>
           <input
             ref={searchInputRef}
