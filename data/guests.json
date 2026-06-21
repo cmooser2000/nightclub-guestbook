@@ -7733,5 +7733,441 @@
     "wikiUrl": "",
     "dadStory": "",
     "dadStoryUpdated": null
+  },
+  {
+    "id": "henry-duffy-dale-winter",
+    "name": "Henry Duffy & Dale Winter",
+    "nameVariants": [
+      "Henry Duffy",
+      "Dale Winter",
+      "Florence Roberts",
+      "Ralph Murphy",
+      "Dorothy Lamar",
+      "Dorothy Spencer",
+      "George Leffingwell",
+      "May Usher",
+      "Victor Stone"
+    ],
+    "guestbookPage": 401,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.4
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Henry Duffy was 'America's Stock Company King' — a theatrical producer whose West Coast empire launched with the San Francisco Alcazar company in 1924, the very company whose pages appear in this guestbook. His first wife, Anne Nichols, wrote Abie's Irish Rose, the longest-running Broadway play of the decade. His star and second wife Dale Winter had an extraordinary history: she had been married for exactly one week to 'Big Jim' Colosimo — Chicago's most powerful crime boss — when he was shot dead in 1920. The entire page 401 is his SF Alcazar company: Florence Roberts, Ralph Murphy, Dorothy Lamar, Dorothy Spencer, George Leffingwell, May Usher, Victor Stone.",
+    "quickFacts": [
+      "Henry Duffy: 'America's Stock Company King,' launched the SF Alcazar company in 1924",
+      "His first wife Anne Nichols wrote Abie's Irish Rose — the decade's longest-running Broadway show",
+      "Dale Winter: married Chicago crime boss 'Big Jim' Colosimo; he was murdered one week later (1920)",
+      "Dale Winter then became Duffy's star and wife",
+      "Page 401 is entirely his SF Alcazar company"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Henry_Duffy_(producer)",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "sammy-cohen-pickings",
+    "name": "Sammy Cohen",
+    "nameVariants": [
+      "Sammy Cohen"
+    ],
+    "guestbookPage": 402,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Likely the Sammy Cohen who became a Fox Film comedian best known for his role in What Price Glory (1926) alongside Victor McLaglen and Edmund Lowe — one of the decade's most successful and irreverent war pictures. He appears in the Pickings revue company on page 402, the same Harry Carroll touring production that signs on pages 392, 396, and 404.",
+    "quickFacts": [
+      "Likely the Fox Film comedian known for What Price Glory (1926)",
+      "Appeared with Harry Carroll's Pickings revue company",
+      "Signed the Aladdin guestbook (pg. 402)"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Sammy_Cohen_(actor)",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "nan-halperin",
+    "name": "Nan Halperin",
+    "nameVariants": [
+      "Nan Halperin",
+      "Sophie Halperin"
+    ],
+    "guestbookPage": 402,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.45
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "A well-known vaudeville singing comedienne who performed with her sister Sophie Halperin. Nan Halperin was celebrated for her sharp comic timing, musical talent, and topical songs — a fixture on the major vaudeville circuits. She signed the Aladdin alongside the Pickings company.",
+    "quickFacts": [
+      "Vaudeville singing comedienne, often paired with sister Sophie Halperin",
+      "A fixture on the major vaudeville circuits",
+      "Signed the Aladdin guestbook (pg. 402)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Nan_Halperin.png/500px-Nan_Halperin.png",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Nan_Halperin",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "william-c-bagley",
+    "name": "William C. Bagley",
+    "nameVariants": [
+      "William Chandler Bagley",
+      "W. C. Bagley"
+    ],
+    "guestbookPage": 402,
+    "guestbookCoords": {
+      "x": 0.55,
+      "y": 0.65
+    },
+    "category": "Society Guest",
+    "era": "1920s",
+    "knownFor": "Eminent American educator and psychologist at Teachers College, Columbia University — one of the founding figures of the 'essentialist' school of educational philosophy, which held that there is an essential core of knowledge all children should be taught. He signed the Aladdin from Columbia University, a world away from the vaudeville crowd surrounding him on the page.",
+    "quickFacts": [
+      "Born March 15, 1874 — died July 1, 1946",
+      "Educator and psychologist at Teachers College, Columbia University",
+      "Founder of 'essentialism' in American educational philosophy",
+      "Signed the Aladdin guestbook (pg. 402) from Columbia University"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/William_Chandler_Bagley",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "merton-of-the-movies-company",
+    "name": "Merton of the Movies Company",
+    "nameVariants": [
+      "Merton of the Movies Co.",
+      "Eugene Ordway"
+    ],
+    "guestbookPage": 403,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.4
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The touring company of Merton of the Movies — Harry Leon Wilson's beloved 1919 novel adapted into a hit 1922 Broadway play (with Glenn Hunter), and then the famous 1924 MGM film starring Glenn Hunter and Viola Dana. The play and film satirize the desperation and absurdity of Hollywood stardom. Eugene Ordway signed for the touring company.",
+    "quickFacts": [
+      "Based on Harry Leon Wilson's 1919 novel and the 1922 Broadway hit",
+      "Adapted as an MGM film in 1924 starring Glenn Hunter",
+      "Touring company signed the Aladdin (pg. 403)"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Merton_of_the_Movies_(1924_film)",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "harrison-sisters",
+    "name": "The Harrison Sisters",
+    "nameVariants": [
+      "Harrison Sisters"
+    ],
+    "guestbookPage": 403,
+    "guestbookCoords": {
+      "x": 0.65,
+      "y": 0.55
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "A vaudeville sister act who signed the Aladdin alongside the Merton of the Movies company on page 403. Sister acts were a reliable vaudeville staple — combining vocal harmony, comedy, and novelty performance.",
+    "quickFacts": [
+      "Vaudeville sister act",
+      "Signed the Aladdin guestbook (pg. 403)"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "pickings-company-pg404",
+    "name": "Harry Carroll's Pickings — Return Visit",
+    "nameVariants": [
+      "Harry Carroll",
+      "Edward J. Lambert",
+      "Gene Morgan",
+      "Harry Breen",
+      "Marie Ryan"
+    ],
+    "guestbookPage": 404,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.4
+    },
+    "category": "Musicians",
+    "era": "1920s",
+    "knownFor": "Harry Carroll and his Pickings revue company signed a fourth time (previous visits on pp. 392, 396, 402) — a testament to how often the production returned to San Francisco and how warmly the Mooser sisters received them. Harry Carroll himself re-signs alongside Edward J. Lambert. Gene Morgan (actor), Harry Breen (Brooklyn — likely the vaudeville 'nut' comic and improv songwriter), and Marie E. Ryan, who signs from 'DeMille's Studio,' add their names alongside the company.",
+    "quickFacts": [
+      "Harry Carroll's Pickings company — fourth Aladdin visit (also pp. 392, 396, 402)",
+      "Marie E. Ryan signs from 'DeMille's Studio' — DeMille connection",
+      "Harry Breen (Brooklyn) — likely the vaudeville 'nut' comic/improv songwriter"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Harry_Carroll",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "clinging-vine-company",
+    "name": "The Clinging Vine Company",
+    "nameVariants": [
+      "The Clinging Vine Co.",
+      "Peggy Flynne",
+      "Flo Eckert",
+      "Stan Mitchell",
+      "Gilbert Hereford",
+      "Peter D. Gardner",
+      "J. Ernest Wood"
+    ],
+    "guestbookPage": 405,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.45
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The touring company of The Clinging Vine, a Broadway comedy that ran 136 performances in 1922. The company signed the Aladdin from the Curran Theatre — San Francisco's premier legitimate theatre. Players include Peggy Flynne, Flo Eckert, Stan Mitchell, Gilbert Hereford, Peter D. Gardner, and J. Ernest Wood. Geo. Vance of the Orpheum also signed on this page.",
+    "quickFacts": [
+      "The Clinging Vine: Broadway comedy, 1922, 136 performances",
+      "Signed from the Curran Theatre, San Francisco (pg. 405)",
+      "Players: Peggy Flynne, Flo Eckert, Stan Mitchell, Gilbert Hereford, Peter D. Gardner, J. Ernest Wood"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "belle-bennett",
+    "name": "Belle Bennett",
+    "nameVariants": [
+      "Belle Bennett",
+      "Mrs. Fredric L. Windermere",
+      "Mrs. Windermere"
+    ],
+    "guestbookPage": 407,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "One of silent cinema's most heartbreaking actresses, remembered above all for her immortal performance as Stella Dallas (1925) — the self-sacrificing mother who watches her daughter marry into a better life through a window in the rain. Belle Bennett signed the Aladdin as 'Mrs. Fredric L. Windermere,' a married name that dates the visit to weeks after her November 1924 wedding — months before Stella Dallas made her a legend.",
+    "quickFacts": [
+      "Born April 22, 1891 — died November 4, 1932",
+      "Immortalized as Stella Dallas (1925) — one of silent cinema's defining performances",
+      "Signed as 'Mrs. Fredric L. Windermere,' weeks after her November 1924 wedding",
+      "The Stella Dallas signing predates the film by months"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Actress_Belle_Bennett_%28SAYRE_5365%29.jpg/500px-Actress_Belle_Bennett_%28SAYRE_5365%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons — SAYRE Collection",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Belle_Bennett",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "george-sidney-comedian",
+    "name": "George Sidney",
+    "nameVariants": [
+      "George Sidney"
+    ],
+    "guestbookPage": 407,
+    "guestbookCoords": {
+      "x": 0.55,
+      "y": 0.45
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "One of the great ethnic comedians of vaudeville and early Hollywood, beloved for his portrayal of Abe Potash in the Potash and Perlmutter series and his long-running role as Busy Izzy Cohen in The Cohens and Kellys franchise — a series of eight Universal films that played on Jewish-Irish immigrant culture and ran from 1926 to 1933. A fixture on stage and screen who delighted audiences for decades. He signed the Aladdin alongside Edward Small, who later produced several films (see pg. 381).",
+    "quickFacts": [
+      "Born circa 1876 in New York — died April 29, 1945",
+      "Starred as Abe Potash in Potash and Perlmutter and as Busy Izzy Cohen in The Cohens and Kellys (8 films, 1926–1933)",
+      "One of vaudeville and early Hollywood's great ethnic comedians",
+      "Signed the Aladdin guestbook (pg. 407)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/George_Sidney%2C_stage_comedian_%28SAYRE_9859%29.jpg/500px-George_Sidney%2C_stage_comedian_%28SAYRE_9859%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons — SAYRE Collection",
+    "wikiUrl": "https://en.wikipedia.org/wiki/George_Sidney_(actor)",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "martha-hedman",
+    "name": "Martha Hedman",
+    "nameVariants": [
+      "Martha Hedman",
+      "H. C. House"
+    ],
+    "guestbookPage": 407,
+    "guestbookCoords": {
+      "x": 0.65,
+      "y": 0.6
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Swedish-American actress who became one of Broadway's most admired leading ladies in the 1910s and early 1920s, known especially for her role in The Boomerang (1915). Trained in Sweden, she brought a refinement to American stages that made her stand out. She signed the Aladdin with her husband, playwright H. C. House.",
+    "quickFacts": [
+      "Born March 20, 1883 in Härnösand, Sweden — died September 18, 1974",
+      "Broadway leading lady, best known for The Boomerang (1915)",
+      "Signed the Aladdin with playwright husband H. C. House (pg. 407)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/MarthaHedman1918.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Martha_Hedman",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "mitzi-hajos-magic-ring",
+    "name": "Mitzi Hajos — The Magic Ring Company",
+    "nameVariants": [
+      "Mitzi Hajos",
+      "Mitzi",
+      "The Magic Ring Co."
+    ],
+    "guestbookPage": 407,
+    "guestbookCoords": {
+      "x": 0.4,
+      "y": 0.75
+    },
+    "category": "Musicians",
+    "era": "1920s",
+    "knownFor": "Hungarian-American star of musical comedy who headlined The Magic Ring (1923), a Broadway musical that ran 96 performances. Billed simply as 'Mitzi,' she was a beloved personality of the 1920s Broadway and touring stage — known for her impish charm and musical ability. Her Magic Ring company signed the Aladdin on pages 407 and 409, with the margin note on page 409 reading 'next Mitzi in The Magic Ring.'",
+    "quickFacts": [
+      "Born May 17, 1891 in Budapest — died August 24, 1989",
+      "Starred in The Magic Ring (1923) — 96 Broadway performances",
+      "Known professionally simply as 'Mitzi'",
+      "Signed the Aladdin guestbook (pg. 407 and 409)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Head_over_Heels_alternative_cover.jpg/500px-Head_over_Heels_alternative_cover.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Mitzi_Hajos",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "leslie-fenton-pg409",
+    "name": "Leslie Fenton — Second Visit",
+    "nameVariants": [
+      "Leslie Fenton",
+      "Liverpool, Eng."
+    ],
+    "guestbookPage": 409,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Leslie Fenton signed the Aladdin a second time — here from 'Liverpool, Eng.,' corroborating his actual birthplace (he had signed on page 391 from the Orpheum). A second visit from the same performer, this time with his British origin noted. See also page 391.",
+    "quickFacts": [
+      "Second Aladdin signing by Leslie Fenton — previously signed on pg. 391",
+      "Here annotated 'Liverpool, Eng.' — confirming his actual birthplace",
+      "Actor in What Price Glory (1926) and The Public Enemy (1931)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Silent_film_actor_Leslie_Fenton_%28SAYRE_465%29.jpg/500px-Silent_film_actor_Leslie_Fenton_%28SAYRE_465%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons — SAYRE Collection",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Leslie_Fenton",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "ruth-budd",
+    "name": "Ruth Budd",
+    "nameVariants": [
+      "Ruth Budd"
+    ],
+    "guestbookPage": 409,
+    "guestbookCoords": {
+      "x": 0.55,
+      "y": 0.45
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Famous aerial artiste billed as 'The Girl with the Smile' — one of the great acrobatic/aerial performers of 1920s vaudeville, known for combining athletic daring with a beaming stage personality. She signed the Aladdin from the Orpheum. The margin of page 409 reads 'The Morgans are great!!' alongside the note 'next Mitzi in The Magic Ring.'",
+    "quickFacts": [
+      "Billed as 'The Girl with the Smile' — famous aerial/acrobatic vaudeville performer",
+      "Headlined at the Orpheum Circuit",
+      "Signed the Aladdin guestbook (pg. 409)"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "olga-petrova-company",
+    "name": "Olga Petrova Company",
+    "nameVariants": [
+      "Olga Petrova",
+      "Madame Petrova"
+    ],
+    "guestbookPage": 409,
+    "guestbookCoords": {
+      "x": 0.4,
+      "y": 0.6
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Olga Petrova — actress, playwright, and feminist who was one of the most singular personalities of the silent film era. She starred in dozens of films between 1914 and 1918, then shifted to the stage, writing and performing in plays that often challenged conventional attitudes toward women. She signed the Aladdin with her company alongside 'The Goose Hangs High' company. The SAYRE Collection image captures her vaudeville entertainer persona.",
+    "quickFacts": [
+      "Silent film actress and playwright, 1914–1918 films",
+      "Known as 'Madame Petrova' — feminist themes were central to her stage work",
+      "Signed the Aladdin guestbook (pg. 409) with her company"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Olga_Petrova%2C_vaudeville_entertainer_%28SAYRE_7227%29.jpg/500px-Olga_Petrova%2C_vaudeville_entertainer_%28SAYRE_7227%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons — SAYRE Collection",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Olga_Petrova",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "hanna-club-dinner-416",
+    "name": "Hanna Club Dinner-Dance",
+    "nameVariants": [
+      "Hanna Club",
+      "Ernest Cattini",
+      "George G. Kidd",
+      "Karl F. Benrath"
+    ],
+    "guestbookPage": 416,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.5
+    },
+    "category": "Society Guest",
+    "era": "1920s",
+    "knownFor": "A Hanna Club dinner-dance held January 31, 1925 — a private gathering of club officers and members who made the Aladdin Studio Tiffin Room their venue for the evening. Club President Ernest Cattini, Vice President George G. Kidd, Karl F. Benrath, and the families Lynch, Griffin, and Fitzpatrick signed, alongside the recurring Japanese-script signatures that appear elsewhere in the guestbook. This page is a window into the Aladdin's role as a venue for San Francisco's private social clubs as well as its performing-arts clientele.",
+    "quickFacts": [
+      "Hanna Club dinner-dance, January 31, 1925",
+      "Officers: President Ernest Cattini, V.P. George G. Kidd, Karl F. Benrath",
+      "Includes recurring Japanese-script signatures from the same period"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
   }
 ]
