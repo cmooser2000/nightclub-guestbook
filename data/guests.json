@@ -5637,5 +5637,152 @@
     "wikiUrl": "https://en.wikipedia.org/wiki/Ethel_Wales",
     "dadStory": "",
     "dadStoryUpdated": null
+  },
+  {
+    "id": "charlie-ruggles",
+    "name": "Charlie Ruggles",
+    "nameVariants": [
+      "Charles Ruggles",
+      "Chas. Ruggles",
+      "Charles Sherman Ruggles"
+    ],
+    "guestbookPage": 327,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Beloved comic character actor whose mild-mannered, flustered screen persona made him indispensable to Hollywood for six decades. He appeared in nearly 100 films including Trouble in Paradise (1932), Ruggles of Red Gap (1935), and Bringing Up Baby (1938). He also won a Tony Award for his stage work. When he signed the Aladdin on July 15, 1925, he was a touring Broadway comedian — and with a hometown connection: as a teenager he had lived in San Francisco and worked at the Alcazar Theatre.",
+    "quickFacts": [
+      "Born February 8, 1886 — died December 23, 1970",
+      "Appeared in close to 100 films across six decades",
+      "Credits include Bringing Up Baby (1938), Ruggles of Red Gap (1935), Trouble in Paradise (1932)",
+      "Tony Award winner for stage work",
+      "Lived in San Francisco as a teenager and worked at the Alcazar Theatre",
+      "Signed the Aladdin guestbook (pg. 327) on July 15, 1925, from New York"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Charles_Ruggles_1963.JPG/500px-Charles_Ruggles_1963.JPG",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Charlie_Ruggles",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "stroud-twins",
+    "name": "The Stroud Twins",
+    "nameVariants": [
+      "Claude Stroud",
+      "Clarence Stroud",
+      "Stroud Twins"
+    ],
+    "guestbookPage": 327,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.5
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Identical-twin comedy duo from Dallas, Texas who would go on to become radio stars on the Chase and Sanborn Hour — the same program that featured W.C. Fields and Edgar Bergen's Charlie McCarthy, a slot the Strouds effectively inherited. Born in 1907, they were only about 18 years old when they signed the Aladdin guestbook in July 1925 — before their documented performing career, making this a genuine 'before they were anybody' signature.",
+    "quickFacts": [
+      "Claude and Clarence Stroud — identical twins born near Dallas, Texas, 1907",
+      "Later became radio stars on the Chase and Sanborn Hour, succeeding W.C. Fields",
+      "Signed the Aladdin guestbook (pg. 327) in July 1925 — age ~18, predating their documented act",
+      "A rare pre-fame signature from performers who would become national radio celebrities"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Stroud_Twins",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "judge-sylvain-lazarus",
+    "name": "Judge Sylvain J. Lazarus",
+    "nameVariants": [
+      "Sylvain J. Lazarus",
+      "Judge Lazarus"
+    ],
+    "guestbookPage": 337,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Political Figure",
+    "era": "1920s",
+    "knownFor": "San Francisco police judge who presided over the Fatty Arbuckle preliminary hearing in 1921–22 — one of the most sensational trials of the Jazz Age. At the conclusion of the hearing, Lazarus delivered the famous statement: 'We are not trying Roscoe Arbuckle alone; we are trying ourselves.' He later served as a Superior Court judge and presided over the 1936 Ann Cooper Hewitt involuntary sterilization case, another landmark San Francisco legal scandal. He signed the Aladdin guestbook from the Hall of Justice, annotated simply 'Judge.'",
+    "quickFacts": [
+      "San Francisco police judge, later Superior Court judge",
+      "Presided over the Fatty Arbuckle preliminary hearing, 1921–22",
+      "Delivered the landmark statement: 'We are not trying Arbuckle alone; we are trying ourselves'",
+      "Later presided over the 1936 Ann Cooper Hewitt sterilization case",
+      "Signed the Aladdin guestbook (pg. 337) from the Hall of Justice"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "passing-show-company",
+    "name": "The Passing Show Company",
+    "nameVariants": [
+      "Passing Show '25",
+      "David Brewer",
+      "Margaret Breen",
+      "Vera Ross",
+      "Anna Jackson",
+      "Elsie Witte",
+      "James Hamilton"
+    ],
+    "guestbookPage": 327,
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.7
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The touring company of The Passing Show — the Shubert Brothers' long-running annual revue series that ran at the Winter Garden Theatre from 1912 through the 1920s, presenting new editions each year. Company members including David Brewer, Margaret Breen, Vera Ross, Anna Jackson, Elsie Witte, James Hamilton, and others signed the Aladdin across pages 327, 330, 332, and 336 during their West Coast engagement in 1925.",
+    "quickFacts": [
+      "The Passing Show was the Shubert Brothers' flagship annual revue at the Winter Garden",
+      "Ran annually from 1912 through the mid-1920s, launching careers including Al Jolson's",
+      "The 1925 touring company signed across pages 327, 330, 332, and 336 of the Aladdin guestbook",
+      "Named signers include Margaret Breen, David Brewer, Vera Ross, Anna Jackson, Elsie Witte, James Hamilton"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/The_Passing_Show",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "no-no-nanette-company",
+    "name": "No, No, Nanette Touring Company",
+    "nameVariants": [
+      "No No Nanette Co.",
+      "Nanette Co.",
+      "Marie Wells"
+    ],
+    "guestbookPage": 330,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.45
+    },
+    "category": "Musicians",
+    "era": "1920s",
+    "knownFor": "The touring company of No, No, Nanette — one of the defining musicals of the 1920s, with music by Vincent Youmans, lyrics by Irving Caesar and Otto Harbach, and songs including 'Tea for Two' and 'I Want to Be Happy.' The show famously toured Chicago and the West Coast through 1924–25 before its Broadway opening in September 1925, making the Aladdin signing a genuine pre-Broadway-opening visit. The company signed on pages 330 and 336; Marie Wells is among the identified cast members.",
+    "quickFacts": [
+      "No, No, Nanette features 'Tea for Two' and 'I Want to Be Happy' — two of the decade's biggest songs",
+      "The West Coast tour preceded the September 16, 1925 Broadway opening — this is a pre-Broadway signing",
+      "Music by Vincent Youmans; lyrics by Irving Caesar and Otto Harbach",
+      "Company members signed the Aladdin guestbook on pages 330 and 336",
+      "Marie Wells is among the identified signers"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/No%2C_No%2C_Nanette",
+    "dadStory": "",
+    "dadStoryUpdated": null
   }
 ]
