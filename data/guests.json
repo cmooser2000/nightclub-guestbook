@@ -727,7 +727,7 @@
     "knownFor": "A renowned ballerina who danced en pointe up and down a London escalator, had a bronze sculpted of her by Jacob Epstein, and had George Gershwin compose 'Hoctor's Ballet' specifically for her — then danced with Fred Astaire and Ginger Rogers in Shall We Dance (1937).",
     "quickFacts": [
       "Born in Hoosick Falls, New York, 1905; died 1977",
-      "Signed the Aladdin guestbook (pg. 249) with a checkmark from New York, N.Y.",
+      "Signed the Aladdin guestbook (pg. 230) alongside Olsen and Johnson",
       "Sculptor Jacob Epstein created a bronze portrait of her during her London run (1931-32)",
       "Famously danced en pointe up and down an escalator during her London engagement",
       "George Gershwin composed 'Hoctor's Ballet' specifically for her in 1929",
@@ -736,10 +736,10 @@
     "imageUrl": "/portraits/harriet-hoctor.jpg",
     "imageCredit": "Wikimedia Commons / Public Domain",
     "wikiUrl": "https://en.wikipedia.org/wiki/Harriet_Hoctor",
-    "guestbookPage": 249,
+    "guestbookPage": 230,
     "guestbookCoords": {
-      "x": 0.25,
-      "y": 0.63
+      "x": 0.6,
+      "y": 0.65
     },
     "dadStory": "",
     "dadStoryUpdated": null
@@ -2809,7 +2809,11 @@
   {
     "id": "george-mooser",
     "name": "George Mooser",
-    "nameVariants": ["George Mooser", "Mrs. George Mooser", "Georgia Lucile Mooser"],
+    "nameVariants": [
+      "George Mooser",
+      "Mrs. George Mooser",
+      "Georgia Lucile Mooser"
+    ],
     "era": "1920s",
     "category": "Society Guest",
     "knownFor": "Brother of Hattie and Minnie Mooser, the proprietresses of the Aladdin Studio Tiffin Room. George was the theatrical manager and agent of the family — the one with deep connections to show business and Chinese theatrical troupes — visiting from New York with his wife and daughter Georgia Lucile.",
@@ -2823,14 +2827,20 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 90,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "kamuela-searle",
     "name": "Kamuela C. Searle",
-    "nameVariants": ["Kamuela Searle", "Kamuela C. Searle"],
+    "nameVariants": [
+      "Kamuela Searle",
+      "Kamuela C. Searle"
+    ],
     "era": "1920s",
     "category": "Silent Film Star",
     "knownFor": "A Hawaiian-born actor, sculptor, and painter best remembered for playing Korak — the son of Tarzan — in the 1920 silent serial The Son of Tarzan. He listed both Honolulu and Carmel as his home, bridging the Pacific and California's bohemian art colony. He died at only 33.",
@@ -2844,14 +2854,20 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Kamuela_C._Searle",
     "guestbookPage": 94,
-    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "clay-m-greene",
     "name": "Clay M. Greene",
-    "nameVariants": ["Clay M. Greene", "Clay Meredith Greene"],
+    "nameVariants": [
+      "Clay M. Greene",
+      "Clay Meredith Greene"
+    ],
     "era": "1920s",
     "category": "Playwright",
     "knownFor": "One of San Francisco's most celebrated playwrights and a towering figure of the Bohemian Club — a founding member who wrote and directed many of the Club's famous Grove Plays. A prolific dramatist, theatre critic, and journalist who defined Bay Area literary culture for half a century.",
@@ -2866,14 +2882,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Clay_M._Greene",
     "guestbookPage": 99,
-    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "hephzibah-menuhin",
     "name": "Hephzibah Menuhin",
-    "nameVariants": ["Hephzibah Menuhin"],
+    "nameVariants": [
+      "Hephzibah Menuhin"
+    ],
     "era": "1920s",
     "category": "Musician",
     "knownFor": "A brilliant concert pianist and the sister of violin prodigy Yehudi Menuhin. Raised in San Francisco alongside her brother and sister Yaltah, she became a celebrated performer in her own right and a passionate human rights activist. The whole Menuhin family signed the Aladdin guestbook together.",
@@ -2888,14 +2909,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Hephzibah_Menuhin",
     "guestbookPage": 112,
-    "guestbookCoords": { "x": 0.35, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "yaltah-menuhin",
     "name": "Yaltah Menuhin",
-    "nameVariants": ["Yaltah Menuhin"],
+    "nameVariants": [
+      "Yaltah Menuhin"
+    ],
     "era": "1920s",
     "category": "Musician",
     "knownFor": "The youngest of the three Menuhin prodigies — a concert pianist, artist, and poet raised in San Francisco. Like her siblings Yehudi and Hephzibah, she showed extraordinary musical gifts from childhood. She signed the Aladdin guestbook as part of the whole Menuhin family visit.",
@@ -2909,14 +2935,21 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Yaltah_Menuhin",
     "guestbookPage": 112,
-    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "moshe-menuhin",
     "name": "Moshe Menuhin",
-    "nameVariants": ["Moshe Menuhin", "Mrs. M. Menuhin", "Marutha Menuhin"],
+    "nameVariants": [
+      "Moshe Menuhin",
+      "Mrs. M. Menuhin",
+      "Marutha Menuhin"
+    ],
     "era": "1920s",
     "category": "Society Guest",
     "knownFor": "Father of the Menuhin prodigies — Yehudi, Hephzibah, and Yaltah — and the driving force behind the family's remarkable musical education. A Hebrew teacher and writer, he moved the family to San Francisco specifically to nurture his children's gifts. He and his wife Marutha signed alongside all three children.",
@@ -2931,14 +2964,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Moshe_Menuhin",
     "guestbookPage": 112,
-    "guestbookCoords": { "x": 0.65, "y": 0.55 },
+    "guestbookCoords": {
+      "x": 0.65,
+      "y": 0.55
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "lee-mooser",
     "name": "Lee Mooser",
-    "nameVariants": ["Lee Mooser"],
+    "nameVariants": [
+      "Lee Mooser"
+    ],
     "era": "1920s",
     "category": "Society Guest",
     "knownFor": "A member of the Mooser family — relatives of Hattie and Minnie, the Aladdin's proprietresses — who listed 'Metro Goldwyn Mayer' as his affiliation when he signed the guestbook. The Mooser family's entertainment connections stretched from this supper club all the way to Hollywood's biggest studio.",
@@ -2951,14 +2989,19 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 112,
-    "guestbookCoords": { "x": 0.75, "y": 0.6 },
+    "guestbookCoords": {
+      "x": 0.75,
+      "y": 0.6
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "benny-davis",
     "name": "Benny Davis",
-    "nameVariants": ["Benny Davis"],
+    "nameVariants": [
+      "Benny Davis"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "A vaudeville performer and prolific Tin Pan Alley songwriter who co-wrote 'Baby Face' (1926) — one of the defining hits of the Jazz Age. He moved between the stage and the songwriting offices of New York, producing dozens of standards while performing on vaudeville bills across the country.",
@@ -2972,14 +3015,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Benny_Davis",
     "guestbookPage": 118,
-    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "wellington-cross",
     "name": "Wellington Cross",
-    "nameVariants": ["Wellington Cross"],
+    "nameVariants": [
+      "Wellington Cross"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "A vaudeville comedian who signed the Aladdin guestbook on page 119, part of the stream of touring theatrical talent that made the club their San Francisco stop.",
@@ -2991,14 +3039,20 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 119,
-    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "emmett-vogan",
     "name": "Emmett Vogan",
-    "nameVariants": ["Emmett Vogan", "Charles Emmett Vogan"],
+    "nameVariants": [
+      "Emmett Vogan",
+      "Charles Emmett Vogan"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "One of Hollywood's most prolific character actors, with nearly 500 film appearances between 1934 and 1954. A reliable presence in B-movies and serials, often cast as detectives, doctors, and businessmen. He signed the Aladdin guestbook in the 1920s, before his film career took off.",
@@ -3012,14 +3066,20 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Emmett_Vogan",
     "guestbookPage": 123,
-    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "lefty-odoul",
     "name": "Lefty O'Doul",
-    "nameVariants": ["Lefty O'Doul", "Francis Joseph O'Doul"],
+    "nameVariants": [
+      "Lefty O'Doul",
+      "Francis Joseph O'Doul"
+    ],
     "era": "1920s",
     "category": "Baseball Player",
     "knownFor": "A San Francisco native and baseball legend — two-time National League batting champion and beloved manager who became the face of San Francisco baseball for a generation. After his playing days he ran his famous bar and grill on Geary Street, a city institution. He is also credited with helping introduce baseball to Japan.",
@@ -3035,14 +3095,21 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Lefty_O%27Doul",
     "guestbookPage": 124,
-    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "georgie-price",
     "name": "Georgie Price",
-    "nameVariants": ["Georgie Price", "George Price", "George Edwards Price"],
+    "nameVariants": [
+      "Georgie Price",
+      "George Price",
+      "George Edwards Price"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "One of vaudeville's great headliners — a singer and comic discovered as a child by Gus Edwards (who also discovered Eddie Cantor and Georgie Jessel), hired by the Shuberts in 1919 as Al Jolson's understudy, and a Palace Theatre staple through the 1920s. He made Vitaphone shorts and recorded for Victor, including 'California, Here I Come.'",
@@ -3058,14 +3125,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Georgie_Price",
     "guestbookPage": 142,
-    "guestbookCoords": { "x": 0.25, "y": 0.3 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.3
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "sheridan-bickers",
     "name": "Sheridan Bickers",
-    "nameVariants": ["Sheridan Bickers"],
+    "nameVariants": [
+      "Sheridan Bickers"
+    ],
     "era": "1920s",
     "category": "Performer",
     "knownFor": "A British actor and film figure associated with Theatre World magazine in London, who signed the Aladdin guestbook on the same page as Georgie Price — a transatlantic theatrical visitor to San Francisco's most fashionable supper club.",
@@ -3077,14 +3149,20 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 142,
-    "guestbookCoords": { "x": 0.5, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "frank-conroy",
     "name": "Frank Conroy",
-    "nameVariants": ["Frank Conroy", "Frank Meinberg Conroy"],
+    "nameVariants": [
+      "Frank Conroy",
+      "Frank Meinberg Conroy"
+    ],
     "era": "1920s",
     "category": "Performer",
     "knownFor": "A British-born stage and film character actor who appeared in scores of Hollywood productions, often cast in authoritative or villainous roles. He crossed between Broadway and film effortlessly, becoming one of the reliable faces of 1930s–40s Hollywood.",
@@ -3098,14 +3176,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Frank_Conroy_(actor)",
     "guestbookPage": 144,
-    "guestbookCoords": { "x": 0.25, "y": 0.35 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.35
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "mary-macivor-desmond",
     "name": "Mary MacIvor Desmond",
-    "nameVariants": ["Mary MacIvor Desmond"],
+    "nameVariants": [
+      "Mary MacIvor Desmond"
+    ],
     "era": "1920s",
     "category": "Silent Film Star",
     "knownFor": "A Hollywood silent-film actress who signed the Aladdin guestbook on page 144, representing the stream of film talent that made San Francisco a stop on the theatrical circuit.",
@@ -3117,14 +3200,20 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 144,
-    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "bathie-stuart",
     "name": "Bathie Stuart",
-    "nameVariants": ["Bathie Stuart", "Bathia Howie Stuart"],
+    "nameVariants": [
+      "Bathie Stuart",
+      "Bathia Howie Stuart"
+    ],
     "era": "1920s",
     "category": "Performer",
     "knownFor": "A New Zealand actor, singer, journalist, and lecturer who devoted herself to promoting Māori performance and culture on the international stage. Born Bathia Howie Stuart in 1893, she was a formidable figure in Pacific arts and cultural diplomacy, signing the Aladdin guestbook from Auckland.",
@@ -3138,14 +3227,19 @@
     "imageCredit": "",
     "wikiUrl": "https://en.wikipedia.org/wiki/Bathia_Howie_Stuart",
     "guestbookPage": 144,
-    "guestbookCoords": { "x": 0.7, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.7,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "roy-bradley",
     "name": "Roy Bradley",
-    "nameVariants": ["Roy Bradley"],
+    "nameVariants": [
+      "Roy Bradley"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "A Fanchon & Marco performer — part of the enormously influential West Coast vaudeville and dance production company that created elaborate 'Idea' shows for movie palace prologues across California. He and Elvira Lanza signed together, connected to the Desert Song production.",
@@ -3158,14 +3252,19 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 146,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "elvira-lanza",
     "name": "Elvira Lanza",
-    "nameVariants": ["Elvira Lanza"],
+    "nameVariants": [
+      "Elvira Lanza"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "A Fanchon & Marco performer connected to the Desert Song production, who signed the Aladdin guestbook alongside Roy Bradley. Fanchon & Marco were the kings and queens of West Coast movie-palace entertainment — their 'Ideas' were lavish dance prologues staged before feature films.",
@@ -3178,14 +3277,21 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 146,
-    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "red-grange",
     "name": "Red Grange",
-    "nameVariants": ["Red Grange", "Harold Grange", "The Galloping Ghost"],
+    "nameVariants": [
+      "Red Grange",
+      "Harold Grange",
+      "The Galloping Ghost"
+    ],
     "era": "1920s",
     "category": "Athlete",
     "knownFor": "One of the greatest football players in history — 'The Galloping Ghost' of the University of Illinois, whose 1925 turn professional with the Chicago Bears made national headlines and helped legitimize the NFL. A defining sports celebrity of the 1920s, signed the Aladdin guestbook from Chicago.",
@@ -3201,14 +3307,20 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Red_Grange",
     "guestbookPage": 148,
-    "guestbookCoords": { "x": 0.25, "y": 0.55 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.55
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "frank-mcglynn-sr",
     "name": "Frank McGlynn Sr.",
-    "nameVariants": ["Frank McGlynn", "Frank McGlynn Sr."],
+    "nameVariants": [
+      "Frank McGlynn",
+      "Frank McGlynn Sr."
+    ],
     "era": "1920s",
     "category": "Performer",
     "knownFor": "The Abraham Lincoln of his era — the stage and film actor so closely identified with playing Lincoln that he became the definitive screen portrayal for a generation. He starred in the 1919 Broadway production Abraham Lincoln and went on to play the role in numerous films, becoming almost inseparable from the character.",
@@ -3222,14 +3334,20 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Frank_McGlynn_Sr.",
     "guestbookPage": 151,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "elizabeth-burbank",
     "name": "Elizabeth Burbank",
-    "nameVariants": ["Elizabeth Burbank", "Elizabeth Waters Burbank"],
+    "nameVariants": [
+      "Elizabeth Burbank",
+      "Elizabeth Waters Burbank"
+    ],
     "era": "1920s",
     "category": "Society Guest",
     "knownFor": "Widow of Luther Burbank — the world-famous horticulturist who transformed American agriculture from his farm in Santa Rosa. Luther Burbank had died in April 1926, just months before Elizabeth signed the Aladdin guestbook. Her visit was both a memorial to her late husband's legacy and a quiet moment of a famous widow stepping back into society.",
@@ -3244,14 +3362,19 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 152,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "edgar-waite",
     "name": "Edgar Waite",
-    "nameVariants": ["Edgar Waite"],
+    "nameVariants": [
+      "Edgar Waite"
+    ],
     "era": "1920s",
     "category": "Journalist",
     "knownFor": "A San Francisco Examiner journalist who signed the Aladdin guestbook alongside Elizabeth Burbank on page 152 — one of several Examiner figures who appear across the guestbook, reflecting the paper's deep ties to San Francisco's cultural and social life.",
@@ -3263,14 +3386,20 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 152,
-    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "florence-odenishawn",
     "name": "Florence O'Denishawn",
-    "nameVariants": ["Florence O'Denishawn", "Florence Andrews"],
+    "nameVariants": [
+      "Florence O'Denishawn",
+      "Florence Andrews"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "A Ziegfeld Follies dancer and Orpheum vaudeville headliner who took her stage name from the famous Denishawn School of Dancing founded by Ruth St. Denis and Ted Shawn. One of the early 20th century's most celebrated theatrical dancers, she performed well into the sound era.",
@@ -3285,14 +3414,20 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Florence_O'Denishawn",
     "guestbookPage": 154,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "art-goebel",
     "name": "Art Goebel",
-    "nameVariants": ["Art Goebel", "Arthur Davis Goebel"],
+    "nameVariants": [
+      "Art Goebel",
+      "Arthur Davis Goebel"
+    ],
     "era": "1920s",
     "category": "Aviator",
     "knownFor": "Winner of the 1927 Dole Air Race — the tragic transpacific air race from Oakland to Honolulu that killed ten people but made Goebel a hero. He and co-pilot William Davis completed the crossing in 26 hours, winning the $25,000 Dole prize. It was the aviation event of 1927 west of the Atlantic.",
@@ -3306,14 +3441,20 @@
     "imageCredit": "",
     "wikiUrl": "https://en.wikipedia.org/wiki/Dole_Air_Race",
     "guestbookPage": 166,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "william-erwin",
     "name": "William Erwin",
-    "nameVariants": ["William Erwin", "William P. Erwin"],
+    "nameVariants": [
+      "William Erwin",
+      "William P. Erwin"
+    ],
     "era": "1920s",
     "category": "Aviator",
     "knownFor": "One of the doomed Dole Air Race competitors — a pilot who entered the 1927 Oakland-to-Honolulu race and was lost at sea. The Dole Derby was one of aviation history's greatest disasters, killing ten people including Erwin. That he signed the Aladdin guestbook on page 166 places him in San Francisco in the weeks of the race.",
@@ -3327,14 +3468,20 @@
     "imageCredit": "",
     "wikiUrl": "https://en.wikipedia.org/wiki/Dole_Air_Race",
     "guestbookPage": 166,
-    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "opie-read",
     "name": "Opie Read",
-    "nameVariants": ["Opie Read", "Opie Percival Read"],
+    "nameVariants": [
+      "Opie Read",
+      "Opie Percival Read"
+    ],
     "era": "1920s",
     "category": "Author",
     "knownFor": "A beloved American humorist, journalist, and lecturer who was enormously popular in the late 19th and early 20th centuries. Known for his folksy wit and Southern storytelling, he wrote dozens of novels and was a sought-after lecturer across the country. His signature appears sideways on a decorative page with a dragon/phoenix sketch.",
@@ -3349,14 +3496,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Opie_Read",
     "guestbookPage": 170,
-    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "carol-holloway",
     "name": "Carol Holloway",
-    "nameVariants": ["Carol Holloway"],
+    "nameVariants": [
+      "Carol Holloway"
+    ],
     "era": "1920s",
     "category": "Silent Film Star",
     "knownFor": "A silent film actress who signed the Aladdin guestbook while traveling with the Leo Carrillo Company — the touring theatrical troupe of the popular Spanish-American stage and screen star Leo Carrillo.",
@@ -3368,14 +3520,19 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 181,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "adrian-rosley",
     "name": "Adrian Rosley",
-    "nameVariants": ["Adrian Rosley"],
+    "nameVariants": [
+      "Adrian Rosley"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "A character actor and comedian associated with the Lambs Club — New York's famous theatrical fraternity — who signed the Aladdin guestbook on page 181 alongside Carol Holloway.",
@@ -3387,14 +3544,20 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 181,
-    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "kenneth-thomson",
     "name": "Kenneth Thomson",
-    "nameVariants": ["Kenneth Thomson", "Charles Kenneth Thomson"],
+    "nameVariants": [
+      "Kenneth Thomson",
+      "Charles Kenneth Thomson"
+    ],
     "era": "1920s",
     "category": "Silent Film Star",
     "knownFor": "A film actor and one of the founding members of the Screen Actors Guild — the union he helped create in 1933 to protect performers from studio exploitation. He had a solid career on stage and screen before becoming a key figure in the labor movement that transformed Hollywood.",
@@ -3408,14 +3571,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Kenneth_Thomson_(actor)",
     "guestbookPage": 189,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "carl-mccullough",
     "name": "Carl McCullough",
-    "nameVariants": ["Carl McCullough"],
+    "nameVariants": [
+      "Carl McCullough"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "A vaudevillian who signed the Aladdin guestbook on page 189, part of the theatrical circuit that made San Francisco a regular stop.",
@@ -3426,14 +3594,19 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 189,
-    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "mary-marble",
     "name": "Mary Marble",
-    "nameVariants": ["Mary Marble"],
+    "nameVariants": [
+      "Mary Marble"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "A vaudeville performer who signed the Aladdin guestbook on page 191 — her stage name evoking the cool, polished world of the variety stage.",
@@ -3445,14 +3618,21 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 191,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "romola-nijinsky",
     "name": "Romola Nijinska",
-    "nameVariants": ["Romola Nijinska", "Romola Nijinsky", "Romola de Pulszky"],
+    "nameVariants": [
+      "Romola Nijinska",
+      "Romola Nijinsky",
+      "Romola de Pulszky"
+    ],
     "era": "1920s",
     "category": "Society Guest",
     "knownFor": "Wife of the legendary dancer Vaslav Nijinsky — widely considered the greatest ballet dancer who ever lived. Born a Hungarian aristocrat, Romola de Pulszky met Nijinsky on a South American tour in 1913 and married him against all expectation. She later wrote the definitive biography of her husband, which shaped how the world understood him. She signed from Paris, where she lived amid the exile and tragedy of Nijinsky's devastating mental illness.",
@@ -3469,14 +3649,20 @@
     "imageCredit": "",
     "wikiUrl": "https://en.wikipedia.org/wiki/Romola_de_Pulszky",
     "guestbookPage": 192,
-    "guestbookCoords": { "x": 0.3, "y": 0.42 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.42
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "the-miracle-company",
     "name": "The Miracle Company",
-    "nameVariants": ["The Miracle", "Das Mirakel"],
+    "nameVariants": [
+      "The Miracle",
+      "Das Mirakel"
+    ],
     "era": "1920s",
     "category": "Performers",
     "knownFor": "Members of the touring company of The Miracle — Max Reinhardt's monumental wordless spectacle, one of the most ambitious theatrical productions ever staged. Based on a 1911 Karl Vollmöller play, The Miracle toured the United States through the mid-1920s with a cast of hundreds. Several company members signed the Aladdin guestbook on October 8, 1926, from Vienna, Hollywood, and Philadelphia.",
@@ -3491,14 +3677,20 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/The_Miracle_(play)",
     "guestbookPage": 192,
-    "guestbookCoords": { "x": 0.6, "y": 0.6 },
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.6
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "sarah-padden",
     "name": "Sarah Padden",
-    "nameVariants": ["Sarah Padden", "Sarah Ann Padden"],
+    "nameVariants": [
+      "Sarah Padden",
+      "Sarah Ann Padden"
+    ],
     "era": "1920s",
     "category": "Performer",
     "knownFor": "A prolific English-born character actress who worked on stage and in film for decades, known for her ability to play stern, imposing women — mothers, landladies, authority figures — in dozens of productions. A reliable and respected presence in American theatre and film.",
@@ -3512,14 +3704,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Sarah_Padden",
     "guestbookPage": 198,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "frank-jenks",
     "name": "Frank Jenks",
-    "nameVariants": ["Frank Jenks"],
+    "nameVariants": [
+      "Frank Jenks"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "A comic character actor and musician who began in vaudeville and became a familiar face in Hollywood B-pictures — usually playing wisecracking sidekicks and comic relief. He signed the Aladdin guestbook on a Granada Theatre page from August 1927, and the page apparently includes warm inscriptions to Minnie.",
@@ -3534,14 +3731,20 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Frank_Jenks",
     "guestbookPage": 162,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "benny-leonard",
     "name": "Benny Leonard",
-    "nameVariants": ["Benny Leonard", "Benjamin Leiner"],
+    "nameVariants": [
+      "Benny Leonard",
+      "Benjamin Leiner"
+    ],
     "era": "1920s",
     "category": "Boxer",
     "knownFor": "One of the greatest boxers in history — world lightweight champion from 1917 to 1925, celebrated as much for his ring intelligence as his power. Known as 'The Ghetto Wizard,' he was a hero of the Jewish-American community and a towering figure of 1920s sports culture.",
@@ -3557,14 +3760,19 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Benny_Leonard",
     "guestbookPage": 126,
-    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "elizabeth-vaughan",
     "name": "Elizabeth Vaughan",
-    "nameVariants": ["Elizabeth Vaughan"],
+    "nameVariants": [
+      "Elizabeth Vaughan"
+    ],
     "era": "1920s",
     "category": "Performer",
     "knownFor": "A performer who signed the Aladdin guestbook on page 306, alongside British actress Doris Lloyd — marking herself as part of the theatrical world that made the Aladdin its San Francisco home.",
@@ -3575,14 +3783,19 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 306,
-    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "max-dolin",
     "name": "Max Dolin",
-    "nameVariants": ["Max Dolin"],
+    "nameVariants": [
+      "Max Dolin"
+    ],
     "era": "1920s",
     "category": "Musician",
     "knownFor": "A musician who signed the Aladdin guestbook on page 307, part of the performing arts world that frequented the club.",
@@ -3594,14 +3807,20 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 307,
-    "guestbookCoords": { "x": 0.25, "y": 0.3 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.3
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "douglas-leavitt",
     "name": "Douglas Leavitt",
-    "nameVariants": ["Douglas Leavitt", "Leavitt and Lockwood"],
+    "nameVariants": [
+      "Douglas Leavitt",
+      "Leavitt and Lockwood"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "One half of the Leavitt and Lockwood vaudeville duo, who signed the Aladdin guestbook on page 307 alongside his partner Ruth Mary Lockwood.",
@@ -3613,14 +3832,20 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 307,
-    "guestbookCoords": { "x": 0.25, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "ruth-lockwood",
     "name": "Ruth Mary Lockwood",
-    "nameVariants": ["Ruth Mary Lockwood", "Leavitt and Lockwood"],
+    "nameVariants": [
+      "Ruth Mary Lockwood",
+      "Leavitt and Lockwood"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "One half of the Leavitt and Lockwood vaudeville duo, who signed the Aladdin guestbook on page 307 alongside her partner Douglas Leavitt.",
@@ -3632,14 +3857,21 @@
     "imageCredit": "",
     "wikiUrl": "",
     "guestbookPage": 307,
-    "guestbookCoords": { "x": 0.5, "y": 0.5 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "marjorie-white",
     "name": "Marjorie White",
-    "nameVariants": ["Marjorie White", "Marjorie Ann Guthrie", "The White Sisters"],
+    "nameVariants": [
+      "Marjorie White",
+      "Marjorie Ann Guthrie",
+      "The White Sisters"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "One half of The White Sisters vaudeville duo — an act born in San Francisco. In December 1921 she came to this city, met Thelma Wolpa, and the two formed the comedy double act that became 'The White Sisters' in New York. She went on to a film career cut tragically short, appearing in Sunny Side Up (1929), the Three Stooges' debut short, and Diplomaniacs (1933) before dying in a car crash in 1935.",
@@ -3654,14 +3886,21 @@
     "imageCredit": "",
     "wikiUrl": "https://en.wikipedia.org/wiki/Marjorie_White",
     "guestbookPage": 309,
-    "guestbookCoords": { "x": 0.25, "y": 0.4 },
+    "guestbookCoords": {
+      "x": 0.25,
+      "y": 0.4
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
   {
     "id": "thelma-white",
     "name": "Thelma White",
-    "nameVariants": ["Thelma White", "Thelma Wolpa", "The White Sisters"],
+    "nameVariants": [
+      "Thelma White",
+      "Thelma Wolpa",
+      "The White Sisters"
+    ],
     "era": "1920s",
     "category": "Vaudeville Performer",
     "knownFor": "One half of The White Sisters vaudeville duo, an act that started right here in San Francisco. Born Thelma Wolpa, she met Marjorie Guthrie in the city in December 1921 and they formed the act together. After the duo broke up she became a film and radio actress, best known today for her role in the 1936 cult classic Reefer Madness.",
@@ -3676,7 +3915,10 @@
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Thelma_White",
     "guestbookPage": 309,
-    "guestbookCoords": { "x": 0.5, "y": 0.55 },
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.55
+    },
     "dadStory": "",
     "dadStoryUpdated": null
   },
@@ -3849,9 +4091,15 @@
   {
     "id": "guy-brasfield-park",
     "name": "Guy B. Park",
-    "nameVariants": ["Guy Park", "Guy Brasfield Park"],
+    "nameVariants": [
+      "Guy Park",
+      "Guy Brasfield Park"
+    ],
     "guestbookPage": 108,
-    "guestbookCoords": { "x": 0.3, "y": 0.08 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.08
+    },
     "category": "Political Figure",
     "era": "1920s–30s",
     "knownFor": "Governor of Missouri from 1933 to 1937. A lawyer and judge from Platte City, Missouri, he was elected governor during the Depression and signed his name in the Aladdin guestbook before his rise to the statehouse.",
@@ -3870,9 +4118,15 @@
   {
     "id": "julie-haydon",
     "name": "Julia Haydon",
-    "nameVariants": ["Julie Haydon", "Donella Donaldson"],
+    "nameVariants": [
+      "Julie Haydon",
+      "Donella Donaldson"
+    ],
     "guestbookPage": 108,
-    "guestbookCoords": { "x": 0.6, "y": 0.82 },
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.82
+    },
     "category": "Silent Film Star",
     "era": "1920s–30s",
     "knownFor": "Actress who appeared in Hollywood films and on Broadway. Born in San Francisco as Donella Donaldson, she played opposite Noël Coward in the 1935 film The Scoundrel and originated the role of Laura in Tennessee Williams' The Glass Menagerie on Broadway in 1945.",
@@ -3891,9 +4145,17 @@
   {
     "id": "george-c-warren",
     "name": "George C. Warren",
-    "nameVariants": ["George Warren", "George C. Warren", "Inez Warren", "Inez C. Warren"],
+    "nameVariants": [
+      "George Warren",
+      "George C. Warren",
+      "Inez Warren",
+      "Inez C. Warren"
+    ],
     "guestbookPage": 119,
-    "guestbookCoords": { "x": 0.3, "y": 0.25 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.25
+    },
     "category": "Journalist",
     "era": "1920s",
     "knownFor": "San Francisco drama and music critic whose reviews shaped the city's cultural scene during the golden age of live theatre. He signed the Aladdin guestbook alongside his wife Inez C. Warren, a sign of the club's prominence among the city's cultural establishment.",
@@ -3911,9 +4173,21 @@
   {
     "id": "kongo-company",
     "name": "The Kongo Company",
-    "nameVariants": ["Kongo Co.", "Ina Robertson", "Ina A. Robertson", "Natalie Warfield", "Byron Hawkins", "Nita Cavalier", "Esther Shaw", "Kenneth Percy"],
+    "nameVariants": [
+      "Kongo Co.",
+      "Ina Robertson",
+      "Ina A. Robertson",
+      "Natalie Warfield",
+      "Byron Hawkins",
+      "Nita Cavalier",
+      "Esther Shaw",
+      "Kenneth Percy"
+    ],
     "guestbookPage": 122,
-    "guestbookCoords": { "x": 0.35, "y": 0.62 },
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.62
+    },
     "category": "Vaudeville Performer",
     "era": "1920s",
     "knownFor": "The touring company of Kongo — the notorious 1926 Broadway melodrama by Chester De Vonde and Kilbourn Gordon that one trade journal branded a 'horrible syphilitic play.' Walter Huston originated the central role of 'Deadlegs' Flint on Broadway; the touring cast brought the lurid tale of revenge, voodoo, and degradation through San Francisco, signing the guestbook en masse. MGM filmed the story twice: as the 1928 Lon Chaney silent West of Zanzibar (directed by Tod Browning), and as the 1932 talkie Kongo with Huston reprising his stage role.",
@@ -3933,9 +4207,14 @@
   {
     "id": "frank-silver",
     "name": "Frank Silver",
-    "nameVariants": ["Frank Silverstadt"],
+    "nameVariants": [
+      "Frank Silverstadt"
+    ],
     "guestbookPage": 202,
-    "guestbookCoords": { "x": 0.3, "y": 0.35 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
     "category": "Musician",
     "era": "1920s",
     "knownFor": "Songwriter and bandleader who co-wrote 'Yes! We Have No Bananas' (1923), one of the biggest novelty hits of the decade. The song sold millions of copies and became an unlikely anthem of the Jazz Age.",
@@ -3954,9 +4233,14 @@
   {
     "id": "joe-frisco",
     "name": "Joe Frisco",
-    "nameVariants": ["Louis Wilson Joseph"],
+    "nameVariants": [
+      "Louis Wilson Joseph"
+    ],
     "guestbookPage": 211,
-    "guestbookCoords": { "x": 0.3, "y": 0.35 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
     "category": "Vaudeville Performer",
     "era": "1920s",
     "knownFor": "Vaudeville jazz dancer and comedian celebrated for his stuttering delivery and syncopated footwork. One of the most distinctive performers of the 1920s circuit, he translated his stagecraft into film and radio.",
@@ -3975,9 +4259,15 @@
   {
     "id": "will-morrissey",
     "name": "Will Morrissey",
-    "nameVariants": ["William Morrissey", "William James Morrissey"],
+    "nameVariants": [
+      "William Morrissey",
+      "William James Morrissey"
+    ],
     "guestbookPage": 212,
-    "guestbookCoords": { "x": 0.3, "y": 0.35 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
     "category": "Vaudeville Performer",
     "era": "1920s",
     "knownFor": "American lyricist, vaudeville performer, playwright, and theatrical producer who worked both coasts and Chicago. A prolific figure of the 1920s–30s entertainment world, he was as comfortable writing songs as producing revues.",
@@ -3995,9 +4285,14 @@
   {
     "id": "jan-rubini",
     "name": "Jan Rubini",
-    "nameVariants": ["Jan Rubini"],
+    "nameVariants": [
+      "Jan Rubini"
+    ],
     "guestbookPage": 213,
-    "guestbookCoords": { "x": 0.3, "y": 0.55 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.55
+    },
     "category": "Musician",
     "era": "1920s",
     "knownFor": "Swedish violinist and conductor with a long career in American vaudeville and films. His virtuosity on the violin made him a standout on the touring circuit, and he later worked as a film conductor.",
@@ -4015,9 +4310,14 @@
   {
     "id": "raymond-hitchcock",
     "name": "Raymond Hitchcock",
-    "nameVariants": ["Ray Hitchcock"],
+    "nameVariants": [
+      "Ray Hitchcock"
+    ],
     "guestbookPage": 213,
-    "guestbookCoords": { "x": 0.3, "y": 0.35 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
     "category": "Vaudeville Performer",
     "era": "1920s",
     "knownFor": "American stage actor, silent film actor, and Broadway producer who appeared in or produced 30 Broadway productions between 1898 and 1928. A beloved comedian of the Edwardian and Jazz Age stage.",
@@ -4036,9 +4336,15 @@
   {
     "id": "may-robson",
     "name": "May Robson",
-    "nameVariants": ["Mary Jeanette Robison", "May Robson"],
+    "nameVariants": [
+      "Mary Jeanette Robison",
+      "May Robson"
+    ],
     "guestbookPage": 215,
-    "guestbookCoords": { "x": 0.3, "y": 0.3 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
     "category": "Silent Film Star",
     "era": "1920s–30s",
     "knownFor": "Australian-born actress whose career spanned 58 years on stage and screen. She received an Academy Award nomination for Best Actress for Lady for a Day (1933), directed by Frank Capra — one of the most celebrated performances by an older actress in Hollywood history.",
@@ -4057,9 +4363,14 @@
   {
     "id": "lillian-harmer",
     "name": "Lillian Harmer",
-    "nameVariants": ["Lillian Harmer"],
+    "nameVariants": [
+      "Lillian Harmer"
+    ],
     "guestbookPage": 215,
-    "guestbookCoords": { "x": 0.3, "y": 0.42 },
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.42
+    },
     "category": "Silent Film Star",
     "era": "1920s–30s",
     "knownFor": "American character actress and longtime companion of May Robson. She appeared in dozens of films through the 1930s and 40s, often in comic supporting roles, and frequently traveled with Robson on tour.",
@@ -4071,6 +4382,321 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Lillian_Harmer_in_A_Shriek_in_the_Night_%281933%29.jpg/500px-Lillian_Harmer_in_A_Shriek_in_the_Night_%281933%29.jpg",
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Lillian_Harmer",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "herbert-standing",
+    "name": "Herbert Standing",
+    "nameVariants": [
+      "Herbert Standing Sr."
+    ],
+    "guestbookPage": 202,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.5
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "British patriarch of the Standing acting dynasty — one of the great theatrical families of the English-speaking world. His children included Sir Guy Standing, Wyndham Standing, and others who carried the family name across stage and silent film on both sides of the Atlantic.",
+    "quickFacts": [
+      "Born November 13, 1846 in England — died December 5, 1923",
+      "Patriarch of the Standing family of actors",
+      "Father of Sir Guy Standing, Wyndham Standing, and multiple other stage actors",
+      "Signed the Aladdin guestbook (pg. 202) alongside Frank Silver's band"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Herbert_Standing%2C_silent_film_actor_%28SAYRE_9689%29.jpg/500px-Herbert_Standing%2C_silent_film_actor_%28SAYRE_9689%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Herbert_Standing",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "music-hall-revue-pg210",
+    "name": "The Music Hall Revue Company",
+    "nameVariants": [
+      "Margaret Landis",
+      "Music Hall Revue"
+    ],
+    "guestbookPage": 210,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.4
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The touring company of a Music Hall Revue production that stopped at the Aladdin during their San Francisco run. Among the signers was Margaret Landis, a silent-film actress who appeared in features and serials in the early 1920s before the revue circuit brought her through town.",
+    "quickFacts": [
+      "The company signed the Aladdin guestbook (pg. 210) while on tour",
+      "Margaret Landis was a silent film actress of the early 1920s",
+      "Music Hall Revues were a staple of the West Coast touring circuit"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "stan-stanley",
+    "name": "Stan Stanley",
+    "nameVariants": [
+      "Stan Stanley"
+    ],
+    "guestbookPage": 211,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.5
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Vaudeville knockabout comic who shared a bill with Joe Frisco at the Aladdin. Knockabout acts specialized in physical, slapstick comedy — pratfalls, collisions, and broad physical gags — that made them crowd favorites on the Orpheum Circuit.",
+    "quickFacts": [
+      "Vaudeville knockabout comic on the Orpheum Circuit",
+      "Signed the Aladdin guestbook (pg. 211) alongside Joe Frisco"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "tip-toes-company",
+    "name": "The Tip-Toes Company",
+    "nameVariants": [
+      "Tip Toes Co.",
+      "Tip-Toes Co.",
+      "Maurice O'Stern"
+    ],
+    "guestbookPage": 216,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.4
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The touring company of Tip-Toes, the 1925 Gershwin musical with a book by Guy Bolton and Fred Thompson and lyrics by Ira Gershwin. The show — about a vaudeville performer who tries to pass herself off as a socialite among Palm Beach millionaires — was one of the brightest musical comedies of the mid-1920s. Maurice O'Stern signed for the touring company when they visited the Aladdin.",
+    "quickFacts": [
+      "Tip-Toes opened on Broadway December 28, 1925 — music by George Gershwin, lyrics by Ira Gershwin",
+      "Book by Guy Bolton and Fred Thompson",
+      "Original Broadway cast featured Queenie Smith, Allen Kearns, and the Fairbanks Twins",
+      "The touring company visited San Francisco and signed the Aladdin guestbook (pg. 216)"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Tip-Toes",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "jack-osterman",
+    "name": "Jack Osterman",
+    "nameVariants": [
+      "Jack Osterman"
+    ],
+    "guestbookPage": 219,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.45
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Vaudeville comic and Orpheum headliner who was celebrated enough that Hattie and Minnie Mooser threw him a dinner at the Orpheum on February 26, 1923 — recording it in their own guestbook. Arthur Freed, Frances Williams, and others signed that dinner page alongside him.",
+    "quickFacts": [
+      "Vaudeville comedian and Orpheum Circuit headliner",
+      "Hattie and Minnie Mooser hosted a dinner in his honor at the Orpheum, Feb. 26, 1923",
+      "Arthur Freed and Frances Williams signed alongside him at the dinner (pg. 223)",
+      "Also signed the guestbook independently on pg. 219"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "coleman-goetz",
+    "name": "Coleman Goetz",
+    "nameVariants": [
+      "Coleman Goetz"
+    ],
+    "guestbookPage": 219,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.3
+    },
+    "category": "Musician",
+    "era": "1920s",
+    "knownFor": "Tin Pan Alley songwriter active in New York during the 1920s. He contributed songs to Broadway shows and revues during the era's golden age of popular songwriting.",
+    "quickFacts": [
+      "Tin Pan Alley songwriter active in the 1920s",
+      "Signed the Aladdin guestbook (pg. 219) alongside Jack Osterman"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "ward-crane",
+    "name": "Ward Crane",
+    "nameVariants": [
+      "Ward Crane"
+    ],
+    "guestbookPage": 221,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.3
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Silent film actor best remembered as the villainous rival to Buster Keaton's hero in Sherlock Jr. (1924) and as a supporting player in The Phantom of the Opera (1925). He signed the Aladdin guestbook alongside vaudeville comics Bert Fitzgibbon and Wilfred Clarke.",
+    "quickFacts": [
+      "Born May 18, 1890 — died July 21, 1928",
+      "Played the heavy opposite Buster Keaton in Sherlock Jr. (1924)",
+      "Appeared in The Phantom of the Opera (1925)",
+      "Signed the Aladdin guestbook (pg. 221) with vaudeville comics Bert Fitzgibbon and Wilfred Clarke"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/The_Frisky_Mrs._Johnson_%281920%29_1.jpg/500px-The_Frisky_Mrs._Johnson_%281920%29_1.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Ward_Crane",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "bert-fitzgibbon",
+    "name": "Bert Fitzgibbon",
+    "nameVariants": [
+      "Bert Fitzgibbon"
+    ],
+    "guestbookPage": 221,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.45
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Vaudeville 'daffy' comedian known for his eccentric, zany performing style on the Orpheum and Keith-Albee circuits. Signed the Aladdin alongside Ward Crane, Milt Collins, and Wilfred Clarke.",
+    "quickFacts": [
+      "Vaudeville eccentric comedian of the 1920s",
+      "Signed the Aladdin guestbook (pg. 221) with Ward Crane, Milt Collins, and Wilfred Clarke"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "arthur-freed",
+    "name": "Arthur Freed",
+    "nameVariants": [
+      "Arthur Grossman",
+      "Arthur Freed"
+    ],
+    "guestbookPage": 223,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.55
+    },
+    "category": "Musician",
+    "era": "1920s",
+    "knownFor": "Lyricist-turned-MGM producer who became the most important figure in Hollywood musical history. In 1923, when he signed the Aladdin guestbook at a dinner hosted by Hattie and Minnie Mooser, he was a 28-year-old vaudevillian who toured with the Marx Brothers and had just written his first major hit, 'I Cried For You.' Two decades later, as head of the 'Freed Unit' at MGM, he produced Singin' in the Rain, An American in Paris, Meet Me in St. Louis, and oversaw The Wizard of Oz — winning the Academy Award for Best Picture twice.",
+    "quickFacts": [
+      "Born Arthur Grossman, September 9, 1894 — died April 12, 1973",
+      "Won the Academy Award for Best Picture for An American in Paris (1951) and Gigi (1958)",
+      "Produced Singin' in the Rain, Meet Me in St. Louis, The Wizard of Oz, and An American in Paris",
+      "Toured with the Marx Brothers as a vaudevillian in the early 1920s",
+      "Wrote 'I Cried For You' (1923) — the same year he signed the Aladdin guestbook",
+      "Signed at Hattie and Minnie Mooser's dinner for Jack Osterman, Feb. 26, 1923 (pg. 223)"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Arthur_Freed_receiving_the_Screen_Producers_Guild%27s_Milestone_Award_%28cropped%29.jpg/500px-Arthur_Freed_receiving_the_Screen_Producers_Guild%27s_Milestone_Award_%28cropped%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Arthur_Freed",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "frances-williams",
+    "name": "Frances Williams",
+    "nameVariants": [
+      "Frances Williams"
+    ],
+    "guestbookPage": 223,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.7
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Musical-comedy and revue star of the 1920s–30s who appeared in Broadway productions and toured the vaudeville circuit. She signed the Aladdin guestbook at the Mooser sisters' dinner for Jack Osterman, alongside Arthur Freed and the dancer Vannessi.",
+    "quickFacts": [
+      "Musical comedy and revue actress active in the 1920s–30s",
+      "Appeared in Broadway revues and toured nationally",
+      "Signed the Aladdin guestbook (pg. 223) at Hattie and Minnie's dinner for Jack Osterman"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "ted-healy",
+    "name": "Ted Healy",
+    "nameVariants": [
+      "Charles Ernest Lee Nash",
+      "Ted Healy"
+    ],
+    "guestbookPage": 228,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.35
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Vaudeville headliner and comedian who created the knockabout act that became the Three Stooges. Healy developed the format of a fast-talking emcee surrounded by physical stooges, launching Moe, Shemp, and Larry Fine to fame — then spent years feuding with them over credit and royalties.",
+    "quickFacts": [
+      "Born Charles Ernest Lee Nash, October 1, 1896 — died December 21, 1937",
+      "Created the act that became the Three Stooges — originally 'Ted Healy and his Stooges'",
+      "Launched the careers of Moe Howard, Shemp Howard, and Larry Fine",
+      "Orpheum Circuit headliner in the mid-1920s",
+      "Signed the Aladdin guestbook (pg. 228) in June 1926"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Ted_Healy_1937.jpg/500px-Ted_Healy_1937.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Ted_Healy",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "olsen-and-johnson-230",
+    "name": "Olsen and Johnson",
+    "nameVariants": [
+      "O.E. Olsen",
+      "Ole Olsen",
+      "Chic Johnson",
+      "Harold Ogden Johnson"
+    ],
+    "guestbookPage": 230,
+    "guestbookCoords": {
+      "x": 0.35,
+      "y": 0.4
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The legendary anarchic comedy duo Ole Olsen and Chic Johnson, who signed the Aladdin guestbook in May 1926 with a flamboyant bubble-letter doodle. Long-running vaudeville headliners, they reached the peak of their fame with Hellzapoppin' (1938) — the anything-goes Broadway smash that ran 1,404 performances.",
+    "quickFacts": [
+      "Ole Olsen (1892–1963) and Chic Johnson (1891–1962) — a vaudeville duo since the 1910s",
+      "Signed the Aladdin guestbook (pg. 230) in May 1926 with a large bubble-letter 'OLSEN and JOHNSON' doodle",
+      "Hellzapoppin' (1938) ran 1,404 performances — one of Broadway's longest-running shows ever",
+      "Their comedy: organized chaos, audience participation, deliberate absurdism"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/OlsenandJohnson.jpg/500px-OlsenandJohnson.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Olsen_and_Johnson",
     "dadStory": "",
     "dadStoryUpdated": null
   }
