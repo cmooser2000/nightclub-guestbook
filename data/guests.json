@@ -80,10 +80,10 @@
     "imageUrl": "/portraits/rudolph-valentino.jpg",
     "imageCredit": "Wikimedia Commons / Public Domain",
     "wikiUrl": "https://en.wikipedia.org/wiki/Rudolph_Valentino",
-    "guestbookPage": 263,
+    "guestbookPage": 246,
     "guestbookCoords": {
-      "x": 0.27,
-      "y": 0.58
+      "x": 0.3,
+      "y": 0.4
     },
     "dadStory": "",
     "dadStoryUpdated": null
@@ -424,10 +424,10 @@
     "imageUrl": "/portraits/duncan-sisters.jpg",
     "imageCredit": "Wikimedia Commons / Public Domain",
     "wikiUrl": "https://en.wikipedia.org/wiki/Duncan_Sisters",
-    "guestbookPage": 235,
+    "guestbookPage": 236,
     "guestbookCoords": {
-      "x": 0.27,
-      "y": 0.12
+      "x": 0.3,
+      "y": 0.35
     },
     "dadStory": "",
     "dadStoryUpdated": null
@@ -4697,6 +4697,494 @@
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/OlsenandJohnson.jpg/500px-OlsenandJohnson.jpg",
     "imageCredit": "Wikipedia / Wikimedia Commons",
     "wikiUrl": "https://en.wikipedia.org/wiki/Olsen_and_Johnson",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "frances-kennedy",
+    "name": "Frances Kennedy",
+    "nameVariants": [
+      "Frances Kennedy"
+    ],
+    "guestbookPage": 233,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Popular vaudeville comedienne billed as 'the singing comedienne,' a headline act on the Orpheum Circuit. Her blend of comedy and song made her a crowd favorite at a time when vaudeville ruled American popular entertainment.",
+    "quickFacts": [
+      "Billed as 'the singing comedienne' on the Orpheum Circuit",
+      "Signed the Aladdin guestbook (pg. 233) during her San Francisco engagement"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "ferris-hartman",
+    "name": "Mrs. Ferris Hartman",
+    "nameVariants": [
+      "Ferris Hartman",
+      "Mrs. Ferris Hartman"
+    ],
+    "guestbookPage": 233,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.45
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Wife of Ferris Hartman, the beloved San Francisco comic-opera star and producer who ran the Rivoli Opera House and became a fixture of Bay Area theatrical life. The Hartmans were exactly the kind of local luminaries — part civic, part theatrical — who made the Aladdin their gathering place.",
+    "quickFacts": [
+      "Ferris Hartman was the leading comic-opera star and producer at the Rivoli Opera House, San Francisco",
+      "Signed the Aladdin guestbook (pg. 233) as Mrs. Ferris Hartman"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "jimmy-lyons",
+    "name": "Jimmy Lyons",
+    "nameVariants": [
+      "Ambassador Jimmy Lyons",
+      "Ambassador Lyons"
+    ],
+    "guestbookPage": 235,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.4
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Vaudeville comedian and emcee known by the affectionate billing of 'Ambassador' — a testament to his easy charm and crowd-pleasing ability on the Orpheum Circuit. Emcees like Lyons were the connective tissue of vaudeville, warming up audiences and introducing headlining acts.",
+    "quickFacts": [
+      "Billed as 'Ambassador' Jimmy Lyons on the Orpheum Circuit",
+      "Signed the Aladdin guestbook (pg. 235) during his San Francisco engagement"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "albert-family-sydney",
+    "name": "The Albert Family of Sydney",
+    "nameVariants": [
+      "Minna Albert",
+      "Frank Albert",
+      "Alexis Albert",
+      "J. Albert & Son"
+    ],
+    "guestbookPage": 239,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Musicians",
+    "era": "1920s",
+    "knownFor": "Members of the Albert family of Sydney, Australia — very possibly the Alberts of J. Albert & Son, the most storied music publishing house in Australian history, founded in 1893 and home to everyone from Billy Thorpe to AC/DC. Minna, Frank, and Alexis Albert signed the Aladdin guestbook together, listing Sydney as their home.",
+    "quickFacts": [
+      "Signed the Aladdin guestbook (pg. 239) as Minna, Frank, and Alexis Albert of Sydney",
+      "Likely connected to J. Albert & Son — Australia's preeminent music publishing dynasty",
+      "J. Albert & Son was founded in 1893 and later became home to artists including AC/DC"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/J._Albert_%26_Son",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "victor-petroff",
+    "name": "Victor Petroff",
+    "nameVariants": [
+      "Victor Petroff"
+    ],
+    "guestbookPage": 239,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.55
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Russian-trained dancer and ballet teacher who ran a Russian Ballet school in San Francisco during the 1920s. He brought the technique and tradition of classical Russian ballet to the Bay Area, training a generation of local dancers at a moment when Russian ballet — post-Diaghilev — was the most glamorous art form in the world.",
+    "quickFacts": [
+      "Ran a Russian Ballet school in San Francisco in the 1920s",
+      "Signed the Aladdin guestbook (pg. 239) alongside the Albert family of Sydney"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "walter-catlett",
+    "name": "Walter Catlett",
+    "nameVariants": [
+      "Walter Leland Catlett"
+    ],
+    "guestbookPage": 240,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Character comedian of stage and film famous for playing excitable, officious blowhards. He appeared in dozens of films across four decades, but is perhaps best remembered today as the voice of 'Honest John' the Fox in Disney's Pinocchio (1940). He signed the Aladdin on April Fools' Day 1926, when the 'Weak Sisters' touring company came through.",
+    "quickFacts": [
+      "Born February 4, 1889 — died November 14, 1960",
+      "Voiced 'Honest John' the Fox in Disney's Pinocchio (1940)",
+      "Appeared in The Front Page (1931) and dozens of other films and Broadway shows",
+      "Signed the Aladdin guestbook (pg. 240) on April Fools' Day, 1926"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Walter_Catlett_in_The_Front_Page_%281931%29.jpg/500px-Walter_Catlett_in_The_Front_Page_%281931%29.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Walter_Catlett",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "trixie-friganza",
+    "name": "Trixie Friganza",
+    "nameVariants": [
+      "Delia O'Callaghan",
+      "Trixie Friganza"
+    ],
+    "guestbookPage": 240,
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Major vaudeville comedienne and stage star who began as an operetta soubrette and became a beloved headliner known for her larger-than-life personality and self-deprecating wit about her size. A champion of women's suffrage, she turned down a lucrative Ziegfeld Follies contract over a single objectionable clause.",
+    "quickFacts": [
+      "Born Delia O'Callaghan, November 29, 1870 — died February 27, 1955",
+      "Rose from chorus girl to headlining vaudeville star",
+      "Refused a Ziegfeld Follies contract over an objectionable clause — on principle",
+      "Signed the Aladdin guestbook (pg. 240) on April Fools' Day, 1926"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Trixie_Friganza_Hayes.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Trixie_Friganza",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "franklin-pangborn",
+    "name": "Franklin Pangborn",
+    "nameVariants": [
+      "Franklin Pangborn"
+    ],
+    "guestbookPage": 240,
+    "guestbookCoords": {
+      "x": 0.7,
+      "y": 0.7
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "The quintessential fussy, excitable, easily-scandalized character actor of Hollywood comedy. Pangborn's pinched outrage and perfectly-timed fluster made him indispensable to Preston Sturges, W.C. Fields, and a generation of directors. He appeared in more than 200 films, always as some variation of the hotel manager, bank teller, or department-store floorwalker who simply could not cope.",
+    "quickFacts": [
+      "Born January 23, 1889 — died July 20, 1958",
+      "Appeared in more than 200 films as the quintessential fussy character actor",
+      "A regular collaborator with Preston Sturges and W.C. Fields",
+      "Signed the Aladdin guestbook (pg. 240) on April Fools' Day, 1926"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Franklin_Pangborn_in_Topper_Takes_a_Trip_trailer.jpg/500px-Franklin_Pangborn_in_Topper_Takes_a_Trip_trailer.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Franklin_Pangborn",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "frank-bacon-family",
+    "name": "The Frank Bacon Family",
+    "nameVariants": [
+      "Mrs. Frank Bacon",
+      "Floy Bacon",
+      "Frances Bacon",
+      "Frank Bacon"
+    ],
+    "guestbookPage": 241,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "The family of Frank Bacon — the actor-playwright who co-wrote and starred in Lightnin', one of Broadway's longest-running shows (1,291 performances, 1918–1921). Mrs. Frank Bacon, Floy Bacon, and Frances Bacon signed the Aladdin together, connecting the book to the Lightnin' legacy already represented by Jason Robards Sr.'s touring company on page 313.",
+    "quickFacts": [
+      "Frank Bacon (1864–1922) co-wrote and starred in Lightnin' — it ran 1,291 performances on Broadway",
+      "Mrs. Frank Bacon, Floy Bacon, and Frances Bacon signed the Aladdin (pg. 241) together",
+      "The Lightnin' touring company (with Jason Robards Sr.) also signed the Aladdin — see pg. 313",
+      "Frank Bacon died in 1922; the family's visit came after his death"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Frank_Bacon_(actor)",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "catherine-chisholm-cushing",
+    "name": "Catherine Chisholm Cushing",
+    "nameVariants": [
+      "Catherine Cushing"
+    ],
+    "guestbookPage": 241,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.55
+    },
+    "category": "Authors & Playwrights",
+    "era": "1920s",
+    "knownFor": "Broadway playwright and librettist best known for her 1916 stage adaptation of Pollyanna, which ran for 152 performances, and the musical Kitty MacKay. She was one of the most produced female playwrights of the early twentieth century.",
+    "quickFacts": [
+      "Born April 15, 1874 — died October 19, 1952",
+      "Wrote the stage adaptation of Pollyanna (1916) — 152 Broadway performances",
+      "Also wrote Kitty MacKay and other popular plays and librettos",
+      "One of the most-produced female playwrights of the early 20th century"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CatherineChisholmCushing1916.tif/lossless-page1-250px-CatherineChisholmCushing1916.tif.png",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Catherine_Chisholm_Cushing",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "frank-gardner-hale",
+    "name": "Frank Gardner Hale",
+    "nameVariants": [
+      "Frank Gardner Hale"
+    ],
+    "guestbookPage": 241,
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.75
+    },
+    "category": "Society Guest",
+    "era": "1920s",
+    "knownFor": "Noted Boston Arts-and-Crafts metalworker and jeweler whose exquisite handcrafted work placed him among the finest American craftspeople of the early twentieth century. The Arts-and-Crafts movement prized handmade objects over industrial production, and Hale was among its most accomplished practitioners.",
+    "quickFacts": [
+      "Boston-based Arts-and-Crafts jeweler and metalworker",
+      "His handcrafted jewelry and metalwork were prized examples of the American Arts-and-Crafts movement",
+      "Signed the Aladdin guestbook (pg. 241) alongside the Frank Bacon family and Catherine Cushing"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "billy-dooley",
+    "name": "Billy Dooley",
+    "nameVariants": [
+      "Billy Dooley"
+    ],
+    "guestbookPage": 242,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Silent-film comedian best known for his work in the Christie Comedies — the popular short-film series produced by Al and Charles Christie that specialized in slapstick and character comedy. He played a recurring bumbling sailor type and was a familiar face in the two-reel comedy world of the 1920s.",
+    "quickFacts": [
+      "Featured comedian in the Christie Comedies short-film series",
+      "Known for his recurring bumbling sailor character",
+      "Signed the Aladdin guestbook (pg. 242) on St. Patrick's Day, 1926"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "frances-lee-actress",
+    "name": "Frances Lee",
+    "nameVariants": [
+      "Frances Lee"
+    ],
+    "guestbookPage": 242,
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.45
+    },
+    "category": "Silent Film Star",
+    "era": "1920s",
+    "knownFor": "Silent comedy actress billed as 'Bobby Vernon's leading lady' — meaning she played opposite Bobby Vernon, the popular Christie Comedies comedian. Leading ladies in short comedies were the straight foils to the clown, and their timing had to be as sharp as the comic's.",
+    "quickFacts": [
+      "Billed as 'Bobby Vernon's leading lady' in the Christie Comedies",
+      "Signed the Aladdin guestbook (pg. 242) on St. Patrick's Day, 1926"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "mark-larkin",
+    "name": "Mark Larkin",
+    "nameVariants": [
+      "Mark Larkin"
+    ],
+    "guestbookPage": 242,
+    "guestbookCoords": {
+      "x": 0.7,
+      "y": 0.65
+    },
+    "category": "Society Guest",
+    "era": "1920s",
+    "knownFor": "Hollywood publicist for Pickford-Fairbanks Studios — the production company of Mary Pickford and Douglas Fairbanks, the most glamorous couple in silent-film Hollywood. As their publicist, Larkin managed the image of two of the biggest stars in the world, placing him at the very center of 1920s celebrity culture.",
+    "quickFacts": [
+      "Publicist for Pickford-Fairbanks Studios — the Mary Pickford and Douglas Fairbanks production company",
+      "Managed the public image of two of silent Hollywood's biggest stars",
+      "Signed the Aladdin guestbook (pg. 242) on St. Patrick's Day, 1926"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "oscar-eagle",
+    "name": "Oscar Eagle",
+    "nameVariants": [
+      "Oscar Eagle"
+    ],
+    "guestbookPage": 253,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.65
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Veteran Broadway stage director and producer with decades of credits across drama and musical theatre. Stage directors of Eagle's era were the architects of the theatrical event — responsible for the movement, tempo, and visual composition that made Broadway productions land.",
+    "quickFacts": [
+      "Veteran Broadway stage director and producer",
+      "Signed the Aladdin guestbook (pg. 253) alongside Julian Eltinge"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "fred-stone-company",
+    "name": "Tom Brown & the Fred Stone Company",
+    "nameVariants": [
+      "Tom Brown",
+      "Fred Stone Company"
+    ],
+    "guestbookPage": 253,
+    "guestbookCoords": {
+      "x": 0.5,
+      "y": 0.45
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Tom Brown and Mrs. Tom Brown signed the Aladdin as members of the Fred Stone Company. Fred Stone was one of the biggest musical-comedy stars of the era — the original Scarecrow in the 1902 Wizard of Oz stage musical — and his touring company brought top-quality musical theatre to cities across the country.",
+    "quickFacts": [
+      "Fred Stone originated the Scarecrow in the 1902 stage musical The Wizard of Oz",
+      "One of the most popular musical-comedy performers of the early 20th century",
+      "Tom Brown and Mrs. Tom Brown signed the Aladdin (pg. 253) as members of his touring company"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Fred_Stone",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "gus-van",
+    "name": "Gus Van",
+    "nameVariants": [
+      "August Von Glahn",
+      "Gus Van",
+      "Van and Schenck"
+    ],
+    "guestbookPage": 257,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.35
+    },
+    "category": "Musician",
+    "era": "1920s",
+    "knownFor": "The baritone half of Van and Schenck — one of the most popular vaudeville singing duos of the 1910s and 1920s. Known as 'The Pennant Winning Battery of Songdom,' Gus Van and Joe Schenck sold millions of records and headlined on every major vaudeville circuit. Van signed the Aladdin at the Orpheum with Mrs. Gus Van.",
+    "quickFacts": [
+      "Born August Von Glahn, August 12, 1886 — died March 12, 1968",
+      "Half of Van and Schenck — 'The Pennant Winning Battery of Songdom'",
+      "Van and Schenck were among the top-selling recording artists of the early 1920s",
+      "Signed the Aladdin guestbook (pg. 257) at the Orpheum with Mrs. Gus Van"
+    ],
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/VanSchenck22.jpg",
+    "imageCredit": "Wikipedia / Wikimedia Commons",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Van_and_Schenck",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "robin-lampson",
+    "name": "Robin Lampson",
+    "nameVariants": [
+      "Robin Lampson"
+    ],
+    "guestbookPage": 257,
+    "guestbookCoords": {
+      "x": 0.6,
+      "y": 0.55
+    },
+    "category": "Authors & Playwrights",
+    "era": "1920s",
+    "knownFor": "California narrative poet and novelist who wrote in the regional tradition of the American West. A minor but earnest literary figure, Lampson was part of the California literary scene that gathered around the Bay Area's cultural institutions in the 1920s.",
+    "quickFacts": [
+      "California narrative poet and novelist",
+      "Part of the Bay Area literary scene of the 1920s",
+      "Signed the Aladdin guestbook (pg. 257) alongside Gus Van"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
+    "dadStory": "",
+    "dadStoryUpdated": null
+  },
+  {
+    "id": "harry-rose",
+    "name": "Harry Rose",
+    "nameVariants": [
+      "Harry Rose",
+      "The Broadway Jester"
+    ],
+    "guestbookPage": 259,
+    "guestbookCoords": {
+      "x": 0.3,
+      "y": 0.3
+    },
+    "category": "Vaudeville Performer",
+    "era": "1920s",
+    "knownFor": "Vaudeville comedian billed as 'The Broadway Jester' — a title that captured both his New York roots and his sharp, fast-talking comedic style. He was a reliable headliner on the circuits and brought his Broadway energy to audiences across the country.",
+    "quickFacts": [
+      "Billed as 'The Broadway Jester'",
+      "Vaudeville comedian and Orpheum Circuit headliner",
+      "Signed the Aladdin guestbook (pg. 259) alongside Wellington Cross"
+    ],
+    "imageUrl": "",
+    "imageCredit": "",
+    "wikiUrl": "",
     "dadStory": "",
     "dadStoryUpdated": null
   }
