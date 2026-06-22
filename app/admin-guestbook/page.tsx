@@ -426,42 +426,15 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     A memory, an anecdote, what they meant to you or the family.
                   </p>
 
-                  {!story && !saving ? (
-                    <button
-                      onClick={() => {
-                        const el = document.getElementById('story-textarea')
-                        if (el) (el as HTMLTextAreaElement).focus()
-                      }}
-                      className="w-full border-2 border-dashed rounded py-8 text-center transition-all mb-2"
-                      style={{ borderColor: RULE_DIM }}
-                    >
-                      <p className="text-sm" style={{ color: ACCENT, opacity: 0.7, fontFamily: BODY_FONT }}>
-                        Click to add {selected.name.split(' ')[0]}'s story
-                      </p>
-                    </button>
-                  ) : null}
-
                   <textarea
                     id="story-textarea"
                     value={story}
                     onChange={(e) => { setStory(e.target.value); setSaved(false) }}
-                    rows={story ? 10 : 3}
+                    rows={10}
                     placeholder={`Write anything you remember about ${selected.name.split(' ')[0]}…`}
-                    className="w-full rounded border p-4 text-sm leading-relaxed resize-none focus:outline-none focus:ring-1"
-                    style={{ ...inputStyle, display: story ? 'block' : 'none' }}
+                    className="w-full rounded border p-4 text-sm leading-relaxed resize-y focus:outline-none focus:ring-1"
+                    style={inputStyle}
                   />
-
-                  {!story && (
-                    <textarea
-                      id="story-textarea"
-                      value={story}
-                      onChange={(e) => { setStory(e.target.value); setSaved(false) }}
-                      rows={1}
-                      placeholder={`Write anything you remember about ${selected.name.split(' ')[0]}…`}
-                      className="w-full rounded border p-4 text-sm leading-relaxed resize-none focus:outline-none focus:ring-1"
-                      style={{ ...inputStyle, height: 0, padding: 0, border: 'none', opacity: 0, position: 'absolute' }}
-                    />
-                  )}
 
                   <div className="flex items-center gap-4 mt-3">
                     <button
