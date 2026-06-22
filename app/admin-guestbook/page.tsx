@@ -525,7 +525,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                       className="w-full border-2 border-dashed rounded py-8 text-center transition-all"
                       style={{ borderColor: RULE_DIM, color: INK }}
                     >
-                      <p className="text-sm mb-1" style={{ color: ACCENT, opacity: 0.7, fontFamily: BODY_FONT }}>Click to add a photo</p>
+                      <p className="text-sm mb-1" style={{ color: ACCENT, opacity: 0.7, fontFamily: BODY_FONT }}>Click to add a profile photo</p>
                       <p className="text-xs opacity-40" style={{ fontFamily: BODY_FONT }}>JPG or PNG · compressed automatically</p>
                     </button>
                   )}
