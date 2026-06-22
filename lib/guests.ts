@@ -16,6 +16,7 @@ export interface Guest {
   guestbookCoords: { x: number; y: number }
   dadStory: string
   dadStoryUpdated: string | null
+  additionalImages: string[]
 }
 
 const DATA_PATH = path.join(process.cwd(), 'data', 'guests.json')
@@ -54,6 +55,15 @@ export async function updateGuestVariants(id: string, nameVariants: string[]): P
   const idx = guests.findIndex((g) => g.id === id)
   if (idx === -1) return false
   guests[idx].nameVariants = nameVariants
+  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  return true
+}
+
+export async function updateGuestAdditionalImages(id: string, additionalImages: string[]): Promise<boolean> {
+  const guests = await getGuests()
+  const idx = guests.findIndex((g) => g.id === id)
+  if (idx === -1) return false
+  guests[idx].additionalImages = additionalImages
   await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
   return true
 }
@@ -100,6 +110,7 @@ export async function createGuest(fields: {
     guestbookCoords: { x: 0.5, y: 0.5 },
     dadStory: '',
     dadStoryUpdated: null,
+    additionalImages: [],
   }
   guests.push(guest)
   await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))

@@ -88,6 +88,7 @@ export default async function GuestPage({
           {/* Left column */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
 
+            {/* Profile photo — above guestbook signature */}
             {guest.imageUrl && (
               <div>
                 <img
@@ -103,7 +104,7 @@ export default async function GuestPage({
               </div>
             )}
 
-            {/* Guestbook page */}
+            {/* Guestbook signature page */}
             <div>
               <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 10, color: ACCENT }}>
                 Signed on page {guest.guestbookPage}
@@ -114,6 +115,21 @@ export default async function GuestPage({
                 style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(5%)' }}
               />
             </div>
+
+            {/* Additional images — scroll below guestbook */}
+            {(guest.additionalImages ?? []).length > 0 && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <div style={{ height: 1, background: RULE, opacity: 0.5 }} />
+                {(guest.additionalImages ?? []).map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`${guest.name} — image ${i + 2}`}
+                    style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(5%)' }}
+                  />
+                ))}
+              </div>
+            )}
 
           </div>
 

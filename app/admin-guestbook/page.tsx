@@ -18,6 +18,7 @@ interface Guest {
   guestbookCoords: Coords
   dadStory: string
   dadStoryUpdated: string | null
+  additionalImages: string[]
 }
 
 const HL_W = 0.52
@@ -62,6 +63,10 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   const [imageUrl, setImageUrl] = useState('')
   const [imgSaving, setImgSaving] = useState(false)
   const [imgSaved, setImgSaved] = useState(false)
+  const [additionalImages, setAdditionalImages] = useState<string[]>([])
+  const [addlSaving, setAddlSaving] = useState(false)
+  const [addlSaved, setAddlSaved] = useState(false)
+  const addlFileInputRef = useRef<HTMLInputElement>(null)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
   const [saveError, setSaveError] = useState(false)
@@ -116,9 +121,11 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setImageUrl(guest.imageUrl)
     setAkaVariants(guest.nameVariants ?? [])
     setAkaInput('')
+    setAdditionalImages(guest.additionalImages ?? [])
     setSaved(false)
     setImgSaved(false)
     setAkaSaved(false)
+    setAddlSaved(false)
     setTab('stories')
   }
 
@@ -185,6 +192,34 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setAkaSaving(false)
     setAkaSaved(true)
     setTimeout(() => setAkaSaved(false), 3000)
+  }
+
+  async function saveAdditionalImages(images: string[]) {
+    if (!selected) return
+    setAddlSaving(true)
+    const res = await fetch(`/api/guests/${selected.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ additionalImages: images }),
+    })
+    setAddlSaving(false)
+    if (!res.ok) { alert('Save failed — use Export JSON to preserve changes locally.'); return }
+    setGuests((prev) =>
+      prev.map((g) => g.id === selected.id ? { ...g, additionalImages: images } : g)
+    )
+    setSelected((prev) => prev ? { ...prev, additionalImages: images } : null)
+    setAddlSaved(true)
+    setTimeout(() => setAddlSaved(false), 3000)
+  }
+
+  async function handleAddlFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files ?? [])
+    if (!files.length) return
+    const compressed = await Promise.all(files.map(compressImage))
+    const updated = [...additionalImages, ...compressed]
+    setAdditionalImages(updated)
+    setAddlSaved(false)
+    e.target.value = ''
   }
 
   async function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
@@ -515,6 +550,61 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     onChange={handleFileUpload}
                     className="hidden"
                   />
+                </div>
+
+                {/* ── ADDITIONAL IMAGES ── */}
+                <div>
+                  <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
+                    Additional Images
+                  </p>
+                  <p className="text-xs italic mb-3 opacity-40" style={{ color: INK, fontFamily: BODY_FONT }}>
+                    Family photos, newspaper clippings, memorabilia — scroll below the guestbook signature on the profile page.
+                  </p>
+
+                  {additionalImages.length > 0 && (
+                    <div className="flex flex-wrap gap-3 mb-3">
+                      {additionalImages.map((src, i) => (
+                        <div key={i} style={{ position: 'relative' }}>
+                          <img src={src} alt={`Additional ${i + 1}`}
+                            style={{ width: 80, height: 90, objectFit: 'cover', border: `1px solid ${RULE}`, borderRadius: 2 }} />
+                          <button
+                            onClick={() => { const updated = additionalImages.filter((_, j) => j !== i); setAdditionalImages(updated); setAddlSaved(false) }}
+                            style={{ position: 'absolute', top: -6, right: -6, width: 18, height: 18, borderRadius: '50%', background: '#c0405a', color: 'white', border: 'none', cursor: 'pointer', fontSize: '0.65rem', lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                          >×</button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <button
+                    onClick={() => addlFileInputRef.current?.click()}
+                    className="w-full border-2 border-dashed rounded py-5 text-center transition-all mb-3"
+                    style={{ borderColor: RULE_DIM }}
+                  >
+                    <p className="text-sm" style={{ color: ACCENT, opacity: 0.7, fontFamily: BODY_FONT }}>+ Add images</p>
+                    <p className="text-xs opacity-40" style={{ fontFamily: BODY_FONT }}>Select one or more · compressed automatically</p>
+                  </button>
+
+                  <input
+                    ref={addlFileInputRef}
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    multiple
+                    onChange={handleAddlFileUpload}
+                    className="hidden"
+                  />
+
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={() => saveAdditionalImages(additionalImages)}
+                      disabled={addlSaving}
+                      className="px-6 py-2 text-sm tracking-widest uppercase border transition-all disabled:opacity-40"
+                      style={{ borderColor: ACCENT, color: ACCENT, fontFamily: BODY_FONT }}
+                    >
+                      {addlSaving ? 'Saving…' : 'Save Images'}
+                    </button>
+                    {addlSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
+                  </div>
                 </div>
 
                 {/* ── STORY ── */}
