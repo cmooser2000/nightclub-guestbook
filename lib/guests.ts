@@ -49,6 +49,15 @@ export async function updateGuestImage(id: string, imageUrl: string): Promise<bo
   return true
 }
 
+export async function updateGuestVariants(id: string, nameVariants: string[]): Promise<boolean> {
+  const guests = await getGuests()
+  const idx = guests.findIndex((g) => g.id === id)
+  if (idx === -1) return false
+  guests[idx].nameVariants = nameVariants
+  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  return true
+}
+
 export async function updateGuestCoords(id: string, coords: { x: number; y: number }): Promise<boolean> {
   const guests = await getGuests()
   const idx = guests.findIndex((g) => g.id === id)

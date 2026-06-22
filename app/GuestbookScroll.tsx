@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 interface GuestEntry {
   id: string
   name: string
+  nameVariants: string[]
   knownFor: string
   category: string
   guestbookCoords: { x: number; y: number }
@@ -106,7 +107,10 @@ export default function GuestbookScroll({ pageMap }: Props) {
   const searchResults = useMemo(() => {
     if (!searchQuery.trim()) return []
     const q = searchQuery.toLowerCase()
-    return sortedGuests.filter(g => g.name.toLowerCase().includes(q)).slice(0, 12)
+    return sortedGuests.filter(g =>
+      g.name.toLowerCase().includes(q) ||
+      (g.nameVariants ?? []).some(v => v.toLowerCase().includes(q))
+    ).slice(0, 12)
   }, [searchQuery, sortedGuests])
 
   const categoryGuests = useMemo(() => {

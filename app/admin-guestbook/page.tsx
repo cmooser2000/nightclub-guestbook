@@ -8,6 +8,7 @@ interface Coords { x: number; y: number }
 interface Guest {
   id: string
   name: string
+  nameVariants: string[]
   category: string
   knownFor: string
   quickFacts: string[]
@@ -64,6 +65,10 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
   const [tab, setTab] = useState<'stories' | 'add' | 'pin'>('stories')
+  const [akaInput, setAkaInput] = useState('')
+  const [akaVariants, setAkaVariants] = useState<string[]>([])
+  const [akaSaving, setAkaSaving] = useState(false)
+  const [akaSaved, setAkaSaved] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const storyRef = useRef<HTMLDivElement>(null)
 
@@ -108,8 +113,11 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setSelected(guest)
     setStory(guest.dadStory)
     setImageUrl(guest.imageUrl)
+    setAkaVariants(guest.nameVariants ?? [])
+    setAkaInput('')
     setSaved(false)
     setImgSaved(false)
+    setAkaSaved(false)
     setTab('stories')
   }
 
@@ -156,6 +164,23 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setImgSaving(false)
     setImgSaved(true)
     setTimeout(() => setImgSaved(false), 3000)
+  }
+
+  async function saveAka() {
+    if (!selected) return
+    setAkaSaving(true)
+    await fetch(`/api/guests/${selected.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nameVariants: akaVariants }),
+    })
+    setGuests((prev) =>
+      prev.map((g) => g.id === selected.id ? { ...g, nameVariants: akaVariants } : g)
+    )
+    setSelected((prev) => prev ? { ...prev, nameVariants: akaVariants } : null)
+    setAkaSaving(false)
+    setAkaSaved(true)
+    setTimeout(() => setAkaSaved(false), 3000)
   }
 
   async function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
@@ -355,6 +380,74 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                       Wikipedia →
                     </a>
                   )}
+                </div>
+
+                {/* ── AKA / NAME VARIANTS ── */}
+                <div>
+                  <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
+                    Also Known As
+                  </p>
+                  <p className="text-xs italic mb-3 opacity-40" style={{ color: INK, fontFamily: BODY_FONT }}>
+                    Real name, nickname, or any alternate spelling someone might search for.
+                  </p>
+
+                  {/* Tag list */}
+                  {akaVariants.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {akaVariants.map((v, i) => (
+                        <span key={i} className="flex items-center gap-1 px-2 py-1 rounded text-xs border" style={{ borderColor: RULE, color: INK, fontFamily: BODY_FONT, background: 'rgba(200,184,154,0.15)' }}>
+                          {v}
+                          <button
+                            onClick={() => { setAkaVariants(akaVariants.filter((_, j) => j !== i)); setAkaSaved(false) }}
+                            style={{ opacity: 0.4, lineHeight: 1, fontSize: '0.8rem', marginLeft: 2 }}
+                          >×</button>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Add input */}
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={akaInput}
+                      onChange={(e) => setAkaInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if ((e.key === 'Enter' || e.key === ',') && akaInput.trim()) {
+                          e.preventDefault()
+                          const v = akaInput.trim().replace(/,$/, '')
+                          if (v && !akaVariants.includes(v)) setAkaVariants([...akaVariants, v])
+                          setAkaInput('')
+                          setAkaSaved(false)
+                        }
+                      }}
+                      placeholder="Type a name and press Enter"
+                      className="flex-1 rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
+                      style={inputStyle}
+                    />
+                    <button
+                      onClick={() => {
+                        const v = akaInput.trim()
+                        if (v && !akaVariants.includes(v)) setAkaVariants([...akaVariants, v])
+                        setAkaInput('')
+                        setAkaSaved(false)
+                      }}
+                      className="px-3 py-2 text-xs border transition-all"
+                      style={{ borderColor: RULE, color: ACCENT, fontFamily: BODY_FONT }}
+                    >Add</button>
+                  </div>
+
+                  <div className="flex items-center gap-4 mt-3">
+                    <button
+                      onClick={saveAka}
+                      disabled={akaSaving}
+                      className="px-6 py-2 text-sm tracking-widest uppercase border transition-all disabled:opacity-40"
+                      style={{ borderColor: ACCENT, color: ACCENT, fontFamily: BODY_FONT }}
+                    >
+                      {akaSaving ? 'Saving…' : 'Save Names'}
+                    </button>
+                    {akaSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
+                  </div>
                 </div>
 
                 {/* ── PHOTO ── */}
