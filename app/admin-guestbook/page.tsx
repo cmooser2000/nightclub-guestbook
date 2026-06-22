@@ -56,17 +56,6 @@ function compressImage(file: File): Promise<string> {
   })
 }
 
-// ── localStorage draft helpers ──────────────────────────────────────────────
-function getDraft(id: string): Partial<Guest> {
-  try { return JSON.parse(localStorage.getItem(`gb_draft_${id}`) ?? '{}') } catch { return {} }
-}
-function setDraft(id: string, patch: Partial<Guest>) {
-  const current = getDraft(id)
-  localStorage.setItem(`gb_draft_${id}`, JSON.stringify({ ...current, ...patch }))
-}
-function hasDraft(id: string): boolean {
-  try { return Object.keys(getDraft(id)).length > 0 } catch { return false }
-}
 
 function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.Dispatch<React.SetStateAction<Guest[]>> }) {
   const searchParams = useSearchParams()
@@ -127,14 +116,12 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   }, [guests, searchParams])
 
   function openGuest(guest: Guest) {
-    const draft = getDraft(guest.id)
-    const merged = { ...guest, ...draft }
-    setSelected(merged)
-    setStory(merged.dadStory)
-    setImageUrl(merged.imageUrl)
-    setAkaVariants(merged.nameVariants ?? [])
+    setSelected(guest)
+    setStory(guest.dadStory)
+    setImageUrl(guest.imageUrl)
+    setAkaVariants(guest.nameVariants ?? [])
     setAkaInput('')
-    setAdditionalImages(merged.additionalImages ?? [])
+    setAdditionalImages(guest.additionalImages ?? [])
     setSaved(false)
     setImgSaved(false)
     setAkaSaved(false)
@@ -149,47 +136,67 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setTab('pin')
   }
 
-  function save() {
+  async function save() {
     if (!selected) return
     setSaving(true)
-    const updated = { ...selected, dadStory: story, dadStoryUpdated: new Date().toISOString() }
-    setDraft(selected.id, { dadStory: story, dadStoryUpdated: updated.dadStoryUpdated })
-    setGuests((prev) => prev.map((g) => g.id === selected.id ? { ...g, dadStory: story, dadStoryUpdated: updated.dadStoryUpdated } : g))
-    setSelected(updated)
+    const res = await fetch(`/api/guests/${selected.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dadStory: story }),
+    })
     setSaving(false)
+    if (!res.ok) { alert('Save failed — please try again.'); return }
+    const updated = { ...selected, dadStory: story, dadStoryUpdated: new Date().toISOString() }
+    setGuests((prev) => prev.map((g) => g.id === selected.id ? updated : g))
+    setSelected(updated)
     setSaved(true)
     setTimeout(() => setSaved(false), 3000)
   }
 
-  function saveImage() {
+  async function saveImage() {
     if (!selected || !imageUrl) return
     setImgSaving(true)
-    setDraft(selected.id, { imageUrl })
+    const res = await fetch(`/api/guests/${selected.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ imageUrl }),
+    })
+    setImgSaving(false)
+    if (!res.ok) { alert('Save failed — please try again.'); return }
     setGuests((prev) => prev.map((g) => g.id === selected.id ? { ...g, imageUrl } : g))
     setSelected((prev) => (prev ? { ...prev, imageUrl } : null))
-    setImgSaving(false)
     setImgSaved(true)
     setTimeout(() => setImgSaved(false), 3000)
   }
 
-  function saveAka() {
+  async function saveAka() {
     if (!selected) return
     setAkaSaving(true)
-    setDraft(selected.id, { nameVariants: akaVariants })
+    const res = await fetch(`/api/guests/${selected.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nameVariants: akaVariants }),
+    })
+    setAkaSaving(false)
+    if (!res.ok) { alert('Save failed — please try again.'); return }
     setGuests((prev) => prev.map((g) => g.id === selected.id ? { ...g, nameVariants: akaVariants } : g))
     setSelected((prev) => prev ? { ...prev, nameVariants: akaVariants } : null)
-    setAkaSaving(false)
     setAkaSaved(true)
     setTimeout(() => setAkaSaved(false), 3000)
   }
 
-  function saveAdditionalImages(images: string[]) {
+  async function saveAdditionalImages(images: string[]) {
     if (!selected) return
     setAddlSaving(true)
-    setDraft(selected.id, { additionalImages: images })
+    const res = await fetch(`/api/guests/${selected.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ additionalImages: images }),
+    })
+    setAddlSaving(false)
+    if (!res.ok) { alert('Save failed — please try again.'); return }
     setGuests((prev) => prev.map((g) => g.id === selected.id ? { ...g, additionalImages: images } : g))
     setSelected((prev) => prev ? { ...prev, additionalImages: images } : null)
-    setAddlSaving(false)
     setAddlSaved(true)
     setTimeout(() => setAddlSaved(false), 3000)
   }
@@ -212,13 +219,18 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setImgSaved(false)
   }
 
-  function savePin() {
+  async function savePin() {
     if (!pinGuest || !pinCoords) return
     setPinSaving(true)
-    setDraft(pinGuest.id, { guestbookCoords: pinCoords })
+    const res = await fetch(`/api/guests/${pinGuest.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ guestbookCoords: pinCoords }),
+    })
+    setPinSaving(false)
+    if (!res.ok) { alert('Save failed — please try again.'); return }
     setGuests((prev) => prev.map((g) => g.id === pinGuest.id ? { ...g, guestbookCoords: pinCoords } : g))
     setPinGuest((prev) => prev ? { ...prev, guestbookCoords: pinCoords } : null)
-    setPinSaving(false)
     setPinSaved(true)
     setTimeout(() => setPinSaved(false), 3000)
   }
@@ -313,9 +325,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
           </div>
           <button
             onClick={() => {
-              // Apply all localStorage drafts before exporting
-              const withDrafts = guests.map((g) => ({ ...g, ...getDraft(g.id) }))
-              const blob = new Blob([JSON.stringify(withDrafts, null, 2)], { type: 'application/json' })
+              const blob = new Blob([JSON.stringify(guests, null, 2)], { type: 'application/json' })
               const url = URL.createObjectURL(blob)
               const a = document.createElement('a')
               a.href = url
@@ -323,20 +333,13 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
               a.click()
               URL.revokeObjectURL(url)
             }}
-            className="text-xs tracking-[0.25em] uppercase transition-opacity"
-            style={{ color: '#c0405a', fontFamily: BODY_FONT, fontWeight: 600, letterSpacing: '0.25em' }}
+            className="text-xs tracking-[0.25em] uppercase opacity-40 hover:opacity-100 transition-opacity"
+            style={{ color: INK, fontFamily: BODY_FONT }}
           >
-            ↑ Publish
+            ↓ Export JSON
           </button>
         </div>
       </header>
-
-      {/* Publish workflow note */}
-      <div style={{ borderBottom: `1px solid ${RULE_DIM}`, padding: '8px 32px', background: 'rgba(192,64,90,0.04)' }}>
-        <p className="text-xs max-w-6xl mx-auto" style={{ color: '#c0405a', fontFamily: BODY_FONT, opacity: 0.8 }}>
-          <strong>Save</strong> stores a draft in this browser. When you&apos;re ready, click <strong>↑ Publish</strong> in the header — this downloads <code>guests.json</code>. Replace <code>data/guests.json</code> in the repo and deploy to make changes live.
-        </p>
-      </div>
 
       {/* ── STORIES TAB ── */}
       {tab === 'stories' && (
@@ -371,7 +374,6 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     <div className="flex gap-1 shrink-0">
                       <span title="Story" style={{ fontSize: '0.65rem', color: hasStory ? '#2a7a3a' : '#bbb' }}>✍</span>
                       <span title="Photo" style={{ fontSize: '0.65rem', color: hasPhoto ? '#2a7a3a' : '#bbb' }}>📷</span>
-                      {hasDraft(guest.id) && <span title="Unpublished draft" style={{ fontSize: '0.55rem', color: '#c0405a' }}>●</span>}
                     </div>
                   </div>
                 </button>
@@ -473,7 +475,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     >
                       {akaSaving ? 'Saving…' : 'Save Names'}
                     </button>
-                    {akaSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Draft saved</span>}
+                    {akaSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
                   </div>
                 </div>
 
@@ -514,7 +516,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                         >
                           {imgSaving ? 'Saving…' : 'Save Photo'}
                         </button>
-                        {imgSaved && <span className="text-xs" style={{ color: '#2a7a3a' }}>✓ Draft saved</span>}
+                        {imgSaved && <span className="text-xs" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
                       </div>
                     </div>
                   ) : (
@@ -588,7 +590,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     >
                       {addlSaving ? 'Saving…' : 'Save Images'}
                     </button>
-                    {addlSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Draft saved</span>}
+                    {addlSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
                   </div>
                 </div>
 
@@ -620,7 +622,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     >
                       {saving ? 'Saving…' : 'Save Story'}
                     </button>
-                    {saved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Draft saved</span>}
+                    {saved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
                   </div>
                 </div>
 
@@ -814,7 +816,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     {pinSaving ? 'Saving…' : 'Save Position'}
                   </button>
                   {pinSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
-                  {pinSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Draft saved</span>}
+                  {pinSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
                 </div>
               </div>
             )}

@@ -1,3 +1,4 @@
+import { kv } from '@vercel/kv'
 import { promises as fs } from 'fs'
 import path from 'path'
 
@@ -19,11 +20,21 @@ export interface Guest {
   additionalImages: string[]
 }
 
+const KV_KEY = 'guests'
 const DATA_PATH = path.join(process.cwd(), 'data', 'guests.json')
 
 export async function getGuests(): Promise<Guest[]> {
+  const cached = await kv.get<Guest[]>(KV_KEY)
+  if (cached && cached.length > 0) return cached
+  // First run: seed KV from the JSON file
   const raw = await fs.readFile(DATA_PATH, 'utf-8')
-  return JSON.parse(raw)
+  const guests: Guest[] = JSON.parse(raw)
+  await kv.set(KV_KEY, guests)
+  return guests
+}
+
+async function saveGuests(guests: Guest[]): Promise<void> {
+  await kv.set(KV_KEY, guests)
 }
 
 export async function getGuest(id: string): Promise<Guest | null> {
@@ -37,7 +48,7 @@ export async function updateGuestStory(id: string, story: string): Promise<boole
   if (idx === -1) return false
   guests[idx].dadStory = story
   guests[idx].dadStoryUpdated = new Date().toISOString()
-  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  await saveGuests(guests)
   return true
 }
 
@@ -46,7 +57,7 @@ export async function updateGuestImage(id: string, imageUrl: string): Promise<bo
   const idx = guests.findIndex((g) => g.id === id)
   if (idx === -1) return false
   guests[idx].imageUrl = imageUrl
-  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  await saveGuests(guests)
   return true
 }
 
@@ -55,7 +66,7 @@ export async function updateGuestVariants(id: string, nameVariants: string[]): P
   const idx = guests.findIndex((g) => g.id === id)
   if (idx === -1) return false
   guests[idx].nameVariants = nameVariants
-  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  await saveGuests(guests)
   return true
 }
 
@@ -64,7 +75,7 @@ export async function updateGuestAdditionalImages(id: string, additionalImages: 
   const idx = guests.findIndex((g) => g.id === id)
   if (idx === -1) return false
   guests[idx].additionalImages = additionalImages
-  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  await saveGuests(guests)
   return true
 }
 
@@ -73,7 +84,7 @@ export async function updateGuestCoords(id: string, coords: { x: number; y: numb
   const idx = guests.findIndex((g) => g.id === id)
   if (idx === -1) return false
   guests[idx].guestbookCoords = coords
-  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  await saveGuests(guests)
   return true
 }
 
@@ -89,7 +100,6 @@ export async function createGuest(fields: {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
-  // ensure unique id
   let id = slug
   let n = 2
   while (guests.find((g) => g.id === id)) {
@@ -113,6 +123,6 @@ export async function createGuest(fields: {
     additionalImages: [],
   }
   guests.push(guest)
-  await fs.writeFile(DATA_PATH, JSON.stringify(guests, null, 2))
+  await saveGuests(guests)
   return guest
 }
