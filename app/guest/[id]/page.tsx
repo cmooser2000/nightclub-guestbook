@@ -2,6 +2,8 @@ import { getGuest, getGuests } from '@/lib/guests'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+export const dynamic = 'force-dynamic'
+
 const PAPER = '#f5f0e6'
 const INK = '#1a1209'
 const RULE = '#c8b89a'

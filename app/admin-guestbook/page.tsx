@@ -64,6 +64,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   const [imgSaved, setImgSaved] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [saveError, setSaveError] = useState(false)
   const [tab, setTab] = useState<'stories' | 'add' | 'pin'>('stories')
   const [akaInput, setAkaInput] = useState('')
   const [akaVariants, setAkaVariants] = useState<string[]>([])
@@ -131,11 +132,14 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   async function save() {
     if (!selected) return
     setSaving(true)
-    await fetch(`/api/guests/${selected.id}`, {
+    setSaveError(false)
+    const res = await fetch(`/api/guests/${selected.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ dadStory: story }),
     })
+    setSaving(false)
+    if (!res.ok) { setSaveError(true); return }
     setGuests((prev) =>
       prev.map((g) =>
         g.id === selected.id
@@ -144,7 +148,6 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
       )
     )
     setSelected((prev) => (prev ? { ...prev, dadStory: story } : null))
-    setSaving(false)
     setSaved(true)
     setTimeout(() => setSaved(false), 3000)
   }
@@ -152,16 +155,17 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   async function saveImage() {
     if (!selected || !imageUrl) return
     setImgSaving(true)
-    await fetch(`/api/guests/${selected.id}`, {
+    const res = await fetch(`/api/guests/${selected.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ imageUrl }),
     })
+    setImgSaving(false)
+    if (!res.ok) { alert('Save failed — use Export JSON to preserve changes locally.'); return }
     setGuests((prev) =>
       prev.map((g) => g.id === selected.id ? { ...g, imageUrl } : g)
     )
     setSelected((prev) => (prev ? { ...prev, imageUrl } : null))
-    setImgSaving(false)
     setImgSaved(true)
     setTimeout(() => setImgSaved(false), 3000)
   }
@@ -194,16 +198,17 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   async function savePin() {
     if (!pinGuest || !pinCoords) return
     setPinSaving(true)
-    await fetch(`/api/guests/${pinGuest.id}`, {
+    const res = await fetch(`/api/guests/${pinGuest.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ guestbookCoords: pinCoords }),
     })
+    setPinSaving(false)
+    if (!res.ok) { alert('Save failed — use Export JSON to preserve changes locally.'); return }
     setGuests((prev) =>
       prev.map((g) => g.id === pinGuest.id ? { ...g, guestbookCoords: pinCoords } : g)
     )
     setPinGuest((prev) => prev ? { ...prev, guestbookCoords: pinCoords } : null)
-    setPinSaving(false)
     setPinSaved(true)
     setTimeout(() => setPinSaved(false), 3000)
   }
@@ -368,9 +373,11 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
 
                 {/* Name + meta */}
                 <div>
-                  <h2 className="text-3xl mb-1" style={{ color: INK, fontFamily: "'MarketDeco', serif" }}>
-                    {selected.name}
-                  </h2>
+                  <a href={`/guest/${selected.id}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                    <h2 className="text-3xl mb-1 hover:opacity-70 transition-opacity" style={{ color: INK, fontFamily: "'MarketDeco', serif" }}>
+                      {selected.name} ↗
+                    </h2>
+                  </a>
                   <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
                     {selected.category} · Page {selected.guestbookPage}
                   </p>
@@ -524,7 +531,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     value={story}
                     onChange={(e) => { setStory(e.target.value); setSaved(false) }}
                     rows={10}
-                    placeholder={`Write anything you remember about ${selected.name.split(' ')[0]}…`}
+                    placeholder={`Add more information about ${selected.name}…`}
                     className="w-full rounded border p-4 text-sm leading-relaxed resize-y focus:outline-none focus:ring-1"
                     style={inputStyle}
                   />
@@ -539,6 +546,11 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                       {saving ? 'Saving…' : 'Save Story'}
                     </button>
                     {saved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
+                    {saveError && (
+                      <span className="text-xs leading-snug" style={{ color: '#b94040', fontFamily: BODY_FONT, maxWidth: 260 }}>
+                        Save failed — Vercel's filesystem is read-only. Use <strong>Export JSON</strong> above, replace <code>data/guests.json</code>, then redeploy.
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -687,18 +699,34 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     style={{ width: '100%', display: 'block', borderRadius: 4, border: `1px solid ${RULE}` }}
                   />
                   {pinCoords && (
-                    <div style={{
-                      position: 'absolute',
-                      left: `${(pinCoords.x - HL_W / 2) * 100}%`,
-                      top: `${(pinCoords.y - HL_H / 2) * 100}%`,
-                      width: `${HL_W * 100}%`,
-                      height: `${HL_H * 100}%`,
-                      background: 'rgba(251,191,36,0.45)',
-                      mixBlendMode: 'multiply',
-                      borderRadius: 2,
-                      pointerEvents: 'none',
-                      border: '1px solid rgba(251,191,36,0.8)',
-                    }} />
+                    <>
+                      {/* horizontal highlight bar */}
+                      <div style={{
+                        position: 'absolute',
+                        left: `${(pinCoords.x - HL_W / 2) * 100}%`,
+                        top: `${(pinCoords.y - HL_H / 2) * 100}%`,
+                        width: `${HL_W * 100}%`,
+                        height: `${HL_H * 100}%`,
+                        background: 'rgba(251,191,36,0.55)',
+                        borderRadius: 2,
+                        pointerEvents: 'none',
+                        border: '2px solid rgba(220,160,0,0.9)',
+                        boxShadow: '0 0 0 1px rgba(0,0,0,0.25)',
+                      }} />
+                      {/* center dot */}
+                      <div style={{
+                        position: 'absolute',
+                        left: `calc(${pinCoords.x * 100}% - 5px)`,
+                        top: `calc(${pinCoords.y * 100}% - 5px)`,
+                        width: 10,
+                        height: 10,
+                        borderRadius: '50%',
+                        background: '#e53e3e',
+                        border: '2px solid white',
+                        pointerEvents: 'none',
+                        boxShadow: '0 1px 4px rgba(0,0,0,0.5)',
+                      }} />
+                    </>
                   )}
                 </div>
 
