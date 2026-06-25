@@ -26,6 +26,8 @@ export default async function GuestPage({
 
   const pageNum = String(guest.guestbookPage).padStart(3, '0')
   const guestbookPageImg = `/guestbook-pages/pg${pageNum}.jpg`
+  // Aladdin ran 1921–1929, ~418 pages total (~52 pages/year)
+  const estimatedYear = 1921 + Math.min(8, Math.floor((guest.guestbookPage - 1) / 52))
 
   return (
     <main style={{ background: PAPER, color: INK, minHeight: '100vh' }}>
@@ -107,7 +109,7 @@ export default async function GuestPage({
             {/* Guestbook signature page */}
             <div>
               <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 10, color: ACCENT }}>
-                Signed on page {guest.guestbookPage}
+                Signed on page {guest.guestbookPage} · c. {estimatedYear}
               </p>
               <img
                 src={guestbookPageImg}
@@ -118,15 +120,21 @@ export default async function GuestPage({
 
             {/* Additional images — scroll below guestbook */}
             {(guest.additionalImages ?? []).length > 0 && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 <div style={{ height: 1, background: RULE, opacity: 0.5 }} />
-                {(guest.additionalImages ?? []).map((src, i) => (
-                  <img
-                    key={i}
-                    src={src}
-                    alt={`${guest.name} — image ${i + 2}`}
-                    style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(5%)' }}
-                  />
+                {(guest.additionalImages ?? []).map((img, i) => (
+                  <div key={i}>
+                    <img
+                      src={typeof img === 'string' ? img : img.url}
+                      alt={`${guest.name} — image ${i + 2}`}
+                      style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(5%)' }}
+                    />
+                    {typeof img !== 'string' && img.caption && (
+                      <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', marginTop: 6, opacity: 0.55, fontStyle: 'italic', lineHeight: 1.5 }}>
+                        {img.caption}
+                      </p>
+                    )}
+                  </div>
                 ))}
               </div>
             )}
