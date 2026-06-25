@@ -28,6 +28,7 @@ export default async function GuestPage({
   const guestbookPageImg = `/guestbook-pages/pg${pageNum}.jpg`
   // Aladdin ran 1921–1929, ~418 pages total (~52 pages/year)
   const estimatedYear = 1921 + Math.min(8, Math.floor((guest.guestbookPage - 1) / 52))
+  const signingLabel = guest.signingDate ?? `c. ${estimatedYear}`
 
   return (
     <main style={{ background: PAPER, color: INK, minHeight: '100vh' }}>
@@ -109,7 +110,7 @@ export default async function GuestPage({
             {/* Guestbook signature page */}
             <div>
               <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 10, color: ACCENT }}>
-                Signed on page {guest.guestbookPage} · c. {estimatedYear}
+                Signed on page {guest.guestbookPage} · {signingLabel}
               </p>
               <img
                 src={guestbookPageImg}

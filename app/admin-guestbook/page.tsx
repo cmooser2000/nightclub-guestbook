@@ -18,7 +18,8 @@ interface Guest {
   guestbookCoords: Coords
   dadStory: string
   dadStoryUpdated: string | null
-  additionalImages: string[]
+  signingDate: string | null
+  additionalImages: { url: string; caption: string }[]
 }
 
 const HL_W = 0.52
@@ -64,9 +65,12 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   const [imageUrl, setImageUrl] = useState('')
   const [imgSaving, setImgSaving] = useState(false)
   const [imgSaved, setImgSaved] = useState(false)
-  const [additionalImages, setAdditionalImages] = useState<string[]>([])
+  const [additionalImages, setAdditionalImages] = useState<{ url: string; caption: string }[]>([])
   const [addlSaving, setAddlSaving] = useState(false)
   const [addlSaved, setAddlSaved] = useState(false)
+  const [signingDate, setSigningDate] = useState('')
+  const [dateSaving, setDateSaving] = useState(false)
+  const [dateSaved, setDateSaved] = useState(false)
   const addlFileInputRef = useRef<HTMLInputElement>(null)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -121,7 +125,11 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setImageUrl(guest.imageUrl)
     setAkaVariants(guest.nameVariants ?? [])
     setAkaInput('')
-    setAdditionalImages(guest.additionalImages ?? [])
+    setSigningDate(guest.signingDate ?? '')
+    setDateSaved(false)
+    setAdditionalImages((guest.additionalImages ?? []).map((img: string | { url: string; caption: string }) =>
+      typeof img === 'string' ? { url: img, caption: '' } : img
+    ))
     setSaved(false)
     setImgSaved(false)
     setAkaSaved(false)
@@ -185,7 +193,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setTimeout(() => setAkaSaved(false), 3000)
   }
 
-  async function saveAdditionalImages(images: string[]) {
+  async function saveAdditionalImages(images: { url: string; caption: string }[]) {
     if (!selected) return
     setAddlSaving(true)
     const res = await fetch(`/api/guests/${selected.id}`, {
@@ -201,12 +209,29 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setTimeout(() => setAddlSaved(false), 3000)
   }
 
+  async function saveSigningDate() {
+    if (!selected) return
+    setDateSaving(true)
+    const res = await fetch(`/api/guests/${selected.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ signingDate: signingDate.trim() || null }),
+    })
+    setDateSaving(false)
+    if (!res.ok) { alert('Save failed — please try again.'); return }
+    const val = signingDate.trim() || null
+    setGuests((prev) => prev.map((g) => g.id === selected.id ? { ...g, signingDate: val } : g))
+    setSelected((prev) => prev ? { ...prev, signingDate: val } : null)
+    setDateSaved(true)
+    setTimeout(() => setDateSaved(false), 3000)
+  }
+
   async function handleAddlFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const files = Array.from(e.target.files ?? [])
     if (!files.length) return
     const compressed = await Promise.all(files.map(compressImage))
-    const updated = [...additionalImages, ...compressed]
-    setAdditionalImages(updated)
+    const newItems = compressed.map((url) => ({ url, caption: '' }))
+    setAdditionalImages([...additionalImages, ...newItems])
     setAddlSaved(false)
     e.target.value = ''
   }
@@ -411,6 +436,35 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                   )}
                 </div>
 
+                {/* ── SIGNING DATE ── */}
+                <div>
+                  <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
+                    Signing Date
+                  </p>
+                  <p className="text-xs italic mb-3 opacity-40" style={{ color: INK, fontFamily: BODY_FONT }}>
+                    Exact or approximate — shown as "Signed on page {selected.guestbookPage} · {signingDate.trim() || `c. ${1921 + Math.min(8, Math.floor((selected.guestbookPage - 1) / 52))}`}". Leave blank to use the auto-estimated year.
+                  </p>
+                  <div className="flex gap-3 items-center">
+                    <input
+                      type="text"
+                      value={signingDate}
+                      onChange={(e) => { setSigningDate(e.target.value); setDateSaved(false) }}
+                      placeholder={`c. ${1921 + Math.min(8, Math.floor((selected.guestbookPage - 1) / 52))} (auto-estimated)`}
+                      className="flex-1 rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
+                      style={inputStyle}
+                    />
+                    <button
+                      onClick={saveSigningDate}
+                      disabled={dateSaving}
+                      className="px-4 py-2 text-sm tracking-widest uppercase border transition-all disabled:opacity-40"
+                      style={{ borderColor: ACCENT, color: ACCENT, fontFamily: BODY_FONT }}
+                    >
+                      {dateSaving ? 'Saving…' : 'Save'}
+                    </button>
+                    {dateSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓</span>}
+                  </div>
+                </div>
+
                 {/* ── AKA / NAME VARIANTS ── */}
                 <div>
                   <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
@@ -549,15 +603,32 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                   </p>
 
                   {additionalImages.length > 0 && (
-                    <div className="flex flex-wrap gap-3 mb-3">
-                      {additionalImages.map((src, i) => (
-                        <div key={i} style={{ position: 'relative' }}>
-                          <img src={src} alt={`Additional ${i + 1}`}
-                            style={{ width: 80, height: 90, objectFit: 'cover', border: `1px solid ${RULE}`, borderRadius: 2 }} />
-                          <button
-                            onClick={() => { const updated = additionalImages.filter((_, j) => j !== i); setAdditionalImages(updated); setAddlSaved(false) }}
-                            style={{ position: 'absolute', top: -6, right: -6, width: 18, height: 18, borderRadius: '50%', background: '#c0405a', color: 'white', border: 'none', cursor: 'pointer', fontSize: '0.65rem', lineHeight: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                          >×</button>
+                    <div className="flex flex-col gap-4 mb-3">
+                      {additionalImages.map((img, i) => (
+                        <div key={i} className="flex gap-3 items-start rounded border p-3" style={{ borderColor: RULE_DIM }}>
+                          <div style={{ position: 'relative', flexShrink: 0 }}>
+                            <img src={img.url} alt={`Additional ${i + 1}`}
+                              style={{ width: 80, height: 90, objectFit: 'cover', border: `1px solid ${RULE}`, borderRadius: 2 }} />
+                            <button
+                              onClick={() => { setAdditionalImages(additionalImages.filter((_, j) => j !== i)); setAddlSaved(false) }}
+                              style={{ position: 'absolute', top: -6, right: -6, width: 18, height: 18, borderRadius: '50%', background: '#c0405a', color: 'white', border: 'none', cursor: 'pointer', fontSize: '0.65rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                            >×</button>
+                          </div>
+                          <div className="flex-1">
+                            <label className="block text-xs mb-1 opacity-50" style={{ color: INK, fontFamily: BODY_FONT }}>Caption / citation (optional)</label>
+                            <textarea
+                              value={img.caption}
+                              onChange={(e) => {
+                                const updated = additionalImages.map((x, j) => j === i ? { ...x, caption: e.target.value } : x)
+                                setAdditionalImages(updated)
+                                setAddlSaved(false)
+                              }}
+                              rows={3}
+                              placeholder="e.g. Program from the Bancroft Library, UC Berkeley"
+                              className="w-full rounded border px-2 py-1.5 text-xs resize-none focus:outline-none"
+                              style={{ ...inputStyle, fontSize: '0.75rem' }}
+                            />
+                          </div>
                         </div>
                       ))}
                     </div>

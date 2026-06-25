@@ -1,4 +1,4 @@
-import { getGuest, updateGuestStory, updateGuestCoords, updateGuestImage, updateGuestVariants, updateGuestAdditionalImages } from '@/lib/guests'
+import { getGuest, updateGuestStory, updateGuestCoords, updateGuestImage, updateGuestVariants, updateGuestAdditionalImages, updateGuestSigningDate } from '@/lib/guests'
 
 export async function GET(
   _req: Request,
@@ -33,6 +33,11 @@ export async function PATCH(
   }
   if (body.additionalImages !== undefined) {
     const ok = await updateGuestAdditionalImages(id, body.additionalImages)
+    if (!ok) return Response.json({ error: 'Not found' }, { status: 404 })
+    return Response.json({ success: true })
+  }
+  if (body.signingDate !== undefined) {
+    const ok = await updateGuestSigningDate(id, body.signingDate)
     if (!ok) return Response.json({ error: 'Not found' }, { status: 404 })
     return Response.json({ success: true })
   }

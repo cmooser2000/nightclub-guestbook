@@ -17,7 +17,8 @@ export interface Guest {
   guestbookCoords: { x: number; y: number }
   dadStory: string
   dadStoryUpdated: string | null
-  additionalImages: string[]
+  signingDate: string | null
+  additionalImages: { url: string; caption: string }[]
 }
 
 const KV_KEY = 'guests'
@@ -70,11 +71,20 @@ export async function updateGuestVariants(id: string, nameVariants: string[]): P
   return true
 }
 
-export async function updateGuestAdditionalImages(id: string, additionalImages: string[]): Promise<boolean> {
+export async function updateGuestAdditionalImages(id: string, additionalImages: { url: string; caption: string }[]): Promise<boolean> {
   const guests = await getGuests()
   const idx = guests.findIndex((g) => g.id === id)
   if (idx === -1) return false
   guests[idx].additionalImages = additionalImages
+  await saveGuests(guests)
+  return true
+}
+
+export async function updateGuestSigningDate(id: string, signingDate: string | null): Promise<boolean> {
+  const guests = await getGuests()
+  const idx = guests.findIndex((g) => g.id === id)
+  if (idx === -1) return false
+  guests[idx].signingDate = signingDate
   await saveGuests(guests)
   return true
 }
@@ -120,6 +130,7 @@ export async function createGuest(fields: {
     guestbookCoords: { x: 0.5, y: 0.5 },
     dadStory: '',
     dadStoryUpdated: null,
+    signingDate: null,
     additionalImages: [],
   }
   guests.push(guest)
