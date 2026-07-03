@@ -196,7 +196,7 @@ export default async function GuestPage({
                     opacity: 0.7,
                   }}
                 >
-                  + Add story
+                  Edit
                 </Link>
               )}
               {guest.dadStory && guest.dadStoryUpdated && (

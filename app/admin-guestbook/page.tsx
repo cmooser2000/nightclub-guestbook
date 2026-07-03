@@ -68,6 +68,10 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   const [additionalImages, setAdditionalImages] = useState<{ url: string; caption: string }[]>([])
   const [addlSaving, setAddlSaving] = useState(false)
   const [addlSaved, setAddlSaved] = useState(false)
+  const [linkUrl, setLinkUrl] = useState('')
+  const [linkFetching, setLinkFetching] = useState(false)
+  const [linkImages, setLinkImages] = useState<string[]>([])
+  const [linkError, setLinkError] = useState('')
   const [signingDate, setSigningDate] = useState('')
   const [dateSaving, setDateSaving] = useState(false)
   const [dateSaved, setDateSaved] = useState(false)
@@ -127,6 +131,9 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setAkaInput('')
     setSigningDate(guest.signingDate ?? '')
     setDateSaved(false)
+    setLinkUrl('')
+    setLinkImages([])
+    setLinkError('')
     setAdditionalImages((guest.additionalImages ?? []).map((img: string | { url: string; caption: string }) =>
       typeof img === 'string' ? { url: img, caption: '' } : img
     ))
@@ -224,6 +231,30 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setSelected((prev) => prev ? { ...prev, signingDate: val } : null)
     setDateSaved(true)
     setTimeout(() => setDateSaved(false), 3000)
+  }
+
+  async function fetchLinkImages() {
+    if (!linkUrl.trim()) return
+    setLinkFetching(true)
+    setLinkImages([])
+    setLinkError('')
+    try {
+      const res = await fetch(`/api/scrape-images?url=${encodeURIComponent(linkUrl.trim())}`)
+      const data = await res.json()
+      if (!res.ok || data.error) { setLinkError(data.error ?? 'Could not fetch images'); return }
+      // Filter out tiny icons/tracking pixels — keep images with meaningful extensions or no extension
+      const filtered = (data.images as string[]).filter((u) => {
+        const lower = u.toLowerCase()
+        return !lower.includes('icon') && !lower.includes('logo') && !lower.includes('pixel') &&
+          !lower.includes('tracking') && !lower.includes('1x1') && !lower.includes('spinner')
+      })
+      if (filtered.length === 0) setLinkError('No images found on that page')
+      else setLinkImages(filtered)
+    } catch {
+      setLinkError('Could not reach that URL')
+    } finally {
+      setLinkFetching(false)
+    }
   }
 
   async function handleAddlFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
@@ -658,6 +689,63 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     onChange={handleAddlFileUpload}
                     className="hidden"
                   />
+
+                  {/* ── ADD FROM LINK ── */}
+                  <div className="rounded border p-3 mb-3" style={{ borderColor: RULE_DIM }}>
+                    <p className="text-xs tracking-widest uppercase mb-2" style={{ color: ACCENT, fontFamily: BODY_FONT, opacity: 0.7 }}>
+                      Add from link
+                    </p>
+                    <div className="flex gap-2">
+                      <input
+                        type="url"
+                        value={linkUrl}
+                        onChange={(e) => { setLinkUrl(e.target.value); setLinkImages([]); setLinkError('') }}
+                        onKeyDown={(e) => { if (e.key === 'Enter') fetchLinkImages() }}
+                        placeholder="Paste a webpage URL…"
+                        className="flex-1 rounded border px-3 py-2 text-xs focus:outline-none"
+                        style={inputStyle}
+                      />
+                      <button
+                        onClick={fetchLinkImages}
+                        disabled={linkFetching || !linkUrl.trim()}
+                        className="px-4 py-2 text-xs border transition-all disabled:opacity-40"
+                        style={{ borderColor: ACCENT, color: ACCENT, fontFamily: BODY_FONT }}
+                      >
+                        {linkFetching ? 'Loading…' : 'Fetch'}
+                      </button>
+                    </div>
+                    {linkError && (
+                      <p className="text-xs mt-2" style={{ color: '#c0405a', fontFamily: BODY_FONT }}>{linkError}</p>
+                    )}
+                    {linkImages.length > 0 && (
+                      <div className="mt-3">
+                        <p className="text-xs mb-2 opacity-50" style={{ color: INK, fontFamily: BODY_FONT }}>
+                          Click an image to add it
+                        </p>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(80px, 1fr))', gap: 6 }}>
+                          {linkImages.map((src, i) => (
+                            <button
+                              key={i}
+                              onClick={() => {
+                                setAdditionalImages([...additionalImages, { url: src, caption: '' }])
+                                setAddlSaved(false)
+                              }}
+                              style={{ padding: 0, border: `1px solid ${RULE}`, borderRadius: 2, overflow: 'hidden', cursor: 'pointer', background: 'none' }}
+                              title={src}
+                            >
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img
+                                src={src}
+                                alt=""
+                                style={{ width: '100%', height: 70, objectFit: 'cover', display: 'block' }}
+                                onError={(e) => { (e.currentTarget.parentElement as HTMLElement).style.display = 'none' }}
+                              />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
 
                   <div className="flex items-center gap-4">
                     <button
