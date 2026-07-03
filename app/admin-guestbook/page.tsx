@@ -332,7 +332,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
             {([
               ['stories', 'Write Stories'],
               ['add', 'Add a Guest'],
-              ['pin', 'Pin Signatures'],
+              ['pin', 'Edit Signature Display'],
             ] as const).map(([t, label]) => (
               <button
                 key={t}
@@ -428,6 +428,13 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                   <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
                     {selected.category} · Page {selected.guestbookPage}
                   </p>
+                  <button
+                    onClick={() => openPin(selected)}
+                    className="text-xs tracking-widest uppercase mt-2 mb-1 opacity-50 hover:opacity-100 transition-opacity"
+                    style={{ color: ACCENT, fontFamily: BODY_FONT, textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                  >
+                    Edit Signature Display →
+                  </button>
                   {selected.wikiUrl && (
                     <a href={selected.wikiUrl} target="_blank" rel="noopener noreferrer"
                       className="text-xs underline opacity-40 hover:opacity-100" style={{ color: INK, fontFamily: BODY_FONT }}>
@@ -795,7 +802,7 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
       {tab === 'pin' && (
         <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-5 gap-8">
           <div className="md:col-span-2 space-y-2">
-            <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Click a guest to position their highlight</p>
+            <p className="text-xs tracking-[0.3em] uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>Click a guest to edit their signature display</p>
             <p className="text-xs italic mb-5 opacity-50" style={{ color: INK, fontFamily: BODY_FONT }}>Orange = placeholder · Green = pinned</p>
             {sorted.map((guest) => {
               const placed = !isPlaceholder(guest.guestbookCoords ?? { x: 0.5, y: 0.5 })
