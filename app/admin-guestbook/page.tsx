@@ -399,46 +399,9 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
 
       {/* ── STORIES TAB ── */}
       {tab === 'stories' && (
-        <div className="max-w-6xl mx-auto px-8 py-10 grid md:grid-cols-5 gap-8">
-          {/* Guest list */}
-          <div className="md:col-span-2 space-y-2">
-            <p className="text-xs tracking-[0.3em] uppercase mb-4" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
-              Guests — sorted by page
-            </p>
-            {sorted.map((guest) => {
-              const hasStory = guest.dadStory.trim().length > 0
-              const hasPhoto = guest.imageUrl.trim().length > 0
-              return (
-                <button
-                  key={guest.id}
-                  onClick={() => openGuest(guest)}
-                  className="w-full text-left p-3 rounded border transition-all"
-                  style={{
-                    borderColor: selected?.id === guest.id ? ACCENT : RULE_DIM,
-                    background: selected?.id === guest.id ? 'rgba(139,105,20,0.06)' : 'transparent',
-                  }}
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="min-w-0">
-                      <p className="text-sm italic truncate" style={{ color: INK, fontFamily: BODY_FONT }}>
-                        {guest.name}
-                      </p>
-                      <p className="text-xs opacity-40 mt-0.5" style={{ color: INK, fontFamily: BODY_FONT }}>
-                        p.{guest.guestbookPage}
-                      </p>
-                    </div>
-                    <div className="flex gap-1 shrink-0">
-                      <span title="Story" style={{ fontSize: '0.65rem', color: hasStory ? '#2a7a3a' : '#bbb' }}>✍</span>
-                      <span title="Photo" style={{ fontSize: '0.65rem', color: hasPhoto ? '#2a7a3a' : '#bbb' }}>📷</span>
-                    </div>
-                  </div>
-                </button>
-              )
-            })}
-          </div>
-
+        <div className="max-w-3xl mx-auto px-8 py-10">
           {/* Story editor */}
-          <div className="md:col-span-3">
+          <div>
             {!selected ? (
               <div
                 className="h-64 flex flex-col items-center justify-center border rounded gap-3"
