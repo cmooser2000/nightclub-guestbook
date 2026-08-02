@@ -18,6 +18,7 @@ export interface Guest {
   dadStory: string
   dadStoryUpdated: string | null
   signingDate: string | null
+  tags: string[]
   references: string[]
   additionalImages: { url: string; caption: string }[]
 }
@@ -77,6 +78,15 @@ export async function updateGuestAdditionalImages(id: string, additionalImages: 
   const idx = guests.findIndex((g) => g.id === id)
   if (idx === -1) return false
   guests[idx].additionalImages = additionalImages
+  await saveGuests(guests)
+  return true
+}
+
+export async function updateGuestTags(id: string, tags: string[]): Promise<boolean> {
+  const guests = await getGuests()
+  const idx = guests.findIndex((g) => g.id === id)
+  if (idx === -1) return false
+  guests[idx].tags = tags
   await saveGuests(guests)
   return true
 }
@@ -141,6 +151,7 @@ export async function createGuest(fields: {
     dadStory: '',
     dadStoryUpdated: null,
     signingDate: null,
+    tags: [],
     references: [],
     additionalImages: [],
   }

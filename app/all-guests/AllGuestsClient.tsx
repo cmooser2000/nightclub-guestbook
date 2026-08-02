@@ -16,10 +16,12 @@ interface Guest {
   knownFor: string
   quickFacts: string[]
   guestbookPage: number
+  tags?: string[]
 }
 
 export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
   const [search, setSearch] = useState('')
+  const [activeTag, setActiveTag] = useState<string | null>(null)
   const [view, setView] = useState<'categories' | 'index'>('categories')
 
   // Group by category
@@ -31,13 +33,18 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
   }
   const categories = Object.keys(grouped).sort((a, b) => a.localeCompare(b))
 
-  // Search filter
+  // Collect all unique tags across guests
+  const allTags = Array.from(new Set(guests.flatMap((g) => g.tags ?? []))).sort()
+
+  // Search / tag filter
   const q = search.trim().toLowerCase()
-  const filtered = q.length > 0
-    ? guests.filter((g) =>
-        [g.name, g.knownFor, g.category, g.dadStory, ...(g.quickFacts ?? [])]
+  const filtered = (q.length > 0 || activeTag)
+    ? guests.filter((g) => {
+        const matchesTag = !activeTag || (g.tags ?? []).includes(activeTag)
+        const matchesSearch = !q || [g.name, g.knownFor, g.category, g.dadStory, ...(g.quickFacts ?? [])]
           .some((f) => (f ?? '').toLowerCase().includes(q))
-      ).sort((a, b) => a.name.localeCompare(b.name))
+        return matchesTag && matchesSearch
+      }).sort((a, b) => a.name.localeCompare(b.name))
     : null
 
   const searchRef = useRef<HTMLInputElement>(null)
@@ -120,8 +127,32 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
             }}
           />
 
-          {/* View toggle + jump links — only shown when not searching */}
-          {!q && (
+          {/* Tag filter buttons — always visible if tags exist */}
+          {allTags.length > 0 && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 10, alignItems: 'center' }}>
+              <span style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.8rem', color: INK, opacity: 0.45, alignSelf: 'center' }}>
+                Collections:
+              </span>
+              {allTags.map((tag) => (
+                <button
+                  key={tag}
+                  className="jump-btn"
+                  onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                  style={{
+                    borderColor: activeTag === tag ? '#c0405a' : RULE,
+                    color: activeTag === tag ? '#c0405a' : ACCENT,
+                    background: activeTag === tag ? 'rgba(192,64,90,0.08)' : 'none',
+                    fontWeight: activeTag === tag ? 700 : 400,
+                  }}
+                >
+                  {tag} {activeTag === tag ? '✕' : ''}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* View toggle + jump links — only shown when not searching or tag-filtering */}
+          {!q && !activeTag && (
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
               {/* View toggle */}
               <button
