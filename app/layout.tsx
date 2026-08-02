@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Playfair_Display, EB_Garamond, Cinzel } from 'next/font/google'
+import StickyNamesButton from './StickyNamesButton'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -46,7 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${garamond.variable} ${cinzel.variable}`}>
-      <body>{children}</body>
+      <body>
+        <StickyNamesButton />
+        {children}
+      </body>
     </html>
   );
 }
