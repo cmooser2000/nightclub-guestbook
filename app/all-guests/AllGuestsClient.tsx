@@ -20,6 +20,7 @@ interface Guest {
 
 export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
   const [search, setSearch] = useState('')
+  const [view, setView] = useState<'categories' | 'index'>('categories')
 
   // Group by category
   const grouped: Record<string, Guest[]> = {}
@@ -119,17 +120,29 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
             }}
           />
 
-          {/* Jump-to category links — only shown when not searching */}
+          {/* View toggle + jump links — only shown when not searching */}
           {!q && (
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-              <span style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.8rem', color: INK, opacity: 0.45, alignSelf: 'center', marginRight: 4 }}>
-                Jump to:
-              </span>
-              {categories.map((cat) => (
-                <button key={cat} className="jump-btn" onClick={() => scrollTo(cat)}>
-                  {cat}
-                </button>
-              ))}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+              {/* View toggle */}
+              <button
+                className="jump-btn"
+                onClick={() => setView(view === 'categories' ? 'index' : 'categories')}
+                style={{ fontWeight: 600, borderColor: ACCENT, color: ACCENT }}
+              >
+                {view === 'categories' ? '📄 Index (A–Z)' : '📂 By Category'}
+              </button>
+              <span style={{ width: 1, height: 20, background: RULE, flexShrink: 0 }} />
+              {/* Jump-to — only in category view */}
+              {view === 'categories' && (<>
+                <span style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.8rem', color: INK, opacity: 0.45, alignSelf: 'center' }}>
+                  Jump to:
+                </span>
+                {categories.map((cat) => (
+                  <button key={cat} className="jump-btn" onClick={() => scrollTo(cat)}>
+                    {cat}
+                  </button>
+                ))}
+              </>)}
             </div>
           )}
 
@@ -159,6 +172,33 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
               </Link>
             ))}
           </div>
+        ) : view === 'index' ? (
+          /* A–Z index */
+          (() => {
+            const sorted = [...guests].sort((a, b) => a.name.localeCompare(b.name))
+            let lastLetter = ''
+            return sorted.map((g) => {
+              const letter = g.name[0]?.toUpperCase() ?? '#'
+              const showLetter = letter !== lastLetter
+              if (showLetter) lastLetter = letter
+              return (
+                <div key={g.id}>
+                  {showLetter && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 16, margin: '32px 0 4px' }}>
+                      <span style={{ fontFamily: 'LinLibertine, serif', fontSize: '1.6rem', color: ACCENT, fontWeight: 400, flexShrink: 0 }}>{letter}</span>
+                      <div style={{ flex: 1, height: 1, background: RULE }} />
+                    </div>
+                  )}
+                  <Link href={`/guest/${g.id}`} className="name-link">
+                    {g.name}
+                    {g.dadStory?.trim() ? (
+                      <span style={{ fontSize: '0.7rem', marginLeft: 10, color: '#2a7a3a', opacity: 0.7, fontStyle: 'italic' }}>· has a story</span>
+                    ) : null}
+                  </Link>
+                </div>
+              )
+            })
+          })()
         ) : (
           /* Full grouped list */
           categories.map((cat) => (
