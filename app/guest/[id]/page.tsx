@@ -209,6 +209,24 @@ export default async function GuestPage({
         </div>
       </div>
 
+      {(guest.references ?? []).length > 0 && (
+        <div style={{ borderTop: `1px solid ${RULE}`, padding: '28px 32px', maxWidth: 900, margin: '0 auto' }}>
+          <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', color: ACCENT, marginBottom: 12 }}>
+            Sources
+          </p>
+          <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {guest.references!.map((ref, i) => (
+              <li key={i}>
+                <a href={ref} target="_blank" rel="noopener noreferrer"
+                  style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.72rem', color: ACCENT, opacity: 0.65, wordBreak: 'break-all' }}>
+                  {ref}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <footer style={{ borderTop: `1px solid ${RULE}`, padding: '20px 32px', textAlign: 'center', fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase', opacity: 0.4 }}>
         Aladdin Studio Tiffin Room · San Francisco · 1921–1929
       </footer>

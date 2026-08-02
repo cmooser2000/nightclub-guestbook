@@ -19,6 +19,7 @@ interface Guest {
   dadStory: string
   dadStoryUpdated: string | null
   signingDate: string | null
+  references: string[]
   additionalImages: { url: string; caption: string }[]
 }
 
@@ -75,6 +76,10 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   const [signingDate, setSigningDate] = useState('')
   const [dateSaving, setDateSaving] = useState(false)
   const [dateSaved, setDateSaved] = useState(false)
+  const [refsText, setRefsText] = useState('')
+  const [refsSaving, setRefsSaving] = useState(false)
+  const [refsSaved, setRefsSaved] = useState(false)
+  const [search, setSearch] = useState('')
   const addlFileInputRef = useRef<HTMLInputElement>(null)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -131,6 +136,8 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setAkaInput('')
     setSigningDate(guest.signingDate ?? '')
     setDateSaved(false)
+    setRefsText((guest.references ?? []).join('\n'))
+    setRefsSaved(false)
     setLinkUrl('')
     setLinkImages([])
     setLinkError('')
@@ -231,6 +238,23 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
     setSelected((prev) => prev ? { ...prev, signingDate: val } : null)
     setDateSaved(true)
     setTimeout(() => setDateSaved(false), 3000)
+  }
+
+  async function saveReferences() {
+    if (!selected) return
+    const refs = refsText.split('\n').map((l) => l.trim()).filter(Boolean)
+    setRefsSaving(true)
+    const res = await fetch(`/api/guests/${selected.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ references: refs }),
+    })
+    setRefsSaving(false)
+    if (!res.ok) { alert('Save failed — please try again.'); return }
+    setGuests((prev) => prev.map((g) => g.id === selected.id ? { ...g, references: refs } : g))
+    setSelected((prev) => prev ? { ...prev, references: refs } : null)
+    setRefsSaved(true)
+    setTimeout(() => setRefsSaved(false), 3000)
   }
 
   async function fetchLinkImages() {
@@ -334,6 +358,21 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
   const sorted = [...guests].sort((a, b) => a.guestbookPage - b.guestbookPage)
   const isPlaceholder = (c: Coords) => c.x === 0.5 && c.y === 0.5
 
+  const searchResults = search.trim().length > 1
+    ? guests.filter((g) => {
+        const q = search.toLowerCase()
+        return [
+          g.name,
+          g.knownFor,
+          g.category,
+          g.dadStory,
+          ...(g.quickFacts ?? []),
+          ...(g.nameVariants ?? []),
+          ...(g.references ?? []),
+        ].some((f) => (f ?? '').toLowerCase().includes(q))
+      }).sort((a, b) => a.guestbookPage - b.guestbookPage)
+    : []
+
   const inputStyle = {
     background: 'rgba(0,0,0,0.03)',
     borderColor: RULE,
@@ -394,6 +433,37 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
           >
             ↓ Export JSON
           </button>
+        </div>
+
+        {/* Search bar */}
+        <div className="max-w-6xl mx-auto mt-5">
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search guests — try 'actress', 'tragic', 'San Francisco'…"
+            className="w-full rounded border px-4 py-2 text-sm focus:outline-none"
+            style={{ background: 'rgba(0,0,0,0.03)', borderColor: RULE, color: INK, fontFamily: BODY_FONT }}
+          />
+          {searchResults.length > 0 && (
+            <div className="mt-2 rounded border overflow-hidden" style={{ borderColor: RULE }}>
+              {searchResults.map((g) => (
+                <a
+                  key={g.id}
+                  href={`/admin-guestbook?guest=${g.id}&focus=story`}
+                  className="flex items-center justify-between px-4 py-2 hover:bg-amber-50 transition-colors border-b last:border-b-0"
+                  style={{ borderColor: RULE, textDecoration: 'none' }}
+                  onClick={() => { openGuest(g); setSearch('') }}
+                >
+                  <span className="text-sm italic" style={{ color: INK, fontFamily: BODY_FONT }}>{g.name}</span>
+                  <span className="text-xs opacity-40" style={{ color: INK, fontFamily: BODY_FONT }}>p.{g.guestbookPage}</span>
+                </a>
+              ))}
+            </div>
+          )}
+          {search.trim().length > 1 && searchResults.length === 0 && (
+            <p className="mt-2 text-xs opacity-40 italic" style={{ color: INK, fontFamily: BODY_FONT }}>No guests match that search.</p>
+          )}
         </div>
       </header>
 
@@ -752,6 +822,35 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                       {saving ? 'Saving…' : 'Save Story'}
                     </button>
                     {saved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
+                  </div>
+                </div>
+
+                {/* ── REFERENCES ── */}
+                <div>
+                  <p className="text-xs tracking-widest uppercase mb-1" style={{ color: ACCENT, fontFamily: BODY_FONT }}>
+                    References
+                  </p>
+                  <p className="text-xs italic mb-3 opacity-40" style={{ color: INK, fontFamily: BODY_FONT }}>
+                    Paste links one per line — Wikipedia, archive pages, newspaper clippings, anything useful.
+                  </p>
+                  <textarea
+                    value={refsText}
+                    onChange={(e) => { setRefsText(e.target.value); setRefsSaved(false) }}
+                    rows={5}
+                    placeholder={'https://en.wikipedia.org/wiki/…\nhttps://www.newspapers.com/…'}
+                    className="w-full rounded border p-3 text-xs leading-relaxed resize-y focus:outline-none focus:ring-1"
+                    style={{ ...inputStyle, fontSize: '0.75rem' }}
+                  />
+                  <div className="flex items-center gap-4 mt-3">
+                    <button
+                      onClick={saveReferences}
+                      disabled={refsSaving}
+                      className="px-6 py-2 text-sm tracking-widest uppercase border transition-all disabled:opacity-40"
+                      style={{ borderColor: ACCENT, color: ACCENT, fontFamily: BODY_FONT }}
+                    >
+                      {refsSaving ? 'Saving…' : 'Save References'}
+                    </button>
+                    {refsSaved && <span className="text-sm" style={{ color: '#2a7a3a' }}>✓ Saved</span>}
                   </div>
                 </div>
 
