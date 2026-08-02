@@ -41,8 +41,12 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
 
   const searchRef = useRef<HTMLInputElement>(null)
 
+  function catId(cat: string) {
+    return 'cat-' + cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+  }
+
   function scrollTo(cat: string) {
-    const el = document.getElementById(`cat-${cat.replace(/\s+/g, '-')}`)
+    const el = document.getElementById(catId(cat))
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
@@ -160,7 +164,7 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
           categories.map((cat) => (
             <div
               key={cat}
-              id={`cat-${cat.replace(/\s+/g, '-')}`}
+              id={catId(cat)}
               style={{ marginBottom: 48, scrollMarginTop: 180 }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 8 }}>
