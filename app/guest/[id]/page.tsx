@@ -186,23 +186,44 @@ export default async function GuestPage({
                   style={{
                     display: 'inline-block',
                     fontFamily: 'LinLibertine, serif',
-                    fontSize: '0.72rem',
-                    letterSpacing: '0.2em',
-                    textTransform: 'uppercase',
-                    color: ACCENT,
+                    fontSize: '1.1rem',
+                    letterSpacing: '0.08em',
+                    color: '#f5f0e6',
                     textDecoration: 'none',
-                    border: `1px solid ${RULE}`,
-                    padding: '8px 18px',
-                    opacity: 0.7,
+                    background: ACCENT,
+                    border: `2px solid ${ACCENT}`,
+                    borderRadius: 3,
+                    padding: '14px 28px',
+                    fontWeight: 400,
                   }}
                 >
-                  Edit
+                  ✍ Add Story
                 </Link>
               )}
-              {guest.dadStory && guest.dadStoryUpdated && (
-                <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.7rem', marginTop: 16, opacity: 0.4, fontStyle: 'italic' }}>
-                  Last updated {new Date(guest.dadStoryUpdated).toLocaleDateString()}
-                </p>
+              {guest.dadStory && (
+                <div style={{ marginTop: 20, display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+                  <Link
+                    href={`/admin-guestbook?guest=${guest.id}&focus=story`}
+                    style={{
+                      display: 'inline-block',
+                      fontFamily: 'LinLibertine, serif',
+                      fontSize: '1rem',
+                      letterSpacing: '0.06em',
+                      color: ACCENT,
+                      textDecoration: 'none',
+                      border: `2px solid ${ACCENT}`,
+                      borderRadius: 3,
+                      padding: '10px 22px',
+                    }}
+                  >
+                    ✍ Edit Story
+                  </Link>
+                  {guest.dadStoryUpdated && (
+                    <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.7rem', opacity: 0.4, fontStyle: 'italic', margin: 0 }}>
+                      Last updated {new Date(guest.dadStoryUpdated).toLocaleDateString()}
+                    </p>
+                  )}
+                </div>
               )}
             </div>
           </div>
