@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useState, useRef } from 'react'
 
+const GREEN = '#2a6e3a'
+
 const PAPER = '#f5f0e6'
 const INK = '#1a1209'
 const RULE = '#c8b89a'
@@ -162,6 +164,24 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
               >
                 {view === 'categories' ? '📄 Index (A–Z)' : '📂 By Category'}
               </button>
+              <Link
+                href="/most-interesting"
+                style={{
+                  fontFamily: 'LinLibertine, serif',
+                  fontSize: '0.85rem',
+                  padding: '6px 14px',
+                  border: `2px solid ${GREEN}`,
+                  borderRadius: 2,
+                  background: GREEN,
+                  color: '#f5f0e6',
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  letterSpacing: '0.02em',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                ★ Most Interesting
+              </Link>
               <span style={{ width: 1, height: 20, background: RULE, flexShrink: 0 }} />
               {/* Jump-to — only in category view */}
               {view === 'categories' && (<>

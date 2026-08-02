@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 export default function StickyNamesButton() {
   const pathname = usePathname()
   // Hide on the all-guests page itself and on admin
-  if (pathname === '/all-guests' || pathname.startsWith('/admin')) return null
+  if (pathname === '/all-guests' || pathname === '/most-interesting' || pathname.startsWith('/admin')) return null
 
   return (
     <Link
