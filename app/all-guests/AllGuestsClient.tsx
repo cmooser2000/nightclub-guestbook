@@ -57,7 +57,9 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
 
   function scrollTo(cat: string) {
     const el = document.getElementById(catId(cat))
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (!el) return
+    const top = el.getBoundingClientRect().top + window.scrollY - 220
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
   }
 
   return (
