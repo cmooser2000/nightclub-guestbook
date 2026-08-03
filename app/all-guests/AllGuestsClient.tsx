@@ -24,6 +24,7 @@ interface Guest {
 export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
   const [search, setSearch] = useState('')
   const [activeTag, setActiveTag] = useState<string | null>(null)
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [view, setView] = useState<'categories' | 'index'>('categories')
 
   // Group by category
@@ -38,14 +39,15 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
   // Collect all unique tags across guests
   const allTags = Array.from(new Set(guests.flatMap((g) => g.tags ?? []))).sort()
 
-  // Search / tag filter
+  // Search / tag / category filter
   const q = search.trim().toLowerCase()
-  const filtered = (q.length > 0 || activeTag)
+  const filtered = (q.length > 0 || activeTag || activeCategory)
     ? guests.filter((g) => {
         const matchesTag = !activeTag || (g.tags ?? []).includes(activeTag)
+        const matchesCategory = !activeCategory || (g.category || 'Guests') === activeCategory
         const matchesSearch = !q || [g.name, g.knownFor, g.category, g.dadStory, ...(g.quickFacts ?? [])]
           .some((f) => (f ?? '').toLowerCase().includes(q))
-        return matchesTag && matchesSearch
+        return matchesTag && matchesCategory && matchesSearch
       }).sort((a, b) => a.name.localeCompare(b.name))
     : null
 
@@ -53,13 +55,6 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
 
   function catId(cat: string) {
     return 'cat-' + cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-  }
-
-  function scrollTo(cat: string) {
-    const el = document.getElementById(catId(cat))
-    if (!el) return
-    const top = el.getBoundingClientRect().top + window.scrollY - 220
-    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
   }
 
   return (
@@ -161,7 +156,7 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
               {/* View toggle */}
               <button
                 className="jump-btn"
-                onClick={() => setView(view === 'categories' ? 'index' : 'categories')}
+                onClick={() => { setView(view === 'categories' ? 'index' : 'categories'); setActiveCategory(null) }}
                 style={{ fontWeight: 600, borderColor: ACCENT, color: ACCENT }}
               >
                 {view === 'categories' ? '📄 Index (A–Z)' : '📂 By Category'}
@@ -185,24 +180,37 @@ export default function AllGuestsClient({ guests }: { guests: Guest[] }) {
                 ★ Most Interesting
               </Link>
               <span style={{ width: 1, height: 20, background: RULE, flexShrink: 0 }} />
-              {/* Jump-to — only in category view */}
-              {view === 'categories' && (<>
-                <span style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.8rem', color: INK, opacity: 0.45, alignSelf: 'center' }}>
-                  Jump to:
-                </span>
-                {categories.map((cat) => (
-                  <button key={cat} className="jump-btn" onClick={() => scrollTo(cat)}>
-                    {cat}
-                  </button>
-                ))}
-              </>)}
+              {/* Category filter buttons */}
+              <span style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.8rem', color: INK, opacity: 0.45, alignSelf: 'center' }}>
+                Jump to:
+              </span>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  className="jump-btn"
+                  onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+                  style={{
+                    borderColor: activeCategory === cat ? ACCENT : RULE,
+                    color: activeCategory === cat ? '#f5f0e6' : ACCENT,
+                    background: activeCategory === cat ? ACCENT : 'none',
+                    fontWeight: activeCategory === cat ? 700 : 400,
+                  }}
+                >
+                  {cat}{activeCategory === cat ? ' ✕' : ''}
+                </button>
+              ))}
             </div>
           )}
 
-          {/* Search result count */}
-          {q && (
+          {/* Result count when filtering */}
+          {filtered !== null && (
             <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.9rem', color: ACCENT, margin: 0 }}>
-              {filtered!.length === 0 ? 'No matches found.' : `${filtered!.length} match${filtered!.length === 1 ? '' : 'es'}`}
+              {filtered.length === 0 ? 'No matches found.' : `${filtered.length} guest${filtered.length === 1 ? '' : 's'}`}
+              {activeCategory && !q && (
+                <button onClick={() => setActiveCategory(null)} style={{ background: 'none', border: 'none', color: ACCENT, fontFamily: 'LinLibertine, serif', fontSize: '0.9rem', cursor: 'pointer', marginLeft: 12, opacity: 0.6 }}>
+                  ✕ clear
+                </button>
+              )}
             </p>
           )}
         </div>
