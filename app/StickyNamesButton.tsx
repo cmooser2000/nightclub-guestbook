@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 
-interface Guest { id: string; name: string; category: string }
+interface Guest { id: string; name: string; category: string; guestbookPage: number }
 
 export default function StickyNamesButton() {
   const pathname = usePathname()
@@ -41,10 +41,10 @@ export default function StickyNamesButton() {
     ? guests.filter((g) => g.name.toLowerCase().includes(q)).slice(0, 12)
     : []
 
-  function handleSelect(id: string) {
+  function handleSelect(guest: Guest) {
     setQuery('')
     setOpen(false)
-    router.push(`/guest/${id}`)
+    router.push(`/#page-${guest.guestbookPage}`)
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -139,7 +139,7 @@ export default function StickyNamesButton() {
             {results.map((g) => (
               <button
                 key={g.id}
-                onClick={() => handleSelect(g.id)}
+                onClick={() => handleSelect(g)}
                 style={{
                   display: 'block',
                   width: '100%',
@@ -159,7 +159,7 @@ export default function StickyNamesButton() {
               >
                 {g.name}
                 <span style={{ display: 'block', fontSize: '0.7rem', color: '#8b6914', opacity: 0.7, marginTop: 1 }}>
-                  {g.category}
+                  {g.category} · p. {g.guestbookPage}
                 </span>
               </button>
             ))}
