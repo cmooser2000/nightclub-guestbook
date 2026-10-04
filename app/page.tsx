@@ -64,11 +64,13 @@ export default async function Home() {
         position: 'relative', zIndex: 1,
         background: '#1e1a18',
       }}>
-        <img
-          src="/hero.png"
-          alt="Hattie and Minnie Mooser — Guests at the Aladdin"
-          style={{ width: '100%', display: 'block' }}
-        />
+        <Link href="/about" style={{ display: 'block', cursor: 'pointer' }}>
+          <img
+            src="/hero.png"
+            alt="Hattie and Minnie Mooser — click to read their story"
+            style={{ width: '100%', display: 'block' }}
+          />
+        </Link>
         {/* About link over hero */}
         <Link
           href="/about"
