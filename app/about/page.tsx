@@ -8,12 +8,52 @@ const RULE = '#c8b89a'
 const ACCENT = '#8b6914'
 const FUCHSIA = '#c0405a'
 
+function Fig({ src, alt, caption, float }: { src: string; alt: string; caption?: string; float?: 'left' | 'right' }) {
+  const floatStyle: React.CSSProperties = float === 'right'
+    ? { float: 'right', marginLeft: 32, marginBottom: 20, marginTop: 4, width: 260, clear: 'right' }
+    : float === 'left'
+    ? { float: 'left', marginRight: 32, marginBottom: 20, marginTop: 4, width: 260, clear: 'left' }
+    : { margin: '32px 0', width: '100%' }
+
+  return (
+    <figure style={{ ...floatStyle, margin: float ? floatStyle.margin : '32px auto', padding: 0 }}>
+      <img
+        src={src}
+        alt={alt}
+        style={{
+          width: '100%',
+          display: 'block',
+          border: `1px solid ${RULE}`,
+          filter: 'sepia(10%)',
+        }}
+      />
+      {caption && (
+        <figcaption style={{
+          fontFamily: 'LinLibertine, serif',
+          fontSize: '0.72rem',
+          fontStyle: 'italic',
+          color: INK,
+          opacity: 0.55,
+          marginTop: 7,
+          lineHeight: 1.55,
+          textAlign: 'center',
+        }}>
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  )
+}
+
 export default function AboutPage() {
   return (
     <main style={{ background: PAPER, color: INK, minHeight: '100vh' }}>
       <style>{`
         @font-face { font-family: 'MarketDeco'; src: url('/fonts/market-deco.ttf') format('truetype'); font-display: block; }
         @font-face { font-family: 'LinLibertine'; src: url('/fonts/linlibertine.ttf') format('truetype'); font-display: block; }
+        .about-body {
+          overflow: hidden;
+        }
         .about-body p {
           font-family: 'LinLibertine', serif;
           font-size: clamp(1.05rem, 2vw, 1.2rem);
@@ -26,7 +66,8 @@ export default function AboutPage() {
           display: flex;
           align-items: center;
           gap: 20px;
-          margin: 56px 0 36px;
+          margin: 60px 0 36px;
+          clear: both;
         }
         .section-rule h2 {
           font-family: 'LinLibertine', serif;
@@ -47,6 +88,7 @@ export default function AboutPage() {
           padding: 24px 28px;
           margin: 36px 0;
           background: rgba(200,184,154,0.08);
+          clear: both;
         }
         .fact-box p {
           font-family: 'LinLibertine', serif;
@@ -65,6 +107,7 @@ export default function AboutPage() {
           font-style: italic;
           line-height: 1.7;
           color: #1a1209;
+          clear: both;
         }
         .dates {
           font-family: 'LinLibertine', serif;
@@ -72,6 +115,34 @@ export default function AboutPage() {
           letter-spacing: 0.12em;
           color: #8b6914;
           opacity: 0.8;
+        }
+        .img-pair {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+          margin: 32px 0;
+          clear: both;
+        }
+        .img-pair figure { margin: 0; }
+        .img-pair img {
+          width: 100%;
+          display: block;
+          border: 1px solid #c8b89a;
+          filter: sepia(10%);
+        }
+        .img-pair figcaption {
+          font-family: 'LinLibertine', serif;
+          font-size: 0.72rem;
+          font-style: italic;
+          color: #1a1209;
+          opacity: 0.55;
+          margin-top: 7px;
+          line-height: 1.55;
+          text-align: center;
+        }
+        @media (max-width: 600px) {
+          figure[style*="float"] { float: none !important; width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; }
+          .img-pair { grid-template-columns: 1fr; }
         }
       `}</style>
 
@@ -88,7 +159,7 @@ export default function AboutPage() {
       <div style={{ maxWidth: 760, margin: '0 auto', padding: '60px 40px 100px' }}>
 
         {/* Page header */}
-        <div style={{ textAlign: 'center', marginBottom: 60 }}>
+        <div style={{ textAlign: 'center', marginBottom: 48 }}>
           <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.72rem', letterSpacing: '0.38em', textTransform: 'uppercase', color: ACCENT, marginBottom: 20 }}>
             The Aladdin Studio Tiffin Room · San Francisco
           </p>
@@ -110,6 +181,13 @@ export default function AboutPage() {
           <p className="dates">Hattie Mooser 1878–1970 &nbsp;·&nbsp; Minnie Mooser 1881–1979</p>
         </div>
 
+        {/* Opening image — tiffin room interior */}
+        <Fig
+          src="/about-tiffin-room.jpg"
+          alt="The Aladdin Studio Tiffin Room"
+          caption="The Aladdin Studio Tiffin Room, San Francisco"
+        />
+
         {/* ── Part One: Oh, What a Time It Was ── */}
         <div className="section-rule">
           <h2>Oh, What a Time It Was</h2>
@@ -123,6 +201,14 @@ export default function AboutPage() {
             When it first opened it may not have seemed special. But within a year or two it just
             might have been the most famous restaurant in the world.
           </p>
+
+          {/* Aladdin exterior — floated right */}
+          <Fig
+            src="/about-aladdin-home.jpg"
+            alt="The Aladdin Studio exterior"
+            caption="The Aladdin Studio, Chinatown, San Francisco"
+            float="right"
+          />
 
           <p>
             Stepping aside for a moment, we can trace the Mooser family history as far back as the
@@ -143,6 +229,13 @@ export default function AboutPage() {
             a star on the American stage. Tragically, while in China, Leon suffered sunstroke and
             died. He was only 40.
           </p>
+
+          {/* Ching Ling Foo */}
+          <Fig
+            src="/about-ching.jpg"
+            alt="Ching Ling Foo (Zhu Liankui)"
+            caption="Ching Ling Foo (Zhu Liankui), the &ldquo;Chinese Houdini,&rdquo; signed by Leon Mooser for the American stage"
+          />
 
           <p>
             Back in San Francisco, Hattie found work with the San Francisco Juvenile Court. Sensing
@@ -170,6 +263,14 @@ export default function AboutPage() {
             famed Last of the Red Hot Mamas, cowboy movie star Roy Rogers, Lefty O'Doul the
             Yankee slugger, and even Warren G. Harding, President of the United States.
           </div>
+
+          {/* Houdini — floated left */}
+          <Fig
+            src="/about-houdini.jpg"
+            alt="Harry Houdini"
+            caption="Harry Houdini — honorary member of the Mooser family"
+            float="left"
+          />
 
           <p>
             And if really fortunate, you might just have been there on a night when none other
@@ -201,6 +302,13 @@ export default function AboutPage() {
             fond memories. All in all quite an achievement for a couple of girls from Elko, Nevada.
           </p>
 
+          {/* Beach Chalet */}
+          <Fig
+            src="/about-beach-chalet.jpg"
+            alt="The Beach Chalet, Golden Gate Park"
+            caption="The Beach Chalet restaurant in Golden Gate Park, which Hattie and Minnie managed after the Aladdin closed"
+          />
+
           <p>
             After the Aladdin closed, Hattie and Minnie kept busy managing the Beach Chalet
             restaurant in Golden Gate Park. And during World War Two they volunteered as cooks
@@ -223,6 +331,13 @@ export default function AboutPage() {
             Neither Hattie nor Minnie ever married, but the lives they lived were as memorable
             as those they hosted, if not more so.
           </div>
+
+          {/* Hattie and Minnie — closing portrait */}
+          <Fig
+            src="/about-hattie-minnie-end.jpg"
+            alt="Hattie and Minnie Mooser"
+            caption="Hattie and Minnie Mooser"
+          />
         </div>
 
         {/* ── Part Two: The Family ── */}
@@ -302,7 +417,7 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div style={{ textAlign: 'center', marginTop: 64, paddingTop: 40, borderTop: `1px solid ${RULE}` }}>
+        <div style={{ textAlign: 'center', marginTop: 64, paddingTop: 40, borderTop: `1px solid ${RULE}`, clear: 'both' }}>
           <Link
             href="/"
             style={{
