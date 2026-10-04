@@ -69,6 +69,24 @@ export default async function Home() {
           alt="Hattie and Minnie Mooser — Guests at the Aladdin"
           style={{ width: '100%', display: 'block' }}
         />
+        {/* About link over hero */}
+        <Link
+          href="/about"
+          style={{
+            position: 'absolute', bottom: 16, right: 20,
+            fontFamily: "'LinLibertine', serif",
+            fontSize: '0.75rem',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'rgba(200,176,122,0.85)',
+            textDecoration: 'none',
+            background: 'rgba(0,0,0,0.35)',
+            padding: '6px 12px',
+            borderRadius: 2,
+          }}
+        >
+          About Hattie &amp; Minnie →
+        </Link>
         {/* Scroll hint */}
         <div className="scroll-hint" style={{
           position: 'absolute', bottom: 20, left: '50%',
