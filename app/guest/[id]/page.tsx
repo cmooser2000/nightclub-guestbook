@@ -112,11 +112,13 @@ export default async function GuestPage({
               <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 10, color: ACCENT }}>
                 Signed on page {guest.guestbookPage} · {signingLabel}
               </p>
-              <img
-                src={guestbookPageImg}
-                alt={`Guestbook page ${guest.guestbookPage}`}
-                style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(5%)' }}
-              />
+              <Link href={`/#page-${guest.guestbookPage}`} style={{ display: 'block' }} title="Open in guestbook">
+                <img
+                  src={guestbookPageImg}
+                  alt={`Guestbook page ${guest.guestbookPage}`}
+                  style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(5%)', cursor: 'pointer' }}
+                />
+              </Link>
             </div>
 
             {/* Additional images — scroll below guestbook */}
