@@ -1,6 +1,7 @@
 import { getGuest, getGuests } from '@/lib/guests'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import PinnableGuestbook from './PinnableGuestbook'
 
 export const dynamic = 'force-dynamic'
 
@@ -112,13 +113,12 @@ export default async function GuestPage({
               <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 10, color: ACCENT }}>
                 Signed on page {guest.guestbookPage} · {signingLabel}
               </p>
-              <Link href={`/#page-${guest.guestbookPage}`} style={{ display: 'block' }} title="Open in guestbook">
-                <img
-                  src={guestbookPageImg}
-                  alt={`Guestbook page ${guest.guestbookPage}`}
-                  style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(5%)', cursor: 'pointer' }}
-                />
-              </Link>
+              <PinnableGuestbook
+                id={guest.id}
+                page={guest.guestbookPage}
+                src={guestbookPageImg}
+                coords={guest.guestbookCoords ?? { x: 0.5, y: 0.5 }}
+              />
             </div>
 
             {/* Additional images — scroll below guestbook */}
