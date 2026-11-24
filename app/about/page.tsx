@@ -8,7 +8,31 @@ const RULE = '#c8b89a'
 const ACCENT = '#8b6914'
 const FUCHSIA = '#c0405a'
 
-function Fig({ src, alt, caption, float }: { src: string; alt: string; caption?: string; float?: 'left' | 'right' }) {
+const COLLECTION_CREDIT = 'From the Mooser personal collection'
+
+function Credit() {
+  return (
+    <span style={{ display: 'block', fontSize: '0.62rem', fontStyle: 'normal', letterSpacing: '0.08em', marginTop: 3, opacity: 0.85 }}>
+      {COLLECTION_CREDIT}
+    </span>
+  )
+}
+
+function Scan({ src, alt, caption }: { src: string; alt: string; caption: string }) {
+  return (
+    <figure>
+      <a href={src} target="_blank" rel="noopener noreferrer">
+        <img src={src} alt={alt} loading="lazy" />
+      </a>
+      <figcaption>
+        {caption}
+        <Credit />
+      </figcaption>
+    </figure>
+  )
+}
+
+function Fig({ src, alt, caption, float, credit }: { src: string; alt: string; caption?: string; float?: 'left' | 'right'; credit?: boolean }) {
   const floatStyle: React.CSSProperties = float === 'right'
     ? { float: 'right', marginLeft: 32, marginBottom: 20, marginTop: 4, width: 260, clear: 'right' }
     : float === 'left'
@@ -39,6 +63,7 @@ function Fig({ src, alt, caption, float }: { src: string; alt: string; caption?:
           textAlign: 'center',
         }}>
           {caption}
+          {credit && <Credit />}
         </figcaption>
       )}
     </figure>
@@ -221,6 +246,15 @@ export default function AboutPage() {
             scene, was booming.
           </p>
 
+          {/* Leon Mooser */}
+          <Fig
+            src="/memorabilia/leon-mooser-portraits.jpg"
+            alt="Two portraits of Leon Mooser"
+            caption="Leon Mooser"
+            float="right"
+            credit
+          />
+
           <p>
             George and Leon moved to New York and in short order became influential talent agents.
             George recruited some of the top actors and actresses in vaudeville and film. Leon
@@ -382,6 +416,77 @@ export default function AboutPage() {
               another cousin who grew up in Santa Monica, died at 96 in 1978.
             </p>
           </div>
+        </div>
+
+        {/* ── From the Mooser Personal Collection ── */}
+        <div className="section-rule">
+          <h2>From the Mooser Personal Collection</h2>
+          <div className="rule-line" />
+        </div>
+
+        <div className="img-pair">
+          <Scan
+            src="/memorabilia/aladdin-tiffin-room-postcards.jpg"
+            alt="Two postcards of the Aladdin Studio Tiffin Room, 363 Sutter Street"
+            caption="Postcards of the Aladdin Studio Tiffin Room, 363 Sutter Street"
+          />
+          <Scan
+            src="/memorabilia/aladdin-red-card.jpg"
+            alt="Red Aladdin Studio Tiffin Room card"
+            caption="The Aladdin's card: Oriental Show Place. Luncheon, tea, dinner, supper. Dancing nightly 7 to 1"
+          />
+        </div>
+
+        <div className="img-pair">
+          <Scan
+            src="/memorabilia/hattie-poem-1.jpg"
+            alt="Hattie Mooser's typed poem, Aladdin Studio Tiffin Room, page 1"
+            caption="“Once again, we’ll rub the Lamp”: Hattie’s poem remembering the Aladdin’s guests, page 1"
+          />
+          <Scan
+            src="/memorabilia/hattie-poem-2.jpg"
+            alt="Hattie Mooser's typed poem, page 2, signed Hattie Mooser"
+            caption="Page 2, signed by Hattie Mooser"
+          />
+        </div>
+
+        <div className="img-pair">
+          <Scan
+            src="/memorabilia/aladdin-first-night-club-article-1.jpg"
+            alt="Newspaper article, The City's First Night Club, by Bernice Scharlach"
+            caption="“The City’s First Night Club” by Bernice Scharlach"
+          />
+          <Scan
+            src="/memorabilia/aladdin-first-night-club-article-2.jpg"
+            alt="Continuation of The City's First Night Club article"
+            caption="“The City’s First Night Club,” continued"
+          />
+        </div>
+
+        <div className="img-pair">
+          <Scan
+            src="/memorabilia/hattie-minnie-what-a-time-clipping.jpg"
+            alt="Newspaper clipping, Oh, What a Time We Had With Minnie and Hattie"
+            caption="“Oh, What a Time We Had With Minnie and Hattie” by Claire Leeds, San Francisco Examiner"
+          />
+          <Scan
+            src="/memorabilia/hattie-minnie-houdini-portrait.jpg"
+            alt="Hattie and Minnie Mooser holding a framed portrait of Harry Houdini"
+            caption="Hattie and Minnie with their portrait of Harry Houdini"
+          />
+        </div>
+
+        <div className="img-pair">
+          <Scan
+            src="/memorabilia/hattie-minnie-scrapbooks.jpg"
+            alt="Hattie and Minnie Mooser looking through their scrapbooks"
+            caption="Hattie and Minnie with their scrapbooks"
+          />
+          <Scan
+            src="/memorabilia/hattie-minnie-snapshots.jpg"
+            alt="Album page of snapshots of Hattie, Minnie and friends"
+            caption="Album page of snapshots of Hattie, Minnie, and friends"
+          />
         </div>
 
         {/* ── The Guestbook ── */}

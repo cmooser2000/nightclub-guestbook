@@ -133,7 +133,7 @@ export default async function GuestPage({
                       style={{ width: '100%', display: 'block', border: `1px solid ${RULE}`, filter: 'sepia(5%)' }}
                     />
                     {typeof img !== 'string' && img.caption && (
-                      <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', marginTop: 6, opacity: 0.55, fontStyle: 'italic', lineHeight: 1.5 }}>
+                      <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', marginTop: 6, opacity: 0.55, fontStyle: 'italic', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                         {img.caption}
                       </p>
                     )}
