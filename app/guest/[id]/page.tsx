@@ -179,8 +179,8 @@ export default async function GuestPage({
             {/* Story section */}
             <div style={{ borderTop: `1px solid ${RULE}`, paddingTop: 28 }}>
               {guest.dadStory ? (
-                <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '1.1rem', fontStyle: 'italic', lineHeight: 1.85, margin: 0, color: INK }}>
-                  {guest.dadStory}
+                <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '1.1rem', fontStyle: 'italic', lineHeight: 1.85, margin: 0, color: INK, whiteSpace: 'pre-line' }}>
+                  {guest.dadStory.trim()}
                 </p>
               ) : (
                 <Link
