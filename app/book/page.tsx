@@ -7,8 +7,15 @@ import FlipBook, { type BookGuest } from './FlipBook'
 // Pages with no written date are left out, so some guests have no years.
 const VISITS = visitDates as Record<string, { page: number; date: string; year: number }[]>
 
-function visitYears(id: string): number[] {
-  return Array.from(new Set((VISITS[id] ?? []).map((v) => v.year))).sort((a, b) => a - b)
+// Years come from dates read off the pages, plus any signing date entered by
+// hand on the admin page. Nothing is estimated from page numbers.
+function visitYears(id: string, signingDates: (string | null)[]): number[] {
+  const years = (VISITS[id] ?? []).map((v) => v.year)
+  for (const d of signingDates) {
+    const m = d?.match(/\b(19\d\d)\b/)
+    if (m) years.push(Number(m[1]))
+  }
+  return Array.from(new Set(years)).sort((a, b) => a - b)
 }
 
 export const dynamic = 'force-dynamic'
@@ -40,9 +47,8 @@ export default async function BookPage() {
     if (!isFinishedStory(story)) continue
     seen.add(g.id)
     // Some people appear more than once (signed on more than one page).
-    const pages = Array.from(
-      new Set(guests.filter((x) => x.id === g.id).map((x) => x.guestbookPage))
-    ).sort((a, b) => a - b)
+    const entries = guests.filter((x) => x.id === g.id)
+    const pages = Array.from(new Set(entries.map((x) => x.guestbookPage))).sort((a, b) => a - b)
     bookGuests.push({
       id: g.id,
       name: g.name,
@@ -51,7 +57,7 @@ export default async function BookPage() {
       imageUrl: g.imageUrl,
       story,
       guestbookPages: pages,
-      visitYears: visitYears(g.id),
+      visitYears: visitYears(g.id, entries.map((x) => x.signingDate)),
     })
   }
   bookGuests.sort((a, b) => a.name.localeCompare(b.name))

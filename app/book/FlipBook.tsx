@@ -438,7 +438,7 @@ const CSS = `
 
 .book-shell {
   --ink: #1a1209; --paper: #f5f0e6; --rule: #c8b89a; --accent: #8b6914; --fuchsia: #c0405a;
-  --leather: #4a1c1f; --gold: #d8b45c;
+  --cloth: #3b4549; --gold: #d8b45c; /* cloth = the real guestbook's blue cover */
   min-height: 100dvh; display: flex; flex-direction: column;
   background: radial-gradient(ellipse at center, #3a2c22 0%, #1d1510 75%);
   color: var(--paper); font-family: 'LinLibertine', Georgia, serif;
@@ -519,7 +519,7 @@ const CSS = `
 .bp-toc-dots { flex: 1; border-bottom: 1px dotted var(--rule); transform: translateY(-0.25em); }
 .bp-toc-num { color: var(--accent); font-variant-numeric: oldstyle-nums; }
 
-.bp-hard .bp-cover, .bp-cover { position: absolute; inset: 0; background: linear-gradient(135deg, #5a2226 0%, var(--leather) 55%, #36131a 100%); color: var(--gold); padding: 5cqw; }
+.bp-hard .bp-cover, .bp-cover { position: absolute; inset: 0; background: linear-gradient(135deg, #48545a 0%, var(--cloth) 55%, #2d3538 100%); color: var(--gold); padding: 5cqw; }
 .bp-cover-frame { height: 100%; border: 0.5cqw double var(--gold); outline: 1px solid rgba(216,180,92,0.35); outline-offset: 1.5cqw; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5cqw 6cqw; text-align: center; }
 .bp-cover-kicker { font-size: 2.3cqw; letter-spacing: 0.3em; text-transform: uppercase; margin: 0 0 3cqw; opacity: 0.85; }
 .bp-cover-title { font-family: 'MarketDeco', serif; font-weight: 400; font-size: 8.4cqw; line-height: 1.02; margin: 0 0 4cqw; color: #f0d98c; text-shadow: 0 1px 0 rgba(0,0,0,0.4); }

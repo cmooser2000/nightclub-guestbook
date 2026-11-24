@@ -513,14 +513,14 @@ function AdminInner({ guests, setGuests }: { guests: Guest[]; setGuests: React.D
                     Signing Date
                   </p>
                   <p className="text-xs italic mb-3 opacity-40" style={{ color: INK, fontFamily: BODY_FONT }}>
-                    Exact or approximate — shown as "Signed on page {selected.guestbookPage} · {signingDate.trim() || `c. ${1921 + Math.min(8, Math.floor((selected.guestbookPage - 1) / 52))}`}". Leave blank to use the auto-estimated year.
+                    Shown as &quot;Signed on page {selected.guestbookPage}{signingDate.trim() ? ` · ${signingDate.trim()}` : ''}&quot;. Include the year (e.g. &quot;1925&quot; or &quot;c. 1925&quot;) and the book will show it too. Leave blank to use the date read from the page, if there is one.
                   </p>
                   <div className="flex gap-3 items-center">
                     <input
                       type="text"
                       value={signingDate}
                       onChange={(e) => { setSigningDate(e.target.value); setDateSaved(false) }}
-                      placeholder={`c. ${1921 + Math.min(8, Math.floor((selected.guestbookPage - 1) / 52))} (auto-estimated)`}
+                      placeholder="e.g. 1925, May 1925, or c. 1925"
                       className="flex-1 rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1"
                       style={inputStyle}
                     />
