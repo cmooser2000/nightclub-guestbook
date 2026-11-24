@@ -12,7 +12,27 @@ export interface BookGuest {
   era: string
   imageUrl: string
   story: string
-  guestbookPage: number
+  guestbookPages: number[]
+  visitYears: number[]
+}
+
+// The Aladdin closed in 1929; later signatures were added after it closed
+// (some pages are headed "Beach Chalet"), so they aren't club visits.
+const CLUB_CLOSED = 1929
+
+function visitLine(years: number[]): string {
+  const club = years.filter((y) => y <= CLUB_CLOSED)
+  const later = years.filter((y) => y > CLUB_CLOSED)
+  const parts: string[] = []
+  if (club.length) parts.push(`Visited the club in ${listJoin(club)}`)
+  if (later.length) parts.push(`${club.length ? 'signed' : 'Signed'} the guestbook in ${listJoin(later)}`)
+  return parts.join('; ')
+}
+
+function listJoin(items: (string | number)[]): string {
+  const s = items.map(String)
+  if (s.length <= 1) return s.join('')
+  return `${s.slice(0, -1).join(', ')} and ${s[s.length - 1]}`
 }
 
 const TITLE = 'Oh, What a Time We Had'
@@ -179,6 +199,7 @@ function PageView({ def, index }: { def: PageDef; index: number }) {
                 {[g.category, g.era].filter(Boolean).join(' · ')}
               </p>
               <h2 className="bp-name">{g.name}</h2>
+              {g.visitYears.length > 0 && <p className="bp-visited">{visitLine(g.visitYears)}</p>}
               <div className="bp-rule bp-rule-left" />
               {g.imageUrl && (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -190,7 +211,7 @@ function PageView({ def, index }: { def: PageDef; index: number }) {
                 </p>
               ))}
               <p className="bp-signed">
-                Signed on page {g.guestbookPage} of the guestbook ·{' '}
+                Signed on {g.guestbookPages.length > 1 ? 'pages' : 'page'} {listJoin(g.guestbookPages)} of the guestbook ·{' '}
                 <a href={`/guest/${g.id}`}>see the signature</a>
               </p>
             </div>
@@ -367,7 +388,7 @@ export default function FlipBook({ guests }: { guests: BookGuest[] }) {
       <style>{CSS}</style>
 
       <header className="book-bar">
-        <Link href="/" className="book-link">← The Aladdin</Link>
+        <Link href="/" className="book-link">← View Full Guestbook</Link>
         <span className="book-bar-title">{TITLE}</span>
         <Link href="/about" className="book-link book-link-right">Hattie &amp; Minnie</Link>
       </header>
@@ -478,6 +499,7 @@ const CSS = `
 .bp-name { font-family: 'MarketDeco', serif; font-weight: 400; font-size: 2.3em; line-height: 1.05; margin: 0; }
 .bp-rule { height: 1px; background: var(--rule); margin: 0.8em auto; width: 40%; }
 .bp-rule-left { margin: 0.7em 0 1em; width: 30%; }
+.bp-visited { font-style: italic; font-size: 0.78em; color: var(--accent); margin: 0.35em 0 0; letter-spacing: 0.02em; }
 .bp-portrait { float: right; width: 38%; max-height: 52cqw; object-fit: cover; object-position: top; margin: 0.25em 0 0.6em 1em; border: 1px solid var(--rule); filter: sepia(15%); }
 .bp-story { font-style: italic; }
 .bp-signed { clear: both; font-size: 0.72em; letter-spacing: 0.04em; color: var(--accent); margin-top: 1em; }

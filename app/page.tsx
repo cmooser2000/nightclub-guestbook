@@ -1,5 +1,6 @@
 import { getGuests } from '@/lib/guests'
 import GuestbookScroll from './GuestbookScroll'
+import SiteMenu from './SiteMenu'
 import Link from 'next/link'
 
 export default async function Home() {
@@ -48,6 +49,8 @@ export default async function Home() {
           50% { transform: translateX(-50%) translateY(7px); opacity: 0.9; }
         }
       `}</style>
+
+      <SiteMenu />
 
       {/* ── FIXED COVER — dark background matches hero, book cover reveals on scroll ── */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0, background: '#3a4858' }}>

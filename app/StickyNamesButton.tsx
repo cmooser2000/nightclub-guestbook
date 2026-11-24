@@ -34,7 +34,8 @@ export default function StickyNamesButton() {
     return () => document.removeEventListener('mousedown', onClickOutside)
   }, [])
 
-  if (pathname === '/all-guests' || pathname === '/most-interesting' || pathname === '/book' || pathname.startsWith('/admin')) return null
+  // The home page (full guestbook) has its own menu instead.
+  if (pathname === '/' || pathname === '/all-guests' || pathname === '/most-interesting' || pathname === '/book' || pathname.startsWith('/admin')) return null
 
   const q = query.trim().toLowerCase()
   const results = q.length > 0
