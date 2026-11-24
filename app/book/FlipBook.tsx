@@ -18,7 +18,7 @@ export interface BookGuest {
 const TITLE = 'Oh, What a Time We Had'
 const SUBTITLE = 'Vaudeville and the Early Days of Film Through the Aladdin Tiffin Room in San Francisco'
 const CREDIT = 'From the Mooser personal collection'
-const NAMES_PER_CONTENTS_PAGE = 24
+const NAMES_PER_CONTENTS_PAGE = 20
 // Reference page size. Every measurement inside a page is in cqw (percent of
 // page width), so a page fitted at this size looks identical at any size.
 const PAGE_W = 500
@@ -34,7 +34,10 @@ type PageDef =
   | { kind: 'back' }
 
 function buildPages(guests: BookGuest[]): PageDef[] {
-  const contentsParts = Math.ceil((guests.length + 2) / NAMES_PER_CONTENTS_PAGE)
+  const entryCount = guests.length + 2
+  const contentsParts = Math.ceil(entryCount / NAMES_PER_CONTENTS_PAGE)
+  // Spread the names evenly so the last contents page isn't nearly empty.
+  const perPage = Math.ceil(entryCount / contentsParts)
   // cover, title page, contents…, intro, story…, guests…
   const introIndex = 2 + contentsParts
   const storyStart = introIndex + 1
@@ -52,7 +55,7 @@ function buildPages(guests: BookGuest[]): PageDef[] {
       kind: 'contents',
       part: p,
       parts: contentsParts,
-      entries: entries.slice(p * NAMES_PER_CONTENTS_PAGE, (p + 1) * NAMES_PER_CONTENTS_PAGE),
+      entries: entries.slice(p * perPage, (p + 1) * perPage),
     })
   }
   pages.push({ kind: 'story', page: INTRO })
@@ -257,11 +260,12 @@ function fitPages(root: HTMLElement) {
   root.querySelectorAll<HTMLElement>('.bp').forEach((page) => {
     const body = page.querySelector<HTMLElement>('.bp-body')
     if (!body || body.classList.contains('bp-full')) return
+    // Set on the body, not the page: page-flip rewrites the page's style attribute.
     let fs = 1
-    page.style.setProperty('--fs', '1')
+    body.style.setProperty('--fs', '1')
     while (body.scrollHeight > body.clientHeight + 1 && fs > 0.5) {
       fs = Math.round((fs - 0.03) * 100) / 100
-      page.style.setProperty('--fs', String(fs))
+      body.style.setProperty('--fs', String(fs))
     }
   })
 }

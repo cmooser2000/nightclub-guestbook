@@ -34,7 +34,7 @@ export default function StickyNamesButton() {
     return () => document.removeEventListener('mousedown', onClickOutside)
   }, [])
 
-  if (pathname === '/all-guests' || pathname === '/most-interesting' || pathname.startsWith('/admin')) return null
+  if (pathname === '/all-guests' || pathname === '/most-interesting' || pathname === '/book' || pathname.startsWith('/admin')) return null
 
   const q = query.trim().toLowerCase()
   const results = q.length > 0
