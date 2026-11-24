@@ -10,11 +10,12 @@ export const metadata: Metadata = {
     'Vaudeville and the Early Days of Film Through the Aladdin Tiffin Room in San Francisco',
 }
 
-// Only finished stories go in the book. Rough notes (mostly ALL CAPS, or a
-// handful of words) stay on the website until they are written up.
+// Only finished stories go in the book. Rough notes (short, mostly ALL CAPS,
+// or containing an ALL-CAPS aside) stay on the website until written up.
 function isFinishedStory(story: string): boolean {
   const words = story.trim().split(/\s+/).filter(Boolean).length
-  if (words < 40) return false
+  if (words < 60) return false
+  if (/\b[A-Z]{2,}(?:[\s-]+[A-Z]{2,}){3,}\b/.test(story)) return false
   const letters = story.replace(/[^A-Za-z]/g, '')
   const upper = letters.replace(/[^A-Z]/g, '').length
   return upper / Math.max(1, letters.length) <= 0.5
