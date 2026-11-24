@@ -2,6 +2,10 @@ import { getGuest, getGuests } from '@/lib/guests'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import PinnableGuestbook from './PinnableGuestbook'
+import visitDates from '@/data/visit-dates.json'
+
+// Dates read off the guestbook pages, keyed by guest id.
+const VISITS = visitDates as Record<string, { page: number; date: string; year: number }[]>
 
 export const dynamic = 'force-dynamic'
 
@@ -28,8 +32,10 @@ export default async function GuestPage({
   const pageNum = String(guest.guestbookPage).padStart(3, '0')
   const guestbookPageImg = `/guestbook-pages/pg${pageNum}.jpg`
   // Aladdin ran 1921–1929, ~418 pages total (~52 pages/year)
-  const estimatedYear = 1921 + Math.min(8, Math.floor((guest.guestbookPage - 1) / 52))
-  const signingLabel = guest.signingDate ?? `c. ${estimatedYear}`
+  // The guestbook isn't in date order, so a year can't be guessed from the page
+  // number. Use the date written on the page when one has been read.
+  const pageDate = (VISITS[guest.id] ?? []).find((v) => v.page === guest.guestbookPage)
+  const signingLabel = guest.signingDate ?? (pageDate ? String(pageDate.year) : null)
 
   return (
     <main style={{ background: PAPER, color: INK, minHeight: '100vh' }}>
@@ -111,7 +117,7 @@ export default async function GuestPage({
             {/* Guestbook signature page */}
             <div>
               <p style={{ fontFamily: 'LinLibertine, serif', fontSize: '0.68rem', letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 10, color: ACCENT }}>
-                Signed on page {guest.guestbookPage} · {signingLabel}
+                Signed on page {guest.guestbookPage}{signingLabel ? ` · ${signingLabel}` : ''}
               </p>
               <PinnableGuestbook
                 id={guest.id}
